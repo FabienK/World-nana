@@ -67,7 +67,7 @@
 
   .orbit-btn {
     position: absolute; left: 50%; top: 50%; z-index: 6;
-    transform: translate(-50%, -50%) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
+    transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px)) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     background: none; border: none; cursor: pointer; padding: 0; opacity: 1; transition: opacity 350ms cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -172,7 +172,10 @@ function resizeCanvas() {
   canvas.height = size * dpr;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  if (reduceMotion && size) drawBlackHole(0);
+});
 resizeCanvas();
 
 function drawBlackHole(angle) {
@@ -250,10 +253,11 @@ const items = SHORTCUTS.map((s, i) => {
 });
 
 function positionItem(item, angle) {
-  const x = 50 + Math.cos(angle) * (orbitRadiusPct * 50) / 100;
-  const y = 50 + Math.sin(angle) * (orbitRadiusPct * 50) / 100;
-  item.el.style.left = x + '%';
-  item.el.style.top = y + '%';
+  const radius = size * (orbitRadiusPct / 100) * 0.5;
+  item.x = Math.cos(angle) * radius;
+  item.y = Math.sin(angle) * radius;
+  item.el.style.setProperty('--x', item.x + 'px');
+  item.el.style.setProperty('--y', item.y + 'px');
 }
 items.forEach((item) => positionItem(item, item.baseAngle));
 
@@ -264,8 +268,8 @@ function suckIn(item) {
   wrap.classList.add('gulp');
   document.getElementById('void-overlay').classList.add('active');
 
-  const startLeft = parseFloat(item.el.style.left);
-  const startTop = parseFloat(item.el.style.top);
+  const startX = item.x;
+  const startY = item.y;
   const duration = reduceMotion ? 400 : 800;
   const t0 = performance.now();
 
@@ -275,8 +279,8 @@ function suckIn(item) {
       item.el.style.opacity = String(1 - t);
     } else {
       const ease = t * t * t;
-      item.el.style.left = startLeft + (50 - startLeft) * ease + '%';
-      item.el.style.top = startTop + (50 - startTop) * ease + '%';
+      item.el.style.setProperty('--x', startX * (1 - ease) + 'px');
+      item.el.style.setProperty('--y', startY * (1 - ease) + 'px');
       item.el.style.setProperty('--scale', String(1 - ease));
       item.el.style.setProperty('--spin', ease * 720 + 'deg');
     }
@@ -311,10 +315,13 @@ function frame(now) {
     drawBlackHole(orbitAngle);
     stepParticles(dt);
     items.forEach((item) => { if (item.state === 'orbit') positionItem(item, item.baseAngle + orbitAngle); });
+    requestAnimationFrame(frame);
   } else if (size) {
     drawBlackHole(0);
+    // Reduced motion: draw once, nothing moves — no need to keep scheduling frames.
+  } else {
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
 
