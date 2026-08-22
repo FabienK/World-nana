@@ -74,13 +74,21 @@
   @keyframes gulp { to { transform: translate(-50%, -50%) scale(1.18); filter: brightness(1.35); } }
   #bh-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
+  /* Ancre des raccourcis : mêmes dimensions/centre que .blackhole-wrap,
+     mais au-dessus de .girl-cutout (z-index 7 > 5) — les icônes ne
+     doivent jamais être tranchées par l'image de la fillette, elles
+     gèrent seules leur disparition via l'opacité (voir shortcutVisibility). */
+  .orbit-anchor {
+    position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
+    transform: translate(-50%, -50%); z-index: 7;
+  }
+
   .orbit-btn {
     position: absolute; left: 50%; top: 50%; z-index: 6;
     transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px)) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     background: none; border: none; cursor: pointer; padding: 0; opacity: 1; transition: opacity 350ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .orbit-btn.fade-out { opacity: 0; }
   .orbit-dot {
     width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
     background: rgba(10,6,3,0.62); border: 1.5px solid rgba(243,231,206,0.4);
@@ -116,10 +124,12 @@
     <img src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
     <div class="blackhole-wrap" id="bh-wrap">
       <canvas id="bh-canvas"></canvas>
-      <div id="orbit"></div>
     </div>
     <div class="girl-cutout" aria-hidden="true">
       <img src="./assets/portal-full.jpg" alt="">
+    </div>
+    <div class="orbit-anchor">
+      <div id="orbit"></div>
     </div>
     <div class="scene-header">
       <div>
@@ -172,23 +182,45 @@ function openShortcut(shortcut) {
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Trou noir animé ---------- */
+const sceneEl = document.querySelector('.scene');
 const wrap = document.getElementById('bh-wrap');
 const canvas = document.getElementById('bh-canvas');
 const ctx = canvas.getContext('2d');
 let dpr = Math.min(window.devicePixelRatio || 1, 2);
 let size = 0;
+let wrapCenterXFrac = 0.5, wrapCenterYFrac = 0.5, sceneWidthPx = 1, sceneHeightPx = 1;
 
 function resizeCanvas() {
-  size = wrap.getBoundingClientRect().width;
+  const wr = wrap.getBoundingClientRect();
+  const sr = sceneEl.getBoundingClientRect();
+  size = wr.width;
   canvas.width = size * dpr;
   canvas.height = size * dpr;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  sceneWidthPx = sr.width;
+  sceneHeightPx = sr.height;
+  wrapCenterXFrac = (wr.left + wr.width / 2 - sr.left) / sr.width;
+  wrapCenterYFrac = (wr.top + wr.height / 2 - sr.top) / sr.height;
 }
 window.addEventListener('resize', () => {
   resizeCanvas();
   if (reduceMotion && size) drawBlackHole(0);
 });
 resizeCanvas();
+
+/* La fillette occupe environ 19-38% en largeur (bord droit variable
+   selon la hauteur) et 24-100% en hauteur de la scène (voir le
+   polygone de .girl-cutout). Un raccourci en orbite s'estompe
+   entièrement avant d'entrer dans cette zone, pour ne jamais
+   trancher une icône ou une étiquette à moitié. */
+function shortcutVisibility(xFrac, yFrac) {
+  if (yFrac < 0.2 || yFrac > 1.02) return 1;
+  const HIDE_X = 0.34;
+  const FADE_X = 0.08;
+  if (xFrac <= HIDE_X) return 0;
+  if (xFrac >= HIDE_X + FADE_X) return 1;
+  return (xFrac - HIDE_X) / FADE_X;
+}
 
 function drawBlackHole(angle) {
   const cx = size / 2, cy = size / 2, rOuter = size / 2;
@@ -271,12 +303,15 @@ function positionItem(item, angle) {
   item.el.style.setProperty('--x', item.x + 'px');
   item.el.style.setProperty('--y', item.y + 'px');
 }
-items.forEach((item) => positionItem(item, item.baseAngle));
+items.forEach((item) => {
+  positionItem(item, item.baseAngle);
+  item.el.style.opacity = String(shortcutVisibility(wrapCenterXFrac + item.x / sceneWidthPx, wrapCenterYFrac + item.y / sceneHeightPx));
+});
 
 function suckIn(item) {
   if (item.state !== 'orbit') return;
   item.state = 'sucking';
-  items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.classList.add('fade-out'); } });
+  items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.style.opacity = '0'; } });
   wrap.classList.add('gulp');
   document.getElementById('void-overlay').classList.add('active');
 
@@ -310,11 +345,10 @@ function resetScene() {
   wrap.classList.remove('gulp');
   items.forEach((o) => {
     o.state = 'orbit';
-    o.el.classList.remove('fade-out');
-    o.el.style.opacity = '';
     o.el.style.setProperty('--scale', '1');
     o.el.style.setProperty('--spin', '0deg');
     positionItem(o, o.baseAngle);
+    o.el.style.opacity = String(shortcutVisibility(wrapCenterXFrac + o.x / sceneWidthPx, wrapCenterYFrac + o.y / sceneHeightPx));
   });
 }
 
@@ -326,7 +360,13 @@ function frame(now) {
     orbitAngle += dt * 0.00035;
     drawBlackHole(orbitAngle);
     stepParticles(dt);
-    items.forEach((item) => { if (item.state === 'orbit') positionItem(item, item.baseAngle + orbitAngle); });
+    items.forEach((item) => {
+      if (item.state !== 'orbit') return;
+      positionItem(item, item.baseAngle + orbitAngle);
+      const xFrac = wrapCenterXFrac + item.x / sceneWidthPx;
+      const yFrac = wrapCenterYFrac + item.y / sceneHeightPx;
+      item.el.style.opacity = String(shortcutVisibility(xFrac, yFrac));
+    });
     requestAnimationFrame(frame);
   } else if (size) {
     drawBlackHole(0);
