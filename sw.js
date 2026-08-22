@@ -3,12 +3,13 @@
    hors ligne (voir backend.md, section V1 / Mode offline).
    ============================================================ */
 
-const CACHE_NAME = 'world-nana-shell-v5';
+const CACHE_NAME = 'world-nana-shell-v7';
 const APP_SHELL = [
   './index.html',
   './manifest.webmanifest',
   './icon.svg',
   './assets/portal-full.jpg',
+  './assets/girl-cutout.png',
 ];
 
 self.addEventListener('install', (event) => {
