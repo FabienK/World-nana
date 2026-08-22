@@ -6,9 +6,9 @@
 const CACHE_NAME = 'world-nana-shell-v1';
 const APP_SHELL = [
   './index.html',
-  './home-dock.html',
-  './home-bandeau.html',
-  './home-rail.html',
+  './home-grid-mono.html',
+  './home-grid-color.html',
+  './home-grid-bento.html',
   './manifest.webmanifest',
   './icon.svg',
 ];
