@@ -9,20 +9,15 @@ Interface iPad personnalisée pour une fille de 12 ans. Deux zones : accès libr
 - PWA, pas de contrainte native.
 - Rien d'autre n'est arrêté visuellement (couleurs, style graphique) : le but de ce document est de cadrer le prototypage, pas de livrer un design final.
 
-## Base de référence fournie (pattern, pas design final)
-- `brique.html` : seul fichier de prototype présent dans le repo, base du prototypage V1. Identité visuelle Brain existante — fond marine #1B2333, beige #F5F1E8, accent vert #8FB89D, police ui-rounded/SF Pro Rounded. Flow carte-par-carte (session), écran d'accueil avec "planète" de progression.
-- Structure de navigation V1 : grille de cartes (card grid). Les 3 premiers essais (Dock/Bandeau/Rail, esquissés dans `home-selector-miniature.html`, absent du repo) ont été abandonnés. Icônes des raccourcis en ligne dessinée (SVG), pas d'emoji — jugé trop daté visuellement.
-- 3 traitements visuels prototypés sur cette structure : `home-grid-mono.html` (cartes sobres, proches de l'identité brique.html), `home-grid-color.html` (cartes en aplat de couleur, plus contrasté), `home-grid-bento.html` (carte vedette + cartes secondaires, type "App Store").
-
-## Piste alternative en cours d'exploration : illustration narrative
-En parallèle de la grille, une direction visuelle basée sur une illustration (une chambre d'enfant, une porte ouverte sur un tourbillon lumineux — `assets/portal-*.jpg`) est prototypée pour poser une ambiance "théâtre" plutôt qu'un simple menu d'icônes. Pas encore arbitrée face à la piste grille — à comparer avant de trancher.
-- `home-story-seuil.html` : trou noir animé (canvas, disque d'accrétion + particules) posé sur le portail de l'illustration, les 4 raccourcis orbitent à sa périphérie. Toucher un raccourci l'aspire vers le centre (aspiration + rotation) avant d'ouvrir l'app. Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
-- `home-story-hero.html` : bandeau illustré en haut pour l'ambiance, panneau plein (fort contraste) en dessous pour la grille de raccourcis — sépare théâtre et fonction.
-- `home-story-triptych.html` : la chambre découpée en 3 zones/humeurs (créer / explorer sans raccourci / se poser), affichées en 3 colonnes sur iPad.
-Palette distincte de brique.html (tons chauds sépia proches de l'illustration, police display Fraunces pour les titres) — à n'harmoniser avec le reste qu'une fois la direction choisie.
+## Direction retenue pour le Home : "Seuil"
+Après comparaison de 6 prototypes (une piste grille de cartes et une piste illustration narrative), la direction retenue est **Seuil**, implémentée dans `index.html` : un trou noir animé (canvas, disque d'accrétion + particules) posé sur le portail d'une illustration (chambre d'enfant, porte ouverte sur un tourbillon lumineux — `assets/portal-full.jpg`). Les 4 raccourcis orbitent en continu à la périphérie du trou noir ; toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app.
+- Palette tons chauds sépia — fond quasi noir `#0A0603`, texte parchemin `#F3E7CE`, accent doré `#E8A94D` — et typographie display Fraunces pour les titres (Atkinson Hyperlegible reste la police de bascule dyslexie). Remplace l'identité `brique.html` (marine/beige/vert) pour cet écran ; `brique.html` reste la référence pour Brain (V2), non encore harmonisé avec le nouveau Home.
+- Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
+- Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji — jugé trop daté visuellement lors d'un essai précédent.
+- Pistes explorées puis abandonnées après comparaison : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque. Historique consultable dans les commits git si besoin de les revoir.
 
 ## Écrans V1
-1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés) en grille de cartes. Traitement visuel à choisir parmi les 3 variantes prototypées (voir ci-dessus), ou une 4e option si aucune ne convient à l'usage réel.
+1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés) sous forme de raccourcis en orbite autour du trou noir animé "Seuil" (voir ci-dessus, implémenté dans `index.html`).
 2. **Raccourcis apps libres** — liste ou grille de shortcuts (Musique, dessin, jeux éducatifs — liste définie séparément). Simple deep-link, pas d'état interne à gérer.
 3. **État offline / connexion faible** — les raccourcis vers apps store restent cliquables hors ligne (ils ouvrent l'app native), mais l'interface elle-même (Home) doit rester utilisable et lisible sans réseau. Prévoir un état visuel dégradé mais non bloquant.
 
