@@ -9,12 +9,12 @@ Interface iPad personnalisée pour une fille de 12 ans. Deux zones : accès libr
 - PWA, pas de contrainte native.
 - Rien d'autre n'est arrêté visuellement (couleurs, style graphique) : le but de ce document est de cadrer le prototypage, pas de livrer un design final.
 
-## Deux bases de référence fournies (patterns, pas design final)
-- `brique.html` : identité visuelle Brain existante — fond marine #1B2333, beige #F5F1E8, accent vert #8FB89D, police ui-rounded/SF Pro Rounded. Flow carte-par-carte (session), écran d'accueil avec "planète" de progression.
-- `home-selector-miniature.html` : squelette de navigation, 3 variantes à tester — Dock (widget flottant + tiroir), Bandeau, Rail. Palette sombre #04050a/orange #ff9d6c dans le proto, non retenue en soi — seule la logique de navigation est à évaluer.
+## Base de référence fournie (pattern, pas design final)
+- `brique.html` : seul fichier de prototype présent dans le repo, base du prototypage V1. Identité visuelle Brain existante — fond marine #1B2333, beige #F5F1E8, accent vert #8FB89D, police ui-rounded/SF Pro Rounded. Flow carte-par-carte (session), écran d'accueil avec "planète" de progression.
+- `home-selector-miniature.html` (squelette de nav, 3 variantes Dock/Bandeau/Rail) n'est plus présent dans le repo. Les 3 patterns sont donc reconstruits directement à partir de leur description ci-dessous plutôt que d'un fichier de référence : Dock (widget flottant + tiroir), Bandeau, Rail — seule la logique de navigation est à évaluer, pas de palette imposée.
 
 ## Écrans V1
-1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés). Structure de navigation à choisir parmi les 3 patterns du proto (ou une 4e option si aucun ne convient à l'usage réel).
+1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés). Structure de navigation à choisir parmi les 3 patterns reconstruits (Dock/Bandeau/Rail, voir ci-dessus), ou une 4e option si aucun ne convient à l'usage réel.
 2. **Raccourcis apps libres** — liste ou grille de shortcuts (Musique, dessin, jeux éducatifs — liste définie séparément). Simple deep-link, pas d'état interne à gérer.
 3. **État offline / connexion faible** — les raccourcis vers apps store restent cliquables hors ligne (ils ouvrent l'app native), mais l'interface elle-même (Home) doit rester utilisable et lisible sans réseau. Prévoir un état visuel dégradé mais non bloquant.
 
