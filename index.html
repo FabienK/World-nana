@@ -61,7 +61,7 @@
     position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
     transform: translate(-50%, -50%); z-index: 4; will-change: transform, filter;
   }
-  .blackhole-wrap.gulp { animation: gulp 0.8s cubic-bezier(.55,0,1,.45) forwards; }
+  .blackhole-wrap.gulp { animation: gulp 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
   @keyframes gulp { to { transform: translate(-50%, -50%) scale(1.18); filter: brightness(1.35); } }
   #bh-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
@@ -85,7 +85,7 @@
 
   #void-overlay {
     position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 50;
-    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
   #void-overlay.active { opacity: 1; }
 
@@ -270,7 +270,7 @@ function suckIn(item) {
 
   const startX = item.x;
   const startY = item.y;
-  const duration = reduceMotion ? 400 : 800;
+  const duration = reduceMotion ? 400 : 500;
   const t0 = performance.now();
 
   function step(now) {
