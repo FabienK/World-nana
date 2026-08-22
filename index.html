@@ -58,7 +58,7 @@
 
   /* Trou noir animé, posé exactement sur le portail de l'illustration */
   .blackhole-wrap {
-    position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
+    position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
     transform: translate(-50%, -50%); z-index: 4; will-change: transform, filter;
   }
   .blackhole-wrap.gulp { animation: gulp 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
@@ -67,7 +67,7 @@
 
   /* Ancre des raccourcis : mêmes dimensions/centre que .blackhole-wrap. */
   .orbit-anchor {
-    position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
+    position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
     transform: translate(-50%, -50%); z-index: 5;
   }
 
@@ -162,7 +162,7 @@ const ICONS = {
 const SHORTCUTS = [
   { id: 'musique', label: 'Musique', icon: ICONS.musique, scheme: 'music://', storeUrl: 'https://apps.apple.com/app/apple-music/id1108187390' },
   { id: 'lecture', label: 'Lecture', icon: ICONS.lecture, scheme: 'shortcuts://', storeUrl: '#' },
-  { id: 'jeux', label: 'Jeux éducatifs', icon: ICONS.jeux, scheme: 'shortcuts://', storeUrl: '#' },
+  { id: 'jeux', label: 'Jeux éducatifs', short: 'Jeux', icon: ICONS.jeux, scheme: 'shortcuts://', storeUrl: '#' },
   { id: 'dessin', label: 'Dessiner', icon: ICONS.dessin, scheme: 'shortcuts://', storeUrl: 'https://apps.apple.com/app/procreate-pocket/id427525720' },
 ];
 
@@ -319,14 +319,14 @@ function stepParticles(dt) {
 
 /* ---------- Orbite des raccourcis ---------- */
 const orbitContainer = document.getElementById('orbit');
-const orbitRadiusPct = 60; // % du rayon du wrap — juste à l'extérieur du disque
+const orbitRadiusPct = 54; // % du rayon du wrap — juste à l'extérieur du disque
 
 const items = SHORTCUTS.map((s, i) => {
   const el = document.createElement('button');
   el.className = 'orbit-btn';
   el.type = 'button';
   el.setAttribute('aria-label', s.label);
-  el.innerHTML = `<span class="orbit-dot">${s.icon}</span><span class="orbit-label">${s.label}</span>`;
+  el.innerHTML = `<span class="orbit-dot">${s.icon}</span><span class="orbit-label">${s.short || s.label}</span>`;
   orbitContainer.appendChild(el);
   const dotR = el.querySelector('.orbit-dot').getBoundingClientRect();
   const labelR = el.querySelector('.orbit-label').getBoundingClientRect();
