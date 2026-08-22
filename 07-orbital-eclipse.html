@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Eclipse — Accueil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ease-out: cubic-bezier(0.23, 1, 0.32, 1); }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent; user-select:none;}
+  html,body{
+    margin:0; padding:0; width:100%; height:100%; overflow:hidden;
+    background:#04050a; font-family:'Sora', sans-serif; color:#fbeadd;
+    touch-action:none; overscroll-behavior:none;
+  }
+  #stage{position:fixed; inset:0;}
+  #stars{position:fixed; inset:0; z-index:1;}
+  canvas#gl{position:fixed; inset:0; z-index:2; display:block;}
+
+  #topbar{
+    position:fixed; top:0; left:0; right:0; z-index:10;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: max(18px, env(safe-area-inset-top)) 26px 0 26px;
+    pointer-events:none;
+  }
+  #topbar .mark{font-weight:700; font-size:15px; letter-spacing:0.14em; text-transform:uppercase; color:#ff9d6c; font-family:'Space Grotesk', sans-serif;}
+  #topbar .status{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; display:flex; align-items:center; gap:8px; color:#e3a98a;}
+  #topbar .status .dot{width:6px; height:6px; border-radius:50%; background:#ff9d6c; box-shadow:0 0 8px #ff9d6c;}
+
+  #hint{
+    position:fixed; left:50%; top:12%; transform:translateX(-50%);
+    z-index:10; text-align:center; pointer-events:none; font-size:13px; letter-spacing:0.05em; color:#e3a98a;
+    opacity:0; transition:opacity 1.2s var(--ease-out);
+  }
+  #hint.show{opacity:0.8;}
+
+  #panel{
+    position:fixed; left:0; right:0; bottom:0; z-index:20; transform:translateY(100%);
+    padding: 36px 30px max(30px, env(safe-area-inset-bottom)) 30px;
+    background:linear-gradient(180deg, rgba(20,8,4,0) 0%, rgba(24,10,5,0.72) 26%, rgba(16,7,4,0.82) 100%);
+    backdrop-filter:blur(22px) saturate(140%); -webkit-backdrop-filter:blur(22px) saturate(140%);
+    border-top:1px solid rgba(255,157,108,0.14);
+  }
+  @media (prefers-reduced-transparency: reduce){
+    #panel{ background:linear-gradient(180deg, rgba(12,5,3,0.98) 0%, rgba(12,5,3,0.98) 100%); backdrop-filter:none; -webkit-backdrop-filter:none; }
+  }
+  #panel .grip{width:36px; height:4px; border-radius:3px; background:rgba(255,157,108,0.25); margin:0 auto 24px auto;}
+  #panel .eyebrow{font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#e3a98a; margin-bottom:10px; font-family:'Space Grotesk', sans-serif;}
+  #panel h2{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:38px; letter-spacing:-0.02em; margin:0 0 12px 0; color:#fff6ef; display:flex; align-items:center; gap:16px;}
+  #panel .swatch{width:16px; height:16px; border-radius:50%; flex:none; box-shadow:0 0 16px currentColor;}
+  #panel p{margin:0 0 26px 0; font-size:15px; line-height:1.65; color:#e3a98a; max-width:520px;}
+  #panel .actions{display:flex; gap:12px;}
+  #panel button{
+    font-size:14px; padding:16px 26px; border-radius:4px; border:1px solid rgba(255,157,108,0.3);
+    background:rgba(255,157,108,0.06); color:#fff6ef; cursor:pointer;
+    transition:transform 160ms var(--ease-out);
+  }
+  #panel button.primary{ background:#ff9d6c; color:#2a1305; border:none; font-weight:600; }
+  #panel button:active{ transform:scale(0.97); }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <canvas id="stars"></canvas>
+  <canvas id="gl"></canvas>
+</div>
+
+<div id="topbar">
+  <div class="mark">Aurore</div>
+  <div class="status"><span class="dot"></span>Alignement en cours</div>
+</div>
+
+<div id="hint">Faites glisser n'importe où — amenez un corps au centre pour l'ouvrir</div>
+
+<div id="panel">
+  <div class="grip"></div>
+  <div class="eyebrow">Corps observé</div>
+  <h2><span class="swatch" id="e-swatch"></span><span id="e-title"></span></h2>
+  <p id="e-desc"></p>
+  <div class="actions">
+    <button class="primary" id="e-enter">Entrer</button>
+    <button id="e-close">Fermer</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const NODES = [
+  { id:1, name:'Explorer',    color:'#e0a458', desc:'Parcourez les mondes et découvertes du moment.' },
+  { id:2, name:'Créer',       color:'#d1495b', desc:'Composez, écrivez, assemblez vos propres projets.' },
+  { id:3, name:'Communauté',  color:'#6a994e', desc:'Retrouvez les cercles et les gens que vous suivez.' },
+  { id:4, name:'Profil',      color:'#3fa7d6', desc:"Votre identité, votre progression, vos réglages." },
+  { id:5, name:'Réglages',    color:'#8d6b94', desc:"Ajustez le comportement de l'application." },
+];
+
+function createSpring(stiffness, damping, mass){
+  mass = mass || 1;
+  return { pos:0, vel:0, target:0,
+    set(target, immediate){ this.target=target; if(immediate){ this.pos=target; this.vel=0; } },
+    update(dt){ dt=Math.min(dt,1/30); const f=-stiffness*(this.pos-this.target)-damping*this.vel; this.vel+=(f/mass)*dt; this.pos+=this.vel*dt; return this.pos; }
+  };
+}
+function hexToRgba(hex,a){ const n=parseInt(hex.slice(1),16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; }
+function glowTexture(hex){
+  const c=document.createElement('canvas'); c.width=128; c.height=128; const ctx=c.getContext('2d');
+  const g=ctx.createRadialGradient(64,64,0,64,64,64);
+  g.addColorStop(0, hexToRgba(hex,0.9)); g.addColorStop(0.35, hexToRgba(hex,0.35)); g.addColorStop(1, hexToRgba(hex,0));
+  ctx.fillStyle=g; ctx.fillRect(0,0,128,128);
+  return new THREE.CanvasTexture(c);
+}
+/* dark center, bright band at the circumference, soft falloff beyond — an accretion-ring glow instead of a solid star.
+   The ring also carries angular brightness variation, so spinning the sprite reads as rotation, not a pulse. */
+function ringGlowTexture(hex){
+  const size=160, cx=80, cy=80;
+  const c=document.createElement('canvas'); c.width=size; c.height=size; const ctx=c.getContext('2d');
+  const g=ctx.createRadialGradient(cx,cy,0,cx,cy,80);
+  g.addColorStop(0,    hexToRgba(hex,0));
+  g.addColorStop(0.47, hexToRgba(hex,0));
+  g.addColorStop(0.52, hexToRgba(hex,1));
+  g.addColorStop(0.57, hexToRgba(hex,0.3));
+  g.addColorStop(0.66, hexToRgba(hex,0.04));
+  g.addColorStop(0.72, hexToRgba(hex,0));
+  g.addColorStop(1,    hexToRgba(hex,0));
+  ctx.fillStyle=g; ctx.fillRect(0,0,size,size);
+
+  if(ctx.createConicGradient){
+    ctx.globalCompositeOperation='source-atop';
+    const cg = ctx.createConicGradient(0, cx, cy);
+    cg.addColorStop(0.00, hexToRgba('#fff6ef',1));
+    cg.addColorStop(0.10, hexToRgba(hex,0.85));
+    cg.addColorStop(0.28, hexToRgba(hex,0.06));
+    cg.addColorStop(0.72, hexToRgba(hex,0.06));
+    cg.addColorStop(0.90, hexToRgba(hex,0.85));
+    cg.addColorStop(1.00, hexToRgba('#fff6ef',1));
+    ctx.fillStyle=cg; ctx.fillRect(0,0,size,size);
+    ctx.globalCompositeOperation='source-over';
+  }
+  return new THREE.CanvasTexture(c);
+}
+/* HUD lat/long grid, node's own color, unlit (MeshBasicMaterial) so it stays visible on the night side */
+function gridTexture(hex){
+  const w=256,h=128;
+  const c=document.createElement('canvas'); c.width=w; c.height=h; const ctx=c.getContext('2d');
+  ctx.fillStyle = hexToRgba(hex,0.06); ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle = hexToRgba(hex,0.85); ctx.lineWidth = 1.6;
+  for(let x=0;x<=w;x+=w/36){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+  for(let y=0;y<=h;y+=h/18){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+  return new THREE.CanvasTexture(c);
+}
+/* solid shaded core, own node color — off-center highlight suggests a lit volume underneath the grid */
+function shadedCoreTexture(hex){
+  const w=256,h=128;
+  const c=document.createElement('canvas'); c.width=w; c.height=h; const ctx=c.getContext('2d');
+  const g = ctx.createRadialGradient(w*0.34,h*0.38,4, w*0.5,h*0.5,w*0.62);
+  g.addColorStop(0, hexToRgba('#fff6ef',0.5));
+  g.addColorStop(0.35, hexToRgba(hex,0.28));
+  g.addColorStop(1, hexToRgba('#050208',0.55));
+  ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  return new THREE.CanvasTexture(c);
+}
+/* a single bright vertical wedge on a transparent field — scrolled horizontally (texture.offset.x) so it reads as a sweep going around the globe's longitude, radar-style */
+function radarWedgeTexture(hex){
+  const w=128,h=32;
+  const c=document.createElement('canvas'); c.width=w; c.height=h; const ctx=c.getContext('2d');
+  const g = ctx.createLinearGradient(0,0,w,0);
+  g.addColorStop(0, hexToRgba('#fff6ef',0.95)); g.addColorStop(0.12, hexToRgba(hex,0.4)); g.addColorStop(0.3, hexToRgba(hex,0));
+  g.addColorStop(1, hexToRgba(hex,0));
+  ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  return tex;
+}
+
+/* ---------- starfield ---------- */
+const starsCv = document.getElementById('stars');
+const sctx = starsCv.getContext('2d');
+let stars=[], starsT0=performance.now();
+function resizeStars(){
+  const w=window.innerWidth, h=window.innerHeight, dpr=Math.min(devicePixelRatio,2);
+  starsCv.width=w*dpr; starsCv.height=h*dpr; starsCv.style.width=w+'px'; starsCv.style.height=h+'px';
+  sctx.setTransform(dpr,0,0,dpr,0,0);
+  const count = Math.floor((w*h)/2600*0.7);
+  stars = Array.from({length:count}, ()=>({
+    x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.3+0.25,
+    phase:Math.random()*Math.PI*2, speed:0.4+Math.random()*1.1
+  }));
+}
+function drawStars(now){
+  const w=window.innerWidth, h=window.innerHeight, t=(now-starsT0)/1000;
+  sctx.clearRect(0,0,w,h);
+  for(const s of stars){
+    const a = reduceMotion ? 0.55 : 0.35+0.55*(0.5+0.5*Math.sin(t*s.speed+s.phase));
+    sctx.fillStyle=`rgba(232,238,250,${a})`;
+    sctx.beginPath(); sctx.arc(s.x,s.y,s.r,0,Math.PI*2); sctx.fill();
+  }
+}
+window.addEventListener('resize', resizeStars); resizeStars();
+
+/* ---------- scene ---------- */
+const glCanvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({canvas:glCanvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38,1,0.1,100);
+camera.position.set(0,0,5.0);
+scene.add(new THREE.AmbientLight(0x2a2038,0.5));
+const sunLight = new THREE.PointLight(0xffd9b0, 2.0, 24);
+sunLight.position.set(0,0,0);
+scene.add(sunLight);
+
+const graph = new THREE.Group();
+scene.add(graph);
+const coreGlow = new THREE.Sprite(new THREE.SpriteMaterial({map:ringGlowTexture('#ff9d6c'), transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}));
+coreGlow.scale.set(0.8,0.8,1); graph.add(coreGlow);
+graph.add(new THREE.Mesh(new THREE.SphereGeometry(0.182,32,32), new THREE.MeshBasicMaterial({color:'#050208'})));
+
+/* affordance: a warm ring that brightens around the black hole as a dragged node nears the
+   center-select zone, giving live feedback that parking it there will open its panel */
+const selectRing = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture('#fff6ef'), transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, opacity:0}));
+selectRing.scale.set(0.46,0.46,1); graph.add(selectRing);
+
+/* each node: its own tilted elliptical orbit plane, non-uniform (Kepler-ish) angular speed */
+const axes = [ new THREE.Vector3(0.15,1,0.05), new THREE.Vector3(0.9,0.2,0.25), new THREE.Vector3(-0.2,0.35,0.95), new THREE.Vector3(0.5,-0.6,0.3), new THREE.Vector3(-0.7,0.25,-0.4) ].map(v=>v.normalize());
+const ORBIT_LINE_POINTS = 128;
+const METAL = '#c3c9cf';
+const nodeState=[];
+NODES.forEach((n,i)=>{
+  const axis = axes[i];
+  let a = 1.05 + Math.pow(i,0.75)*0.28, ecc = 0.35 + (i%3)*0.08;
+  if(n.name==='Profil' || n.name==='Réglages'){
+    /* pull the aphelion (far point) in while holding the perihelion (near point) fixed */
+    const rMin = a*(1-ecc), rMax = a*(1+ecc)*0.75;
+    a = (rMin+rMax)/2; ecc = (rMax-rMin)/(rMax+rMin);
+  }
+  a *= 0.55; /* fixed orbit scale */
+  const b = a*(1-ecc);
+  const up = new THREE.Vector3(0,1,0);
+  const q = new THREE.Quaternion().setFromUnitVectors(up, axis);
+
+  /* orbit path as a clean thin gray line */
+  const posArr = new Float32Array((ORBIT_LINE_POINTS+1)*3);
+  for(let k=0;k<=ORBIT_LINE_POINTS;k++){
+    const t = (k/ORBIT_LINE_POINTS)*Math.PI*2;
+    const v = new THREE.Vector3(Math.cos(t)*a - a*ecc, 0, Math.sin(t)*b).applyQuaternion(q);
+    posArr[k*3]=v.x; posArr[k*3+1]=v.y; posArr[k*3+2]=v.z;
+  }
+  const orbitGeo = new THREE.BufferGeometry();
+  orbitGeo.setAttribute('position', new THREE.BufferAttribute(posArr,3));
+  const orbitMat = new THREE.LineBasicMaterial({color:'#7a828c', transparent:true, opacity:0.224, depthWrite:false});
+  graph.add(new THREE.Line(orbitGeo, orbitMat));
+
+  /* node body: solid shaded core (own color, suggests a lit volume) + HUD grid overlay + two lit meridians
+     sweeping in longitude, 180° apart — grid and meridians are unlit, so they read the same on the day and
+     night side instead of relying on the point light. */
+  const core = new THREE.Mesh(new THREE.SphereGeometry(0.112,28,28), new THREE.MeshBasicMaterial({map:shadedCoreTexture(n.color), transparent:true, depthWrite:false, opacity:0.85}));
+  core.rotation.y = Math.random()*Math.PI*2;
+  graph.add(core);
+
+  const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.117,28,28), new THREE.MeshBasicMaterial({map:gridTexture(METAL), transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:0.55}));
+  mesh.userData.id=n.id; graph.add(mesh);
+
+  const wedgeTex = radarWedgeTexture(n.color); wedgeTex.repeat.set(2,1);
+  const wedge = new THREE.Mesh(new THREE.SphereGeometry(0.119,28,28), new THREE.MeshBasicMaterial({map:wedgeTex, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:0.9}));
+  graph.add(wedge);
+
+  const wedgeDir = (i%2===0) ? 1 : -1;
+  nodeState.push({ a, b, ecc, q, angle:(i/5)*Math.PI*2, speed:0.035+i*0.006, core, mesh, wedge, wedgeTex, wedgeSpeed:0.18+i*0.02, wedgeDir, coreSpeed:0.05, nudge:0 });
+});
+
+const BASE_FOV = 38, BASE_FOV_RAD = BASE_FOV*Math.PI/180;
+function resize(){
+  const w=window.innerWidth,h=window.innerHeight; renderer.setSize(w,h);
+  camera.aspect=w/h;
+  /* keep the widest orbits framed in portrait: hold horizontal half-angle constant
+     instead of vertical, so a narrow viewport zooms out rather than cropping left/right */
+  if(camera.aspect>=1){ camera.fov=BASE_FOV; }
+  else{
+    const halfW=Math.tan(BASE_FOV_RAD/2);
+    camera.fov=2*Math.atan(halfW/camera.aspect)*180/Math.PI;
+  }
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize); resize();
+
+/* ---------- trackball drag (fixed axis, free rotation, control anywhere on screen) ---------- */
+const AX=new THREE.Vector3(1,0,0), AY=new THREE.Vector3(0,1,0);
+/* autonomous occlusion avoidance: periodically checks whether the current orientation lets a
+   node cross in front of / behind the black hole, and if so, eases the whole graph toward the
+   nearby orientation that keeps every node clearest of it. Only active outside user drag. */
+const AVOID_SAFE_R = 0.30, AVOID_CHECK_INTERVAL = 0.35, AVOID_IMPROVE_MARGIN = 0.04, AVOID_EASE_RATE = 2.2;
+const AVOID_CAND_Y = [-0.5,-0.35,-0.2,-0.08,0,0.08,0.2,0.35,0.5];
+const AVOID_CAND_X = [-0.35,-0.22,-0.1,0,0.1,0.22,0.35];
+let dragging=false, lastX=0,lastY=0, velX=0, velY=0, idleT=performance.now();
+const hintEl = document.getElementById('hint');
+function onDown(x,y){ dragging=true; lastX=x; lastY=y; velX=0; velY=0; idleT=performance.now(); hintEl.classList.remove('show'); }
+function onMove(x,y){
+  if(!dragging) return;
+  const dx=x-lastX, dy=y-lastY; lastX=x; lastY=y; const sens=0.0052;
+  graph.quaternion.premultiply(new THREE.Quaternion().setFromAxisAngle(AY, dx*sens)).premultiply(new THREE.Quaternion().setFromAxisAngle(AX, dy*sens));
+  velX=dx*sens; velY=dy*sens; idleT=performance.now();
+}
+function onUp(){ dragging=false; idleT=performance.now(); }
+glCanvas.addEventListener('pointerdown', e=>{ glCanvas.setPointerCapture(e.pointerId); onDown(e.clientX,e.clientY); });
+glCanvas.addEventListener('pointermove', e=> onMove(e.clientX,e.clientY));
+glCanvas.addEventListener('pointerup', ()=> onUp());
+
+/* ---------- selection panel ---------- */
+const panel = document.getElementById('panel');
+const eSwatch = document.getElementById('e-swatch'), eTitle = document.getElementById('e-title'), eDesc = document.getElementById('e-desc');
+let selected = null;
+const hlSpring = createSpring(280, reduceMotion?36:16);
+const panelSpring = createSpring(200, reduceMotion?44:26);
+function selectNode(n){
+  selected = n.id;
+  eSwatch.style.background = n.color; eSwatch.style.color = n.color;
+  eTitle.textContent = n.name; eDesc.textContent = n.desc;
+  hlSpring.set(0,true); hlSpring.set(1);
+  panelSpring.set(1);
+}
+function closePanel(){ panelSpring.set(0); hlSpring.set(0); selected=null; }
+document.getElementById('e-close').addEventListener('click', closePanel);
+document.getElementById('e-enter').addEventListener('click', closePanel);
+
+/* ---------- entrance ---------- */
+const introDuration = reduceMotion ? 300 : 1200;
+graph.scale.setScalar(reduceMotion?1:0.86);
+glCanvas.style.opacity='0';
+let introStart=null;
+function intro(ts){
+  if(!introStart) introStart=ts;
+  const p=Math.min(1,(ts-introStart)/introDuration);
+  const ease=1-Math.pow(1-p,3);
+  if(!reduceMotion) graph.scale.setScalar(0.86+ease*0.14);
+  glCanvas.style.opacity=String(ease);
+  if(p<1) requestAnimationFrame(intro);
+  else { hintEl.classList.add('show'); setTimeout(()=>hintEl.classList.remove('show'), reduceMotion?3200:4600); }
+}
+requestAnimationFrame(intro);
+
+/* ---------- render loop ---------- */
+const _avoidPv = new THREE.Vector3(), _avoidCq = new THREE.Quaternion(), _avoidDqY = new THREE.Quaternion(), _avoidDqX = new THREE.Quaternion();
+function minScreenDistToBlackHole(q, scale){
+  let m = Infinity;
+  for(const s of nodeState){
+    _avoidPv.copy(s.mesh.position).multiplyScalar(scale).applyQuaternion(q).project(camera);
+    const r = Math.hypot(_avoidPv.x, _avoidPv.y);
+    if(r<m) m=r;
+  }
+  return m;
+}
+let avoidCheckT = 0, avoidTargetQuat = null;
+
+/* ---------- centering selector: parking a node over the black hole opens its panel,
+   same as tapping it — the black hole doubles as a drop target the user steers into place ---------- */
+const _selPv = new THREE.Vector3();
+const CENTER_SELECT_R = 0.13, AFFORD_R = 0.5;
+let centeredNodeId = null;
+
+/* affordance: while the scene is fully idle (no drag, no inertia) for a while, periodically ease one
+   node partway toward the center and release it — a silent demo of the centering gesture, round-robin
+   across nodes. Never runs during or right after user interaction, and never triggers selection itself. */
+const TEASER_IDLE_DELAY = 4000, TEASER_INTERVAL = 7000, TEASER_DURATION = 1600, TEASER_MAX = 0.4;
+let teaserIdx = -1, teaserStart = 0, teaserRunning = false, lastTeaserEnd = 0;
+
+let lastT=performance.now();
+function loop(now){
+  requestAnimationFrame(loop);
+  const dt = Math.max(0,(now-lastT)/1000); lastT=now;
+  drawStars(now);
+
+  if(!dragging){
+    if(Math.abs(velX)>0.00005 || Math.abs(velY)>0.00005){
+      graph.quaternion.premultiply(new THREE.Quaternion().setFromAxisAngle(AY, velX)).premultiply(new THREE.Quaternion().setFromAxisAngle(AX, velY));
+      velX*=0.94; velY*=0.94;
+    }
+  }
+
+  if(!reduceMotion) coreGlow.material.rotation -= dt*0.28;
+
+  const userControlled = dragging || Math.abs(velX)>0.00005 || Math.abs(velY)>0.00005;
+  const fullyIdle = !userControlled && (now-idleT) > TEASER_IDLE_DELAY;
+  if(!reduceMotion){
+    if(teaserRunning){
+      const p = (now-teaserStart)/TEASER_DURATION;
+      if(p>=1 || userControlled){ teaserRunning=false; lastTeaserEnd=now; nodeState[teaserIdx].nudge=0; }
+      else nodeState[teaserIdx].nudge = Math.sin(p*Math.PI)*TEASER_MAX;
+    } else if(fullyIdle && (now-lastTeaserEnd)>TEASER_INTERVAL){
+      teaserIdx = (teaserIdx+1)%nodeState.length;
+      teaserStart = now; teaserRunning = true;
+    }
+  }
+
+  const hl = hlSpring.update(dt);
+  nodeState.forEach(s=>{
+    if(!reduceMotion){
+      s.angle += s.speed*dt*(1+s.ecc*Math.cos(s.angle));
+      s.wedgeTex.offset.x -= dt*s.wedgeSpeed*s.wedgeDir;
+      s.core.rotation.y += dt*s.coreSpeed;
+    }
+    const local = new THREE.Vector3(Math.cos(s.angle)*s.a - s.a*s.ecc, 0, Math.sin(s.angle)*s.b).applyQuaternion(s.q);
+    if(s.nudge>0) local.lerp(new THREE.Vector3(0,0,0), s.nudge);
+    s.core.position.copy(local);
+    s.mesh.position.copy(local);
+    s.wedge.position.copy(local);
+    const boost = (selected===s.mesh.userData.id) ? (1+hl*0.15) : 1;
+    s.core.scale.set(boost,boost,boost);
+    s.mesh.scale.set(boost,boost,boost);
+    s.wedge.scale.set(boost,boost,boost);
+  });
+
+  let nearestR = Infinity;
+  if(userControlled){
+    let hit=null, hitR=CENTER_SELECT_R;
+    nodeState.forEach(s=>{
+      _selPv.copy(s.mesh.position).multiplyScalar(graph.scale.x).applyQuaternion(graph.quaternion);
+      if(_selPv.z < 0) return; /* behind the black hole — not visually parked on it */
+      _selPv.project(camera);
+      const r = Math.hypot(_selPv.x, _selPv.y);
+      if(r < nearestR) nearestR = r;
+      if(r < hitR){ hitR=r; hit=s; }
+    });
+    if(hit){
+      if(centeredNodeId !== hit.mesh.userData.id){
+        centeredNodeId = hit.mesh.userData.id;
+        const n = NODES.find(nd=>nd.id===centeredNodeId);
+        if(n) selectNode(n);
+      }
+    } else centeredNodeId = null;
+  } else centeredNodeId = null;
+
+  const ringTarget = (userControlled && nearestR<AFFORD_R) ? Math.min(1,1-nearestR/AFFORD_R) : 0;
+  selectRing.material.opacity += (ringTarget-selectRing.material.opacity)*Math.min(1,dt*8);
+  selectRing.scale.setScalar(0.46+selectRing.material.opacity*0.18);
+
+  if(dragging || reduceMotion){
+    avoidTargetQuat = null; avoidCheckT = 0;
+  } else {
+    avoidCheckT += dt;
+    if(avoidCheckT >= AVOID_CHECK_INTERVAL){
+      avoidCheckT = 0;
+      const curR = minScreenDistToBlackHole(graph.quaternion, graph.scale.x);
+      if(curR < AVOID_SAFE_R){
+        /* current heading lets a node cross the black hole soon — search nearby headings
+           and adopt whichever keeps every node's screen distance to it the largest */
+        let bestR = curR, bestQ = null;
+        for(const dy of AVOID_CAND_Y){
+          for(const dx of AVOID_CAND_X){
+            if(dy===0 && dx===0) continue;
+            _avoidDqY.setFromAxisAngle(AY, dy); _avoidDqX.setFromAxisAngle(AX, dx);
+            _avoidCq.copy(graph.quaternion).premultiply(_avoidDqY).premultiply(_avoidDqX);
+            const r = minScreenDistToBlackHole(_avoidCq, graph.scale.x);
+            if(r > bestR){ bestR = r; bestQ = _avoidCq.clone(); }
+          }
+        }
+        if(bestQ && bestR > curR + AVOID_IMPROVE_MARGIN) avoidTargetQuat = bestQ;
+      } else {
+        avoidTargetQuat = null;
+      }
+    }
+    if(avoidTargetQuat) graph.quaternion.slerp(avoidTargetQuat, 1-Math.exp(-dt*AVOID_EASE_RATE));
+  }
+
+  const pp = panelSpring.update(dt);
+  panel.style.transform = `translateY(${(1-pp)*100}%)`;
+  panel.style.pointerEvents = pp>0.4 ? 'auto' : 'none';
+
+  renderer.render(scene, camera);
+}
+requestAnimationFrame(loop);
+
+})();
+</script>
+</body>
+</html>

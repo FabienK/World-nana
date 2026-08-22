@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Brique">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1B2333">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFIUlEQVR4nO3dP3LTQBiG8Q1DxxEoOUKuQMcx6KClhQJaWug4Bh3XoqfYGaGR9NpSov3+6fnVmdhZP/52Yyfyw+s3jw3Y8sL7DiAu4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQHrpfQfcfPrxYf8Xf//4c9w9CevhIpdgOJTCHlfIpXIcpwehVA2lYBxmTawVq6RUHIey+PX19/4vfv/l3f4vLpNIhTh2NnGohtt2tpK9ktxx3M3ixCCUu6HkTSRrHLezMGhi7XYlGRNJGYcqw6WJNVVJuj6SxRE8i7kCiWSKY7OMgFnMbSaSpY8ccWTMYi5pIgneeMteRhP31vHFup2iT471CubKYmE9QiLPj7hxFBgYmxJtMUHjKDYw1lKMkIhnjvJltK2fKOARJFwcVyiji99HrDiuU0YXvI9AZ47FutTOYmFxBAly/ogyOa5cRlv9vEHmR4g4Ll5GF7CPEHEgJv84GBuTaMPDOQ7KWAjVh2cclLEpTh/+20pHGXNBVsMtDvcNNRGvtfKJgw3lrgibi/+2QhmK+8o4xMGG8jT262YdBxvKIb6bi+e2Qhl7OK6SaRxsKM9nuYZuk4OxsZ/XWtnFwdg4i9lK+kwOxsZRLivm/zoHwjKKYz4JGRtPM183m52FyQHJ4jqkEY6ifz6/Ovcbvv3299xveNSnHx9G/x2y9eSw31P+fH51ehnjvu1txqtXfFsZ/fjZ92FpeByOe4rNI+fYx+i1NZ0cllPR8jGzvC3LNay5rdg/m0vuLzXjwCnGxuFy4PB6Ervc7tAVtpscvDB6FrOVZFuBRByQiAMScUAaGAdv049j8/Y9kwMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHpIFxzP+TU312N55mvp7j/mOWyQGJOCARByTigGQXB2fSs5it5Ng4XD4C0+uaOy63O3SF2VYg1YzD/knsfomwEUzjsDx2WD5alrdluYbD43D85G2bx8xxZlS7mqCx0Y9cyd1kYh2H/S+0b7/9HfEQDvq2txmvnsVFar9//Ol+ndp6T3GD/br4toLnMIqDt++fz+Zt+jkmBySfOBgeR7msmF0cji94FGO2km7bCsNjP6+1Mo2D4fF8lmvoeSBleOzhuErWcSzCp4/bFutjPHodJgeby9PYr5v/6xwMD8V9ZXziYHO5y3dD6dwmB5vLfl5r5b+tdAyPuSCr4RkHm8umCBtK5zw56GMhThnNPY5GHzOhymgR4kBYIeJgeLR4Y6MFiaNdvo+AZbTWHl6/efS+D/+t/w65/Kf4rJ8GQcpocSZHt16X2iMkchktWhztSn0EL6MFjKNdo4/4ZbRoZ465zf+DKnAE2Qw9YBktchxdsSNqioExiR5HqzJCEg2MScQzx8LmCuY6hWQso6WYHJOMIyRpFl2mOJr+9OWAiajZlqWMli6OLngiBbLoUsbR7n2Au0slt49B6cpoeePo7l4TxqCSu0fjjFl0uePodl426MRQdv6ulDeLrkIck0MXlzrUyqHfnLM3MSkVR+d4/bEyWXQF45iYVVKsiUnlOOZOD6VqEHNXiWPtUC5XSGHtunHgrgRvvMELcUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAekfMzzZOmL5JTwAAAAASUVORK5CYII=">
+<title>Brique</title>
+<style>
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; overscroll-behavior: none; }
+  body {
+    background: #1B2333;
+    color: #F5F1E8;
+    font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+  }
+  #root { width: 100%; max-width: 480px; }
+
+  .home { padding: 28px 20px 40px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .eyebrow { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #8FB89D; margin: 0; }
+  h1 { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 24px; font-weight: 600; margin: 4px 0 0; }
+  .gallery-btn {
+    background: rgba(245,241,232,0.08); border: 1px solid rgba(245,241,232,0.18);
+    color: #F5F1E8; border-radius: 20px; padding: 8px 14px; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; cursor: pointer;
+  }
+  .planet-wrap { position: relative; width: 180px; height: 180px; margin: 26px auto 10px; }
+  .planet-glow { position: absolute; inset: -20px; border-radius: 50%; background: radial-gradient(circle, rgba(143,184,157,0.18), transparent 70%); }
+  .planet-core { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #2C3A52, #161C29); border: 1px solid rgba(245,241,232,0.12); }
+  .planet-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12.5px; color: rgba(245,241,232,0.45); text-align: center; padding: 0 30px; }
+  .progress-line { text-align: center; font-size: 13px; color: rgba(245,241,232,0.6); margin: 0 0 22px; }
+  .brick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .brick-card {
+    background: rgba(245,241,232,0.06); border: 2px solid transparent; border-radius: 16px; padding: 16px 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; color: #F5F1E8;
+    font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  }
+  .brick-label { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 13.5px; font-weight: 600; }
+  .brick-state { font-size: 11px; color: rgba(245,241,232,0.5); }
+  .reset-link { display: block; margin: 26px auto 0; background: none; border: none; color: rgba(245,241,232,0.25); font-size: 11px; cursor: pointer; text-decoration: underline; }
+  .geo-cta { display: block; width: 100%; margin: 22px 0 4px; background: rgba(245,241,232,0.08); border: 1px solid rgba(245,241,232,0.18); color: #F5F1E8; border-radius: 14px; padding: 13px; font-size: 14px; cursor: pointer; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; }
+  .map-disclaimer { font-size: 11.5px; color: rgba(245,241,232,0.4); text-align: center; margin: 4px 0 14px; }
+  .geo-map-frame { border-radius: 16px; overflow: hidden; border: 1px solid rgba(245,241,232,0.15); }
+  .geo-map-bg { position: relative; width: 100%; aspect-ratio: 280/160; background: linear-gradient(180deg, #1E3A5F, #16283F); }
+  .geo-pin { position: absolute; width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.7); cursor: pointer; }
+  .geo-pin:disabled { cursor: default; }
+  .geo-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .geo-list-item { display: flex; align-items: center; gap: 10px; background: rgba(245,241,232,0.06); border-radius: 12px; padding: 10px 14px; font-size: 13.5px; }
+  .geo-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .geo-list-item span:nth-child(2) { flex: 1; }
+  .geo-choice-grid { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .geo-choice { background: #F0ECE2; border: 1.5px solid #D8D2C4; border-radius: 12px; padding: 14px; font-size: 15px; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-weight: 600; color: #2A2E3D; cursor: pointer; }
+
+  .session { max-width: 460px; padding: 24px 20px; }
+  .session-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .exit-btn { background: none; border: none; color: rgba(245,241,232,0.7); font-size: 14px; cursor: pointer; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; }
+  .step-dots { display: flex; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 4px; background: rgba(245,241,232,0.25); }
+  .dot.active { background: #E8B75D; }
+
+  .card { background: #FBF8F3; color: #2A2E3D; border-radius: 22px; padding: 26px 22px 22px; }
+  .step-label { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #8FA0B5; margin: 0; text-align: center; }
+  .glyph-badge { width: 84px; height: 84px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 8px auto 18px; }
+  .word-display { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 26px; text-align: center; margin: 0 0 10px; }
+  .def-text { font-size: 15.5px; line-height: 1.55; text-align: center; color: #4A4E5D; margin: 0 0 18px; }
+  .sketch-label { font-size: 13px; color: #6B7080; margin-bottom: 8px; }
+  canvas.sketch { width: 100%; height: 130px; border-radius: 14px; background: #F0ECE2; border: 1.5px dashed #C9C2B0; touch-action: none; display: block; }
+  .clear-btn { margin-top: 8px; background: none; border: none; color: #8FA0B5; font-size: 12.5px; cursor: pointer; text-decoration: underline; }
+  .primary-btn { width: 100%; background: #E8B75D; color: #2A2E3D; border: none; border-radius: 14px; padding: 14px 0; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 15.5px; font-weight: 600; cursor: pointer; }
+  .primary-btn:disabled { opacity: .4; }
+  .secondary-btn { flex: 1; background: transparent; color: #6B7080; border: 1.5px solid #D8D2C4; border-radius: 14px; padding: 13px 0; font-size: 14.5px; cursor: pointer; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; }
+  .row-btns { display: flex; gap: 10px; margin-top: 6px; }
+  .hint-footer { text-align: center; font-size: 12.5px; color: #9A9686; margin-top: 14px; }
+  .recap-hero { text-align: center; margin: 10px 0 24px; }
+  .recap-sub { font-size: 14px; color: rgba(245,241,232,0.65); margin-top: 8px; }
+  .recap-list { display: flex; flex-direction: column; gap: 10px; }
+  .recap-item { display: flex; align-items: center; gap: 12px; background: rgba(245,241,232,0.06); border-radius: 14px; padding: 12px 16px; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 14.5px; font-weight: 600; }
+  .explain-btn { display: block; margin: 4px auto 16px; background: none; border: 1.5px solid #D8D2C4; color: #6B7080; border-radius: 20px; padding: 8px 16px; font-size: 12.5px; cursor: pointer; }
+  .explain-box { background: #F0ECE2; border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #4A4E5D; margin: 0 0 16px; font-style: italic; }
+  .card-song-btn { background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+  @keyframes cardPop { 0% { transform: scale(0.7); opacity: 0; } 70% { transform: scale(1.06); opacity: 1; } 100% { transform: scale(1); } }
+  .photocard.fresh { animation: cardPop 0.5s ease-out; }
+  .slots-row, .chip-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .slot { min-width: 52px; height: 46px; border-radius: 10px; border: 2px solid rgba(245,241,232,0.25); background: #F0ECE2; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 14px; font-weight: 600; color: #2A2E3D; cursor: pointer; padding: 0 8px; }
+  .chip { min-width: 52px; height: 46px; border-radius: 10px; border: none; background: #2A2E3D; color: #F5F1E8; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; padding: 0 8px; }
+  .hint-box { background: #F0ECE2; border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #4A4E5D; margin-top: 6px; }
+  .soft-message { font-size: 13px; color: #8FA0B5; text-align: center; margin-top: 8px; }
+  .question-text { font-size: 16.5px; line-height: 1.5; text-align: center; margin: 10px 0 20px; }
+  input.text-input { width: 100%; padding: 14px 16px; font-size: 16px; border-radius: 14px; border: 1.5px solid #D8D2C4; background: #F0ECE2; color: #2A2E3D; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif; margin-bottom: 10px; }
+  .reveal-box { text-align: center; font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 20px; letter-spacing: .15em; color: #C99A6B; margin: 6px 0 4px; }
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
+  .photocard { aspect-ratio: 3/4.4; border-radius: 16px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; border: 1px solid rgba(245,241,232,0.1); }
+  .card-group { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 10px; margin: 0; color: rgba(245,241,232,0.85); }
+  .card-member { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 15px; font-weight: 600; margin: 0; }
+  .card-song { font-size: 9px; color: rgba(245,241,232,0.7); margin: 3px 0 0; font-style: italic; }
+  .card-locked { font-size: 11px; text-align: center; color: rgba(245,241,232,0.3); margin: auto; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #2A2E3D; color: #F5F1E8; padding: 12px 20px; border-radius: 30px; font-size: 13.5px; box-shadow: 0 8px 24px rgba(0,0,0,.35); border: 1px solid rgba(245,241,232,0.15); z-index: 50; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+/* ============================================================
+   BRIQUE — app autonome, sans dépendance réseau après ouverture.
+   Vanilla JS, un seul fichier, pensée pour "Ajouter à l'écran
+   d'accueil" sur iPad.
+   ============================================================ */
+
+const BRICKS = [
+  { id: "atmosphere", word: "ATMOSPHÈRE", syllables: ["AT","MO","SPHÈRE"],
+    hint: "C'est autour de toi en ce moment, invisible.",
+    def: "La fine couche de gaz qui enveloppe la Terre et te permet de respirer.",
+    question: "Comment s'appelle la couche de gaz qui entoure la Terre ?",
+    color: "#7FA8C9", glyph: "atmosphere",
+    module: "terre", example: "Exemple : sans elle, on ne pourrait pas respirer, ni sur la Lune ni dans l'espace." },
+  { id: "biodiversite", word: "BIODIVERSITÉ", syllables: ["BIO","DI","VER","SI","TÉ"],
+    hint: "Bio = vivant. Pense à tout ce qui vit, en même temps, ici.",
+    def: "La grande variété des êtres vivants présents sur Terre.",
+    question: "Comment appelle-t-on la variété des êtres vivants sur Terre ?",
+    color: "#8FB89D", glyph: "biodiversite",
+    module: "terre", example: "Exemple : une forêt avec des arbres, des oiseaux, des insectes et des champignons différents, c'est de la biodiversité." },
+  { id: "ecosysteme", word: "ÉCOSYSTÈME", syllables: ["É","CO","SYS","TÈME"],
+    hint: "Un lieu + tous les êtres vivants qui y habitent ensemble.",
+    def: "Un milieu naturel et l'ensemble des êtres vivants qui y interagissent.",
+    question: "Comment appelle-t-on un milieu et les êtres vivants qui y vivent ensemble ?",
+    color: "#C99A6B", glyph: "ecosysteme",
+    module: "terre", example: "Exemple : un étang avec ses poissons, ses grenouilles et ses plantes aquatiques forme un écosystème." },
+  { id: "habitat", word: "HABITAT", syllables: ["HA","BI","TAT"],
+    hint: "Comme ta maison, mais pour un animal ou une plante.",
+    def: "Le lieu précis où vit un être vivant.",
+    question: "Comment appelle-t-on le lieu où vit un être vivant ?",
+    color: "#D99B8B", glyph: "habitat",
+    module: "terre", example: "Exemple : le terrier est l'habitat du lapin, le nid est celui de l'oiseau." },
+  { id: "espece", word: "ESPÈCE", syllables: ["ES","PÈCE"],
+    hint: "Deux individus qui peuvent avoir des petits ensemble en font partie.",
+    def: "Un groupe d'êtres vivants qui peuvent se reproduire entre eux.",
+    question: "Comment appelle-t-on un groupe d'êtres vivants qui se reproduisent entre eux ?",
+    color: "#A78BC9", glyph: "espece",
+    module: "terre", example: "Exemple : tous les chats domestiques appartiennent à la même espèce, ils peuvent se reproduire entre eux." },
+  { id: "milieu", word: "MILIEU DE VIE", syllables: ["MI","LIEU","DE","VIE"],
+    hint: "Forêt, océan, désert... c'est l'endroit dans son ensemble.",
+    def: "L'environnement naturel dans lequel vit un être vivant.",
+    question: "Comment appelle-t-on l'environnement naturel où vit un être vivant ?",
+    color: "#6FBFAE", glyph: "milieu",
+    module: "terre", example: "Exemple : le désert, la banquise et la forêt tropicale sont trois milieux de vie très différents." },
+  { id: "cellule", word: "CELLULE", syllables: ["CEL","LU","LE"],
+    hint: "Toi, une fleur, un champignon... tout être vivant en est fait.",
+    def: "La plus petite unité qui compose un être vivant.",
+    question: "Comment appelle-t-on la plus petite unité qui compose un être vivant ?",
+    color: "#E4A0C4", glyph: "cellule",
+    module: "cellule", example: "Exemple : ton corps entier est fait de milliards de cellules, trop petites pour être vues à l'œil nu." },
+  { id: "noyau", word: "NOYAU", syllables: ["NO","YAU"],
+    hint: "C'est comme le centre de commande, à l'intérieur.",
+    def: "La partie de la cellule qui contient les informations pour la faire fonctionner.",
+    question: "Comment appelle-t-on la partie de la cellule qui contient ses informations ?",
+    color: "#F2C14E", glyph: "noyau",
+    module: "cellule", example: "Exemple : comme un centre de contrôle, le noyau donne les instructions à toute la cellule." },
+  { id: "membrane", word: "MEMBRANE", syllables: ["MEM","BRA","NE"],
+    hint: "Pense à une frontière très fine, autour.",
+    def: "La fine enveloppe qui entoure et protège la cellule.",
+    question: "Comment appelle-t-on la fine enveloppe qui protège la cellule ?",
+    color: "#7FC9C4", glyph: "membrane",
+    module: "cellule", example: "Exemple : comme la peau d'un ballon, la membrane garde ce qui est à l'intérieur de la cellule." },
+  { id: "microscope", word: "MICROSCOPE", syllables: ["MI","CRO","SCOPE"],
+    hint: "L'outil qu'on utilise pour observer une cellule.",
+    def: "L'instrument qui permet de voir des choses invisibles à l'œil nu, comme les cellules.",
+    question: "Comment appelle-t-on l'instrument qui permet de voir des choses invisibles à l'œil nu ?",
+    color: "#9FA8DA", glyph: "microscope",
+    module: "cellule", example: "Exemple : les scientifiques utilisent un microscope pour observer des cellules ou des microbes." },
+  { id: "organisme", word: "ORGANISME", syllables: ["OR","GA","NIS","ME"],
+    hint: "Toi tout entier, formé de milliards de petites unités.",
+    def: "Un être vivant dans son ensemble, formé de nombreuses cellules.",
+    question: "Comment appelle-t-on un être vivant formé de nombreuses cellules ?",
+    color: "#C1E1A6", glyph: "organisme",
+    module: "cellule", example: "Exemple : une plante, un champignon et toi êtes chacun un organisme vivant." },
+  { id: "tissu", word: "TISSU", syllables: ["TIS","SU"],
+    hint: "Des cellules qui font le même métier, groupées ensemble.",
+    def: "Un groupe de cellules qui travaillent ensemble pour une même fonction.",
+    question: "Comment appelle-t-on un groupe de cellules qui travaillent ensemble ?",
+    color: "#F4A261", glyph: "tissu",
+    module: "cellule", example: "Exemple : le muscle est un tissu formé de nombreuses cellules musculaires qui travaillent ensemble." },
+  { id: "energie_renouvelable", word: "ÉNERGIE RENOUVELABLE", syllables: ["ÉNERGIE","RENOU","VELABLE"],
+    hint: "Le soleil et le vent en sont des sources, elles ne s'épuisent pas.",
+    def: "Une énergie qui ne s'épuise jamais, comme le soleil, le vent ou l'eau.",
+    question: "Comment appelle-t-on une énergie qui ne s'épuise jamais ?",
+    color: "#5FA8D3", glyph: "energie",
+    module: "energie_corps", example: "Exemple : contrairement au pétrole, le soleil et le vent ne s'épuiseront jamais." },
+  { id: "panneau_solaire", word: "PANNEAU SOLAIRE", syllables: ["PAN","NEAU","SO","LAIRE"],
+    hint: "Il est souvent posé sur les toits, face au soleil.",
+    def: "Un appareil qui transforme la lumière du soleil en électricité.",
+    question: "Comment appelle-t-on l'appareil qui transforme la lumière du soleil en électricité ?",
+    color: "#F4D35E", glyph: "solaire",
+    module: "energie_corps", example: "Exemple : sur le toit d'une maison, un panneau solaire capte la lumière pour produire de l'électricité." },
+  { id: "eolienne", word: "ÉOLIENNE", syllables: ["É","O","LIEN","NE"],
+    hint: "De grandes hélices, souvent dans des champs ou en mer.",
+    def: "Une grande hélice qui transforme le vent en électricité.",
+    question: "Comment appelle-t-on la grande hélice qui transforme le vent en électricité ?",
+    color: "#B0C4DE", glyph: "eolienne",
+    module: "energie_corps", example: "Exemple : en Bretagne ou en mer du Nord, on voit souvent de grandes éoliennes tourner avec le vent." },
+  { id: "virus", word: "VIRUS", syllables: ["VI","RUS"],
+    hint: "Trop petit pour être vu à l'œil nu, il peut rendre malade.",
+    def: "Un tout petit élément invisible qui peut rendre malade en entrant dans le corps.",
+    question: "Comment appelle-t-on un tout petit élément invisible qui peut rendre malade ?",
+    color: "#E76F51", glyph: "virus",
+    module: "energie_corps", example: "Exemple : le virus de la grippe est si petit qu'il faut un microscope puissant pour le voir." },
+  { id: "anticorps", word: "ANTICORPS", syllables: ["AN","TI","CORPS"],
+    hint: "Le corps le fabrique lui-même pour se défendre.",
+    def: "Une petite protection fabriquée par le corps pour combattre les microbes.",
+    question: "Comment appelle-t-on ce que le corps fabrique pour combattre les microbes ?",
+    color: "#81B29A", glyph: "anticorps",
+    module: "energie_corps", example: "Exemple : quand tu es malade, ton corps fabrique des anticorps pour combattre le microbe." },
+  { id: "allergene", word: "ALLERGÈNE", syllables: ["AL","LER","GÈNE"],
+    hint: "Le pollen ou les cacahuètes peuvent en être un, selon les personnes.",
+    def: "Une substance qui déclenche une réaction du corps chez certaines personnes, comme une allergie.",
+    question: "Comment appelle-t-on une substance qui déclenche une allergie ?",
+    color: "#F2A65A", glyph: "allergene",
+    module: "energie_corps", example: "Exemple : chez certaines personnes, le pollen des fleurs est un allergène qui déclenche des éternuements." },
+  { id: "geothermie", word: "GÉOTHERMIE", syllables: ["GÉO","THER","MIE"],
+    hint: "La chaleur qui vient de très profond sous nos pieds.",
+    def: "Une énergie qui utilise la chaleur naturelle présente sous la surface de la Terre.",
+    question: "Comment appelle-t-on l'énergie qui utilise la chaleur de la Terre ?",
+    color: "#D96C4D", glyph: "geothermie",
+    module: "energie_corps", example: "Exemple : en Islande, on utilise la géothermie pour chauffer les maisons grâce à la chaleur des volcans." },
+  { id: "energie_hydraulique", word: "ÉNERGIE HYDRAULIQUE", syllables: ["HY","DRAU","LIQUE"],
+    hint: "L'énergie du mouvement de l'eau, dans un fleuve ou un barrage.",
+    def: "Une énergie produite par la force du mouvement de l'eau, comme dans un barrage.",
+    question: "Comment appelle-t-on l'énergie produite par la force de l'eau ?",
+    color: "#3C8DAD", glyph: "hydraulique",
+    module: "energie_corps", example: "Exemple : dans un barrage, l'eau qui tombe fait tourner une turbine pour produire de l'électricité." },
+  { id: "sujet", word: "SUJET", syllables: ["SU","JET"],
+    hint: "C'est lui qui fait l'action dans la phrase.",
+    def: "Le mot ou groupe de mots qui fait l'action du verbe dans une phrase.",
+    question: "Comment appelle-t-on le mot qui fait l'action dans une phrase ?",
+    color: "#C97064", glyph: "sujet",
+    module: "francais", example: "Exemple : dans «Le chat dort», c'est «le chat» qui est le sujet." },
+  { id: "verbe", word: "VERBE", syllables: ["VER","BE"],
+    hint: "C'est l'action elle-même : courir, manger, penser...",
+    def: "Le mot qui dit ce que fait le sujet, l'action de la phrase.",
+    question: "Comment appelle-t-on le mot qui exprime l'action dans une phrase ?",
+    color: "#6B9AC4", glyph: "verbe",
+    module: "francais", example: "Exemple : dans «Le chat dort», c'est «dort» qui est le verbe." },
+  { id: "groupe_nominal", word: "GROUPE NOMINAL", syllables: ["GROUPE","NO","MI","NAL"],
+    hint: "Un nom, parfois accompagné d'autres mots autour de lui.",
+    def: "Un groupe de mots organisé autour d'un nom.",
+    question: "Comment appelle-t-on un groupe de mots organisé autour d'un nom ?",
+    color: "#9C89B8", glyph: "groupe_nominal",
+    module: "francais", example: "Exemple : «le grand chat noir» est un groupe nominal construit autour du nom «chat»." },
+  { id: "accord", word: "ACCORD", syllables: ["AC","CORD"],
+    hint: "C'est la règle qui fait correspondre les mots entre eux.",
+    def: "La règle qui fait correspondre les mots entre eux, comme le sujet et le verbe.",
+    question: "Comment appelle-t-on la règle qui fait correspondre les mots entre eux ?",
+    color: "#5B8C5A", glyph: "accord",
+    module: "francais", example: "Exemple : on écrit «les chats dorment» et non «les chats dort» à cause de l'accord." },
+  { id: "infinitif", word: "INFINITIF", syllables: ["IN","FI","NI","TIF"],
+    hint: "C'est la forme du verbe qu'on trouve dans le dictionnaire.",
+    def: "La forme du verbe telle qu'on la trouve dans le dictionnaire, avant conjugaison.",
+    question: "Comment appelle-t-on la forme du verbe qu'on trouve dans le dictionnaire ?",
+    color: "#D4A15A", glyph: "infinitif",
+    module: "francais", example: "Exemple : l'infinitif de «il mange» est «manger»." },
+  { id: "phrase", word: "PHRASE", syllables: ["PHRA","SE"],
+    hint: "Un ensemble de mots qui, ensemble, veulent dire quelque chose.",
+    def: "Un ensemble de mots organisés qui exprime une idée complète.",
+    question: "Comment appelle-t-on un ensemble de mots qui exprime une idée complète ?",
+    color: "#7A6C5D", glyph: "phrase",
+    module: "francais", example: "Exemple : «Le chat dort sur le canapé» est une phrase complète." },
+
+  { id: "galaxie", word: "GALAXIE", syllables: ["GA","LA","XIE"],
+    hint: "Un immense tourbillon d'étoiles, de gaz et de poussière.",
+    def: "Un très grand ensemble d'étoiles, de poussière et de gaz, maintenu par la gravité.",
+    question: "Comment appelle-t-on un très grand ensemble d'étoiles maintenu par la gravité ?",
+    color: "#6C5CE7", glyph: "galaxie",
+    module: "univers", example: "Exemple : notre Soleil et la Terre font partie d'une galaxie appelée la Voie lactée." },
+  { id: "voie_lactee", word: "VOIE LACTÉE", syllables: ["VOIE","LAC","TÉE"],
+    hint: "C'est le nom de notre galaxie à nous.",
+    def: "Le nom de la galaxie dans laquelle se trouvent la Terre et le Soleil.",
+    question: "Comment s'appelle la galaxie dans laquelle se trouve la Terre ?",
+    color: "#8E7CFF", glyph: "voie_lactee",
+    module: "univers", example: "Exemple : par une nuit très claire et loin des villes, on peut voir une bande floue dans le ciel : c'est la Voie lactée vue de l'intérieur." },
+  { id: "systeme_solaire", word: "SYSTÈME SOLAIRE", syllables: ["SYS","TÈME","SO","LAIRE"],
+    hint: "Le Soleil au centre, et tout ce qui tourne autour.",
+    def: "Le Soleil et l'ensemble des planètes, lunes et astres qui tournent autour de lui.",
+    question: "Comment appelle-t-on le Soleil et l'ensemble des planètes qui tournent autour de lui ?",
+    color: "#F2994A", glyph: "systeme_solaire",
+    module: "univers", example: "Exemple : la Terre, Mars et Jupiter font toutes partie du système solaire." },
+  { id: "planete", word: "PLANÈTE", syllables: ["PLA","NÈ","TE"],
+    hint: "La Terre en est une, comme sept autres autour du Soleil.",
+    def: "Un astre qui tourne autour d'une étoile, sans produire sa propre lumière.",
+    question: "Comment appelle-t-on un astre qui tourne autour d'une étoile comme le Soleil ?",
+    color: "#4F9DDE", glyph: "planete",
+    module: "univers", example: "Exemple : la Terre, Mars et Vénus sont des planètes du système solaire." },
+  { id: "trou_noir", word: "TROU NOIR", syllables: ["TROU","NOIR"],
+    hint: "Un endroit où même la lumière ne peut pas s'échapper.",
+    def: "Une région de l'espace où la gravité est si forte que rien, pas même la lumière, ne peut s'en échapper.",
+    question: "Comment appelle-t-on une région de l'espace dont même la lumière ne peut s'échapper ?",
+    color: "#2D2A3D", glyph: "trou_noir",
+    module: "univers", example: "Exemple : un trou noir se forme parfois quand une très grosse étoile s'effondre sur elle-même." },
+  { id: "etoile", word: "ÉTOILE", syllables: ["É","TOI","LE"],
+    hint: "Le Soleil en est une, elle brille de sa propre lumière.",
+    def: "Un astre qui produit sa propre lumière et sa propre chaleur.",
+    question: "Comment appelle-t-on un astre qui produit sa propre lumière ?",
+    color: "#F9D562", glyph: "etoile",
+    module: "univers", example: "Exemple : le Soleil est l'étoile la plus proche de la Terre." },
+
+  { id: "big_bang", word: "BIG BANG", syllables: ["BIG","BANG"],
+    hint: "Le tout début de l'univers, il y a très très longtemps.",
+    def: "L'événement à l'origine de l'univers, il y a environ 13,8 milliards d'années.",
+    question: "Comment appelle-t-on l'événement à l'origine de l'univers ?",
+    color: "#E8618C", glyph: "big_bang",
+    module: "origines", example: "Exemple : avant le Big Bang, ni le temps ni l'espace n'existaient tels qu'on les connaît." },
+  { id: "formation_terre", word: "FORMATION DE LA TERRE", syllables: ["FOR","MA","TION","TERRE"],
+    hint: "Des poussières et des roches qui s'assemblent peu à peu.",
+    def: "Le long processus par lequel la Terre s'est formée à partir de poussières et de roches, il y a environ 4,5 milliards d'années.",
+    question: "Comment appelle-t-on le processus par lequel la Terre s'est formée ?",
+    color: "#C97B5C", glyph: "formation_terre",
+    module: "origines", example: "Exemple : au tout début, la Terre était une boule de roche en fusion, sans océans ni vie." },
+  { id: "atmosphere_primitive", word: "ATMOSPHÈRE PRIMITIVE", syllables: ["AT","MO","SPHÈRE","PRI","MI","TIVE"],
+    hint: "L'air de la toute première Terre, très différent de celui d'aujourd'hui.",
+    def: "La toute première atmosphère de la Terre, sans oxygène, très différente de celle d'aujourd'hui.",
+    question: "Comment appelle-t-on la toute première atmosphère de la Terre ?",
+    color: "#7C9885", glyph: "atmosphere_primitive",
+    module: "origines", example: "Exemple : les tout premiers êtres vivants sur Terre n'avaient pas besoin d'oxygène pour vivre." },
+  { id: "ocean_primitif", word: "OCÉAN PRIMITIF", syllables: ["O","CÉ","AN","PRI","MI","TIF"],
+    hint: "Les tout premiers océans, où la vie serait apparue.",
+    def: "Les tout premiers océans de la Terre, où les scientifiques pensent que la vie serait apparue.",
+    question: "Comment appelle-t-on les tout premiers océans de la Terre ?",
+    color: "#3C8DAD", glyph: "ocean_primitif",
+    module: "origines", example: "Exemple : c'est dans l'océan primitif que les toutes premières molécules de la vie se seraient formées." },
+  { id: "premiere_cellule", word: "PREMIÈRE CELLULE VIVANTE", syllables: ["PRE","MIÈRE","CEL","LULE","VI","VANTE"],
+    hint: "Le tout premier être vivant, minuscule, apparu dans l'océan.",
+    def: "Le tout premier être vivant connu, une cellule minuscule apparue il y a environ 3,8 milliards d'années.",
+    question: "Comment appelle-t-on le tout premier être vivant connu sur Terre ?",
+    color: "#6A9C5D", glyph: "premiere_cellule",
+    module: "origines", example: "Exemple : toutes les formes de vie sur Terre aujourd'hui descendent, de fil en aiguille, de cette première cellule." },
+  { id: "evolution", word: "ÉVOLUTION", syllables: ["É","VO","LU","TION"],
+    hint: "La façon dont les espèces changent, très lentement, au fil du temps.",
+    def: "La transformation progressive des espèces vivantes au fil de très longues périodes de temps.",
+    question: "Comment appelle-t-on la transformation progressive des espèces au fil du temps ?",
+    color: "#B08968", glyph: "evolution",
+    module: "origines", example: "Exemple : c'est par évolution que les premières cellules ont peu à peu donné naissance à toute la diversité de la vie actuelle." },
+];
+
+/* -------------------- Géographie : carte cliquable -------------------- */
+/* Positions calculées par projection équirectangulaire simple à partir de
+   coordonnées lat/lon réelles. La carte de fond est stylisée, pas une
+   projection cartographique précise — seules les positions relatives
+   entre pastilles sont fiables. */
+const MAP_W = 280, MAP_H = 160;
+function projectLatLon(lat, lon) {
+  return {
+    x: ((lon + 180) / 360) * MAP_W,
+    y: ((90 - lat) / 180) * MAP_H,
+  };
+}
+const GEO_PLACES = [
+  { id: "france", continent: "Europe", country: "FRANCE", capital: "PARIS", lat: 48.8566, lon: 2.3522, color: "#5B8CC9",
+    clue: "Ce pays est traversé par la Loire et la Seine, et sa capitale abrite la tour Eiffel." },
+  { id: "japon", continent: "Asie", country: "JAPON", capital: "TOKYO", lat: 35.6762, lon: 139.6503, color: "#E85A6C",
+    clue: "Cet archipel d'Asie est connu pour ses temples, ses trains rapides et sa capitale très animée." },
+  { id: "egypte", continent: "Afrique", country: "ÉGYPTE", capital: "LE CAIRE", lat: 30.0444, lon: 31.2357, color: "#D4A15A",
+    clue: "Ce pays d'Afrique du Nord est traversé par le Nil et célèbre pour ses pyramides." },
+  { id: "usa", continent: "Amérique du Nord", country: "ÉTATS-UNIS", capital: "WASHINGTON", lat: 38.9072, lon: -77.0369, color: "#6B9AC4",
+    clue: "Ce grand pays d'Amérique du Nord a pour capitale une ville qui porte le nom de son premier président." },
+  { id: "bresil", continent: "Amérique du Sud", country: "BRÉSIL", capital: "BRASÍLIA", lat: -15.7939, lon: -47.8828, color: "#6A9C5D",
+    clue: "Ce très grand pays d'Amérique du Sud abrite une bonne partie de la forêt amazonienne." },
+  { id: "australie", continent: "Océanie", country: "AUSTRALIE", capital: "CANBERRA", lat: -35.2809, lon: 149.1300, color: "#C97064",
+    clue: "Ce pays-continent d'Océanie est connu pour ses kangourous et sa grande barrière de corail." },
+];
+
+const CARDS = [
+  { id: "c1", name: "MOONWAVE", member: "Yuna", tone: "#E7B7C9", song: "Petite mélodie du soir" },
+  { id: "c2", name: "ONSEN CAPY", member: "Sakura", tone: "#F4B8C1", song: "Sieste au onsen" },
+  { id: "c3", name: "MOONWAVE", member: "Sori", tone: "#B7CDE7", song: "Écho de la planète" },
+  { id: "c4", name: "ONSEN CAPY", member: "Matcha", tone: "#B7D3B0", song: "Ballade dans le jardin" },
+  { id: "c5", name: "MOONWAVE", member: "Haeun", tone: "#C9E7C0", song: "Refrain des étoiles" },
+  { id: "c6", name: "ONSEN CAPY", member: "Momiji", tone: "#E8A87C", song: "Feuilles d'automne" },
+  { id: "c7", name: "MOONWAVE", member: "Minji", tone: "#F2D0A4", song: "Vague de lumière" },
+  { id: "c8", name: "ONSEN CAPY", member: "Yuki", tone: "#CBD9EC", song: "Promenade sous la neige" },
+  { id: "c9", name: "MOONWAVE", member: "Rin", tone: "#A4C2F2", song: "Chant des cellules" },
+  { id: "c10", name: "ONSEN CAPY", member: "Fuji", tone: "#A9C9CA", song: "Lever de soleil" },
+  { id: "c11", name: "MOONWAVE", member: "Dayeon", tone: "#D4A4E8", song: "Dernier refrain" },
+  { id: "c12", name: "ONSEN CAPY", member: "Hana", tone: "#E6C9E0", song: "Bouquet de printemps" },
+  { id: "c13", name: "STARLIGHT", member: "Nova", tone: "#6C5CE7", song: "Poussière d'étoile" },
+  { id: "c14", name: "STARLIGHT", member: "Lumi", tone: "#8E7CFF", song: "Danse des galaxies" },
+  { id: "c15", name: "STARLIGHT", member: "Astra", tone: "#4F9DDE", song: "Murmure du Big Bang" },
+  { id: "c16", name: "STARLIGHT", member: "Orbit", tone: "#F9D562", song: "Éclat de comète" },
+  { id: "c17", name: "STARLIGHT", member: "Cosmo", tone: "#2D2A3D", song: "Nuit sans fin" },
+  { id: "c18", name: "STARLIGHT", member: "Vega", tone: "#E8618C", song: "Aurore stellaire" },
+  { id: "c19", name: "STARLIGHT", member: "Iris", tone: "#7FC9C4", song: "Rosée du matin" },
+];
+
+const GLYPHS = {
+  atmosphere: c => `<circle cx="20" cy="20" r="9" fill="${c}"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="${c}" stroke-width="2" opacity="0.5"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="${c}" stroke-width="2" opacity="0.3" transform="rotate(60 20 20)"/>`,
+  biodiversite: c => `<circle cx="13" cy="14" r="5" fill="${c}" opacity="0.9"/><rect x="21" y="10" width="9" height="9" rx="3" fill="${c}" opacity="0.7"/><polygon points="14,24 21,24 17.5,32" fill="${c}" opacity="0.55"/><circle cx="27" cy="27" r="4" fill="${c}"/>`,
+  ecosysteme: c => `<circle cx="20" cy="24" r="12" fill="${c}" opacity="0.25"/><rect x="18" y="10" width="4" height="16" rx="2" fill="${c}"/><circle cx="20" cy="10" r="7" fill="${c}" opacity="0.8"/>`,
+  habitat: c => `<polygon points="20,7 33,18 7,18" fill="${c}" opacity="0.85"/><rect x="11" y="18" width="18" height="14" fill="${c}" opacity="0.55"/>`,
+  espece: c => `<circle cx="15" cy="18" r="6" fill="${c}" opacity="0.85"/><circle cx="26" cy="22" r="6" fill="${c}" opacity="0.55"/>`,
+  milieu: c => `<path d="M6 24 Q13 16 20 24 T34 24" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/><path d="M6 30 Q13 22 20 30 T34 30" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" opacity="0.5"/>`,
+  cellule: c => `<circle cx="20" cy="20" r="14" fill="none" stroke="${c}" stroke-width="2.5"/><circle cx="20" cy="20" r="5" fill="${c}"/>`,
+  noyau: c => `<circle cx="20" cy="20" r="10" fill="${c}" opacity="0.85"/><circle cx="20" cy="20" r="10" fill="none" stroke="${c}" stroke-width="2"/>`,
+  membrane: c => `<circle cx="20" cy="20" r="13" fill="none" stroke="${c}" stroke-width="3" stroke-dasharray="4 3"/>`,
+  microscope: c => `<rect x="17" y="8" width="6" height="16" rx="3" fill="${c}"/><rect x="10" y="26" width="20" height="5" rx="2" fill="${c}" opacity="0.6"/>`,
+  organisme: c => `<circle cx="14" cy="14" r="5" fill="${c}" opacity="0.9"/><circle cx="26" cy="14" r="5" fill="${c}" opacity="0.7"/><circle cx="20" cy="24" r="6" fill="${c}"/>`,
+  tissu: c => `<rect x="8" y="8" width="9" height="9" fill="${c}" opacity="0.9"/><rect x="21" y="8" width="9" height="9" fill="${c}" opacity="0.7"/><rect x="8" y="21" width="9" height="9" fill="${c}" opacity="0.7"/><rect x="21" y="21" width="9" height="9" fill="${c}" opacity="0.5"/>`,
+  energie: c => `<circle cx="20" cy="16" r="7" fill="${c}"/><path d="M20 25 L20 33 M14 29 L26 29" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/>`,
+  solaire: c => `<rect x="9" y="9" width="9" height="9" fill="${c}" opacity="0.85"/><rect x="21" y="9" width="9" height="9" fill="${c}" opacity="0.65"/><rect x="9" y="21" width="9" height="9" fill="${c}" opacity="0.65"/><rect x="21" y="21" width="9" height="9" fill="${c}" opacity="0.45"/>`,
+  eolienne: c => `<circle cx="20" cy="20" r="2.5" fill="${c}"/><path d="M20 20 L20 8 M20 20 L29 25 M20 20 L11 25" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/>`,
+  virus: c => `<circle cx="20" cy="20" r="8" fill="${c}" opacity="0.85"/><path d="M20 6 L20 11 M20 29 L20 34 M6 20 L11 20 M29 20 L34 20 M10 10 L13.5 13.5 M26.5 26.5 L30 30 M30 10 L26.5 13.5 M13.5 26.5 L10 30" stroke="${c}" stroke-width="2" stroke-linecap="round"/>`,
+  anticorps: c => `<path d="M20 10 L20 20 M20 20 L12 32 M20 20 L28 32" stroke="${c}" stroke-width="3" stroke-linecap="round" fill="none"/>`,
+  allergene: c => `<path d="M20 8 L23 17 L32 17 L25 23 L28 32 L20 26 L12 32 L15 23 L8 17 L17 17 Z" fill="${c}" opacity="0.8"/>`,
+  geothermie: c => `<path d="M12 32 L16 20 L20 26 L24 14 L28 32 Z" fill="${c}" opacity="0.85"/><circle cx="20" cy="10" r="3" fill="${c}"/>`,
+  hydraulique: c => `<rect x="10" y="24" width="20" height="8" fill="${c}" opacity="0.6"/><path d="M14 24 Q17 16 14 10 M20 24 Q23 16 20 10 M26 24 Q29 16 26 10" stroke="${c}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
+  sujet: c => `<circle cx="20" cy="14" r="6" fill="${c}"/><path d="M11 33 Q11 22 20 22 Q29 22 29 33" fill="${c}" opacity="0.7"/>`,
+  verbe: c => `<path d="M9 26 L20 12 L31 26" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`,
+  groupe_nominal: c => `<circle cx="14" cy="20" r="6" fill="${c}" opacity="0.85"/><circle cx="26" cy="20" r="4" fill="${c}" opacity="0.6"/><path d="M18 20 L22 20" stroke="${c}" stroke-width="2"/>`,
+  accord: c => `<path d="M12 20 a8 8 0 0 1 16 0" fill="none" stroke="${c}" stroke-width="3"/><circle cx="12" cy="20" r="3" fill="${c}"/><circle cx="28" cy="20" r="3" fill="${c}"/>`,
+  infinitif: c => `<rect x="10" y="8" width="20" height="24" rx="2" fill="none" stroke="${c}" stroke-width="2.5"/><path d="M14 15 L26 15 M14 21 L26 21 M14 27 L21 27" stroke="${c}" stroke-width="2" stroke-linecap="round"/>`,
+  phrase: c => `<circle cx="9" cy="20" r="2.5" fill="${c}"/><circle cx="17" cy="20" r="2.5" fill="${c}" opacity="0.8"/><circle cx="25" cy="20" r="2.5" fill="${c}" opacity="0.6"/><circle cx="33" cy="20" r="2.5" fill="${c}" opacity="0.4"/>`,
+  galaxie: c => `<circle cx="20" cy="20" r="3" fill="${c}"/><ellipse cx="20" cy="20" rx="16" ry="5" fill="none" stroke="${c}" stroke-width="2" opacity="0.7"/><ellipse cx="20" cy="20" rx="16" ry="5" fill="none" stroke="${c}" stroke-width="2" opacity="0.4" transform="rotate(50 20 20)"/>`,
+  voie_lactee: c => `<ellipse cx="20" cy="20" rx="17" ry="4" fill="${c}" opacity="0.5"/><circle cx="12" cy="20" r="1.5" fill="${c}"/><circle cx="20" cy="19" r="2" fill="${c}"/><circle cx="28" cy="21" r="1.5" fill="${c}"/>`,
+  systeme_solaire: c => `<circle cx="20" cy="20" r="5" fill="${c}"/><circle cx="20" cy="20" r="11" fill="none" stroke="${c}" stroke-width="1.5" opacity="0.5"/><circle cx="31" cy="20" r="2" fill="${c}" opacity="0.8"/><circle cx="20" cy="20" r="16" fill="none" stroke="${c}" stroke-width="1.5" opacity="0.3"/>`,
+  planete: c => `<circle cx="20" cy="20" r="10" fill="${c}"/><ellipse cx="20" cy="20" rx="16" ry="4" fill="none" stroke="${c}" stroke-width="2" opacity="0.6"/>`,
+  trou_noir: c => `<circle cx="20" cy="20" r="7" fill="#0A0A12"/><circle cx="20" cy="20" r="7" fill="none" stroke="${c}" stroke-width="2"/><ellipse cx="20" cy="20" rx="15" ry="5" fill="none" stroke="${c}" stroke-width="1.5" opacity="0.5"/>`,
+  etoile: c => `<polygon points="20,7 23,17 33,17 25,23 28,33 20,27 12,33 15,23 7,17 17,17" fill="${c}"/>`,
+  big_bang: c => `<circle cx="20" cy="20" r="4" fill="${c}"/><path d="M20 20 L20 6 M20 20 L30 10 M20 20 L34 20 M20 20 L30 30 M20 20 L20 34 M20 20 L10 30 M20 20 L6 20 M20 20 L10 10" stroke="${c}" stroke-width="2" stroke-linecap="round" opacity="0.7"/>`,
+  formation_terre: c => `<circle cx="20" cy="20" r="11" fill="${c}" opacity="0.3"/><path d="M12 14 Q20 10 28 14 Q30 20 26 26 Q20 30 14 26 Q10 20 12 14 Z" fill="${c}"/>`,
+  atmosphere_primitive: c => `<circle cx="20" cy="20" r="8" fill="${c}" opacity="0.6"/><ellipse cx="20" cy="20" rx="16" ry="6" fill="none" stroke="${c}" stroke-width="2" stroke-dasharray="3 3"/>`,
+  ocean_primitif: c => `<path d="M6 22 Q13 15 20 22 T34 22" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/><path d="M6 27 Q13 20 20 27 T34 27" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" opacity="0.5"/><circle cx="20" cy="14" r="2.5" fill="${c}"/>`,
+  premiere_cellule: c => `<circle cx="20" cy="20" r="12" fill="none" stroke="${c}" stroke-width="2"/><circle cx="20" cy="20" r="4" fill="${c}"/><circle cx="12" cy="14" r="1.5" fill="${c}" opacity="0.6"/>`,
+  evolution: c => `<circle cx="8" cy="24" r="3" fill="${c}" opacity="0.5"/><circle cx="18" cy="18" r="4.5" fill="${c}" opacity="0.75"/><circle cx="30" cy="12" r="6" fill="${c}"/>`,
+};
+
+function glyphSVG(type, color, size) {
+  size = size || 40;
+  return `<svg width="${size}" height="${size}" viewBox="0 0 40 40">${(GLYPHS[type]||GLYPHS.atmosphere)(color)}</svg>`;
+}
+
+function normalize(str) {
+  return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+}
+
+/* -------------------- state -------------------- */
+const STORAGE_KEY = "brique_progress_v1";
+
+const state = {
+  status: Object.fromEntries(BRICKS.map(b => [b.id, "locked"])),
+  geoStatus: Object.fromEntries(GEO_PLACES.map(g => [g.id, "locked"])),
+  unlockedCards: 0,
+  activeBrickId: null,
+  activeGeoId: null,
+  step: null,
+  screen: "home", // home | session | gallery | geoMap | geoSession
+};
+state.status.atmosphere = "ready";
+state.status.biodiversite = "ready";
+state.geoStatus.france = "ready";
+
+function saveProgress() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      status: state.status,
+      geoStatus: state.geoStatus,
+      unlockedCards: state.unlockedCards,
+    }));
+  } catch (e) { /* stockage indisponible, on continue sans sauvegarder */ }
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.status) state.status = { ...state.status, ...data.status };
+    if (data.geoStatus) state.geoStatus = { ...state.geoStatus, ...data.geoStatus };
+    if (typeof data.unlockedCards === "number") state.unlockedCards = data.unlockedCards;
+  } catch (e) { /* données corrompues, on repart de zéro sans planter */ }
+}
+
+function resetProgress() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  state.status = Object.fromEntries(BRICKS.map(b => [b.id, "locked"]));
+  state.status.atmosphere = "ready";
+  state.status.biodiversite = "ready";
+  state.geoStatus = Object.fromEntries(GEO_PLACES.map(g => [g.id, "locked"]));
+  state.geoStatus.france = "ready";
+  state.unlockedCards = 0;
+  state.screen = "home";
+  render();
+}
+
+const root = document.getElementById("root");
+
+function showToast(msg) {
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2600);
+}
+
+function render() {
+  if (state.screen === "home") root.innerHTML = HomeScreen();
+  else if (state.screen === "gallery") root.innerHTML = GalleryScreen();
+  else if (state.screen === "session") root.innerHTML = SessionScreen();
+  else if (state.screen === "recap") root.innerHTML = RecapScreen();
+  else if (state.screen === "geoMap") root.innerHTML = GeoMapScreen();
+  else if (state.screen === "geoSession") root.innerHTML = GeoSessionScreen();
+  bindEvents();
+}
+
+const MODULE_NAMES = {
+  terre: "La Terre, planète vivante",
+  cellule: "La cellule, unité du vivant",
+  energie_corps: "Énergies & corps humain",
+  francais: "Vocabulaire de français",
+  univers: "L'Univers",
+  origines: "Origine de la vie et de la Terre",
+};
+
+/* -------------------- récap de fin de thème (non évaluée) -------------------- */
+function RecapScreen() {
+  const moduleBricks = BRICKS.filter(b => b.module === state.recapModule);
+  const items = moduleBricks.map(b => `
+    <div class="recap-item">
+      ${glyphSVG(b.glyph, b.color, 26)}
+      <span>${b.word}</span>
+    </div>`).join("");
+
+  return `
+    <div class="home">
+      <div class="recap-hero">
+        <p class="eyebrow">Thème terminé</p>
+        <h1>${MODULE_NAMES[state.recapModule] || ""}</h1>
+        <p class="recap-sub">Regarde tout ce que tu as retenu. Rien n'est noté ici, c'est juste pour toi.</p>
+      </div>
+      <div class="recap-list">${items}</div>
+      <button class="primary-btn" data-nav="home" style="margin-top:20px">Continuer vers ma planète</button>
+    </div>`;
+}
+
+/* -------------------- home -------------------- */
+function HomeScreen() {
+  const masteredCount = Object.values(state.status).filter(s => s === "mastered").length;
+  const mastered = BRICKS.filter(b => state.status[b.id] === "mastered");
+
+  const planetBricks = mastered.map((b, i) => {
+    const angle = (i / BRICKS.length) * 2 * Math.PI - Math.PI / 2;
+    const r = 62, x = 90 + r * Math.cos(angle), y = 90 + r * Math.sin(angle);
+    return `<div style="position:absolute;left:${x-16}px;top:${y-16}px;width:32px;height:32px;border-radius:9px;background:${b.color};display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.25)">${glyphSVG(b.glyph, "#1B2333", 18)}</div>`;
+  }).join("");
+
+  const grid = BRICKS.map(b => {
+    const st = state.status[b.id];
+    const locked = st === "locked";
+    return `
+      <button class="brick-card" data-open="${b.id}" ${locked ? "disabled" : ""}
+        style="opacity:${locked ? 0.35 : 1};cursor:${locked ? "default" : "pointer"};border-color:${st === "mastered" ? b.color : "transparent"}">
+        ${glyphSVG(b.glyph, b.color, 34)}
+        <span class="brick-label">${locked ? "?" : b.word}</span>
+        <span class="brick-state">${st === "mastered" ? "acquise" : st === "ready" ? "à explorer" : "verrouillée"}</span>
+      </button>`;
+  }).join("");
+
+  return `
+    <div class="home">
+      <div class="header">
+        <div>
+          <p class="eyebrow">Ton monde</p>
+          <h1>La Terre, planète vivante</h1>
+        </div>
+        <button class="gallery-btn" data-nav="gallery">Collection · ${state.unlockedCards}/${CARDS.length}</button>
+      </div>
+      <div class="planet-wrap">
+        <div class="planet-glow"></div>
+        <div class="planet-core">
+          ${mastered.length === 0 ? `<div class="planet-empty">Ta planète t'attend</div>` : planetBricks}
+        </div>
+      </div>
+      <p class="progress-line">${masteredCount} / ${BRICKS.length} briques posées</p>
+      <div class="brick-grid">${grid}</div>
+      <button class="geo-cta" data-nav="geoMap">🗺️ Explorer la carte du monde</button>
+      <button class="reset-link" data-reset="1">Recommencer à zéro</button>
+    </div>`;
+}
+
+/* -------------------- gallery -------------------- */
+function GalleryScreen() {
+  const wasFresh = state.freshCard;
+  state.freshCard = false;
+  const cards = CARDS.map((c, i) => {
+    const unlocked = i < state.unlockedCards;
+    const isFresh = i === state.unlockedCards - 1 && wasFresh;
+    return `
+      <div class="photocard ${isFresh ? "fresh" : ""}" style="background:${unlocked ? `linear-gradient(155deg, ${c.tone}, #1B2333)` : "rgba(245,241,232,0.06)"}">
+        ${unlocked ? `
+          <p class="card-group">${c.name}</p>
+          <p class="card-member">${c.member}</p>
+          <button class="card-song-btn" data-play="${i}"><p class="card-song">♪ ${c.song}</p></button>
+        ` : `<p class="card-locked">À débloquer</p>`}
+      </div>`;
+  }).join("");
+  return `
+    <div class="home">
+      <div class="header">
+        <div>
+          <p class="eyebrow">Récompenses</p>
+          <h1>Ta collection</h1>
+        </div>
+        <button class="gallery-btn" data-nav="home">← Ma planète</button>
+      </div>
+      <div class="card-grid">${cards}</div>
+      <p class="hint-footer" style="margin-top:22px">Une nouvelle carte apparaît toutes les 2 briques acquises. Touche le titre pour l'écouter.</p>
+    </div>`;
+}
+
+
+/* petite mélodie synthétisée, aucun fichier externe, se joue uniquement si on la demande */
+function playCardChime() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99]; // do-mi-sol, doux
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const start = ctx.currentTime + i * 0.14;
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(0.15, start + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.5);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 0.5);
+    });
+  } catch (e) { /* audio indisponible, tant pis, pas bloquant */ }
+}
+
+/* -------------------- Géographie : carte du monde -------------------- */
+function GeoMapScreen() {
+  const masteredCount = Object.values(state.geoStatus).filter(s => s === "mastered").length;
+  const pins = GEO_PLACES.map(g => {
+    const { x, y } = projectLatLon(g.lat, g.lon);
+    const st = state.geoStatus[g.id];
+    const locked = st === "locked";
+    return `
+      <button class="geo-pin ${st}" data-geo-open="${g.id}" ${locked ? "disabled" : ""}
+        style="left:${(x / MAP_W) * 100}%; top:${(y / MAP_H) * 100}%; background:${locked ? "rgba(245,241,232,0.2)" : g.color}">
+      </button>`;
+  }).join("");
+
+  const list = GEO_PLACES.map(g => {
+    const st = state.geoStatus[g.id];
+    return `<div class="geo-list-item">
+      <span class="geo-dot" style="background:${st === "locked" ? "rgba(245,241,232,0.2)" : g.color}"></span>
+      <span>${st === "locked" ? "?" : g.country + " — " + g.capital}</span>
+      <span class="brick-state">${st === "mastered" ? "acquis" : st === "ready" ? "à explorer" : "verrouillé"}</span>
+    </div>`;
+  }).join("");
+
+  return `
+    <div class="home">
+      <div class="header">
+        <div>
+          <p class="eyebrow">Géographie</p>
+          <h1>La carte du monde</h1>
+        </div>
+        <button class="gallery-btn" data-nav="home">← Ma planète</button>
+      </div>
+      <p class="map-disclaimer">Carte simplifiée, pas à l'échelle — seules les positions relatives entre pays comptent.</p>
+      <div class="geo-map-frame">
+        <div class="geo-map-bg">${pins}</div>
+      </div>
+      <p class="progress-line">${masteredCount} / ${GEO_PLACES.length} pays découverts</p>
+      <div class="geo-list">${list}</div>
+    </div>`;
+}
+
+function openGeo(id) {
+  if (state.geoStatus[id] === "locked") return;
+  state.activeGeoId = id;
+  state.step = "encode";
+  state.screen = "geoSession";
+  sessionData = {};
+  render();
+}
+
+function markGeoMastered(id) {
+  state.geoStatus[id] = "mastered";
+  const idx = GEO_PLACES.findIndex(g => g.id === id);
+  const next = GEO_PLACES[idx + 1];
+  if (next && state.geoStatus[next.id] === "locked") state.geoStatus[next.id] = "ready";
+  saveProgress();
+  state.screen = "geoMap";
+  render();
+  showToast("✦ Pays découvert sur la carte");
+}
+
+function GeoSessionScreen() {
+  const place = GEO_PLACES.find(g => g.id === state.activeGeoId);
+  const steps = ["encode", "guided", "free"];
+  const dots = steps.map(s => `<div class="dot ${s === state.step ? "active" : ""}"></div>`).join("");
+  let body = "";
+  if (state.step === "encode") body = GeoEncodeStep(place);
+  if (state.step === "guided") body = GeoGuidedStep(place);
+  if (state.step === "free") body = GeoFreeStep(place);
+  return `
+    <div class="session">
+      <div class="session-top">
+        <button class="exit-btn" data-nav="geoMap">← Carte du monde</button>
+        <div class="step-dots">${dots}</div>
+      </div>
+      ${body}
+    </div>`;
+}
+
+function GeoEncodeStep(place) {
+  return `
+    <div class="card">
+      <p class="step-label">Découverte</p>
+      <div class="glyph-badge" style="background:${place.color}22">
+        <div style="width:40px;height:40px;border-radius:50%;background:${place.color}"></div>
+      </div>
+      <h2 class="word-display">${place.country}</h2>
+      <p class="def-text">Capitale : <strong>${place.capital}</strong><br>Continent : ${place.continent}</p>
+      <button class="primary-btn" id="geoToGuided">Continuer</button>
+      <p class="hint-footer">Prends ton temps, rien n'est chronométré ici.</p>
+    </div>`;
+}
+
+function GeoGuidedStep(place) {
+  const options = sessionData.geoOptions || (sessionData.geoOptions = shuffleGeoOptions(place));
+  const chips = options.map(o => `
+    <button class="geo-choice" data-geo-choice="${o.id}">${o.country}</button>
+  `).join("");
+  return `
+    <div class="card">
+      <p class="step-label">Retrouve le bon pays</p>
+      <p class="def-text">Où se trouve <strong>${place.capital}</strong> ?</p>
+      <div class="geo-choice-grid">${chips}</div>
+      ${sessionData.geoMessage ? `<p class="soft-message">${sessionData.geoMessage}</p>` : ""}
+      <div class="row-btns">
+        <button class="secondary-btn" id="geoBackToEncode">Revoir</button>
+      </div>
+    </div>`;
+}
+
+function shuffleGeoOptions(place) {
+  const others = GEO_PLACES.filter(g => g.id !== place.id).sort(() => Math.random() - 0.5).slice(0, 2);
+  return [place, ...others].sort(() => Math.random() - 0.5);
+}
+
+function GeoFreeStep(place) {
+  const f = sessionData.geoFree || (sessionData.geoFree = { attempts: 0, revealed: 0, message: null });
+  const revealed = place.capital.split("").map((c, i) => (i < f.revealed || c === " " ? c : "_")).join("");
+  return `
+    <div class="card">
+      <p class="step-label">À toi de le dire</p>
+      <p class="question-text">${place.clue}<br><br>Quel est ce pays, et quelle est sa capitale ?</p>
+      <input class="text-input" id="geoFreeInput" placeholder="Écris le nom du pays">
+      ${f.revealed > 0 ? `<p class="reveal-box">${revealed}</p>` : ""}
+      ${f.message ? `<p class="soft-message">${f.message}</p>` : ""}
+      <div class="row-btns">
+        <button class="secondary-btn" id="geoBackToGuided">Revoir</button>
+        <button class="primary-btn" id="geoSubmitFree">Valider</button>
+      </div>
+      <p class="hint-footer">Personne d'autre ne voit tes essais.</p>
+    </div>`;
+}
+
+/* -------------------- session -------------------- */
+let sessionData = {}; // transient per-brick working state
+
+function SessionScreen() {
+  const brick = BRICKS.find(b => b.id === state.activeBrickId);
+  const steps = ["encode", "guided", "free"];
+  const dots = steps.map(s => `<div class="dot ${s === state.step ? "active" : ""}"></div>`).join("");
+
+  let body = "";
+  if (state.step === "encode") body = EncodeStep(brick);
+  if (state.step === "guided") body = GuidedStep(brick);
+  if (state.step === "free") body = FreeStep(brick);
+
+  return `
+    <div class="session">
+      <div class="session-top">
+        <button class="exit-btn" data-nav="home">← Ma planète</button>
+        <div class="step-dots">${dots}</div>
+      </div>
+      ${body}
+    </div>`;
+}
+
+function EncodeStep(brick) {
+  const explainOpen = sessionData.explainOpen === brick.id;
+  return `
+    <div class="card">
+      <p class="step-label">Découverte</p>
+      <div class="glyph-badge" style="background:${brick.color}22">${glyphSVG(brick.glyph, brick.color, 52)}</div>
+      <h2 class="word-display">${brick.word}</h2>
+      <p class="def-text">${brick.def}</p>
+      <button class="explain-btn" id="explainToggle">Explique-moi autrement</button>
+      ${explainOpen ? `<p class="explain-box">${brick.example}</p>` : ""}
+      <div style="margin-bottom:18px">
+        <p class="sketch-label">Dessine ta propre idée de ce mot (facultatif)</p>
+        <canvas class="sketch" id="sketchCanvas" width="280" height="130"></canvas>
+        <button class="clear-btn" id="clearSketch">Effacer</button>
+      </div>
+      <button class="primary-btn" id="toGuided">Continuer</button>
+      <p class="hint-footer">Prends ton temps, rien n'est chronométré ici.</p>
+    </div>`;
+}
+
+function GuidedStep(brick) {
+  if (!sessionData.guided || sessionData.guidedFor !== brick.id) {
+    const shuffled = [...brick.syllables].sort(() => Math.random() - 0.5);
+    sessionData.guided = {
+      pool: shuffled.map((s, i) => ({ id: i, text: s })),
+      slots: Array(brick.syllables.length).fill(null),
+      showHint: false,
+      message: null,
+    };
+    sessionData.guidedFor = brick.id;
+  }
+  const g = sessionData.guided;
+  const slotsHtml = g.slots.map((chip, i) =>
+    `<button class="slot" data-return="${i}" style="border-color:${chip ? brick.color : "rgba(245,241,232,0.25)"}">${chip ? chip.text : ""}</button>`
+  ).join("");
+  const chipsHtml = g.pool.map(chip =>
+    `<button class="chip" data-place="${chip.id}">${chip.text}</button>`
+  ).join("");
+  const complete = g.slots.every(s => s !== null);
+
+  return `
+    <div class="card">
+      <p class="step-label">Reconstitue le mot</p>
+      <div class="glyph-badge" style="width:64px;height:64px;background:${brick.color}22">${glyphSVG(brick.glyph, brick.color, 34)}</div>
+      <div class="slots-row">${slotsHtml}</div>
+      <div class="chip-row">${chipsHtml}</div>
+      ${g.showHint ? `<p class="hint-box">Indice — ${brick.hint}</p>` : ""}
+      ${g.message ? `<p class="soft-message">${g.message}</p>` : ""}
+      <div class="row-btns">
+        <button class="secondary-btn" id="backToEncode">Revoir</button>
+        <button class="primary-btn" id="checkGuided" ${complete ? "" : "disabled"}>Vérifier</button>
+      </div>
+    </div>`;
+}
+
+function FreeStep(brick) {
+  if (!sessionData.free || sessionData.freeFor !== brick.id) {
+    sessionData.free = { attempts: 0, revealedLetters: 0, message: null, value: "" };
+    sessionData.freeFor = brick.id;
+  }
+  const f = sessionData.free;
+  const revealed = brick.word.split("").map((c, i) => (i < f.revealedLetters || c === " " ? c : "_")).join("");
+
+  return `
+    <div class="card">
+      <p class="step-label">À toi de le dire</p>
+      <p class="question-text">${brick.question}</p>
+      <input class="text-input" id="freeInput" placeholder="Écris ta réponse ici" value="${f.value}">
+      ${f.revealedLetters > 0 ? `<p class="reveal-box">${revealed}</p>` : ""}
+      ${f.message ? `<p class="soft-message">${f.message}</p>` : ""}
+      <div class="row-btns">
+        <button class="secondary-btn" id="backToGuided">Revoir les syllabes</button>
+        <button class="primary-btn" id="submitFree">Valider</button>
+      </div>
+      <p class="hint-footer">Personne d'autre ne voit tes essais.</p>
+    </div>`;
+}
+
+/* -------------------- interactions -------------------- */
+function openBrick(id) {
+  if (state.status[id] === "locked") return;
+  state.activeBrickId = id;
+  state.step = "encode";
+  state.screen = "session";
+  sessionData = {};
+  render();
+}
+
+function markMastered(id) {
+  state.status[id] = "mastered";
+  const idx = BRICKS.findIndex(b => b.id === id);
+  const next = BRICKS[idx + 1];
+  if (next && state.status[next.id] === "locked") state.status[next.id] = "ready";
+
+  const masteredCount = Object.values(state.status).filter(s => s === "mastered").length;
+  let unlockedNewCard = false;
+  if (masteredCount % 2 === 0 && state.unlockedCards < CARDS.length) {
+    state.unlockedCards = Math.min(state.unlockedCards + 1, CARDS.length);
+    unlockedNewCard = true;
+  }
+  saveProgress();
+
+  // Un thème vient-il d'être entièrement complété ?
+  const brick = BRICKS.find(b => b.id === id);
+  const moduleBricks = BRICKS.filter(b => b.module === brick.module);
+  const moduleComplete = moduleBricks.every(b => state.status[b.id] === "mastered");
+
+  if (moduleComplete) {
+    state.recapModule = brick.module;
+    state.screen = "recap";
+    render();
+  } else if (unlockedNewCard) {
+    state.freshCard = true;
+    state.screen = "gallery";
+    render();
+  } else {
+    state.screen = "home";
+    render();
+    showToast("✦ Brique posée sur ta planète");
+  }
+}
+
+function bindEvents() {
+  root.querySelectorAll("[data-open]").forEach(el =>
+    el.addEventListener("click", () => openBrick(el.dataset.open)));
+  root.querySelectorAll("[data-nav]").forEach(el =>
+    el.addEventListener("click", () => { state.screen = el.dataset.nav; render(); }));
+  const resetBtn = root.querySelector("[data-reset]");
+  if (resetBtn) resetBtn.addEventListener("click", () => {
+    if (confirm("Effacer toute la progression d'Anaïs et repartir de zéro ?")) resetProgress();
+  });
+
+  const toGuided = document.getElementById("toGuided");
+  if (toGuided) toGuided.addEventListener("click", () => { state.step = "guided"; render(); });
+
+  const explainToggle = document.getElementById("explainToggle");
+  if (explainToggle) explainToggle.addEventListener("click", () => {
+    sessionData.explainOpen = sessionData.explainOpen === state.activeBrickId ? null : state.activeBrickId;
+    render();
+  });
+
+  root.querySelectorAll("[data-play]").forEach(el =>
+    el.addEventListener("click", playCardChime));
+
+  bindSketch();
+
+  const backToEncode = document.getElementById("backToEncode");
+  if (backToEncode) backToEncode.addEventListener("click", () => { state.step = "encode"; render(); });
+
+  root.querySelectorAll("[data-place]").forEach(el =>
+    el.addEventListener("click", () => placeChip(parseInt(el.dataset.place))));
+  root.querySelectorAll("[data-return]").forEach(el =>
+    el.addEventListener("click", () => returnChip(parseInt(el.dataset.return))));
+
+  const checkGuided = document.getElementById("checkGuided");
+  if (checkGuided) checkGuided.addEventListener("click", checkGuidedAnswer);
+
+  const backToGuided = document.getElementById("backToGuided");
+  if (backToGuided) backToGuided.addEventListener("click", () => { state.step = "guided"; render(); });
+
+  const submitFree = document.getElementById("submitFree");
+  if (submitFree) submitFree.addEventListener("click", submitFreeAnswer);
+  const freeInput = document.getElementById("freeInput");
+  if (freeInput) {
+    freeInput.focus();
+    freeInput.addEventListener("keydown", e => { if (e.key === "Enter") submitFreeAnswer(); });
+    freeInput.addEventListener("input", e => { sessionData.free.value = e.target.value; });
+  }
+}
+
+function placeChip(chipId) {
+  const g = sessionData.guided;
+  const idx = g.slots.findIndex(s => s === null);
+  if (idx === -1) return;
+  const chip = g.pool.find(c => c.id === chipId);
+  g.slots[idx] = chip;
+  g.pool = g.pool.filter(c => c.id !== chipId);
+  render();
+}
+
+function returnChip(slotIdx) {
+  const g = sessionData.guided;
+  const chip = g.slots[slotIdx];
+  if (!chip) return;
+  g.pool.push(chip);
+  g.slots[slotIdx] = null;
+  render();
+}
+
+function checkGuidedAnswer() {
+  const brick = BRICKS.find(b => b.id === state.activeBrickId);
+  const g = sessionData.guided;
+  const built = g.slots.map(s => s.text).join("");
+  const target = brick.syllables.join("");
+  if (built === target) {
+    state.step = "free";
+    render();
+  } else {
+    g.showHint = true;
+    g.message = "Presque. Regarde le début du mot ci-dessous et réessaie.";
+    render();
+    setTimeout(() => { if (sessionData.guided) { sessionData.guided.message = null; render(); } }, 3200);
+  }
+}
+
+function submitFreeAnswer() {
+  const brick = BRICKS.find(b => b.id === state.activeBrickId);
+  const f = sessionData.free;
+  const input = document.getElementById("freeInput");
+  const value = input ? input.value : f.value;
+  const target = normalize(brick.word);
+  const guess = normalize(value);
+  if (guess.length > 2 && target.includes(guess) && guess.length >= target.length - 2) {
+    markMastered(brick.id);
+    return;
+  }
+  f.attempts += 1;
+  if (f.attempts >= 2) {
+    f.revealedLetters = Math.min(f.revealedLetters + 3, brick.word.length);
+    f.message = "Voici un petit coup de pouce, lettre par lettre.";
+  } else {
+    f.message = "Prends un instant. Tu peux redemander un indice si besoin.";
+  }
+  render();
+  setTimeout(() => { if (sessionData.free) { sessionData.free.message = null; render(); } }, 3000);
+}
+
+/* -------------------- sketch canvas -------------------- */
+function bindSketch() {
+  const canvas = document.getElementById("sketchCanvas");
+  if (!canvas) return;
+  const brick = BRICKS.find(b => b.id === state.activeBrickId);
+  const ctx = canvas.getContext("2d");
+  let drawing = false;
+
+  function pos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const p = e.touches ? e.touches[0] : e;
+    return { x: p.clientX - rect.left, y: p.clientY - rect.top };
+  }
+  function draw(e) {
+    if (!drawing) return;
+    const { x, y } = pos(e);
+    ctx.fillStyle = brick.color;
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fill();
+    e.preventDefault();
+  }
+  canvas.addEventListener("mousedown", e => { drawing = true; draw(e); });
+  canvas.addEventListener("mouseup", () => drawing = false);
+  canvas.addEventListener("mouseleave", () => drawing = false);
+  canvas.addEventListener("mousemove", draw);
+  canvas.addEventListener("touchstart", e => { drawing = true; draw(e); });
+  canvas.addEventListener("touchend", () => drawing = false);
+  canvas.addEventListener("touchmove", draw);
+
+  const clearBtn = document.getElementById("clearSketch");
+  if (clearBtn) clearBtn.addEventListener("click", () => ctx.clearRect(0, 0, canvas.width, canvas.height));
+}
+
+loadProgress();
+render();
+</script>
+</body>
+</html>
