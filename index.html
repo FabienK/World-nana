@@ -56,6 +56,15 @@
   .font-btn:active { transform: scale(0.97); }
   .font-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
+  /* Découpe de la fillette : redonne la profondeur en la faisant
+     passer devant le trou noir et les raccourcis en orbite (sinon
+     ceux-ci semblent flotter devant elle au lieu d'être au fond
+     de la pièce). Même image, juste rognée sur sa silhouette. */
+  .girl-cutout {
+    position: absolute; inset: 0; z-index: 5; pointer-events: none;
+    clip-path: polygon(28.6% 24.4%, 35.7% 32.2%, 36.4% 43.0%, 37.2% 53.7%, 37.8% 65.4%, 34.2% 71.3%, 33.8% 79.1%, 33.6% 87.9%, 35.8% 93.3%, 36.3% 100%, 19.5% 100%, 19.5% 24.4%);
+  }
+
   /* Trou noir animé, posé exactement sur le portail de l'illustration */
   .blackhole-wrap {
     position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
@@ -105,16 +114,19 @@
 <div id="root">
   <div class="scene">
     <img src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
+    <div class="blackhole-wrap" id="bh-wrap">
+      <canvas id="bh-canvas"></canvas>
+      <div id="orbit"></div>
+    </div>
+    <div class="girl-cutout" aria-hidden="true">
+      <img src="./assets/portal-full.jpg" alt="">
+    </div>
     <div class="scene-header">
       <div>
         <p class="eyebrow">World's Nana</p>
         <h1>Ta chambre, ce soir</h1>
       </div>
       <button class="font-btn" id="font-toggle" type="button" aria-pressed="false">Aa dyslexie</button>
-    </div>
-    <div class="blackhole-wrap" id="bh-wrap">
-      <canvas id="bh-canvas"></canvas>
-      <div id="orbit"></div>
     </div>
   </div>
   <div class="below">
