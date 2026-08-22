@@ -77,7 +77,7 @@
      zone ni fondu d'opacité — plus robuste que l'ancienne approche par
      clip-path + seuils. Voir assets/girl-cutout.png. */
   .girl-layer {
-    position: absolute; left: 12.7%; top: 29.73%; width: 24.2%; z-index: 6; pointer-events: none; display: block;
+    position: absolute; left: 24.5%; top: 29.88%; width: 12.8%; z-index: 6; pointer-events: none; display: block;
   }
 
   .orbit-btn {
@@ -215,9 +215,9 @@ resizeCanvas();
    partiellement recouvrir. */
 const girlImg = document.querySelector('.girl-layer');
 // Position/taille CSS de .girl-layer, + ratio naturel de assets/girl-cutout.png
-// (405x796) converti en fraction de la hauteur de scène (portal-full.jpg, 1000x666).
-const GIRL_LEFT = 0.127, GIRL_TOP = 0.2973, GIRL_WIDTH = 0.242;
-const GIRL_HEIGHT = GIRL_WIDTH * (796 / 405) / (666 / 1000);
+// (320x1071) converti en fraction de la hauteur de scène (portal-full.jpg, 1000x666).
+const GIRL_LEFT = 0.245, GIRL_TOP = 0.2988, GIRL_WIDTH = 0.128;
+const GIRL_HEIGHT = GIRL_WIDTH * (1071 / 320) / (666 / 1000);
 let girlAlpha = null, girlAlphaW = 0, girlAlphaH = 0;
 function loadGirlAlpha() {
   girlAlphaW = girlImg.naturalWidth;
