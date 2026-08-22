@@ -12,13 +12,14 @@ Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du pro
 **Direction retenue : "Seuil"** — implémentée dans `index.html`, écran d'entrée réel de l'app (plus un prototype de comparaison).
 - Trou noir animé (canvas : disque d'accrétion tournant + particules qui spiralent vers le centre) posé sur le portail d'une illustration fournie (chambre d'enfant, porte ouverte sur un tourbillon lumineux — `assets/portal-full.jpg`).
 - Les 4 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
+- Profondeur fillette/raccourcis : découpe réelle de la fillette en PNG alpha (`assets/girl-cutout.png`), posée en calque au-dessus des raccourcis en orbite et calée sur sa position dans `portal-full.jpg`. Elle les cache par simple superposition de pixels — seule la partie sous sa silhouette disparaît (mèche de cheveux, épaule), le reste du raccourci reste visible. Pas de logique JS de zone/fondu : la profondeur vient uniquement de l'empilement des calques.
 - Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji.
 - Toggle police dyslexie-friendly (Atkinson Hyperlegible), persisté en `localStorage`.
 - Bannière offline non bloquante (`navigator.onLine`).
 - Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
-- PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets).
+- PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets, `assets/girl-cutout.png` inclus).
 
-**Pistes explorées puis abandonnées** (supprimées du repo, consultables dans l'historique git) : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque.
+**Pistes explorées puis abandonnées** (supprimées du repo, consultables dans l'historique git) : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque. Pour la profondeur fillette/raccourcis : découpe en `clip-path` (tranchait les raccourcis à moitié), fondu d'opacité par zone approximée (cachait des raccourcis alors qu'elle n'était pas devant), puis fondu binaire basé sur l'alpha réel du PNG (cachait les raccourcis entièrement au lieu de juste la partie recouverte) — remplacés par la simple superposition de calques retenue ci-dessus.
 
 ### Existant avant ce chantier
 - `brique.html` — prototype V2 "Brain" (flow carte, planète de progression), autonome, non retouché.
