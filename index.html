@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nana">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1B2333">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.svg">
+<title>Nana — Comparatif Home V1</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: #1B2333; color: #F5F1E8; font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    display: flex; justify-content: center; min-height: 100vh;
+    padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);
+  }
+  #root { width: 100%; max-width: 480px; padding: 32px 20px 40px; }
+  .eyebrow { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #8FB89D; margin: 0; }
+  h1 { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 24px; font-weight: 600; margin: 4px 0 14px; }
+  p.note { font-size: 14px; line-height: 1.6; color: rgba(245,241,232,0.7); margin: 0 0 28px; }
+  .list { display: flex; flex-direction: column; gap: 12px; }
+  .option {
+    display: block; background: rgba(245,241,232,0.06); border: 1px solid rgba(245,241,232,0.14);
+    border-radius: 16px; padding: 18px 18px; color: #F5F1E8; text-decoration: none;
+  }
+  .option-title { font-family: ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif; font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+  .option-desc { font-size: 13.5px; color: rgba(245,241,232,0.65); margin: 0; }
+</style>
+</head>
+<body>
+<div id="root">
+  <p class="eyebrow">World's Nana — Prototype</p>
+  <h1>Comparatif Home V1</h1>
+  <p class="note">Page de comparaison temporaire, pas un écran final. Trois directions de navigation à tester pour l'écran Home avant de fixer le pattern retenu (voir frontend.md).</p>
+  <div class="list">
+    <a class="option" href="./home-dock.html">
+      <p class="option-title">Dock</p>
+      <p class="option-desc">Barre flottante en bas + tiroir pour la liste complète des raccourcis.</p>
+    </a>
+    <a class="option" href="./home-bandeau.html">
+      <p class="option-title">Bandeau</p>
+      <p class="option-desc">Bande horizontale fixe en haut, tous les raccourcis toujours visibles.</p>
+    </a>
+    <a class="option" href="./home-rail.html">
+      <p class="option-title">Rail</p>
+      <p class="option-desc">Colonne verticale fixe sur le bord, contenu principal à côté.</p>
+    </a>
+  </div>
+</div>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>
