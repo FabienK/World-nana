@@ -9,12 +9,15 @@ Interface iPad personnalisée pour une fille de 12 ans. Deux zones : accès libr
 - PWA, pas de contrainte native.
 - Rien d'autre n'est arrêté visuellement (couleurs, style graphique) : le but de ce document est de cadrer le prototypage, pas de livrer un design final.
 
-## Deux bases de référence fournies (patterns, pas design final)
-- `brique.html` : identité visuelle Brain existante — fond marine #1B2333, beige #F5F1E8, accent vert #8FB89D, police ui-rounded/SF Pro Rounded. Flow carte-par-carte (session), écran d'accueil avec "planète" de progression.
-- `home-selector-miniature.html` : squelette de navigation, 3 variantes à tester — Dock (widget flottant + tiroir), Bandeau, Rail. Palette sombre #04050a/orange #ff9d6c dans le proto, non retenue en soi — seule la logique de navigation est à évaluer.
+## Direction retenue pour le Home : "Seuil"
+Après comparaison de 6 prototypes (une piste grille de cartes et une piste illustration narrative), la direction retenue est **Seuil**, implémentée dans `index.html` : un trou noir animé (canvas, disque d'accrétion + particules) posé sur le portail d'une illustration (chambre d'enfant, porte ouverte sur un tourbillon lumineux — `assets/portal-full.jpg`). Les 4 raccourcis orbitent en continu à la périphérie du trou noir ; toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app.
+- Palette tons chauds sépia — fond quasi noir `#0A0603`, texte parchemin `#F3E7CE`, accent doré `#E8A94D` — et typographie display Fraunces pour les titres (Atkinson Hyperlegible reste la police de bascule dyslexie). Remplace l'identité `brique.html` (marine/beige/vert) pour cet écran ; `brique.html` reste la référence pour Brain (V2), non encore harmonisé avec le nouveau Home.
+- Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
+- Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji — jugé trop daté visuellement lors d'un essai précédent.
+- Pistes explorées puis abandonnées après comparaison : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque. Historique consultable dans les commits git si besoin de les revoir.
 
 ## Écrans V1
-1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés). Structure de navigation à choisir parmi les 3 patterns du proto (ou une 4e option si aucun ne convient à l'usage réel).
+1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés) sous forme de raccourcis en orbite autour du trou noir animé "Seuil" (voir ci-dessus, implémenté dans `index.html`).
 2. **Raccourcis apps libres** — liste ou grille de shortcuts (Musique, dessin, jeux éducatifs — liste définie séparément). Simple deep-link, pas d'état interne à gérer.
 3. **État offline / connexion faible** — les raccourcis vers apps store restent cliquables hors ligne (ils ouvrent l'app native), mais l'interface elle-même (Home) doit rester utilisable et lisible sans réseau. Prévoir un état visuel dégradé mais non bloquant.
 

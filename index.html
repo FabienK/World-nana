@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nana">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0A0603">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<title>World's Nana</title>
+<style>
+  :root{
+    --bg: #0A0603;
+    --text: #F3E7CE;
+    --muted: rgba(243,231,206,0.68);
+    --accent: #E8A94D;
+    --card-border: rgba(243,231,206,0.18);
+    --font-display: 'Fraunces', ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif;
+    --font-body: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  }
+  html[data-font="dyslexic"]{ --font-display: 'Atkinson Hyperlegible', sans-serif; --font-body: 'Atkinson Hyperlegible', sans-serif; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; overscroll-behavior: none; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font-body);
+    display: flex; justify-content: center; min-height: 100vh;
+  }
+  #root { width: 100%; max-width: 900px; }
+
+  .scene { position: relative; width: 100%; }
+  .scene img { width: 100%; display: block; }
+  .scene::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
+    background: linear-gradient(180deg, transparent, var(--bg)); pointer-events: none;
+  }
+  .scene-header {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 8;
+    padding: max(18px, env(safe-area-inset-top)) 20px 40px;
+    background: linear-gradient(180deg, rgba(6,3,1,0.75), transparent);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  }
+  .eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  h1 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 4px 0 0; }
+  .font-btn {
+    background: rgba(10,6,3,0.55); border: 1px solid var(--card-border); color: var(--text);
+    border-radius: 20px; padding: 10px 16px; font-family: var(--font-body); font-size: 13.5px; cursor: pointer; min-height: 44px; flex-shrink: 0;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .font-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+  /* Trou noir animé, posé exactement sur le portail de l'illustration */
+  .blackhole-wrap {
+    position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
+    transform: translate(-50%, -50%); z-index: 4; will-change: transform, filter;
+  }
+  .blackhole-wrap.gulp { animation: gulp 0.8s cubic-bezier(.55,0,1,.45) forwards; }
+  @keyframes gulp { to { transform: translate(-50%, -50%) scale(1.18); filter: brightness(1.35); } }
+  #bh-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .orbit-btn {
+    position: absolute; left: 50%; top: 50%; z-index: 6;
+    transform: translate(-50%, -50%) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    background: none; border: none; cursor: pointer; padding: 0; opacity: 1; transition: opacity .35s ease;
+  }
+  .orbit-btn.fade-out { opacity: 0; }
+  .orbit-dot {
+    width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: rgba(10,6,3,0.62); border: 1.5px solid rgba(243,231,206,0.4);
+    box-shadow: 0 0 18px rgba(232,169,77,0.35); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  }
+  .orbit-dot svg { width: 22px; height: 22px; color: var(--text); }
+  .orbit-label {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600; color: var(--text);
+    background: rgba(10,6,3,0.68); border-radius: 20px; padding: 4px 10px; white-space: nowrap;
+  }
+
+  #void-overlay {
+    position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 50;
+    transition: opacity 0.8s ease-in;
+  }
+  #void-overlay.active { opacity: 1; }
+
+  .below { padding: 6px 20px 40px; position: relative; z-index: 3; margin-top: -8%; }
+  .greeting { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 46ch; }
+  .offline-banner {
+    margin: 16px 0 0; padding: 12px 14px; border-radius: 12px; background: rgba(232,169,77,0.12);
+    border: 1px solid rgba(232,169,77,0.32); color: var(--accent); font-size: 13px; text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blackhole-wrap.gulp { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="scene">
+    <img src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
+    <div class="scene-header">
+      <div>
+        <p class="eyebrow">World's Nana</p>
+        <h1>Ta chambre, ce soir</h1>
+      </div>
+      <button class="font-btn" id="font-toggle" type="button" aria-pressed="false">Aa dyslexie</button>
+    </div>
+    <div class="blackhole-wrap" id="bh-wrap">
+      <canvas id="bh-canvas"></canvas>
+      <div id="orbit"></div>
+    </div>
+  </div>
+  <div class="below">
+    <p class="greeting">Touche un menu en orbite pour être aspiré·e à l'intérieur — l'app s'ouvre de l'autre côté.</p>
+    <div class="offline-banner" id="offline-banner" hidden>Pas de connexion — les raccourcis déjà installés restent utilisables.</div>
+  </div>
+</div>
+<div id="void-overlay"></div>
+
+<script>
+/* ============================================================
+   Home — direction retenue "Seuil" : trou noir animé (canvas) au
+   centre du portail de l'illustration, 4 raccourcis en orbite à sa
+   périphérie. Toucher un raccourci l'aspire vers le centre puis
+   ouvre l'app (voir openShortcut). Respecte prefers-reduced-motion
+   (rotation et particules coupées, aspiration simplifiée en fondu).
+   Raccourcis illustratifs — à remplacer par la liste définie
+   séparément (voir frontend.md, écran 2).
+   ============================================================ */
+
+const ICONS = {
+  musique: `<svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5.2L20 3v12.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="15.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  dessin: `<svg viewBox="0 0 24 24" fill="none"><polygon points="14,3 20,9 9,20 4,20.5 4.5,15" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><line x1="12" y1="5" x2="18" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  lecture: `<svg viewBox="0 0 24 24" fill="none"><path d="M3 5 Q9 2 11 5 V19 Q9 16 3 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M21 5 Q15 2 13 5 V19 Q15 16 21 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
+  jeux: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="8.5" y="4" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/></svg>`,
+};
+
+const SHORTCUTS = [
+  { id: 'musique', label: 'Musique', icon: ICONS.musique, scheme: 'music://', storeUrl: 'https://apps.apple.com/app/apple-music/id1108187390' },
+  { id: 'lecture', label: 'Lecture', icon: ICONS.lecture, scheme: 'shortcuts://', storeUrl: '#' },
+  { id: 'jeux', label: 'Jeux éducatifs', icon: ICONS.jeux, scheme: 'shortcuts://', storeUrl: '#' },
+  { id: 'dessin', label: 'Dessiner', icon: ICONS.dessin, scheme: 'shortcuts://', storeUrl: 'https://apps.apple.com/app/procreate-pocket/id427525720' },
+];
+
+function openShortcut(shortcut) {
+  const fallbackTimer = setTimeout(() => {
+    if (shortcut.storeUrl && shortcut.storeUrl !== '#') window.location.href = shortcut.storeUrl;
+  }, 1200);
+  window.addEventListener('blur', () => clearTimeout(fallbackTimer), { once: true });
+  window.location.href = shortcut.scheme;
+}
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Trou noir animé ---------- */
+const wrap = document.getElementById('bh-wrap');
+const canvas = document.getElementById('bh-canvas');
+const ctx = canvas.getContext('2d');
+let dpr = Math.min(window.devicePixelRatio || 1, 2);
+let size = 0;
+
+function resizeCanvas() {
+  size = wrap.getBoundingClientRect().width;
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function drawBlackHole(angle) {
+  const cx = size / 2, cy = size / 2, rOuter = size / 2;
+  ctx.clearRect(0, 0, size, size);
+
+  const rings = 6;
+  for (let i = 0; i < rings; i++) {
+    const t = i / (rings - 1);
+    const rad = rOuter * (0.42 + 0.55 * (1 - t));
+    const speed = 1 + t * 2.4;
+    const a = angle * speed + i * 0.9;
+    const grad = ctx.createLinearGradient(
+      cx + Math.cos(a) * rad, cy + Math.sin(a) * rad,
+      cx + Math.cos(a + Math.PI) * rad, cy + Math.sin(a + Math.PI) * rad
+    );
+    grad.addColorStop(0, 'rgba(232,169,77,0)');
+    grad.addColorStop(0.5, `rgba(255,200,120,${0.5 - t * 0.28})`);
+    grad.addColorStop(1, 'rgba(232,169,77,0)');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = size * 0.012 * (1 - t * 0.4);
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, rad, rad * 0.95, 0, a, a + Math.PI * 1.5);
+    ctx.stroke();
+  }
+
+  const horizonR = rOuter * 0.4;
+  const glow = ctx.createRadialGradient(cx, cy, horizonR * 0.3, cx, cy, horizonR * 1.4);
+  glow.addColorStop(0, '#000');
+  glow.addColorStop(0.75, '#000');
+  glow.addColorStop(1, 'rgba(255,196,120,0.9)');
+  ctx.beginPath(); ctx.arc(cx, cy, horizonR * 1.1, 0, Math.PI * 2); ctx.fillStyle = glow; ctx.fill();
+
+  ctx.beginPath(); ctx.arc(cx, cy, horizonR * 1.02, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255,214,150,0.85)'; ctx.lineWidth = size * 0.006; ctx.stroke();
+}
+
+let particles = Array.from({ length: 36 }, spawnParticle);
+function spawnParticle() {
+  return { angle: Math.random() * Math.PI * 2, r: 0.55 + Math.random() * 0.45, speed: 0.12 + Math.random() * 0.2 };
+}
+function stepParticles(dt) {
+  const cx = size / 2, cy = size / 2, rOuter = size / 2;
+  particles.forEach((p) => {
+    p.r -= (p.speed * dt) / 1000;
+    p.angle += ((0.5 / Math.max(p.r, 0.05)) * dt) / 1000;
+    if (p.r < 0.1) Object.assign(p, spawnParticle());
+    const rad = rOuter * p.r;
+    const x = cx + Math.cos(p.angle) * rad, y = cy + Math.sin(p.angle) * rad;
+    const alpha = Math.min(1, p.r * 1.3);
+    ctx.beginPath(); ctx.arc(x, y, size * 0.0035, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,224,170,${alpha * 0.85})`;
+    ctx.fill();
+  });
+}
+
+/* ---------- Orbite des raccourcis ---------- */
+const orbitContainer = document.getElementById('orbit');
+const orbitRadiusPct = 60; // % du rayon du wrap — juste à l'extérieur du disque
+
+const items = SHORTCUTS.map((s, i) => {
+  const el = document.createElement('button');
+  el.className = 'orbit-btn';
+  el.type = 'button';
+  el.setAttribute('aria-label', s.label);
+  el.innerHTML = `<span class="orbit-dot">${s.icon}</span><span class="orbit-label">${s.label}</span>`;
+  orbitContainer.appendChild(el);
+  const item = {
+    ...s, el,
+    baseAngle: (i / SHORTCUTS.length) * Math.PI * 2 - Math.PI / 2,
+    state: 'orbit',
+  };
+  el.addEventListener('click', () => suckIn(item));
+  return item;
+});
+
+function positionItem(item, angle) {
+  const x = 50 + Math.cos(angle) * (orbitRadiusPct * 50) / 100;
+  const y = 50 + Math.sin(angle) * (orbitRadiusPct * 50) / 100;
+  item.el.style.left = x + '%';
+  item.el.style.top = y + '%';
+}
+items.forEach((item) => positionItem(item, item.baseAngle));
+
+function suckIn(item) {
+  if (item.state !== 'orbit') return;
+  item.state = 'sucking';
+  items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.classList.add('fade-out'); } });
+  wrap.classList.add('gulp');
+  document.getElementById('void-overlay').classList.add('active');
+
+  const startLeft = parseFloat(item.el.style.left);
+  const startTop = parseFloat(item.el.style.top);
+  const duration = reduceMotion ? 400 : 800;
+  const t0 = performance.now();
+
+  function step(now) {
+    const t = Math.min(1, (now - t0) / duration);
+    if (reduceMotion) {
+      item.el.style.opacity = String(1 - t);
+    } else {
+      const ease = t * t * t;
+      item.el.style.left = startLeft + (50 - startLeft) * ease + '%';
+      item.el.style.top = startTop + (50 - startTop) * ease + '%';
+      item.el.style.setProperty('--scale', String(1 - ease));
+      item.el.style.setProperty('--spin', ease * 720 + 'deg');
+    }
+    if (t < 1) requestAnimationFrame(step);
+    else {
+      openShortcut(item);
+      setTimeout(resetScene, 1500);
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+function resetScene() {
+  document.getElementById('void-overlay').classList.remove('active');
+  wrap.classList.remove('gulp');
+  items.forEach((o) => {
+    o.state = 'orbit';
+    o.el.classList.remove('fade-out');
+    o.el.style.opacity = '';
+    o.el.style.setProperty('--scale', '1');
+    o.el.style.setProperty('--spin', '0deg');
+    positionItem(o, o.baseAngle);
+  });
+}
+
+let orbitAngle = 0;
+let last = performance.now();
+function frame(now) {
+  const dt = now - last; last = now;
+  if (!reduceMotion) {
+    orbitAngle += dt * 0.00035;
+    drawBlackHole(orbitAngle);
+    stepParticles(dt);
+    items.forEach((item) => { if (item.state === 'orbit') positionItem(item, item.baseAngle + orbitAngle); });
+  } else if (size) {
+    drawBlackHole(0);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ---------- Police, offline (identiques aux autres prototypes) ---------- */
+const fontToggle = document.getElementById('font-toggle');
+const FONT_KEY = 'wn.font';
+function applyFont(pref) {
+  document.documentElement.dataset.font = pref;
+  fontToggle.setAttribute('aria-pressed', String(pref === 'dyslexic'));
+}
+applyFont(localStorage.getItem(FONT_KEY) || 'default');
+fontToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.font === 'dyslexic' ? 'default' : 'dyslexic';
+  localStorage.setItem(FONT_KEY, next);
+  applyFont(next);
+});
+
+const offlineBanner = document.getElementById('offline-banner');
+function updateOnlineState() { offlineBanner.hidden = navigator.onLine; }
+window.addEventListener('online', updateOnlineState);
+window.addEventListener('offline', updateOnlineState);
+updateOnlineState();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
