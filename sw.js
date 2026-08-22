@@ -9,8 +9,16 @@ const APP_SHELL = [
   './home-grid-mono.html',
   './home-grid-color.html',
   './home-grid-bento.html',
+  './home-story-hotspots.html',
+  './home-story-hero.html',
+  './home-story-triptych.html',
   './manifest.webmanifest',
   './icon.svg',
+  './assets/portal-full.jpg',
+  './assets/portal-hero.jpg',
+  './assets/portal-left.jpg',
+  './assets/portal-center.jpg',
+  './assets/portal-right.jpg',
 ];
 
 self.addEventListener('install', (event) => {

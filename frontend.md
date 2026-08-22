@@ -11,8 +11,15 @@ Interface iPad personnalisée pour une fille de 12 ans. Deux zones : accès libr
 
 ## Base de référence fournie (pattern, pas design final)
 - `brique.html` : seul fichier de prototype présent dans le repo, base du prototypage V1. Identité visuelle Brain existante — fond marine #1B2333, beige #F5F1E8, accent vert #8FB89D, police ui-rounded/SF Pro Rounded. Flow carte-par-carte (session), écran d'accueil avec "planète" de progression.
-- Structure de navigation retenue pour le Home : grille de cartes (card grid). Les 3 premiers essais (Dock/Bandeau/Rail, esquissés dans `home-selector-miniature.html`, absent du repo) ont été abandonnés. Icônes des raccourcis en ligne dessinée (SVG), pas d'emoji — jugé trop daté visuellement.
+- Structure de navigation V1 : grille de cartes (card grid). Les 3 premiers essais (Dock/Bandeau/Rail, esquissés dans `home-selector-miniature.html`, absent du repo) ont été abandonnés. Icônes des raccourcis en ligne dessinée (SVG), pas d'emoji — jugé trop daté visuellement.
 - 3 traitements visuels prototypés sur cette structure : `home-grid-mono.html` (cartes sobres, proches de l'identité brique.html), `home-grid-color.html` (cartes en aplat de couleur, plus contrasté), `home-grid-bento.html` (carte vedette + cartes secondaires, type "App Store").
+
+## Piste alternative en cours d'exploration : illustration narrative
+En parallèle de la grille, une direction visuelle basée sur une illustration (une chambre d'enfant, une porte ouverte sur un tourbillon lumineux — `assets/portal-*.jpg`) est prototypée pour poser une ambiance "théâtre" plutôt qu'un simple menu d'icônes. Pas encore arbitrée face à la piste grille — à comparer avant de trancher.
+- `home-story-hotspots.html` : l'illustration entière comme scène, raccourcis en hotspots posés sur les objets de la pièce (lampe, étagère, bureau...).
+- `home-story-hero.html` : bandeau illustré en haut pour l'ambiance, panneau plein (fort contraste) en dessous pour la grille de raccourcis — sépare théâtre et fonction.
+- `home-story-triptych.html` : la chambre découpée en 3 zones/humeurs (créer / explorer sans raccourci / se poser), affichées en 3 colonnes sur iPad.
+Palette distincte de brique.html (tons chauds sépia proches de l'illustration, police display Fraunces pour les titres) — à n'harmoniser avec le reste qu'une fois la direction choisie.
 
 ## Écrans V1
 1. **Home / Sélecteur** — point d'entrée. Affiche les raccourcis vers apps libres (statiques, non trackés) en grille de cartes. Traitement visuel à choisir parmi les 3 variantes prototypées (voir ci-dessus), ou une 4e option si aucune ne convient à l'usage réel.

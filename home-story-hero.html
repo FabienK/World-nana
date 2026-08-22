@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nana">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#140D08">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<title>Nana — Home (Fenêtre sur l'aventure)</title>
+<style>
+  :root{
+    --bg: #140D08;
+    --panel: #1D140A;
+    --text: #F3E7CE;
+    --muted: rgba(243,231,206,0.68);
+    --accent: #E8A94D;
+    --card: rgba(243,231,206,0.07);
+    --card-border: rgba(243,231,206,0.16);
+    --font-display: 'Fraunces', ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif;
+    --font-body: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  }
+  html[data-font="dyslexic"]{ --font-display: 'Atkinson Hyperlegible', sans-serif; --font-body: 'Atkinson Hyperlegible', sans-serif; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; overscroll-behavior: none; }
+  body {
+    background: var(--panel); color: var(--text); font-family: var(--font-body);
+    display: flex; justify-content: center; min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  #root { width: 100%; max-width: 640px; }
+
+  /* Bandeau héroïque : l'illustration pose l'ambiance, tronquée nette */
+  .hero-wrap { position: relative; padding-top: env(safe-area-inset-top); background: var(--bg); }
+  .hero { width: 100%; display: block; max-height: 46vh; object-fit: cover; object-position: center 20%; }
+  .hero-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(180deg, transparent, var(--panel)); }
+  .hero-caption {
+    position: absolute; left: 20px; right: 20px; bottom: 16px;
+    font-family: var(--font-display); font-size: 13px; font-style: italic; color: var(--muted);
+  }
+
+  .panel { padding: 22px 20px 40px; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; gap: 12px; }
+  .eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  h1 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 4px 0 0; }
+  .font-btn {
+    background: rgba(243,231,206,0.08); border: 1px solid var(--card-border); color: var(--text);
+    border-radius: 20px; padding: 10px 16px; font-family: var(--font-body); font-size: 13.5px; cursor: pointer; min-height: 44px; flex-shrink: 0;
+  }
+  .font-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  .greeting { margin: 20px 0 20px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+  .offline-banner {
+    margin: 0 0 16px; padding: 12px 14px; border-radius: 12px; background: rgba(232,169,77,0.12);
+    border: 1px solid rgba(232,169,77,0.32); color: var(--accent); font-size: 13px; text-align: center;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 18px;
+    padding: 20px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+    text-align: center; color: var(--text); cursor: pointer; min-height: 132px; font-family: var(--font-body);
+  }
+  .card:active { background: rgba(243,231,206,0.12); }
+  .card-icon { width: 50px; height: 50px; border-radius: 15px; display: flex; align-items: center; justify-content: center; }
+  .card-icon svg { width: 25px; height: 25px; }
+  .card-label { font-family: var(--font-display); font-size: 14.5px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="hero-wrap">
+    <img class="hero" src="./assets/portal-hero.jpg" alt="Une fillette face à un tourbillon lumineux dans l'embrasure de sa porte.">
+    <div class="hero-scrim"></div>
+    <div class="hero-caption">Chaque soir, une nouvelle porte à ouvrir.</div>
+  </div>
+  <div class="panel">
+    <div class="header">
+      <div>
+        <p class="eyebrow">World's Nana</p>
+        <h1>Coucou !</h1>
+      </div>
+      <button class="font-btn" id="font-toggle" type="button" aria-pressed="false">Aa dyslexie</button>
+    </div>
+    <p class="greeting">Choisis une app pour t'amuser ou apprendre quelque chose de nouveau.</p>
+    <div class="offline-banner" id="offline-banner" hidden>Pas de connexion — les raccourcis déjà installés restent utilisables.</div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Home — variante "Fenêtre sur l'aventure" : bandeau illustré
+   (assets/portal-hero.jpg) qui pose l'ambiance, panneau plein
+   en dessous pour la fonction (grille de raccourcis lisible,
+   fort contraste). Sépare théâtre et menu pour l'accessibilité.
+   Icônes ligne dessinées à la main (pas d'emoji).
+   Raccourcis illustratifs — à remplacer par la liste définie
+   séparément (voir frontend.md, écran 2).
+   ============================================================ */
+
+const ICONS = {
+  musique: `<svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5.2L20 3v12.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="15.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  dessin: `<svg viewBox="0 0 24 24" fill="none"><polygon points="14,3 20,9 9,20 4,20.5 4.5,15" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><line x1="12" y1="5" x2="18" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  lecture: `<svg viewBox="0 0 24 24" fill="none"><path d="M3 5 Q9 2 11 5 V19 Q9 16 3 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M21 5 Q15 2 13 5 V19 Q15 16 21 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
+  jeux: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="8.5" y="4" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/></svg>`,
+};
+
+const SHORTCUTS = [
+  { id: 'musique', label: 'Musique', icon: ICONS.musique, color: '#E8A94D', scheme: 'music://', storeUrl: 'https://apps.apple.com/app/apple-music/id1108187390' },
+  { id: 'dessin', label: 'Dessiner', icon: ICONS.dessin, color: '#D98C6B', scheme: 'shortcuts://', storeUrl: 'https://apps.apple.com/app/procreate-pocket/id427525720' },
+  { id: 'lecture', label: 'Lecture', icon: ICONS.lecture, color: '#C9A15A', scheme: 'shortcuts://', storeUrl: '#' },
+  { id: 'jeux', label: 'Jeux éducatifs', icon: ICONS.jeux, color: '#8FA6A0', scheme: 'shortcuts://', storeUrl: '#' },
+];
+
+function openShortcut(shortcut) {
+  const fallbackTimer = setTimeout(() => {
+    if (shortcut.storeUrl && shortcut.storeUrl !== '#') window.location.href = shortcut.storeUrl;
+  }, 1200);
+  window.addEventListener('blur', () => clearTimeout(fallbackTimer), { once: true });
+  window.location.href = shortcut.scheme;
+}
+
+const grid = document.getElementById('grid');
+SHORTCUTS.forEach((s) => {
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.type = 'button';
+  card.innerHTML = `<span class="card-icon" style="background:${s.color}26;color:${s.color}">${s.icon}</span><span class="card-label">${s.label}</span>`;
+  card.addEventListener('click', () => openShortcut(s));
+  grid.appendChild(card);
+});
+
+const fontToggle = document.getElementById('font-toggle');
+const FONT_KEY = 'wn.font';
+function applyFont(pref) {
+  document.documentElement.dataset.font = pref;
+  fontToggle.setAttribute('aria-pressed', String(pref === 'dyslexic'));
+}
+applyFont(localStorage.getItem(FONT_KEY) || 'default');
+fontToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.font === 'dyslexic' ? 'default' : 'dyslexic';
+  localStorage.setItem(FONT_KEY, next);
+  applyFont(next);
+});
+
+const offlineBanner = document.getElementById('offline-banner');
+function updateOnlineState() { offlineBanner.hidden = navigator.onLine; }
+window.addEventListener('online', updateOnlineState);
+window.addEventListener('offline', updateOnlineState);
+updateOnlineState();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
