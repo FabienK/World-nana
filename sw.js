@@ -9,7 +9,7 @@ const APP_SHELL = [
   './home-grid-mono.html',
   './home-grid-color.html',
   './home-grid-bento.html',
-  './home-story-hotspots.html',
+  './home-story-seuil.html',
   './home-story-hero.html',
   './home-story-triptych.html',
   './manifest.webmanifest',

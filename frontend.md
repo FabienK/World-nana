@@ -16,7 +16,7 @@ Interface iPad personnalisée pour une fille de 12 ans. Deux zones : accès libr
 
 ## Piste alternative en cours d'exploration : illustration narrative
 En parallèle de la grille, une direction visuelle basée sur une illustration (une chambre d'enfant, une porte ouverte sur un tourbillon lumineux — `assets/portal-*.jpg`) est prototypée pour poser une ambiance "théâtre" plutôt qu'un simple menu d'icônes. Pas encore arbitrée face à la piste grille — à comparer avant de trancher.
-- `home-story-hotspots.html` : l'illustration entière comme scène, raccourcis en hotspots posés sur les objets de la pièce (lampe, étagère, bureau...).
+- `home-story-seuil.html` : trou noir animé (canvas, disque d'accrétion + particules) posé sur le portail de l'illustration, les 4 raccourcis orbitent à sa périphérie. Toucher un raccourci l'aspire vers le centre (aspiration + rotation) avant d'ouvrir l'app. Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
 - `home-story-hero.html` : bandeau illustré en haut pour l'ambiance, panneau plein (fort contraste) en dessous pour la grille de raccourcis — sépare théâtre et fonction.
 - `home-story-triptych.html` : la chambre découpée en 3 zones/humeurs (créer / explorer sans raccourci / se poser), affichées en 3 colonnes sur iPad.
 Palette distincte de brique.html (tons chauds sépia proches de l'illustration, police display Fraunces pour les titres) — à n'harmoniser avec le reste qu'une fois la direction choisie.
