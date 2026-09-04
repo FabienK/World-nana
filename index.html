@@ -292,11 +292,10 @@ function suckIn(item) {
   item.state = 'sucking';
   items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.style.opacity = '0'; } });
   wrap.classList.add('gulp');
-  document.getElementById('void-overlay').classList.add('active');
 
   const startX = item.x;
   const startY = item.y;
-  const duration = reduceMotion ? 400 : 500;
+  const duration = reduceMotion ? 400 : 550;
   const t0 = performance.now();
 
   function step(now) {
@@ -310,10 +309,19 @@ function suckIn(item) {
       item.el.style.setProperty('--scale', String(1 - ease));
       item.el.style.setProperty('--spin', ease * 720 + 'deg');
     }
-    if (t < 1) requestAnimationFrame(step);
-    else {
-      openShortcut(item);
-      setTimeout(resetScene, 1500);
+    if (t < 1) {
+      requestAnimationFrame(step);
+    } else {
+      // L'icône a fini d'être aspirée et est pleinement visible jusqu'ici (le
+      // fondu au noir ne démarre qu'une fois l'aspiration terminée, jamais en
+      // même temps) : seulement maintenant l'écran passe au noir, puis l'app
+      // s'ouvre une fois l'écran couvert.
+      document.getElementById('void-overlay').classList.add('active');
+      const blackoutDelay = reduceMotion ? 150 : 350;
+      setTimeout(() => {
+        openShortcut(item);
+        setTimeout(resetScene, 1500);
+      }, blackoutDelay);
     }
   }
   requestAnimationFrame(step);
