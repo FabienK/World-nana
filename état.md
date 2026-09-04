@@ -11,7 +11,7 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 ### V1 — Home
 **Direction retenue : "Seuil"** — implémentée dans `index.html`, écran d'entrée réel de l'app (plus un prototype de comparaison).
 - Trou noir animé (canvas : disque d'accrétion tournant + particules qui spiralent vers le centre) posé sur le portail d'une illustration fournie (chambre d'enfant, porte ouverte sur un tourbillon lumineux — `assets/portal-full.jpg`).
-- Les 4 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
+- Les 5 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
 - Profondeur fillette/raccourcis : découpe réelle de la fillette en PNG alpha (`assets/girl-cutout.png`), posée en calque au-dessus des raccourcis en orbite et calée sur sa position dans `portal-full.jpg`. Elle les cache par simple superposition de pixels — seule la partie sous sa silhouette disparaît (mèche de cheveux, épaule), le reste du raccourci reste visible. Pas de logique JS de zone/fondu : la profondeur vient uniquement de l'empilement des calques.
 - Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji.
 - Toggle police dyslexie-friendly (Atkinson Hyperlegible), persisté en `localStorage`.
