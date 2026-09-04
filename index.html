@@ -34,7 +34,7 @@
   #root { width: 100%; max-width: 900px; }
 
   .scene { position: relative; width: 100%; }
-  .scene img { width: 100%; display: block; }
+  .scene-bg { width: 100%; display: block; }
   .scene::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
     background: linear-gradient(180deg, transparent, var(--bg)); pointer-events: none;
@@ -51,25 +51,41 @@
     background: rgba(10,6,3,0.55); border: 1px solid var(--card-border); color: var(--text);
     border-radius: 20px; padding: 10px 16px; font-family: var(--font-body); font-size: 13.5px; cursor: pointer; min-height: 44px; flex-shrink: 0;
     backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    transition: transform 140ms ease-out, border-color 160ms ease, color 160ms ease;
   }
+  .font-btn:active { transform: scale(0.97); }
   .font-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
   /* Trou noir animé, posé exactement sur le portail de l'illustration */
   .blackhole-wrap {
-    position: absolute; left: 49%; top: 41%; width: 45%; aspect-ratio: 1/1;
+    position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
     transform: translate(-50%, -50%); z-index: 4; will-change: transform, filter;
   }
-  .blackhole-wrap.gulp { animation: gulp 0.8s cubic-bezier(.55,0,1,.45) forwards; }
+  .blackhole-wrap.gulp { animation: gulp 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
   @keyframes gulp { to { transform: translate(-50%, -50%) scale(1.18); filter: brightness(1.35); } }
   #bh-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
+  /* Ancre des raccourcis : mêmes dimensions/centre que .blackhole-wrap. */
+  .orbit-anchor {
+    position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
+    transform: translate(-50%, -50%); z-index: 5;
+  }
+
+  /* Vrai découpage de la fillette (PNG alpha), calé sur sa position dans
+     portal-full.jpg, au-dessus des raccourcis en orbite (z-index 6 > 5) :
+     elle les cache par simple superposition de pixels — seule la partie
+     réellement sous sa silhouette disparaît, le reste du raccourci reste
+     visible normalement. Voir assets/girl-cutout.png. */
+  .girl-layer {
+    position: absolute; left: 24.5%; top: 29.88%; width: 12.8%; z-index: 6; pointer-events: none; display: block;
+  }
+
   .orbit-btn {
     position: absolute; left: 50%; top: 50%; z-index: 6;
-    transform: translate(-50%, -50%) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
+    transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px)) scale(var(--scale, 1)) rotate(var(--spin, 0deg));
     display: flex; flex-direction: column; align-items: center; gap: 6px;
-    background: none; border: none; cursor: pointer; padding: 0; opacity: 1; transition: opacity .35s ease;
+    background: none; border: none; cursor: pointer; padding: 0; opacity: 1; transition: opacity 350ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .orbit-btn.fade-out { opacity: 0; }
   .orbit-dot {
     width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
     background: rgba(10,6,3,0.62); border: 1.5px solid rgba(243,231,206,0.4);
@@ -83,7 +99,7 @@
 
   #void-overlay {
     position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 50;
-    transition: opacity 0.8s ease-in;
+    transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
   #void-overlay.active { opacity: 1; }
 
@@ -102,17 +118,20 @@
 <body>
 <div id="root">
   <div class="scene">
-    <img src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
+    <img class="scene-bg" src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
+    <div class="blackhole-wrap" id="bh-wrap">
+      <canvas id="bh-canvas"></canvas>
+    </div>
+    <div class="orbit-anchor">
+      <div id="orbit"></div>
+    </div>
+    <img class="girl-layer" src="./assets/girl-cutout.png" alt="" aria-hidden="true">
     <div class="scene-header">
       <div>
         <p class="eyebrow">World's Nana</p>
         <h1>Ta chambre, ce soir</h1>
       </div>
       <button class="font-btn" id="font-toggle" type="button" aria-pressed="false">Aa dyslexie</button>
-    </div>
-    <div class="blackhole-wrap" id="bh-wrap">
-      <canvas id="bh-canvas"></canvas>
-      <div id="orbit"></div>
     </div>
   </div>
   <div class="below">
@@ -129,25 +148,33 @@
    périphérie. Toucher un raccourci l'aspire vers le centre puis
    ouvre l'app (voir openShortcut). Respecte prefers-reduced-motion
    (rotation et particules coupées, aspiration simplifiée en fondu).
-   Raccourcis illustratifs — à remplacer par la liste définie
-   séparément (voir frontend.md, écran 2).
+   Raccourcis réels (voir état.md) : Musique/Apple Music,
+   Dessin/Adobe Fresco, Jeu éducatif/Prodigy Math, Brain (lien web),
+   Roblox (déjà installée, simple raccourci statique — aucune logique
+   de gating/tracking ici, tout reste géré nativement par Screen Time).
    ============================================================ */
 
 const ICONS = {
   musique: `<svg viewBox="0 0 24 24" fill="none"><path d="M9 18V5.2L20 3v12.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="15.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>`,
   dessin: `<svg viewBox="0 0 24 24" fill="none"><polygon points="14,3 20,9 9,20 4,20.5 4.5,15" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><line x1="12" y1="5" x2="18" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
-  lecture: `<svg viewBox="0 0 24 24" fill="none"><path d="M3 5 Q9 2 11 5 V19 Q9 16 3 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M21 5 Q15 2 13 5 V19 Q15 16 21 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
   jeux: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="12" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="8.5" y="4" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  brain: `<svg viewBox="0 0 24 24" fill="none"><path d="M9 21h6M10 18h4M8.5 14.5C6.5 13 6 11 6 9.5 6 6 8.5 3.5 12 3.5S18 6 18 9.5c0 1.5-.5 3.5-2.5 5L15 17H9l-.5-2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  roblox: `<svg viewBox="0 0 24 24" fill="none"><rect x="4.5" y="4.5" width="10" height="10" rx="1.4" transform="rotate(-12 9.5 9.5)" stroke="currentColor" stroke-width="1.6"/><rect x="10.5" y="10" width="9" height="9" rx="1.4" transform="rotate(8 15 14.5)" stroke="currentColor" stroke-width="1.6"/></svg>`,
 };
 
 const SHORTCUTS = [
   { id: 'musique', label: 'Musique', icon: ICONS.musique, scheme: 'music://', storeUrl: 'https://apps.apple.com/app/apple-music/id1108187390' },
-  { id: 'lecture', label: 'Lecture', icon: ICONS.lecture, scheme: 'shortcuts://', storeUrl: '#' },
-  { id: 'jeux', label: 'Jeux éducatifs', icon: ICONS.jeux, scheme: 'shortcuts://', storeUrl: '#' },
-  { id: 'dessin', label: 'Dessiner', icon: ICONS.dessin, scheme: 'shortcuts://', storeUrl: 'https://apps.apple.com/app/procreate-pocket/id427525720' },
+  { id: 'dessin', label: 'Dessiner', icon: ICONS.dessin, scheme: 'adobefresco://', storeUrl: 'https://apps.apple.com/app/id1458660369' },
+  { id: 'jeu', label: 'Prodigy Math', short: 'Maths', icon: ICONS.jeux, scheme: 'prodigy://', storeUrl: 'https://apps.apple.com/app/prodigy-math-game/id950795722' },
+  { id: 'brain', label: 'Brain', icon: ICONS.brain, url: 'https://web-steel-mu-60.vercel.app/' },
+  { id: 'roblox', label: 'Roblox', icon: ICONS.roblox, scheme: 'roblox://', storeUrl: 'https://apps.apple.com/app/roblox/id431946152' },
 ];
 
 function openShortcut(shortcut) {
+  if (shortcut.url) {
+    window.location.href = shortcut.url;
+    return;
+  }
   const fallbackTimer = setTimeout(() => {
     if (shortcut.storeUrl && shortcut.storeUrl !== '#') window.location.href = shortcut.storeUrl;
   }, 1200);
@@ -165,12 +192,16 @@ let dpr = Math.min(window.devicePixelRatio || 1, 2);
 let size = 0;
 
 function resizeCanvas() {
-  size = wrap.getBoundingClientRect().width;
+  const wr = wrap.getBoundingClientRect();
+  size = wr.width;
   canvas.width = size * dpr;
   canvas.height = size * dpr;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  if (reduceMotion && size) drawBlackHole(0);
+});
 resizeCanvas();
 
 function drawBlackHole(angle) {
@@ -229,14 +260,14 @@ function stepParticles(dt) {
 
 /* ---------- Orbite des raccourcis ---------- */
 const orbitContainer = document.getElementById('orbit');
-const orbitRadiusPct = 60; // % du rayon du wrap — juste à l'extérieur du disque
+const orbitRadiusPct = 54; // % du rayon du wrap — juste à l'extérieur du disque
 
 const items = SHORTCUTS.map((s, i) => {
   const el = document.createElement('button');
   el.className = 'orbit-btn';
   el.type = 'button';
   el.setAttribute('aria-label', s.label);
-  el.innerHTML = `<span class="orbit-dot">${s.icon}</span><span class="orbit-label">${s.label}</span>`;
+  el.innerHTML = `<span class="orbit-dot">${s.icon}</span><span class="orbit-label">${s.short || s.label}</span>`;
   orbitContainer.appendChild(el);
   const item = {
     ...s, el,
@@ -248,23 +279,23 @@ const items = SHORTCUTS.map((s, i) => {
 });
 
 function positionItem(item, angle) {
-  const x = 50 + Math.cos(angle) * (orbitRadiusPct * 50) / 100;
-  const y = 50 + Math.sin(angle) * (orbitRadiusPct * 50) / 100;
-  item.el.style.left = x + '%';
-  item.el.style.top = y + '%';
+  const radius = size * (orbitRadiusPct / 100) * 0.5;
+  item.x = Math.cos(angle) * radius;
+  item.y = Math.sin(angle) * radius;
+  item.el.style.setProperty('--x', item.x + 'px');
+  item.el.style.setProperty('--y', item.y + 'px');
 }
 items.forEach((item) => positionItem(item, item.baseAngle));
 
 function suckIn(item) {
   if (item.state !== 'orbit') return;
   item.state = 'sucking';
-  items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.classList.add('fade-out'); } });
+  items.forEach((o) => { if (o !== item && o.state === 'orbit') { o.state = 'paused'; o.el.style.opacity = '0'; } });
   wrap.classList.add('gulp');
-  document.getElementById('void-overlay').classList.add('active');
 
-  const startLeft = parseFloat(item.el.style.left);
-  const startTop = parseFloat(item.el.style.top);
-  const duration = reduceMotion ? 400 : 800;
+  const startX = item.x;
+  const startY = item.y;
+  const duration = reduceMotion ? 400 : 550;
   const t0 = performance.now();
 
   function step(now) {
@@ -273,15 +304,24 @@ function suckIn(item) {
       item.el.style.opacity = String(1 - t);
     } else {
       const ease = t * t * t;
-      item.el.style.left = startLeft + (50 - startLeft) * ease + '%';
-      item.el.style.top = startTop + (50 - startTop) * ease + '%';
+      item.el.style.setProperty('--x', startX * (1 - ease) + 'px');
+      item.el.style.setProperty('--y', startY * (1 - ease) + 'px');
       item.el.style.setProperty('--scale', String(1 - ease));
       item.el.style.setProperty('--spin', ease * 720 + 'deg');
     }
-    if (t < 1) requestAnimationFrame(step);
-    else {
-      openShortcut(item);
-      setTimeout(resetScene, 1500);
+    if (t < 1) {
+      requestAnimationFrame(step);
+    } else {
+      // L'icône a fini d'être aspirée et est pleinement visible jusqu'ici (le
+      // fondu au noir ne démarre qu'une fois l'aspiration terminée, jamais en
+      // même temps) : seulement maintenant l'écran passe au noir, puis l'app
+      // s'ouvre une fois l'écran couvert.
+      document.getElementById('void-overlay').classList.add('active');
+      const blackoutDelay = reduceMotion ? 150 : 350;
+      setTimeout(() => {
+        openShortcut(item);
+        setTimeout(resetScene, 1500);
+      }, blackoutDelay);
     }
   }
   requestAnimationFrame(step);
@@ -292,10 +332,9 @@ function resetScene() {
   wrap.classList.remove('gulp');
   items.forEach((o) => {
     o.state = 'orbit';
-    o.el.classList.remove('fade-out');
-    o.el.style.opacity = '';
     o.el.style.setProperty('--scale', '1');
     o.el.style.setProperty('--spin', '0deg');
+    o.el.style.opacity = '1';
     positionItem(o, o.baseAngle);
   });
 }
@@ -308,11 +347,17 @@ function frame(now) {
     orbitAngle += dt * 0.00035;
     drawBlackHole(orbitAngle);
     stepParticles(dt);
-    items.forEach((item) => { if (item.state === 'orbit') positionItem(item, item.baseAngle + orbitAngle); });
+    items.forEach((item) => {
+      if (item.state !== 'orbit') return;
+      positionItem(item, item.baseAngle + orbitAngle);
+    });
+    requestAnimationFrame(frame);
   } else if (size) {
     drawBlackHole(0);
+    // Reduced motion: draw once, nothing moves — no need to keep scheduling frames.
+  } else {
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
 
