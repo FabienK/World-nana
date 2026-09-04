@@ -1,6 +1,6 @@
 # World's Nana — État d'avancement
 
-Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
+Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
 
 ## Fait
 
@@ -18,6 +18,7 @@ Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du pro
 - Bannière offline non bloquante (`navigator.onLine`).
 - Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
 - PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets, `assets/girl-cutout.png` inclus).
+- Vraie liste de raccourcis câblée dans `index.html` (5 raccourcis) : Musique → Apple Music, Dessiner → Adobe Fresco, Jeu éducatif → Prodigy Math, Brain → lien direct vers l'app déployée (`https://web-steel-mu-60.vercel.app/`, pas un deep link natif), Roblox → déjà installée sur l'iPad (raccourci statique, aucune logique de gating/tracking ajoutée). Schemes iOS `adobefresco://` et `prodigy://` non documentés publiquement, posés en meilleur effort — à vérifier lors du test sur iPad réel (`openShortcut` bascule de toute façon vers l'App Store après 1.2s si le scheme ne prend pas la main).
 
 **Pistes explorées puis abandonnées** (supprimées du repo, consultables dans l'historique git) : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque. Pour la profondeur fillette/raccourcis : découpe en `clip-path` (tranchait les raccourcis à moitié), fondu d'opacité par zone approximée (cachait des raccourcis alors qu'elle n'était pas devant), puis fondu binaire basé sur l'alpha réel du PNG (cachait les raccourcis entièrement au lieu de juste la partie recouverte) — remplacés par la simple superposition de calques retenue ci-dessus.
 
@@ -31,7 +32,6 @@ Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du pro
 ## Reste à faire
 
 ### V1 — avant de sortir du prototypage
-- Définir la vraie liste de raccourcis (apps, URL schemes iOS, liens App Store) — actuellement données d'exemple (Musique, Dessiner, Lecture, Jeux éducatifs) codées en dur dans `index.html`.
 - Tester sur iPad réel : ouverture des URL schemes + fallback App Store, installation "Ajouter à l'écran d'accueil", comportement offline réel, performance de l'animation canvas.
 - Vérifier le contraste AA sur la palette sépia retenue (pas encore audité formellement).
 - Arbitrer la police dyslexie-friendly définitive (Lexend / OpenDyslexic / Atkinson Hyperlegible — seule Atkinson est câblée pour l'instant).
