@@ -48,3 +48,5 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 
 ## Hors scope (rappel, toutes versions)
 Tracking d'usage d'apps tierces, API Screen Time/DeviceActivity/Family Controls, blocage applicatif géré par le code — tout le gating Roblox reste 100 % natif iOS, hors app.
+
+Configuré côté iPad le 14/09 (hors app, pas de code impliqué) : limite d'app Roblox à 0 min/jour dans Temps d'écran (l'iPad n'étant pas en Partage familial), avec un code Temps d'écran changé pour ne pas être devinable — Roblox reste grisé en permanence, débloqué manuellement au cas par cas depuis Réglages. Idée initiale d'un déblocage automatique conditionné à 5 min sur Brain écartée : ingérable depuis l'app (Roblox reste accessible directement depuis l'écran d'accueil iPad, un blocage côté Nana serait contournable) et de toute façon hors scope du projet.
