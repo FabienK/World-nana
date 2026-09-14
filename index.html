@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="./icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <title>World's Nana</title>
 <style>
   :root{
@@ -21,10 +21,9 @@
     --muted: rgba(243,231,206,0.68);
     --accent: #E8A94D;
     --card-border: rgba(243,231,206,0.18);
-    --font-display: 'Fraunces', ui-rounded, -apple-system, 'SF Pro Rounded', sans-serif;
-    --font-body: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+    --font-display: 'Atkinson Hyperlegible', sans-serif;
+    --font-body: 'Atkinson Hyperlegible', sans-serif;
   }
-  html[data-font="dyslexic"]{ --font-display: 'Atkinson Hyperlegible', sans-serif; --font-body: 'Atkinson Hyperlegible', sans-serif; }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; height: 100%; overscroll-behavior: none; }
   body {
@@ -47,15 +46,6 @@
   }
   .eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; }
   h1 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 4px 0 0; }
-  .font-btn {
-    background: rgba(10,6,3,0.55); border: 1px solid var(--card-border); color: var(--text);
-    border-radius: 20px; padding: 10px 16px; font-family: var(--font-body); font-size: 13.5px; cursor: pointer; min-height: 44px; flex-shrink: 0;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    transition: transform 140ms ease-out, border-color 160ms ease, color 160ms ease;
-  }
-  .font-btn:active { transform: scale(0.97); }
-  .font-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
-
   /* Trou noir animé, posé exactement sur le portail de l'illustration */
   .blackhole-wrap {
     position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
@@ -131,7 +121,6 @@
         <p class="eyebrow">World's Nana</p>
         <h1>Ta chambre, ce soir</h1>
       </div>
-      <button class="font-btn" id="font-toggle" type="button" aria-pressed="false">Aa dyslexie</button>
     </div>
   </div>
   <div class="below">
@@ -361,20 +350,7 @@ function frame(now) {
 }
 requestAnimationFrame(frame);
 
-/* ---------- Police, offline (identiques aux autres prototypes) ---------- */
-const fontToggle = document.getElementById('font-toggle');
-const FONT_KEY = 'wn.font';
-function applyFont(pref) {
-  document.documentElement.dataset.font = pref;
-  fontToggle.setAttribute('aria-pressed', String(pref === 'dyslexic'));
-}
-applyFont(localStorage.getItem(FONT_KEY) || 'default');
-fontToggle.addEventListener('click', () => {
-  const next = document.documentElement.dataset.font === 'dyslexic' ? 'default' : 'dyslexic';
-  localStorage.setItem(FONT_KEY, next);
-  applyFont(next);
-});
-
+/* ---------- Offline (identique aux autres prototypes) ---------- */
 const offlineBanner = document.getElementById('offline-banner');
 function updateOnlineState() { offlineBanner.hidden = navigator.onLine; }
 window.addEventListener('online', updateOnlineState);

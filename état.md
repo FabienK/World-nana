@@ -14,7 +14,7 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 - Les 5 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
 - Profondeur fillette/raccourcis : découpe réelle de la fillette en PNG alpha (`assets/girl-cutout.png`), posée en calque au-dessus des raccourcis en orbite et calée sur sa position dans `portal-full.jpg`. Elle les cache par simple superposition de pixels — seule la partie sous sa silhouette disparaît (mèche de cheveux, épaule), le reste du raccourci reste visible. Pas de logique JS de zone/fondu : la profondeur vient uniquement de l'empilement des calques.
 - Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji.
-- Toggle police dyslexie-friendly (Atkinson Hyperlegible), persisté en `localStorage`.
+- Police dyslexie-friendly (Atkinson Hyperlegible) appliquée en dur sur tout l'écran, sans toggle visible (décision : l'enfant ne doit pas voir/choisir l'option).
 - Bannière offline non bloquante (`navigator.onLine`).
 - Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
 - PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets, `assets/girl-cutout.png` inclus).
@@ -34,7 +34,7 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 ### V1 — avant de sortir du prototypage
 - Tester sur iPad réel : ouverture des URL schemes + fallback App Store, installation "Ajouter à l'écran d'accueil", comportement offline réel, performance de l'animation canvas.
 - Vérifier le contraste AA sur la palette sépia retenue (pas encore audité formellement).
-- Arbitrer la police dyslexie-friendly définitive (Lexend / OpenDyslexic / Atkinson Hyperlegible — seule Atkinson est câblée pour l'instant).
+- Police dyslexie-friendly arbitrée à Atkinson Hyperlegible, fixée en dur (pas de toggle) — retour sur ce choix possible si besoin (Lexend / OpenDyslexic restent des candidats).
 - Harmoniser (ou assumer la rupture volontaire) entre l'identité "Seuil" du Home et l'identité `brique.html` de Brain (V2).
 
 ### V2 — Brain (non commencé)
