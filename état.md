@@ -1,6 +1,6 @@
 # World's Nana — État d'avancement
 
-Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
+Dernière mise à jour : 2026-09-14 — **projet clôturé par la cliente à ce stade.** Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
 
 ## Fait
 
@@ -11,29 +11,31 @@ Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du pro
 ### V1 — Home
 **Direction retenue : "Seuil"** — implémentée dans `index.html`, écran d'entrée réel de l'app (plus un prototype de comparaison).
 - Trou noir animé (canvas : disque d'accrétion tournant + particules qui spiralent vers le centre) posé sur le portail d'une illustration fournie (chambre d'enfant, porte ouverte sur un tourbillon lumineux — `assets/portal-full.jpg`).
-- Les 4 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
+- Les 5 raccourcis orbitent en continu à la périphérie du trou noir. Toucher un raccourci l'aspire vers le centre (aspiration + rotation, écran qui passe au noir) avant d'ouvrir l'app (scheme iOS + fallback App Store).
+- Profondeur fillette/raccourcis : découpe réelle de la fillette en PNG alpha (`assets/girl-cutout.png`), posée en calque au-dessus des raccourcis en orbite et calée sur sa position dans `portal-full.jpg`. Elle les cache par simple superposition de pixels — seule la partie sous sa silhouette disparaît (mèche de cheveux, épaule), le reste du raccourci reste visible. Pas de logique JS de zone/fondu : la profondeur vient uniquement de l'empilement des calques.
+- Cadrage : `.scene` (image + trou noir + orbite + fillette) est affiché dans une fenêtre `.scene-viewport` (taille naturelle de l'image, `overflow:hidden`) et zoomé dedans (`transform: scale(1.18)`, origine calée sur le portail à 49%/41%) pour un effet "gros plan", moins de sol/coffre à jouets visible en bas — retour testeur iPad du 14/09. Le zoom s'applique à tout le bloc comme une unité rigide donc les % de position internes restent corrects ; seul le cadrage change.
 - Icônes de raccourcis en ligne dessinée (SVG maison), pas d'emoji.
-- Toggle police dyslexie-friendly (Atkinson Hyperlegible), persisté en `localStorage`.
+- Police dyslexie-friendly (Atkinson Hyperlegible) appliquée en dur sur tout l'écran, sans toggle visible (décision : l'enfant ne doit pas voir/choisir l'option).
 - Bannière offline non bloquante (`navigator.onLine`).
 - Respecte `prefers-reduced-motion` (rotation/particules coupées, aspiration simplifiée en fondu).
-- PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets).
+- PWA : `manifest.webmanifest`, `icon.svg`, `sw.js` (cache offline de `index.html` + assets, `assets/girl-cutout.png` inclus).
+- Vraie liste de raccourcis câblée dans `index.html` (5 raccourcis) : Musique → Apple Music (scheme `music://`), Dessiner → Tayasui Sketches, Créer → Incredibox (créa musicale simple, remplace l'ancien "Jeu éducatif / Prodigy Math"), Brain → lien direct vers l'app déployée (`https://web-steel-mu-60.vercel.app/`), Roblox → déjà installée sur l'iPad (scheme `roblox://`, raccourci statique, aucune logique de gating/tracking ajoutée). Tayasui Sketches et Incredibox n'ont pas de scheme iOS connu (petites apps indé, aucun scheme documenté ni deviné qui fonctionne) : testé sur iPad réel le 14/09, `tayasui-sketches://` et `incredibox://` déclenchaient "Safari n'a pas pu ouvrir la page" — remplacés par un lien direct vers la fiche App Store (comme Brain), sans tentative de scheme.
 
-**Pistes explorées puis abandonnées** (supprimées du repo, consultables dans l'historique git) : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque.
+**Pistes explorées puis abandonnées** (supprimées du repo, consultables dans l'historique git) : navigation Dock/Bandeau/Rail, grille de cartes (3 traitements sobre/couleur/bento), variantes narratives bandeau-héroïque et triptyque. Pour la profondeur fillette/raccourcis : découpe en `clip-path` (tranchait les raccourcis à moitié), fondu d'opacité par zone approximée (cachait des raccourcis alors qu'elle n'était pas devant), puis fondu binaire basé sur l'alpha réel du PNG (cachait les raccourcis entièrement au lieu de juste la partie recouverte) — remplacés par la simple superposition de calques retenue ci-dessus.
 
 ### Existant avant ce chantier
 - `brique.html` — prototype V2 "Brain" (flow carte, planète de progression), autonome, non retouché.
 - `07-orbital-eclipse.html` — prototype visuel canvas, sans lien avec le reste.
 
 ## En cours
-- Rien en cours — le choix de direction pour le Home vient d'être arbitré et le repo nettoyé en conséquence.
+- Rien en cours — le Home (V1) a été testé sur iPad réel le 14/09 et ajusté (cadrage, textes, raccourcis, police) sur la base de ce retour. Projet clôturé par la cliente à ce stade ; le "Reste à faire" ci-dessous documente ce qui n'a pas été traité, à reprendre si le projet redémarre.
 
 ## Reste à faire
 
 ### V1 — avant de sortir du prototypage
-- Définir la vraie liste de raccourcis (apps, URL schemes iOS, liens App Store) — actuellement données d'exemple (Musique, Dessiner, Lecture, Jeux éducatifs) codées en dur dans `index.html`.
 - Tester sur iPad réel : ouverture des URL schemes + fallback App Store, installation "Ajouter à l'écran d'accueil", comportement offline réel, performance de l'animation canvas.
 - Vérifier le contraste AA sur la palette sépia retenue (pas encore audité formellement).
-- Arbitrer la police dyslexie-friendly définitive (Lexend / OpenDyslexic / Atkinson Hyperlegible — seule Atkinson est câblée pour l'instant).
+- Police dyslexie-friendly arbitrée à Atkinson Hyperlegible, fixée en dur (pas de toggle) — retour sur ce choix possible si besoin (Lexend / OpenDyslexic restent des candidats).
 - Harmoniser (ou assumer la rupture volontaire) entre l'identité "Seuil" du Home et l'identité `brique.html` de Brain (V2).
 
 ### V2 — Brain (non commencé)
@@ -46,3 +48,7 @@ Dernière mise à jour : 2026-08-22. Ce document donne une vue d'ensemble du pro
 
 ## Hors scope (rappel, toutes versions)
 Tracking d'usage d'apps tierces, API Screen Time/DeviceActivity/Family Controls, blocage applicatif géré par le code — tout le gating Roblox reste 100 % natif iOS, hors app.
+
+Configuré côté iPad le 14/09 (hors app, pas de code impliqué) : limite d'app Roblox à 0 min/jour visée dans Temps d'écran, avec un code Temps d'écran à changer pour ne pas être devinable. Idée initiale d'un déblocage automatique conditionné à 5 min sur Brain écartée : ingérable depuis l'app (Roblox reste accessible directement depuis l'écran d'accueil iPad, un blocage côté Nana serait contournable) et de toute façon hors scope du projet.
+
+**Non résolu à la clôture** : la configuration Temps d'écran restait instable au moment d'arrêter — l'iPad et le téléphone de la cliente partageant le même identifiant Apple, désactiver "Partager sur tous les appareils" pour isoler l'iPad a fait sauter le code Temps d'écran déjà en place (plus de demande de code sur "Ignorer la limite"), puis la limite elle-même ne semblait plus appliquée du tout. Cause probable : partage d'identifiant Apple entre les deux appareils, incompatible avec un réglage Temps d'écran fiable et isolé sans passer par un vrai compte enfant (Partage familial). Recommandation si repris un jour : créer un compte enfant dédié plutôt que de continuer à ajuster le mode "iPad personnel".
