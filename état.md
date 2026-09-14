@@ -1,6 +1,6 @@
 # World's Nana — État d'avancement
 
-Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
+Dernière mise à jour : 2026-09-14 — **projet clôturé par la cliente à ce stade.** Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
 
 ## Fait
 
@@ -28,7 +28,7 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 - `07-orbital-eclipse.html` — prototype visuel canvas, sans lien avec le reste.
 
 ## En cours
-- Rien en cours — le choix de direction pour le Home vient d'être arbitré et le repo nettoyé en conséquence.
+- Rien en cours — le Home (V1) a été testé sur iPad réel le 14/09 et ajusté (cadrage, textes, raccourcis, police) sur la base de ce retour. Projet clôturé par la cliente à ce stade ; le "Reste à faire" ci-dessous documente ce qui n'a pas été traité, à reprendre si le projet redémarre.
 
 ## Reste à faire
 
@@ -49,4 +49,6 @@ Dernière mise à jour : 2026-09-04. Ce document donne une vue d'ensemble du pro
 ## Hors scope (rappel, toutes versions)
 Tracking d'usage d'apps tierces, API Screen Time/DeviceActivity/Family Controls, blocage applicatif géré par le code — tout le gating Roblox reste 100 % natif iOS, hors app.
 
-Configuré côté iPad le 14/09 (hors app, pas de code impliqué) : limite d'app Roblox à 0 min/jour dans Temps d'écran (l'iPad n'étant pas en Partage familial), avec un code Temps d'écran changé pour ne pas être devinable — Roblox reste grisé en permanence, débloqué manuellement au cas par cas depuis Réglages. Idée initiale d'un déblocage automatique conditionné à 5 min sur Brain écartée : ingérable depuis l'app (Roblox reste accessible directement depuis l'écran d'accueil iPad, un blocage côté Nana serait contournable) et de toute façon hors scope du projet.
+Configuré côté iPad le 14/09 (hors app, pas de code impliqué) : limite d'app Roblox à 0 min/jour visée dans Temps d'écran, avec un code Temps d'écran à changer pour ne pas être devinable. Idée initiale d'un déblocage automatique conditionné à 5 min sur Brain écartée : ingérable depuis l'app (Roblox reste accessible directement depuis l'écran d'accueil iPad, un blocage côté Nana serait contournable) et de toute façon hors scope du projet.
+
+**Non résolu à la clôture** : la configuration Temps d'écran restait instable au moment d'arrêter — l'iPad et le téléphone de la cliente partageant le même identifiant Apple, désactiver "Partager sur tous les appareils" pour isoler l'iPad a fait sauter le code Temps d'écran déjà en place (plus de demande de code sur "Ignorer la limite"), puis la limite elle-même ne semblait plus appliquée du tout. Cause probable : partage d'identifiant Apple entre les deux appareils, incompatible avec un réglage Temps d'écran fiable et isolé sans passer par un vrai compte enfant (Partage familial). Recommandation si repris un jour : créer un compte enfant dédié plutôt que de continuer à ajuster le mode "iPad personnel".
