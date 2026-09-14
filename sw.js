@@ -3,7 +3,7 @@
    hors ligne (voir backend.md, section V1 / Mode offline).
    ============================================================ */
 
-const CACHE_NAME = 'world-nana-shell-v15';
+const CACHE_NAME = 'world-nana-shell-v16';
 const APP_SHELL = [
   './index.html',
   './manifest.webmanifest',

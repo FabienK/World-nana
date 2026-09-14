@@ -55,7 +55,6 @@
     display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
   }
   .eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; }
-  h1 { font-family: var(--font-display); font-weight: 600; font-size: 26px; margin: 4px 0 0; }
   /* Trou noir animé, posé exactement sur le portail de l'illustration */
   .blackhole-wrap {
     position: absolute; left: 49%; top: 41%; width: 42%; aspect-ratio: 1/1;
@@ -104,7 +103,6 @@
   #void-overlay.active { opacity: 1; }
 
   .below { padding: 6px 20px 40px; position: relative; z-index: 3; margin-top: -8%; }
-  .greeting { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 46ch; }
   .offline-banner {
     margin: 16px 0 0; padding: 12px 14px; border-radius: 12px; background: rgba(232,169,77,0.12);
     border: 1px solid rgba(232,169,77,0.32); color: var(--accent); font-size: 13px; text-align: center;
@@ -131,12 +129,10 @@
     <div class="scene-header">
       <div>
         <p class="eyebrow">World's Nana</p>
-        <h1>Ta chambre, ce soir</h1>
       </div>
     </div>
   </div>
   <div class="below">
-    <p class="greeting">Touche un menu en orbite pour être aspiré·e à l'intérieur — l'app s'ouvre de l'autre côté.</p>
     <div class="offline-banner" id="offline-banner" hidden>Pas de connexion — les raccourcis déjà installés restent utilisables.</div>
   </div>
 </div>
