@@ -32,12 +32,22 @@
   }
   #root { width: 100%; max-width: 900px; }
 
-  .scene { position: relative; width: 100%; }
-  .scene-bg { width: 100%; display: block; }
-  .scene::after {
+  /* .scene-viewport ne bouge pas : c'est la fenêtre visible, taille naturelle
+     de l'image. .scene est zoomée dedans (recadrage "gros plan" centré sur
+     le portail, moins de sol/coffre à jouets visible en bas) — comme tout
+     ce qui est à l'intérieur (image + trou noir + orbite + fillette) est
+     zoomé ensemble comme un seul bloc rigide, les % de position les uns
+     par rapport aux autres restent corrects, seul le cadrage change. */
+  .scene-viewport { position: relative; width: 100%; overflow: hidden; }
+  .scene-viewport::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
-    background: linear-gradient(180deg, transparent, var(--bg)); pointer-events: none;
+    background: linear-gradient(180deg, transparent, var(--bg)); pointer-events: none; z-index: 7;
   }
+  .scene {
+    position: relative; width: 100%;
+    transform: scale(1.18); transform-origin: 49% 41%;
+  }
+  .scene-bg { width: 100%; display: block; }
   .scene-header {
     position: absolute; top: 0; left: 0; right: 0; z-index: 8;
     padding: max(18px, env(safe-area-inset-top)) 20px 40px;
@@ -107,15 +117,17 @@
 </head>
 <body>
 <div id="root">
-  <div class="scene">
-    <img class="scene-bg" src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
-    <div class="blackhole-wrap" id="bh-wrap">
-      <canvas id="bh-canvas"></canvas>
+  <div class="scene-viewport">
+    <div class="scene">
+      <img class="scene-bg" src="./assets/portal-full.jpg" alt="Chambre d'enfant, une porte ouverte laisse voir un tourbillon lumineux.">
+      <div class="blackhole-wrap" id="bh-wrap">
+        <canvas id="bh-canvas"></canvas>
+      </div>
+      <div class="orbit-anchor">
+        <div id="orbit"></div>
+      </div>
+      <img class="girl-layer" src="./assets/girl-cutout.png" alt="" aria-hidden="true">
     </div>
-    <div class="orbit-anchor">
-      <div id="orbit"></div>
-    </div>
-    <img class="girl-layer" src="./assets/girl-cutout.png" alt="" aria-hidden="true">
     <div class="scene-header">
       <div>
         <p class="eyebrow">World's Nana</p>
