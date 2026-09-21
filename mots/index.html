@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6efe1">
+  <title>World’s Nana — Les jeux</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body class="home">
+  <main class="biblio">
+    <h1 class="sr-only">Les jeux</h1>
+    <nav class="biblio-zone" id="biblio-zone" aria-label="Les jeux, dans la bibliothèque">
+      <img src="assets/img/bibliotheque.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+    </nav>
+    <a class="portail" href="https://fabienk.github.io/World-nana/">
+      <img src="assets/img/portail.webp" alt="" width="400" height="400">
+      <span translate="no">World’s Nana</span>
+    </a>
+  </main>
+
+  <script type="module">
+    import { initPage, MODULES, escapeHtml, stamp } from "./js/core/ui.js";
+    import { lastResult } from "./js/core/storage.js";
+
+    initPage(null);
+
+    // Cadres de l'illustration (bibliotheque.webp, 1536 × 1024) : boîte extérieure
+    // de chaque cadre en % de l'image. Chaque cadre est le lien vers son jeu.
+    const CADRES = {
+      codeur:      { x: 21.1, y: 13.1, w: 11.9, h: 20.1 },
+      lexique:     { x: 63.0, y: 12.9, w: 11.9, h: 20.3 },
+      explorateur: { x: 43.7, y: 30.4, w: 11.5, h: 20.3 },
+      organiseur:  { x: 24.5, y: 52.3, w: 12.0, h: 20.1 },
+      liseuse:     { x: 60.6, y: 52.2, w: 11.9, h: 20.2 },
+    };
+    const zone = document.getElementById("biblio-zone");
+    zone.insertAdjacentHTML("beforeend", MODULES.map((m) => {
+      const c = CADRES[m.id];
+      return `<a class="cadre" href="${m.page}" style="--x:${c.x}%;--y:${c.y}%;--w:${c.w}%;--h:${c.h}%">
+          <span class="cadre-titre">${escapeHtml(m.title)}</span>
+        </a>`;
+    }).join(""));
+    // Dernier résultat : tampon manuscrit sur le cadre, comme dans les jeux.
+    zone.querySelectorAll(".cadre").forEach((a, i) => {
+      const last = lastResult(MODULES[i].id);
+      if (last) stamp(a, last.success, last.success ? "Réussi" : "À rejouer");
+    });
+    // Sur téléphone l'étagère défile horizontalement : on l'ouvre centrée.
+    const biblio = zone.parentElement;
+    biblio.scrollLeft = (biblio.scrollWidth - biblio.clientWidth) / 2;
+
+  </script>
+</body>
+</html>

@@ -1,8 +1,15 @@
 # World's Nana — État d'avancement
 
-Dernière mise à jour : 2026-09-14 — **projet clôturé par la cliente à ce stade.** Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
+Dernière mise à jour : 2026-09-21 (ajout des jeux « Mots »). Ce document donne une vue d'ensemble du projet ; `frontend.md`/`backend.md` restent la référence pour le scope et les contraintes.
 
 ## Fait
+
+### 2026-09-21 — Les 5 jeux de langage sous `mots/`, raccourci « Mots »
+- Le projet *Modules word nana* (5 jeux : Puzzle de phrases, Chasse au mot, Détective, Dans la bonne case, Histoires à écouter) est publié dans ce dépôt sous `mots/` (≈ 830 Ko : `index.html`, `modules/`, `js/`, `css/`, `data/`, polices OpenDyslexic, deux images). Copie produite par `outils/publier.sh` du projet source — ne pas éditer `mots/` en place.
+- `index.html` : 6e raccourci `{ id: 'mots', label: 'Mots', url: './mots/' }` (icône livre ouvert, placé entre Brain et Roblox). Même origine que la PWA : les jeux s'ouvrent dans l'app installée ; leur polaroïd « World's Nana » (bas gauche) ramène ici.
+- `sw.js` : `CACHE_NAME` → v20 ; les requêtes `mots/` passent en réseau d'abord (cache seulement hors ligne) pour que les mises à jour de contenu soient visibles dès la première visite.
+- Vérifié en local (desktop, tablette 768, téléphone 375) : 6 raccourcis en orbite, clic « Mots » → bibliothèque, les 5 jeux chargent sans erreur, 28 fichiers `mots/` mis en cache par le SW. Non vérifié : iPad réel, hors-ligne réel.
+- Rappel : GitHub Pages sert la branche `claude/frontend-backend-md-files-lk7n1g` (pas `main`).
 
 ### Documentation
 - `CLAUDE.md` créé (repère pour travailler sur le repo : pas de build, fichiers HTML autonomes, scope versionné V1/V2/V3).

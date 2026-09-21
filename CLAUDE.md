@@ -8,6 +8,7 @@ World's Nana — a PWA for iPad, built for a 12-year-old girl. There is no build
 
 - `brique.html` — the "Brain" (V2) prototype: a self-contained vanilla-JS app (home "planet" screen + card-by-card learning session flow). Marked in its own header comment as "app autonome, sans dépendance réseau après ouverture" (no network dependency after first load) — keep it that way when editing.
 - `07-orbital-eclipse.html` — a visual/interaction prototype (canvas-based).
+- `mots/` — the five language games ("Puzzle de phrases", "Chasse au mot", "Détective", "Dans la bonne case", "Histoires à écouter"), a multi-file static sub-site (ES modules + JSON content) reached from the Home shortcut "Mots". It is a **copy**, published by `outils/publier.sh` of the separate project `../Modules word nana` (its own CLAUDE.md/etat.md) — never edit `mots/` in place, edit the source project and re-run the script. `sw.js` serves `mots/` network-first (cache only as offline fallback).
 - `frontend.md` / `backend.md` — the product/architecture spec driving current and future work (see below). Read these before implementing new screens or features; they define what's in scope per version.
 
 ## Architecture, read from the specs

@@ -1,0 +1,244 @@
+{
+  "scenarios": [
+    {
+      "id": "ironie-retard",
+      "titre": "Au parc",
+      "contexte": "Lina attend Sam au parc depuis vingt minutes. Sam arrive enfin, tout essoufflé. Lina lui dit :",
+      "replique": "Eh bien bravo Sam, tu es vraiment en avance aujourd’hui !",
+      "question": "Que pense vraiment Lina quand elle dit ça ?",
+      "choix": [
+        {
+          "texte": "Lina pense sincèrement que Sam est arrivé en avance.",
+          "correct": false
+        },
+        {
+          "texte": "Lina se moque gentiment : elle lui fait remarquer qu’il est très en retard.",
+          "correct": true
+        },
+        {
+          "texte": "Lina félicite Sam parce qu’il a couru vite.",
+          "correct": false
+        }
+      ],
+      "reussite": "Exactement. Lina dit le contraire de ce qu’elle pense : c’est de l’ironie.",
+      "penseeReelle": "Sam a vingt minutes de retard. Je le taquine en disant l’inverse.",
+      "explication": "Regarde la situation : Sam arrive après vingt minutes d’attente. Les mots (<em>« tu es en avance »</em>) disent le contraire de la réalité (<em>Sam est en retard</em>). Quand on dit l’inverse de ce qu’on pense pour taquiner, c’est de l’<strong>ironie</strong>."
+    },
+    {
+      "id": "exageration-faim",
+      "titre": "À la cuisine",
+      "contexte": "Théo rentre du foot. Il ouvre le frigo et dit à sa mère :",
+      "replique": "J’ai tellement faim que je pourrais manger un cheval entier !",
+      "question": "Que veut dire Théo ?",
+      "choix": [
+        {
+          "texte": "Il a très, très faim.",
+          "correct": true
+        },
+        {
+          "texte": "Il veut vraiment manger de la viande de cheval.",
+          "correct": false
+        },
+        {
+          "texte": "Il n’a pas faim, il plaisante.",
+          "correct": false
+        }
+      ],
+      "reussite": "C’est ça. Théo grossit les choses pour montrer à quel point il a faim.",
+      "penseeReelle": "J’ai très faim. Je dis une chose énorme pour que ça se voie.",
+      "explication": "Personne ne mange un cheval entier. Théo <strong>exagère</strong> exprès : plus la phrase est énorme, plus on comprend que sa faim est grande. On appelle ça une exagération."
+    },
+    {
+      "id": "sous-entendu-fenetre",
+      "titre": "Dans le salon",
+      "contexte": "Zoé et son frère regardent un film. La fenêtre est grande ouverte. Zoé frissonne et dit :",
+      "replique": "Il fait un peu froid ici, non ?",
+      "question": "Que veut vraiment Zoé ?",
+      "choix": [
+        {
+          "texte": "Elle veut savoir la température exacte du salon.",
+          "correct": false
+        },
+        {
+          "texte": "Elle demande à son frère de fermer la fenêtre, sans le dire directement.",
+          "correct": true
+        },
+        {
+          "texte": "Elle veut sortir prendre l’air.",
+          "correct": false
+        }
+      ],
+      "reussite": "Oui. Zoé ne demande pas, mais son frère comprend qu’il faut fermer la fenêtre.",
+      "penseeReelle": "Ferme la fenêtre, s’il te plaît. Je le dis en douceur.",
+      "explication": "Zoé pose une question, mais ce n’est pas une vraie question : elle frissonne et la fenêtre est ouverte. Elle fait comprendre ce qu’elle veut sans le demander. C’est un <strong>sous-entendu</strong>."
+    },
+    {
+      "id": "politesse-gateau",
+      "titre": "Chez Mamie",
+      "contexte": "Mamie a fait un gâteau. Il est un peu brûlé. Elle demande à Lina si c’est bon. Lina répond :",
+      "replique": "Il est… original ! On sent que tu y as mis du cœur.",
+      "question": "Que pense vraiment Lina ?",
+      "choix": [
+        {
+          "texte": "Le gâteau est le meilleur qu’elle ait mangé.",
+          "correct": false
+        },
+        {
+          "texte": "Le gâteau n’est pas très bon, mais elle ne veut pas vexer Mamie.",
+          "correct": true
+        },
+        {
+          "texte": "Elle n’a pas goûté le gâteau.",
+          "correct": false
+        }
+      ],
+      "reussite": "Exactement. Lina choisit des mots gentils pour ne pas faire de peine.",
+      "penseeReelle": "Le gâteau est brûlé. Mais Mamie s’est donné du mal : je reste gentille.",
+      "explication": "« Original » n’est pas « délicieux ». Lina cherche un mot gentil pour un gâteau raté : c’est la <strong>politesse</strong>. Regarde les indices : le gâteau est brûlé, et elle parle du cœur, pas du goût."
+    },
+    {
+      "id": "ton-sec-genial",
+      "titre": "Dans la chambre",
+      "contexte": "Sam a rangé sa chambre, mais il a caché tout le bazar sous le lit. Son père soulève la couette, regarde, et dit d’une voix sèche :",
+      "replique": "Génial. Vraiment génial.",
+      "question": "Que pense vraiment le père de Sam ?",
+      "choix": [
+        {
+          "texte": "Il trouve la chambre très bien rangée.",
+          "correct": false
+        },
+        {
+          "texte": "Il est content que Sam ait trouvé une bonne idée.",
+          "correct": false
+        },
+        {
+          "texte": "Il n’est pas content du tout : le bazar est juste caché.",
+          "correct": true
+        }
+      ],
+      "reussite": "C’est ça. Le mot est gentil, mais le ton dit le contraire.",
+      "penseeReelle": "Tu n’as rien rangé, tu as tout caché. Je ne suis pas content.",
+      "explication": "« Génial » est un mot positif, mais le père le dit <em>d’une voix sèche</em> en voyant le bazar. Quand le ton et les mots ne vont pas ensemble, c’est le <strong>ton</strong> qui dit la vérité."
+    },
+    {
+      "id": "question-rhetorique-chien",
+      "titre": "Au parc",
+      "contexte": "Le chien de Théo a sauté dans une flaque de boue. Il revient tout noir. Théo lui dit :",
+      "replique": "Tu es fier de toi, là ?",
+      "question": "Que veut dire Théo ?",
+      "choix": [
+        {
+          "texte": "Il demande sincèrement au chien s’il est fier.",
+          "correct": false
+        },
+        {
+          "texte": "Il gronde le chien : il n’attend pas de réponse.",
+          "correct": true
+        },
+        {
+          "texte": "Il félicite le chien pour son plongeon.",
+          "correct": false
+        }
+      ],
+      "reussite": "Oui. Ce n’est pas une vraie question, c’est une façon de gronder.",
+      "penseeReelle": "Regarde dans quel état tu es ! Je vais devoir te laver.",
+      "explication": "Un chien ne répond pas, et Théo le sait. Sa question n’attend pas de réponse : elle sert à montrer qu’il n’est pas content. C’est une <strong>fausse question</strong>."
+    },
+    {
+      "id": "on-verra-parc-attractions",
+      "titre": "À table",
+      "contexte": "Lina demande à ses parents s’ils peuvent aller au parc d’attractions ce week-end. Sa mère soupire et répond :",
+      "replique": "On verra…",
+      "question": "Que pense vraiment la mère de Lina ?",
+      "choix": [
+        {
+          "texte": "Elle dit oui, c’est décidé.",
+          "correct": false
+        },
+        {
+          "texte": "Elle n’a pas compris la question.",
+          "correct": false
+        },
+        {
+          "texte": "C’est presque non : elle n’a pas envie, mais elle ne veut pas le dire tout de suite.",
+          "correct": true
+        }
+      ],
+      "reussite": "Exactement. « On verra » avec un soupir, c’est souvent un non qui ne dit pas son nom.",
+      "penseeReelle": "Ce week-end, ce n’est pas possible. Je n’ai pas envie de dire non maintenant.",
+      "explication": "Les mots ne disent ni oui ni non. Mais la mère <em>soupire</em> et ne promet rien. Quand on ne veut pas dire non, on dit « on verra » : c’est une <strong>réponse floue</strong> qui cache un refus."
+    },
+    {
+      "id": "litote-pas-mal",
+      "titre": "Dans le jardin",
+      "contexte": "Sam a construit une cabane dans l’arbre avec son cousin. Son grand-père la regarde longtemps, sourit et dit :",
+      "replique": "Pas mal. Pas mal du tout.",
+      "question": "Que pense vraiment le grand-père ?",
+      "choix": [
+        {
+          "texte": "Il trouve la cabane vraiment très réussie.",
+          "correct": true
+        },
+        {
+          "texte": "Il trouve la cabane moyenne.",
+          "correct": false
+        },
+        {
+          "texte": "Il pense que la cabane va tomber.",
+          "correct": false
+        }
+      ],
+      "reussite": "C’est ça. Il en dit moins que ce qu’il pense, pour ne pas en faire trop.",
+      "penseeReelle": "Elle est superbe, cette cabane. Je suis fier d’eux.",
+      "explication": "« Pas mal » veut dire « bien ». Avec le sourire et le long regard, ça veut dire « très bien ». Le grand-père en dit <em>moins</em> pour en penser <em>plus</em> : c’est une façon discrète de faire un compliment."
+    },
+    {
+      "id": "humour-pluie",
+      "titre": "Devant la maison",
+      "contexte": "Il pleut à torrents. Zoé et Théo devaient aller à la piscine. Théo regarde le ciel et dit en riant :",
+      "replique": "Bon, finalement on va pouvoir nager quand même !",
+      "question": "Que veut dire Théo ?",
+      "choix": [
+        {
+          "texte": "Il veut vraiment nager dans la rue.",
+          "correct": false
+        },
+        {
+          "texte": "Il plaisante pour se consoler : la piscine, c’est raté.",
+          "correct": true
+        },
+        {
+          "texte": "Il n’a pas vu qu’il pleuvait.",
+          "correct": false
+        }
+      ],
+      "reussite": "Oui. Théo fait une blague pour rendre la déception plus légère.",
+      "penseeReelle": "Pas de piscine aujourd’hui. Tant pis, autant en rire.",
+      "explication": "Théo <em>rit</em> en parlant : c’est une <strong>blague</strong>. La pluie est tellement forte qu’on pourrait « nager » dehors. Il transforme une déception en plaisanterie."
+    },
+    {
+      "id": "compliment-double-sens",
+      "titre": "Chez des amis",
+      "contexte": "Lina montre son nouveau manteau jaune vif à sa copine Inès. Inès regarde et dit :",
+      "replique": "Au moins, on ne risque pas de te perdre dans la rue !",
+      "question": "Que pense vraiment Inès ?",
+      "choix": [
+        {
+          "texte": "Elle a peur que Lina se perde.",
+          "correct": false
+        },
+        {
+          "texte": "Elle trouve le manteau très voyant : c’est une taquinerie.",
+          "correct": true
+        },
+        {
+          "texte": "Elle veut le même manteau.",
+          "correct": false
+        }
+      ],
+      "reussite": "Exactement. Inès taquine Lina sur la couleur, sans dire « c’est trop voyant ».",
+      "penseeReelle": "Ce manteau est vraiment très jaune ! Je la taquine un peu.",
+      "explication": "Inès ne parle pas du manteau directement. Elle dit qu’on verra Lina de loin : c’est une <strong>taquinerie</strong>. Le « au moins » montre qu’elle cherche un côté positif à quelque chose qui la fait sourire."
+    }
+  ]
+}

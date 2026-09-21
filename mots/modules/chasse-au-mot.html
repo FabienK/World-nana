@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chasse au mot</title>
+  <meta name="theme-color" content="#f6efe1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    .picto { font-size: 2.6rem; line-height: 1; }
+    .indices { border-radius: 12px; }
+    .indices .tabs { margin-bottom: 8px; }
+    .indices .tab-panel { color: var(--c-muted); padding: 2px 4px; min-height: 48px; }
+    /* Le carnet grandit à chaque mot trouvé : c'est lui qui défile, jamais la page. */
+    details.repli { margin-top: auto; min-height: 0; display: flex; flex-direction: column; }
+    details.repli summary { flex: none; }
+    details.repli::details-content { display: flex; flex-direction: column; min-height: 0; }
+    .carnet { list-style: none; padding: 0; margin: 0; overflow-y: auto; min-height: 0; overscroll-behavior: contain; }
+    .carnet li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--c-border); }
+    .carnet li .def { color: var(--c-muted); }
+    .carnet li .btn { margin-left: auto; }
+    .input-row { display: flex; gap: 8px; align-items: stretch; }
+    .input-row .field { flex: 1; display: flex; min-width: 0; }
+    .input-row input { flex: 1; min-width: 0; font-size: 1.15rem; }
+    @media (max-width: 599px) {
+      .input-row { flex-wrap: wrap; }
+      .input-row .field { flex: 1 1 60%; }
+      .input-row #btn-check { flex: 1 1 auto; }
+      .input-row .btn-next { flex: none; }
+    }
+    @media (min-width: 800px) { .focal { padding: 28px 32px; font-size: 1.6rem; } }
+    /* La phrase-énigme et son bouton Écouter sur une même ligne, comme dans Détective. */
+    .said-row { display: flex; align-items: center; gap: 10px; }
+    .said-row #situation { flex: 1; min-width: 0; }
+    /* Téléphone : la phrase garde toute la largeur, le bouton passe dessous à droite. */
+    @media (max-width: 599px) { .said-row { flex-wrap: wrap; justify-content: flex-end; } .said-row #situation { flex-basis: 100%; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="module-head">
+      <p class="lead">Un mot se cache derrière cette phrase. Si tu bloques, ouvre les indices dans l'ordre.</p>
+    </div>
+    <div class="focal said-row">
+      <div id="situation"></div>
+      <button class="btn btn-ghost btn-icon" id="btn-speak-situation" data-icon="speaker" aria-label="Écouter la phrase" title="Écouter la phrase"></button>
+    </div>
+    <div class="indices">
+      <div class="tabs" role="tablist" id="tabs-indices">
+        <button class="tab" role="tab" aria-controls="ind-1" id="tab-1">Indice 1</button>
+        <button class="tab" role="tab" aria-controls="ind-2" id="tab-2">Indice 2</button>
+        <button class="tab" role="tab" aria-controls="ind-3" id="tab-3">Indice 3</button>
+      </div>
+      <div class="tab-panel" id="ind-1" role="tabpanel" aria-labelledby="tab-1"><p id="ind-semantique" style="margin:0"></p></div>
+      <div class="tab-panel" id="ind-2" role="tabpanel" aria-labelledby="tab-2"><div class="picto" id="ind-picto" role="img"></div></div>
+      <div class="tab-panel" id="ind-3" role="tabpanel" aria-labelledby="tab-3">
+        <p class="row" style="margin:0"><span>Le mot commence par <strong id="ind-syllabe"></strong></span><button class="btn btn-ghost btn-icon" id="btn-speak-syllabe" data-icon="speaker" aria-label="Écouter le début du mot" title="Écouter le début du mot"></button></p>
+      </div>
+    </div>
+    <div class="reponse">
+      <label for="reponse" id="label-reponse">Ta réponse&nbsp;: écris ou dicte le mot</label>
+      <div class="input-row">
+        <span class="field"><input type="text" id="reponse" name="reponse" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="done"></span>
+        <button class="btn btn-secondary btn-icon" id="btn-mic" aria-label="Dicter le mot" aria-pressed="false" title="Dicter le mot" data-icon="mic"></button>
+        <button class="btn" id="btn-check" data-icon="check">Vérifier</button>
+      </div>
+    </div>
+    <div class="feedback-box" id="feedback" aria-live="polite"></div>
+    <details class="repli">
+      <summary>Mon carnet de mots</summary>
+      <ul class="carnet" id="carnet"></ul>
+    </details>
+  </main>
+  <script type="module" src="../js/modules/chasse-au-mot.js"></script>
+</body>
+</html>

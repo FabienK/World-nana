@@ -1,0 +1,202 @@
+{
+  "puzzles": [
+    {
+      "id": "maison-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Ma sœur",
+          "Le chat",
+          "Papa"
+        ],
+        "verbe": [
+          "prépare",
+          "cherche",
+          "dessine"
+        ],
+        "complement": [
+          "un gâteau au chocolat",
+          "ses écouteurs",
+          "une licorne violette"
+        ]
+      },
+      "feedbackReussite": "Ta phrase est complète : on sait qui, ce qu’il fait, et quoi. Elle se lit d’une traite."
+    },
+    {
+      "id": "chambre-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mon frère",
+          "La chatte",
+          "Mamie"
+        ],
+        "verbe": [
+          "range",
+          "attrape",
+          "allume"
+        ],
+        "complement": [
+          "ses baskets",
+          "une balle rouge",
+          "la lampe du bureau"
+        ]
+      },
+      "feedbackReussite": "Trois cases, une phrase : quelqu’un, une action, et ce qui va avec."
+    },
+    {
+      "id": "cuisine-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Maman",
+          "Le chien",
+          "Mon cousin"
+        ],
+        "verbe": [
+          "coupe",
+          "renverse",
+          "goûte"
+        ],
+        "complement": [
+          "du pain frais",
+          "le bol de lait",
+          "la soupe aux carottes"
+        ]
+      },
+      "feedbackReussite": "Bien joué : la phrase se lit d’une traite, sans rien qui manque."
+    },
+    {
+      "id": "parc-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Lina",
+          "Le vieux monsieur",
+          "Un écureuil"
+        ],
+        "verbe": [
+          "lance",
+          "promène",
+          "grimpe"
+        ],
+        "complement": [
+          "un ballon bleu",
+          "son petit chien",
+          "dans le grand chêne"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, où : la phrase tient debout."
+    },
+    {
+      "id": "animaux-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Le lapin",
+          "La tortue",
+          "Un moineau"
+        ],
+        "verbe": [
+          "grignote",
+          "traverse",
+          "picore"
+        ],
+        "complement": [
+          "une carotte",
+          "le jardin",
+          "des miettes de pain"
+        ]
+      },
+      "feedbackReussite": "Un animal, une action, et ce qu’il fait : tout y est."
+    },
+    {
+      "id": "amis-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Sam",
+          "Ma meilleure amie",
+          "Les voisins"
+        ],
+        "verbe": [
+          "raconte",
+          "photographie",
+          "organisent"
+        ],
+        "complement": [
+          "une histoire drôle",
+          "le coucher du soleil",
+          "une fête surprise"
+        ]
+      },
+      "feedbackReussite": "La phrase est complète, on comprend tout du premier coup."
+    },
+    {
+      "id": "salle-de-bain-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Théo",
+          "Ma petite sœur",
+          "Papy"
+        ],
+        "verbe": [
+          "brosse",
+          "éclabousse",
+          "cherche"
+        ],
+        "complement": [
+          "ses dents",
+          "toute la salle de bain",
+          "ses lunettes"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : rien ne manque."
+    },
+    {
+      "id": "jardin-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Zoé",
+          "Le hérisson",
+          "Mon voisin"
+        ],
+        "verbe": [
+          "arrose",
+          "se cache",
+          "tond"
+        ],
+        "complement": [
+          "les tomates",
+          "sous les feuilles",
+          "la pelouse"
+        ]
+      },
+      "feedbackReussite": "La phrase se lit d’une traite : bien joué."
+    },
+    {
+      "id": "soir-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Toute la famille",
+          "Le bébé",
+          "Inès"
+        ],
+        "verbe": [
+          "regarde",
+          "s'endort",
+          "écoute"
+        ],
+        "complement": [
+          "un film d'aventure",
+          "dans son petit lit",
+          "de la musique douce"
+        ]
+      },
+      "feedbackReussite": "Trois blocs, une phrase entière. Elle tient debout."
+    }
+  ]
+}

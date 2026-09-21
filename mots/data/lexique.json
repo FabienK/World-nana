@@ -1,0 +1,470 @@
+{
+  "mots": [
+    {
+      "id": "parapluie",
+      "mot": "parapluie",
+      "variantes": [
+        "le parapluie",
+        "mon parapluie",
+        "un parapluie"
+      ],
+      "situation": "C’est l’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
+      "indices": {
+        "semantique": "Un objet du quotidien, pour la pluie. On le plie et on le déplie.",
+        "picto": "☔",
+        "syllabe": "Pa"
+      },
+      "aide": "Presque : le mot commence par « Pa-ra… ». Pense à ce qui te protège de la pluie.",
+      "definition": "L’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
+      "emoji": "☔"
+    },
+    {
+      "id": "reveil",
+      "mot": "réveil",
+      "variantes": [
+        "le réveil",
+        "mon réveil",
+        "un réveil"
+      ],
+      "situation": "C’est l’objet qui sonne le matin pour te tirer du lit.",
+      "indices": {
+        "semantique": "Il est posé près du lit. Il a une heure et il fait du bruit.",
+        "picto": "⏰",
+        "syllabe": "Ré"
+      },
+      "aide": "Presque : ça commence par « Ré-veil… ». C’est lui qui sonne le matin.",
+      "definition": "L’objet qui sonne le matin pour te tirer du lit.",
+      "emoji": "⏰"
+    },
+    {
+      "id": "brosse-a-dents",
+      "mot": "brosse à dents",
+      "variantes": [
+        "la brosse à dents",
+        "ma brosse à dents",
+        "une brosse à dents"
+      ],
+      "situation": "C’est l’objet qu’on utilise matin et soir, avec du dentifrice.",
+      "indices": {
+        "semantique": "Elle vit dans la salle de bain. Elle a un manche et des poils.",
+        "picto": "🪥",
+        "syllabe": "Bro"
+      },
+      "aide": "Presque : le mot commence par « Bro… ». Pense au dentifrice.",
+      "definition": "L’objet qu’on utilise matin et soir avec du dentifrice.",
+      "emoji": "🪥"
+    },
+    {
+      "id": "coussin",
+      "mot": "coussin",
+      "variantes": [
+        "le coussin",
+        "mon coussin",
+        "un coussin"
+      ],
+      "situation": "C’est l’objet moelleux qu’on pose sur le canapé ou sur le lit.",
+      "indices": {
+        "semantique": "Il est doux, carré ou rond. On peut poser sa tête dessus.",
+        "picto": "🛋",
+        "syllabe": "Cou"
+      },
+      "aide": "Presque : ça commence par « Cou… ». Il est moelleux, sur le canapé.",
+      "definition": "L’objet moelleux qu’on pose sur le canapé ou le lit.",
+      "emoji": "🛋"
+    },
+    {
+      "id": "frigo",
+      "mot": "frigo",
+      "variantes": [
+        "le frigo",
+        "mon frigo",
+        "un frigo"
+      ],
+      "situation": "C’est le gros meuble froid où l’on garde le lait et le beurre.",
+      "indices": {
+        "semantique": "Dans la cuisine. Il fait froid dedans et une lumière s’allume quand on l’ouvre.",
+        "picto": "🧊",
+        "syllabe": "Fri"
+      },
+      "aide": "Presque : le mot commence par « Fri… ». Il garde les aliments au froid.",
+      "definition": "Le gros meuble froid où l’on garde les aliments.",
+      "emoji": "🧊"
+    },
+    {
+      "id": "pantoufles",
+      "mot": "pantoufles",
+      "variantes": [
+        "des pantoufles",
+        "les pantoufles",
+        "mes pantoufles"
+      ],
+      "situation": "Ce sont les chaussures douces qu’on met à la maison.",
+      "indices": {
+        "semantique": "On les enfile en rentrant. Elles sont chaudes et on ne sort pas avec.",
+        "picto": "🥿",
+        "syllabe": "Pan"
+      },
+      "aide": "Presque : ça commence par « Pan-tou… ». Les chaussures douces de la maison.",
+      "definition": "Les chaussures douces qu’on met à la maison.",
+      "emoji": "🥿"
+    },
+    {
+      "id": "gourde",
+      "mot": "gourde",
+      "variantes": [
+        "la gourde",
+        "ma gourde",
+        "une gourde"
+      ],
+      "situation": "C’est la bouteille qu’on remplit d’eau pour la journée.",
+      "indices": {
+        "semantique": "On l’emporte partout. Elle se ferme bien et ne fuit pas dans le sac.",
+        "picto": "🍶",
+        "syllabe": "Gour"
+      },
+      "aide": "Presque : ça commence par « Gour… ». On y met de l’eau pour la journée.",
+      "definition": "La bouteille qu’on remplit d’eau pour la journée.",
+      "emoji": "🍶"
+    },
+    {
+      "id": "echarpe",
+      "mot": "écharpe",
+      "variantes": [
+        "l'écharpe",
+        "la écharpe",
+        "l’écharpe",
+        "ma écharpe",
+        "mon écharpe",
+        "une écharpe"
+      ],
+      "situation": "C’est le long tissu qu’on enroule autour du cou quand il fait froid.",
+      "indices": {
+        "semantique": "En laine, souvent. On la porte l’hiver, avec le bonnet.",
+        "picto": "🧣",
+        "syllabe": "É"
+      },
+      "aide": "Presque : ça commence par « É-char… ». Elle tient chaud au cou.",
+      "definition": "Le long tissu qu’on enroule autour du cou quand il fait froid.",
+      "emoji": "🧣"
+    },
+    {
+      "id": "casque",
+      "mot": "casque",
+      "variantes": [
+        "le casque",
+        "mon casque",
+        "un casque"
+      ],
+      "situation": "C’est ce qu’on met sur la tête pour écouter de la musique sans déranger.",
+      "indices": {
+        "semantique": "Il couvre les deux oreilles. Il se branche au téléphone ou fonctionne sans fil.",
+        "picto": "🎧",
+        "syllabe": "Cas"
+      },
+      "aide": "Presque : ça commence par « Cas… ». Pour écouter la musique rien que pour soi.",
+      "definition": "Ce qu’on met sur les oreilles pour écouter de la musique.",
+      "emoji": "🎧"
+    },
+    {
+      "id": "lampe-de-poche",
+      "mot": "lampe de poche",
+      "variantes": [
+        "la lampe de poche",
+        "ma lampe de poche",
+        "une lampe de poche"
+      ],
+      "situation": "C’est le petit objet qui éclaire quand il fait noir, et qu’on tient dans la main.",
+      "indices": {
+        "semantique": "Elle marche avec des piles. Pratique sous la couette ou en camping.",
+        "picto": "🔦",
+        "syllabe": "Lam"
+      },
+      "aide": "Presque : ça commence par « Lam-pe… ». On la tient dans la main pour éclairer.",
+      "definition": "Le petit objet qui éclaire dans le noir, tenu dans la main.",
+      "emoji": "🔦"
+    },
+    {
+      "id": "aspirateur",
+      "mot": "aspirateur",
+      "variantes": [
+        "l'aspirateur",
+        "le aspirateur",
+        "l’aspirateur",
+        "mon aspirateur",
+        "un aspirateur"
+      ],
+      "situation": "C’est la machine bruyante qui avale la poussière du sol.",
+      "indices": {
+        "semantique": "On la promène dans toute la maison. Elle fait beaucoup de bruit.",
+        "picto": "🧹",
+        "syllabe": "As"
+      },
+      "aide": "Presque : ça commence par « As-pi… ». Elle avale la poussière.",
+      "definition": "La machine bruyante qui avale la poussière du sol.",
+      "emoji": "🧹"
+    },
+    {
+      "id": "tirelire",
+      "mot": "tirelire",
+      "variantes": [
+        "la tirelire",
+        "ma tirelire",
+        "une tirelire"
+      ],
+      "situation": "C’est la boîte où l’on glisse les pièces pour faire des économies.",
+      "indices": {
+        "semantique": "Souvent en forme de cochon. Il y a une fente sur le dessus.",
+        "picto": "🐷",
+        "syllabe": "Ti"
+      },
+      "aide": "Presque : ça commence par « Ti-re… ». On y met ses pièces.",
+      "definition": "La boîte où l’on glisse ses pièces pour faire des économies.",
+      "emoji": "🐷"
+    },
+    {
+      "id": "paillasson",
+      "mot": "paillasson",
+      "variantes": [
+        "le paillasson",
+        "mon paillasson",
+        "un paillasson"
+      ],
+      "situation": "C’est le tapis devant la porte, pour essuyer ses chaussures.",
+      "indices": {
+        "semantique": "Il est rugueux. Il dit parfois « Bienvenue ».",
+        "picto": "🚪",
+        "syllabe": "Pa"
+      },
+      "aide": "Presque : ça commence par « Pail-la… ». Il est devant la porte d’entrée.",
+      "definition": "Le tapis devant la porte pour essuyer ses chaussures.",
+      "emoji": "🚪"
+    },
+    {
+      "id": "echelle",
+      "mot": "échelle",
+      "variantes": [
+        "l'échelle",
+        "la échelle",
+        "l’échelle",
+        "ma échelle",
+        "mon échelle",
+        "une échelle"
+      ],
+      "situation": "C’est l’objet avec des barreaux pour monter plus haut.",
+      "indices": {
+        "semantique": "On l’appuie contre un mur ou un arbre. On grimpe barreau après barreau.",
+        "picto": "🪜",
+        "syllabe": "É"
+      },
+      "aide": "Presque : ça commence par « É-chel… ». Elle a des barreaux.",
+      "definition": "L’objet avec des barreaux pour monter plus haut.",
+      "emoji": "🪜"
+    },
+    {
+      "id": "boussole",
+      "mot": "boussole",
+      "variantes": [
+        "la boussole",
+        "ma boussole",
+        "une boussole"
+      ],
+      "situation": "C’est le petit objet rond dont l’aiguille montre toujours le nord.",
+      "indices": {
+        "semantique": "Les randonneurs l’utilisent pour ne pas se perdre.",
+        "picto": "🧭",
+        "syllabe": "Bous"
+      },
+      "aide": "Presque : ça commence par « Bous-so… ». Son aiguille montre le nord.",
+      "definition": "Le petit objet rond dont l’aiguille montre toujours le nord.",
+      "emoji": "🧭"
+    },
+    {
+      "id": "jumelles",
+      "mot": "jumelles",
+      "variantes": [
+        "des jumelles",
+        "les jumelles",
+        "mes jumelles"
+      ],
+      "situation": "C’est l’objet qu’on colle à ses yeux pour voir très loin.",
+      "indices": {
+        "semantique": "Deux tubes côte à côte. Pratique pour observer les oiseaux.",
+        "picto": "🔭",
+        "syllabe": "Ju"
+      },
+      "aide": "Presque : ça commence par « Ju-mel… ». Pour voir très loin, avec les deux yeux.",
+      "definition": "L’objet à deux tubes qu’on colle aux yeux pour voir très loin.",
+      "emoji": "🔭"
+    },
+    {
+      "id": "aquarium",
+      "mot": "aquarium",
+      "variantes": [
+        "l'aquarium",
+        "le aquarium",
+        "l’aquarium",
+        "mon aquarium",
+        "un aquarium"
+      ],
+      "situation": "C’est la grande boîte en verre remplie d’eau où vivent les poissons.",
+      "indices": {
+        "semantique": "Dans le salon ou la chambre. On voit les poissons nager dedans.",
+        "picto": "🐠",
+        "syllabe": "A"
+      },
+      "aide": "Presque : ça commence par « A-qua… ». Les poissons y nagent.",
+      "definition": "La grande boîte en verre remplie d’eau où vivent les poissons.",
+      "emoji": "🐠"
+    },
+    {
+      "id": "cerf-volant",
+      "mot": "cerf-volant",
+      "variantes": [
+        "le cerf-volant",
+        "mon cerf-volant",
+        "un cerf-volant"
+      ],
+      "situation": "C’est l’objet léger qu’on fait voler au bout d’un fil quand il y a du vent.",
+      "indices": {
+        "semantique": "On court sur la plage ou dans un pré pour le lancer.",
+        "picto": "🪁",
+        "syllabe": "Cerf"
+      },
+      "aide": "Presque : ça commence par « Cerf-vo… ». Il vole au bout d’un fil.",
+      "definition": "L’objet léger qu’on fait voler au bout d’un fil.",
+      "emoji": "🪁"
+    },
+    {
+      "id": "trousse",
+      "mot": "trousse",
+      "variantes": [
+        "la trousse",
+        "ma trousse",
+        "une trousse"
+      ],
+      "situation": "C’est la petite pochette où l’on range ses stylos et ses crayons.",
+      "indices": {
+        "semantique": "Elle se ferme avec une fermeture éclair. On la met dans le sac.",
+        "picto": "✏️",
+        "syllabe": "Trou"
+      },
+      "aide": "Presque : ça commence par « Trous… ». Les stylos sont dedans.",
+      "definition": "La petite pochette où l’on range ses stylos et crayons.",
+      "emoji": "✏️"
+    },
+    {
+      "id": "hamac",
+      "mot": "hamac",
+      "variantes": [
+        "l'hamac",
+        "le hamac",
+        "l’hamac",
+        "mon hamac",
+        "un hamac"
+      ],
+      "situation": "C’est le filet accroché entre deux arbres pour se balancer et faire la sieste.",
+      "indices": {
+        "semantique": "On s’allonge dedans, l’été, à l’ombre.",
+        "picto": "🌴",
+        "syllabe": "Ha"
+      },
+      "aide": "Presque : ça commence par « Ha-mac ». Entre deux arbres, pour la sieste.",
+      "definition": "Le filet accroché entre deux arbres pour faire la sieste.",
+      "emoji": "🌴"
+    },
+    {
+      "id": "sablier",
+      "mot": "sablier",
+      "variantes": [
+        "le sablier",
+        "mon sablier",
+        "un sablier"
+      ],
+      "situation": "C’est l’objet en verre où le sable coule d’en haut en bas pour mesurer le temps.",
+      "indices": {
+        "semantique": "On le retourne. Quand tout le sable est en bas, le temps est écoulé.",
+        "picto": "⏳",
+        "syllabe": "Sa"
+      },
+      "aide": "Presque : ça commence par « Sa-bli… ». Le sable coule dedans.",
+      "definition": "L’objet en verre où le sable coule pour mesurer le temps.",
+      "emoji": "⏳"
+    },
+    {
+      "id": "loupe",
+      "mot": "loupe",
+      "variantes": [
+        "la loupe",
+        "ma loupe",
+        "une loupe"
+      ],
+      "situation": "C’est le verre rond avec un manche qui fait voir les choses en plus grand.",
+      "indices": {
+        "semantique": "Les détectives l’utilisent. On la tient au-dessus de ce qu’on regarde.",
+        "picto": "🔍",
+        "syllabe": "Lou"
+      },
+      "aide": "Presque : ça commence par « Lou… ». Elle grossit ce qu’on regarde.",
+      "definition": "Le verre rond avec un manche qui grossit ce qu’on regarde.",
+      "emoji": "🔍"
+    },
+    {
+      "id": "boite-aux-lettres",
+      "mot": "boîte aux lettres",
+      "variantes": [
+        "la boîte aux lettres",
+        "ma boîte aux lettres",
+        "une boîte aux lettres"
+      ],
+      "situation": "C’est la boîte devant la maison où le facteur dépose le courrier.",
+      "indices": {
+        "semantique": "Elle a une fente et une petite porte avec une clé.",
+        "picto": "📬",
+        "syllabe": "Boî"
+      },
+      "aide": "Presque : ça commence par « Boî-te… ». Le facteur y dépose le courrier.",
+      "definition": "La boîte devant la maison où le facteur dépose le courrier.",
+      "emoji": "📬"
+    },
+    {
+      "id": "thermos",
+      "mot": "thermos",
+      "variantes": [
+        "le thermos",
+        "mon thermos",
+        "un thermos"
+      ],
+      "situation": "C’est la bouteille qui garde le chocolat chaud… chaud pendant des heures.",
+      "indices": {
+        "semantique": "On l’emporte en balade, l’hiver. Ça garde aussi le froid.",
+        "picto": "☕",
+        "syllabe": "Ther"
+      },
+      "aide": "Presque : ça commence par « Ther-mos ». Il garde la boisson chaude.",
+      "definition": "La bouteille qui garde une boisson chaude pendant des heures.",
+      "emoji": "☕"
+    }
+  ],
+  "carnetInitial": [
+    {
+      "mot": "Curieuse",
+      "definition": "Qui a envie de tout découvrir.",
+      "emoji": ""
+    },
+    {
+      "mot": "Bricoler",
+      "definition": "Fabriquer ou réparer quelque chose avec ses mains.",
+      "emoji": ""
+    },
+    {
+      "mot": "Boussole",
+      "definition": "L’objet qui indique toujours le nord.",
+      "emoji": ""
+    },
+    {
+      "mot": "Aventure",
+      "definition": "Une expérience nouvelle et un peu risquée.",
+      "emoji": ""
+    }
+  ]
+}

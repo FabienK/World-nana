@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Histoires à écouter</title>
+  <meta name="theme-color" content="#f6efe1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    .texte-card { padding: 16px 22px; }
+    .texte-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+    .texte-head h2 { margin: 0; font-size: 1.1rem; color: var(--c-muted); }
+    .phrase-row { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--c-border); }
+    .phrase-row:last-child { border-bottom: 0; }
+    @media (max-width: 599px) {
+      /* Les deux boutons s'empilent à droite : la phrase garde la largeur. */
+      .phrase-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: 0; }
+      .phrase-row .texte { grid-row: 1 / span 2; }
+    }
+    .phrase-row .texte { padding: 6px 10px; border-radius: 6px; font-size: 1.35rem; }
+    .phrase-row.surlignee .texte { background: var(--c-accent-bg); }
+    .phrase-row.lecture .texte { outline: 2px solid var(--c-accent); }
+    .synthese { border: 1px dashed var(--c-border-strong); border-radius: 12px; padding: 8px 14px; color: var(--c-muted); }
+    .synthese p { margin: 4px 0; color: var(--c-ink); }
+    aside .choice { margin-bottom: 8px; padding: 10px 12px; }
+    aside h2 { font-size: 1.1rem; margin: 18px 0 8px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="module-head">
+      <p class="lead">Lis à ton rythme, écoute chaque phrase, et garde celles qui comptent en les épinglant.</p>
+    </div>
+    <div class="cols fill">
+      <section class="focal texte-card" aria-labelledby="titre-texte">
+        <div class="texte-head">
+          <h2 id="titre-texte"></h2>
+          <button class="btn btn-secondary btn-icon" id="btn-lire-tout" aria-pressed="false" data-icon="speaker" aria-label="Lire toute l’histoire" title="Lire toute l’histoire"></button>
+        </div>
+        <div id="phrases"></div>
+      </section>
+      <aside aria-label="Épingles et question">
+        <h2 style="margin-top:0">Phrases épinglées</h2>
+        <div class="synthese" id="synthese"></div>
+        <h2 id="question"></h2>
+        <form id="form-choix" role="radiogroup" aria-labelledby="question"></form>
+        <div class="feedback-box" id="feedback" aria-live="polite"></div>
+        <div class="actions" style="margin-top: 12px">
+          <button class="btn" id="btn-validate" type="submit" form="form-choix" data-icon="check">Vérifier</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="../js/modules/histoires.js"></script>
+</body>
+</html>

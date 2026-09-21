@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Détective</title>
+  <meta name="theme-color" content="#f6efe1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    .focal.dialogue { padding: 18px 26px; margin-bottom: 0; }
+    /* La réplique et son bouton Écouter (icône seule) sur une même ligne, comme les phrases d'Histoires. */
+    .said-row { display: flex; align-items: center; gap: 10px; }
+    .said-row .said { flex: 1; min-width: 0; }
+    /* Téléphone : la réplique garde toute la largeur, le bouton passe dessous à droite. */
+    @media (max-width: 599px) { .said-row { flex-wrap: wrap; justify-content: flex-end; } .said-row .said { flex-basis: 100%; } }
+    @media (min-width: 800px) { .focal.dialogue { padding: 22px 32px; } .focal.dialogue .said { font-size: 1.6rem; } }
+    /* Écran large : la scène à gauche, la question et les choix à droite, pour
+       que rien ne fasse défiler. Le retour (explication) et la pensée révélée
+       viennent sous la scène : tous deux commentent la réplique. Sur téléphone
+       tout s'empile : scène, question, choix, Vérifier, puis retour et pensée. */
+    .cols { row-gap: 14px; }
+    .reponse { display: flex; flex-direction: column; gap: 14px; }
+    /* Vérifier reste sous les choix : pas de bloc extensible ici. */
+    .reponse .actions { margin-top: 4px; }
+    #feedback, .note-ok, .pensee { margin-top: 0; }
+    #pensee:empty { display: none; }
+    @media (min-width: 800px) {
+      /* Moitié-moitié : les choix (avec la place du tampon) ne doivent pas s'écraser. */
+      .cols { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto 1fr; }
+      .reponse { grid-column: 2; grid-row: 1 / 4; }
+      #feedback { grid-column: 1; grid-row: 2; }
+      #pensee { grid-column: 1; grid-row: 3; }
+    }
+    .focal.dialogue .who { font-size: 0.95rem; margin-bottom: 8px; }
+    .focal.dialogue .said { font-size: 1.5rem; }
+    .choice { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="module-head">
+      <p class="lead">Les gens ne disent pas toujours ce qu’ils pensent. Lis, écoute le ton, et trouve ce que le personnage veut vraiment dire.</p>
+    </div>
+    <div class="cols fill">
+      <div class="focal dialogue">
+        <div class="who" id="contexte"></div>
+        <div class="said-row">
+          <div class="said" id="replique"></div>
+          <button class="btn btn-ghost btn-icon" id="btn-speak-replique" data-icon="speaker" aria-label="Écouter la scène" title="Écouter la scène"></button>
+        </div>
+      </div>
+      <div class="reponse">
+        <p id="question" style="font-weight:500;margin:0"></p>
+        <form id="form-choix" role="radiogroup" aria-labelledby="question"></form>
+        <div class="actions">
+          <button class="btn" id="btn-validate" type="submit" form="form-choix" data-icon="check">Vérifier</button>
+        </div>
+      </div>
+      <div class="feedback-box" id="feedback" aria-live="polite"></div>
+      <div id="pensee" aria-live="polite"></div>
+    </div>
+  </main>
+  <script type="module" src="../js/modules/detective.js"></script>
+</body>
+</html>

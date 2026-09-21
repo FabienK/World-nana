@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dans la bonne case</title>
+  <meta name="theme-color" content="#f6efe1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    .consigne-box { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 14px 22px; }
+    .consigne-box .texte { font-size: 1.5rem; font-weight: 500; flex: 1; min-width: 200px; }
+
+    /* La scène se cale sur la hauteur restante (jamais de défilement), sans dépasser la largeur. */
+    .scene-wrap { container-type: size; display: flex; justify-content: center; align-items: flex-start; --ratio: 1.6; }
+    /* En portrait la scène est plus haute (4/3) : objets plus grands sous le doigt. */
+    @media (orientation: portrait) { .scene-wrap { --ratio: 1.3333; } }
+    .scene {
+      position: relative;
+      width: min(100%, calc(100cqh * var(--ratio)));
+      aspect-ratio: var(--ratio);
+      /* Mur : papier peint à fines rayures, à peine visible. */
+      background: repeating-linear-gradient(90deg, #f9f3e6 0 22px, #f4ecdb 22px 24px);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      overflow: hidden;
+      user-select: none;
+    }
+    .scene .sol { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: #ecdfc6; }
+    .scene .plinthe { position: absolute; left: 0; right: 0; bottom: 38%; height: 1.2%; background: #d8c7a6; }
+
+    .repere, .spot, .objet { position: absolute; }
+    .repere { pointer-events: none; }
+    .repere svg, .objet svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .repere .label {
+      position: absolute; left: 50%; bottom: -1.6em; transform: translateX(-50%);
+      font-size: 0.75rem; color: var(--c-muted); white-space: nowrap;
+    }
+    .repere[data-id="lampe"] .label { bottom: auto; top: -1.6em; }
+    .repere[data-id="table"] .label { left: auto; right: 6%; transform: none; bottom: -1.5em; }
+
+    .spot { border-radius: 10px; z-index: 2; padding: 0; border: 0; background: transparent; font: inherit; }
+    .spot:focus-visible { outline: 3px solid var(--c-accent); outline-offset: -3px; background: rgba(201, 162, 39, 0.12); }
+    .spot.drop-target { background: rgba(201, 162, 39, 0.18); outline: 2px dashed var(--c-accent); }
+    .scene.selecting .spot { outline: 1px dashed var(--c-border-strong); }
+
+    .objet {
+      width: 11%; aspect-ratio: 1; z-index: 3;
+      padding: 0; border: 0; background: transparent; font: inherit;
+      cursor: grab; touch-action: none;
+      -webkit-tap-highlight-color: transparent;
+      /* Les positions sont en % de la scène (left/top) : on les anime telles quelles. */
+      transition: left 0.25s, top 0.25s;
+      border-radius: 8px;
+    }
+    .objet:not(.placed):not(.dragging):hover svg { transform: scale(1.05); }
+    .objet svg { transition: transform 0.12s; transform-origin: center; }
+    @media (prefers-reduced-motion: reduce) { .objet, .objet svg { transition: none; } }
+    @media (orientation: portrait) { .objet { width: 14%; } } /* ≥ 48 px sur un téléphone de 375 px */
+    .objet.dragging { transition: none; cursor: grabbing; z-index: 5; }
+    .objet.selected, .objet:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+    .objet.placed { cursor: default; opacity: 0.9; }
+
+    .fin { text-align: center; padding: 24px; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="module-head">
+      <p class="lead">Lis la consigne et déplace l’objet au bon endroit dans la chambre. Tu peux le glisser, ou le toucher puis toucher l’endroit.</p>
+    </div>
+    <div class="focal consigne-box">
+      <span class="counter" id="compteur" style="font-variant-numeric: tabular-nums"></span>
+      <span class="texte" id="consigne" aria-live="polite"></span>
+      <button class="btn btn-secondary btn-icon" id="btn-speak" data-icon="speaker" aria-label="Écouter la consigne" title="Écouter la consigne"></button>
+    </div>
+    <div class="scene-wrap fill">
+      <div class="scene" id="scene" role="group" aria-label="La chambre">
+        <div class="plinthe"></div>
+        <div class="sol"></div>
+      </div>
+    </div>
+    <div class="feedback-box" id="feedback" aria-live="polite"></div>
+    <div class="actions">
+      <button class="btn btn-ghost" id="btn-reset" data-icon="reset">Recommencer</button>
+    </div>
+  </main>
+  <script type="module" src="../js/modules/bonne-case.js"></script>
+</body>
+</html>

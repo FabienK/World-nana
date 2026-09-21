@@ -1,0 +1,231 @@
+{
+  "scene": {
+    "reperes": [
+      {
+        "id": "lit",
+        "label": "le lit",
+        "x": 4,
+        "y": 52,
+        "w": 34,
+        "h": 40,
+        "forme": "lit"
+      },
+      {
+        "id": "tapis",
+        "label": "le tapis",
+        "x": 42,
+        "y": 74,
+        "w": 24,
+        "h": 18,
+        "forme": "tapis"
+      },
+      {
+        "id": "table",
+        "label": "la table",
+        "x": 68,
+        "y": 46,
+        "w": 28,
+        "h": 18,
+        "forme": "table"
+      },
+      {
+        "id": "lampe",
+        "label": "la lampe",
+        "x": 84,
+        "y": 26,
+        "w": 8,
+        "h": 20,
+        "forme": "lampe"
+      },
+      {
+        "id": "etagere",
+        "label": "l’étagère",
+        "x": 44,
+        "y": 24,
+        "w": 22,
+        "h": 6,
+        "forme": "etagere"
+      }
+    ],
+    "spots": [
+      {
+        "id": "sur-lit",
+        "x": 8,
+        "y": 54,
+        "w": 26,
+        "h": 20,
+        "label": "sur le lit"
+      },
+      {
+        "id": "sous-table",
+        "x": 70,
+        "y": 65,
+        "w": 24,
+        "h": 20,
+        "label": "sous la table"
+      },
+      {
+        "id": "gauche-lampe",
+        "x": 69,
+        "y": 29,
+        "w": 13,
+        "h": 17,
+        "label": "à gauche de la lampe"
+      },
+      {
+        "id": "sur-etagere",
+        "x": 44,
+        "y": 8,
+        "w": 22,
+        "h": 16,
+        "label": "sur l’étagère"
+      },
+      {
+        "id": "entre-lit-tapis",
+        "x": 38,
+        "y": 76,
+        "w": 5,
+        "h": 16,
+        "label": "entre le lit et le tapis"
+      },
+      {
+        "id": "sur-tapis",
+        "x": 46,
+        "y": 76,
+        "w": 16,
+        "h": 14,
+        "label": "sur le tapis"
+      }
+    ],
+    "objets": [
+      {
+        "id": "coussin",
+        "label": "le coussin",
+        "x0": 3,
+        "y0": 4,
+        "forme": "coussin"
+      },
+      {
+        "id": "livre",
+        "label": "le livre",
+        "x0": 14,
+        "y0": 4,
+        "forme": "livre"
+      },
+      {
+        "id": "chat",
+        "label": "le chat",
+        "x0": 25,
+        "y0": 4,
+        "forme": "chat"
+      },
+      {
+        "id": "boite",
+        "label": "la boîte",
+        "x0": 88,
+        "y0": 4,
+        "forme": "boite"
+      }
+    ]
+  },
+  "series": [
+    {
+      "id": "chambre-1",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets le coussin sur le lit.",
+          "objet": "coussin",
+          "spot": "sur-lit",
+          "aide": "Le lit est en bas à gauche. Le coussin doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose le livre à gauche de la lampe.",
+          "objet": "livre",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le livre va juste à côté, du côté gauche."
+        },
+        {
+          "id": "c3",
+          "texte": "Range la boîte sous la table.",
+          "objet": "boite",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le chat entre le lit et le tapis.",
+          "objet": "chat",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le livre sur l’étagère.",
+          "objet": "livre",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. Le livre doit être posé dessus."
+        }
+      ]
+    },
+    {
+      "id": "chambre-2",
+      "depart": {
+        "coussin": {
+          "x0": 88,
+          "y0": 4
+        },
+        "livre": {
+          "x0": 77,
+          "y0": 4
+        },
+        "chat": {
+          "x0": 3,
+          "y0": 4
+        },
+        "boite": {
+          "x0": 14,
+          "y0": 4
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le chat sur le tapis.",
+          "objet": "chat",
+          "spot": "sur-tapis",
+          "aide": "Le tapis est rond, au milieu de la chambre. Le chat doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets la boîte sur l’étagère.",
+          "objet": "boite",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. La boîte doit être posée dessus."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le coussin sous la table.",
+          "objet": "coussin",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le livre entre le lit et le tapis.",
+          "objet": "livre",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le chat à gauche de la lampe.",
+          "objet": "chat",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le chat va juste à côté, du côté gauche."
+        }
+      ]
+    }
+  ]
+}

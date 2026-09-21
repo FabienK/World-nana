@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzle de phrases</title>
+  <meta name="theme-color" content="#f6efe1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    .bank {
+      display: flex; flex-wrap: wrap; gap: 2px;
+      flex: none; /* enfant de main.page : ne se réduit pas sous ses blocs */
+      min-height: 64px; padding: 6px;
+      border: 1px dashed var(--c-border-strong); border-radius: 12px;
+      background: var(--c-card-2);
+    }
+    .bank.drop-target { border-style: solid; background: var(--c-card); }
+    .zones { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .zone-wrap .zone-label { color: var(--c-ink); font-weight: 500; font-size: 1rem; margin-bottom: 8px; text-align: center; }
+    /* Le libellé porte le même trait que ses blocs : le bloc va « sous » son trait. */
+    .zone-label span { display: inline-block; border-bottom: 3px solid transparent; padding-bottom: 2px; }
+    html[data-col-sujet="1"] .zone-label[data-type="sujet"] span { border-bottom-color: var(--c-sujet); }
+    html[data-col-verbe="1"] .zone-label[data-type="verbe"] span { border-bottom-color: var(--c-verbe); }
+    html[data-col-complement="1"] .zone-label[data-type="complement"] span { border-bottom-color: var(--c-comp); }
+    .zone {
+      min-height: 96px; padding: 10px;
+      border: 2px dashed var(--c-border-strong); border-radius: 12px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      min-width: 0;
+      background: var(--c-card);
+      transition: background 0.15s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .zone:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .zone { transition: none; } }
+    .zone .placeholder { color: var(--c-muted); font-size: 0.9rem; }
+    .zone.drop-target { background: var(--c-accent-bg); border-style: solid; border-color: var(--c-accent); }
+    .zone.selectable { cursor: pointer; box-shadow: inset 0 0 0 2px var(--c-accent); }
+
+    button.block { font: inherit; line-height: inherit; text-align: inherit; }
+    .block.draggable { cursor: grab; touch-action: none; }
+    .block.dragging { position: fixed; z-index: 50; pointer-events: none; opacity: 0.95; margin: 0; }
+    .block.selected, .block:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+
+    .sentence-display {
+      min-height: 60px; padding: 10px 0 0; margin: 18px 0 0;
+      border-top: 1px solid var(--c-border);
+      font-size: 1.35rem;
+    }
+    .sentence-display .empty { color: var(--c-muted); font-size: 0.95rem; }
+    /* Ne jamais rétrécir sous le contenu : sur petit écran, c'est `main` qui défile. */
+    @media (max-width: 599px) { .bank .block { padding: 7px 12px; margin: 3px; font-size: 0.95rem; } }
+    .focal.fill { display: flex; flex-direction: column; justify-content: safe center; min-height: min-content; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="module-head">
+      <p class="lead" id="consigne"></p>
+    </div>
+    <div class="bank" id="bank" role="group" aria-label="Réserve de blocs"></div>
+    <p class="discret" style="margin:0">Glisse un bloc dans une case, ou touche un bloc puis touche sa case. Touche un bloc placé pour le remettre dans la réserve.</p>
+    <div class="focal fill">
+      <div class="zones">
+        <div class="zone-wrap">
+          <div class="zone-label" data-type="sujet"><span>Qui&nbsp;?</span></div>
+          <div class="zone" data-type="sujet" role="button" tabindex="0" aria-label="Case&nbsp;: qui&nbsp;?"><span class="placeholder">Pose un bloc ici</span></div>
+        </div>
+        <div class="zone-wrap">
+          <div class="zone-label" data-type="verbe"><span>Fait quoi&nbsp;?</span></div>
+          <div class="zone" data-type="verbe" role="button" tabindex="0" aria-label="Case&nbsp;: fait quoi&nbsp;?"><span class="placeholder">Pose un bloc ici</span></div>
+        </div>
+        <div class="zone-wrap">
+          <div class="zone-label" data-type="complement"><span>Quoi / où&nbsp;?</span></div>
+          <div class="zone" data-type="complement" role="button" tabindex="0" aria-label="Case&nbsp;: quoi ou où&nbsp;?"><span class="placeholder">Pose un bloc ici</span></div>
+        </div>
+      </div>
+      <div class="sentence-display" id="sentence" aria-live="polite"></div>
+    </div>
+    <div class="feedback-box" id="feedback" aria-live="polite"></div>
+    <div class="actions">
+      <button class="btn btn-secondary btn-icon" id="btn-speak" data-icon="speaker" aria-label="Écouter la phrase" title="Écouter la phrase"></button>
+      <button class="btn" id="btn-validate" data-icon="check">Vérifier</button>
+      <button class="btn btn-ghost" id="btn-reset" data-icon="reset">Recommencer</button>
+    </div>
+  </main>
+  <script type="module" src="../js/modules/puzzle.js"></script>
+</body>
+</html>
