@@ -1,58 +1,40 @@
 {
   "mots": [
     {
-      "id": "parapluie",
-      "mot": "parapluie",
+      "id": "oreiller",
+      "mot": "oreiller",
       "variantes": [
-        "le parapluie",
-        "mon parapluie",
-        "un parapluie"
+        "l’oreiller",
+        "un oreiller",
+        "mon oreiller"
       ],
-      "situation": "C’est l’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
+      "situation": "C’est le coussin mou sur lequel on pose sa tête pour dormir.",
       "indices": {
-        "semantique": "Un objet du quotidien, pour la pluie. On le plie et on le déplie.",
-        "picto": "☔",
-        "syllabe": "Pa"
+        "semantique": "Un objet du lit. Il est mou, on met sa tête dessus.",
+        "picto": "🛏️",
+        "syllabe": "O"
       },
-      "aide": "Presque : le mot commence par « Pa-ra… ». Pense à ce qui te protège de la pluie.",
-      "definition": "L’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
-      "emoji": "☔"
+      "aide": "Presque : le mot commence par « O-rei… ». Pense à ce qu’il y a sous ta tête la nuit.",
+      "definition": "Le coussin sur lequel on pose sa tête pour dormir.",
+      "emoji": "🛏️"
     },
     {
-      "id": "reveil",
-      "mot": "réveil",
+      "id": "couette",
+      "mot": "couette",
       "variantes": [
-        "le réveil",
-        "mon réveil",
-        "un réveil"
+        "la couette",
+        "une couette",
+        "ma couette"
       ],
-      "situation": "C’est l’objet qui sonne le matin pour te tirer du lit.",
+      "situation": "C’est la grande couverture épaisse qu’on remonte sur soi quand il fait froid.",
       "indices": {
-        "semantique": "Il est posé près du lit. Il a une heure et il fait du bruit.",
-        "picto": "⏰",
-        "syllabe": "Ré"
+        "semantique": "Un objet du lit. Elle est épaisse et remplie de plumes ou de mousse.",
+        "picto": "🛌",
+        "syllabe": "Cou"
       },
-      "aide": "Presque : ça commence par « Ré-veil… ». C’est lui qui sonne le matin.",
-      "definition": "L’objet qui sonne le matin pour te tirer du lit.",
-      "emoji": "⏰"
-    },
-    {
-      "id": "brosse-a-dents",
-      "mot": "brosse à dents",
-      "variantes": [
-        "la brosse à dents",
-        "ma brosse à dents",
-        "une brosse à dents"
-      ],
-      "situation": "C’est l’objet qu’on utilise matin et soir, avec du dentifrice.",
-      "indices": {
-        "semantique": "Elle vit dans la salle de bain. Elle a un manche et des poils.",
-        "picto": "🪥",
-        "syllabe": "Bro"
-      },
-      "aide": "Presque : le mot commence par « Bro… ». Pense au dentifrice.",
-      "definition": "L’objet qu’on utilise matin et soir avec du dentifrice.",
-      "emoji": "🪥"
+      "aide": "Presque : le mot commence par « Cou-et… ». Pense à ce qui te tient chaud la nuit.",
+      "definition": "La grande couverture épaisse du lit.",
+      "emoji": "🛌"
     },
     {
       "id": "coussin",
@@ -73,6 +55,96 @@
       "emoji": "🛋"
     },
     {
+      "id": "serviette",
+      "mot": "serviette",
+      "variantes": [
+        "la serviette",
+        "une serviette",
+        "ma serviette"
+      ],
+      "situation": "C’est le grand tissu avec lequel on se sèche en sortant de la douche.",
+      "indices": {
+        "semantique": "Un objet de la salle de bain. Il boit l’eau qui reste sur la peau.",
+        "picto": "🧻",
+        "syllabe": "Ser"
+      },
+      "aide": "Presque : le mot commence par « Ser-vi… ». Pense à ce qui te sèche après la douche.",
+      "definition": "Le tissu avec lequel on se sèche.",
+      "emoji": "🧻"
+    },
+    {
+      "id": "savon",
+      "mot": "savon",
+      "variantes": [
+        "le savon",
+        "un savon",
+        "du savon"
+      ],
+      "situation": "C’est ce qu’on frotte sur ses mains pour faire de la mousse et enlever la saleté.",
+      "indices": {
+        "semantique": "Un objet de la salle de bain. Il glisse et il sent bon.",
+        "picto": "🧼",
+        "syllabe": "Sa"
+      },
+      "aide": "Presque : le mot commence par « Sa-von ». Pense à la mousse dans tes mains.",
+      "definition": "Ce qu’on frotte sur la peau pour se laver.",
+      "emoji": "🧼"
+    },
+    {
+      "id": "reveil",
+      "mot": "réveil",
+      "variantes": [
+        "le réveil",
+        "mon réveil",
+        "un réveil"
+      ],
+      "situation": "C’est l’objet qui sonne le matin pour te tirer du lit.",
+      "indices": {
+        "semantique": "Il est posé près du lit. Il a une heure et il fait du bruit.",
+        "picto": "⏰",
+        "syllabe": "Ré"
+      },
+      "aide": "Presque : ça commence par « Ré-veil… ». C’est lui qui sonne le matin.",
+      "definition": "L’objet qui sonne le matin pour te tirer du lit.",
+      "emoji": "⏰"
+    },
+    {
+      "id": "peigne",
+      "mot": "peigne",
+      "variantes": [
+        "le peigne",
+        "un peigne",
+        "mon peigne"
+      ],
+      "situation": "C’est le petit objet plat à dents fines qu’on passe dans ses cheveux.",
+      "indices": {
+        "semantique": "Un petit objet plat, avec beaucoup de dents serrées.",
+        "picto": "💇",
+        "syllabe": "Pei"
+      },
+      "aide": "Presque : le mot commence par « Pei-gne ». Pense à tes cheveux le matin.",
+      "definition": "Le petit objet à dents fines pour coiffer les cheveux.",
+      "emoji": "💇"
+    },
+    {
+      "id": "miroir",
+      "mot": "miroir",
+      "variantes": [
+        "le miroir",
+        "un miroir",
+        "mon miroir"
+      ],
+      "situation": "C’est ce qu’on regarde pour se voir soi-même.",
+      "indices": {
+        "semantique": "Un objet accroché au mur. On s’y voit à l’envers.",
+        "picto": "🪞",
+        "syllabe": "Mi"
+      },
+      "aide": "Presque : le mot commence par « Mi-roir ». Pense à ce qui te renvoie ton image.",
+      "definition": "L’objet dans lequel on voit son reflet.",
+      "emoji": "🪞"
+    },
+    {
       "id": "frigo",
       "mot": "frigo",
       "variantes": [
@@ -89,6 +161,41 @@
       "aide": "Presque : le mot commence par « Fri… ». Il garde les aliments au froid.",
       "definition": "Le gros meuble froid où l’on garde les aliments.",
       "emoji": "🧊"
+    },
+    {
+      "id": "balai",
+      "mot": "balai",
+      "variantes": [
+        "le balai",
+        "un balai"
+      ],
+      "situation": "C’est le manche avec des poils au bout, pour pousser la poussière par terre.",
+      "indices": {
+        "semantique": "Un objet de ménage. Un long manche, des poils en bas.",
+        "picto": "🧹",
+        "syllabe": "Ba"
+      },
+      "aide": "Presque : le mot commence par « Ba-lai ». Pense à ce qu’on passe sur le sol.",
+      "definition": "L’objet à long manche pour nettoyer le sol.",
+      "emoji": "🧹"
+    },
+    {
+      "id": "eponge",
+      "mot": "éponge",
+      "variantes": [
+        "l’éponge",
+        "une éponge",
+        "mon éponge"
+      ],
+      "situation": "C’est le petit bloc mou et plein de trous qui absorbe l’eau.",
+      "indices": {
+        "semantique": "Un objet de l’évier. Mou, troué, il boit l’eau renversée.",
+        "picto": "🧽",
+        "syllabe": "É"
+      },
+      "aide": "Presque : le mot commence par « É-pon… ». Pense à ce qui essuie l’eau sur la table.",
+      "definition": "Le bloc mou et troué qui absorbe l’eau.",
+      "emoji": "🧽"
     },
     {
       "id": "pantoufles",
@@ -109,6 +216,96 @@
       "emoji": "🥿"
     },
     {
+      "id": "panier",
+      "mot": "panier",
+      "variantes": [
+        "le panier",
+        "un panier",
+        "mon panier"
+      ],
+      "situation": "C’est ce qu’on remplit de fruits ou de linge et qu’on porte par l’anse.",
+      "indices": {
+        "semantique": "Un contenant tressé, avec une anse pour le porter.",
+        "picto": "🧺",
+        "syllabe": "Pa"
+      },
+      "aide": "Presque : le mot commence par « Pa-nier ». Pense à ce qu’on remplit de linge.",
+      "definition": "Le contenant tressé qu’on porte par son anse.",
+      "emoji": "🧺"
+    },
+    {
+      "id": "valise",
+      "mot": "valise",
+      "variantes": [
+        "la valise",
+        "une valise",
+        "ma valise"
+      ],
+      "situation": "C’est la grande boîte à roulettes qu’on remplit de vêtements avant de partir.",
+      "indices": {
+        "semantique": "Un objet de voyage. Elle roule derrière toi dans la gare.",
+        "picto": "🧳",
+        "syllabe": "Va"
+      },
+      "aide": "Presque : le mot commence par « Va-li… ». Pense au départ en vacances.",
+      "definition": "La grande boîte à roulettes où l’on range ses affaires pour partir.",
+      "emoji": "🧳"
+    },
+    {
+      "id": "brosse-a-dents",
+      "mot": "brosse à dents",
+      "variantes": [
+        "la brosse à dents",
+        "ma brosse à dents",
+        "une brosse à dents"
+      ],
+      "situation": "C’est l’objet qu’on utilise matin et soir, avec du dentifrice.",
+      "indices": {
+        "semantique": "Elle vit dans la salle de bain. Elle a un manche et des poils.",
+        "picto": "🪥",
+        "syllabe": "Bro"
+      },
+      "aide": "Presque : le mot commence par « Bro… ». Pense au dentifrice.",
+      "definition": "L’objet qu’on utilise matin et soir avec du dentifrice.",
+      "emoji": "🪥"
+    },
+    {
+      "id": "ceinture",
+      "mot": "ceinture",
+      "variantes": [
+        "la ceinture",
+        "une ceinture",
+        "ma ceinture"
+      ],
+      "situation": "C’est la bande de cuir qu’on serre autour de la taille pour tenir son pantalon.",
+      "indices": {
+        "semantique": "Un objet qu’on porte. Une bande avec des trous et une boucle.",
+        "picto": "🥋",
+        "syllabe": "Cein"
+      },
+      "aide": "Presque : le mot commence par « Cein-tu… ». Pense à ce qui tient ton pantalon.",
+      "definition": "La bande qu’on serre autour de la taille.",
+      "emoji": "🥋"
+    },
+    {
+      "id": "tiroir",
+      "mot": "tiroir",
+      "variantes": [
+        "le tiroir",
+        "un tiroir",
+        "mon tiroir"
+      ],
+      "situation": "C’est la partie du meuble qu’on tire vers soi pour ranger ses affaires dedans.",
+      "indices": {
+        "semantique": "Une partie de meuble. Elle sort quand on tire, elle rentre quand on pousse.",
+        "picto": "🗄️",
+        "syllabe": "Ti"
+      },
+      "aide": "Presque : le mot commence par « Ti-roir ». Pense au meuble de ta chambre.",
+      "definition": "La partie du meuble qui coulisse quand on la tire.",
+      "emoji": "🗄️"
+    },
+    {
       "id": "gourde",
       "mot": "gourde",
       "variantes": [
@@ -127,10 +324,48 @@
       "emoji": "🍶"
     },
     {
+      "id": "rideau",
+      "mot": "rideau",
+      "variantes": [
+        "le rideau",
+        "un rideau",
+        "les rideaux"
+      ],
+      "situation": "C’est le tissu qu’on tire devant la fenêtre pour cacher la lumière.",
+      "indices": {
+        "semantique": "Un grand tissu devant la fenêtre. On le tire le soir.",
+        "picto": "🪟",
+        "syllabe": "Ri"
+      },
+      "aide": "Presque : le mot commence par « Ri-deau ». Pense à ce qui cache la fenêtre.",
+      "definition": "Le tissu qu’on tire devant une fenêtre.",
+      "emoji": "🪟"
+    },
+    {
+      "id": "cle",
+      "mot": "clé",
+      "variantes": [
+        "la clé",
+        "une clé",
+        "ma clé",
+        "clef",
+        "la clef"
+      ],
+      "situation": "C’est le petit objet en métal qui ouvre une porte.",
+      "indices": {
+        "semantique": "Un petit objet en métal, avec des dents. Il tourne dans la serrure.",
+        "picto": "🔑",
+        "syllabe": "C"
+      },
+      "aide": "Presque : le mot commence par « Clé ». Pense à ce qui ouvre la porte d’entrée.",
+      "definition": "Le petit objet en métal qui ouvre une serrure.",
+      "emoji": "🔑"
+    },
+    {
       "id": "echarpe",
       "mot": "écharpe",
       "variantes": [
-        "l'écharpe",
+        "l’écharpe",
         "la écharpe",
         "l’écharpe",
         "ma écharpe",
@@ -146,6 +381,40 @@
       "aide": "Presque : ça commence par « É-char… ». Elle tient chaud au cou.",
       "definition": "Le long tissu qu’on enroule autour du cou quand il fait froid.",
       "emoji": "🧣"
+    },
+    {
+      "id": "casserole",
+      "mot": "casserole",
+      "variantes": [
+        "la casserole",
+        "une casserole"
+      ],
+      "situation": "C’est le récipient en métal avec un manche, qu’on pose sur le feu.",
+      "indices": {
+        "semantique": "Un objet de la cuisine. En métal, avec un long manche.",
+        "picto": "🍲",
+        "syllabe": "Ca"
+      },
+      "aide": "Presque : le mot commence par « Cas-se… ». Pense aux pâtes qui cuisent.",
+      "definition": "Le récipient en métal, avec un manche, qui va sur le feu.",
+      "emoji": "🍲"
+    },
+    {
+      "id": "telecommande",
+      "mot": "télécommande",
+      "variantes": [
+        "la télécommande",
+        "une télécommande"
+      ],
+      "situation": "C’est ce qu’on cherche partout dans le canapé pour changer de chaîne.",
+      "indices": {
+        "semantique": "Un objet du salon. Plein de boutons, souvent perdu.",
+        "picto": "📺",
+        "syllabe": "Té"
+      },
+      "aide": "Presque : le mot commence par « Té-lé… ». Pense à ce qui allume la télé de loin.",
+      "definition": "L’objet à boutons qui commande la télévision à distance.",
+      "emoji": "📺"
     },
     {
       "id": "casque",
@@ -166,6 +435,93 @@
       "emoji": "🎧"
     },
     {
+      "id": "tapis",
+      "mot": "tapis",
+      "variantes": [
+        "le tapis",
+        "un tapis",
+        "mon tapis"
+      ],
+      "situation": "C’est le grand tissu posé par terre, doux sous les pieds nus.",
+      "indices": {
+        "semantique": "Un objet posé au sol. Doux, on marche dessus.",
+        "picto": "🧶",
+        "syllabe": "Ta"
+      },
+      "aide": "Presque : le mot commence par « Ta-pis ». Pense au sol de ta chambre.",
+      "definition": "Le tissu épais posé sur le sol d’une pièce.",
+      "emoji": "🧶"
+    },
+    {
+      "id": "bouilloire",
+      "mot": "bouilloire",
+      "variantes": [
+        "la bouilloire",
+        "une bouilloire"
+      ],
+      "situation": "C’est l’appareil qui fait chauffer l’eau et qui siffle quand elle bout.",
+      "indices": {
+        "semantique": "Un objet de la cuisine. Il chauffe l’eau du thé.",
+        "picto": "🫖",
+        "syllabe": "Bouil"
+      },
+      "aide": "Presque : le mot commence par « Bouil-loi… ». Pense à l’eau qui bout pour le thé.",
+      "definition": "L’appareil qui fait bouillir l’eau.",
+      "emoji": "🫖"
+    },
+    {
+      "id": "parapluie",
+      "mot": "parapluie",
+      "variantes": [
+        "le parapluie",
+        "mon parapluie",
+        "un parapluie"
+      ],
+      "situation": "C’est l’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
+      "indices": {
+        "semantique": "Un objet du quotidien, pour la pluie. On le plie et on le déplie.",
+        "picto": "☔",
+        "syllabe": "Pa"
+      },
+      "aide": "Presque : le mot commence par « Pa-ra… ». Pense à ce qui te protège de la pluie.",
+      "definition": "L’objet qu’on ouvre au-dessus de sa tête quand il pleut.",
+      "emoji": "☔"
+    },
+    {
+      "id": "passoire",
+      "mot": "passoire",
+      "variantes": [
+        "la passoire",
+        "une passoire"
+      ],
+      "situation": "C’est le récipient plein de trous où l’on verse les pâtes pour enlever l’eau.",
+      "indices": {
+        "semantique": "Un objet de la cuisine. Plein de petits trous, l’eau passe au travers.",
+        "picto": "🍝",
+        "syllabe": "Pas"
+      },
+      "aide": "Presque : le mot commence par « Pas-soi… ». Pense à l’eau des pâtes qui s’en va.",
+      "definition": "Le récipient troué qui laisse passer l’eau et garde les aliments.",
+      "emoji": "🍝"
+    },
+    {
+      "id": "louche",
+      "mot": "louche",
+      "variantes": [
+        "la louche",
+        "une louche"
+      ],
+      "situation": "C’est la grande cuillère creuse qui sert à verser la soupe dans l’assiette.",
+      "indices": {
+        "semantique": "Un objet de la cuisine. Une très grande cuillère, profonde.",
+        "picto": "🥣",
+        "syllabe": "Lou"
+      },
+      "aide": "Presque : le mot commence par « Lou-che ». Pense à la soupe qu’on sert.",
+      "definition": "La grande cuillère creuse pour servir la soupe.",
+      "emoji": "🥣"
+    },
+    {
       "id": "lampe-de-poche",
       "mot": "lampe de poche",
       "variantes": [
@@ -184,24 +540,39 @@
       "emoji": "🔦"
     },
     {
-      "id": "aspirateur",
-      "mot": "aspirateur",
+      "id": "torchon",
+      "mot": "torchon",
       "variantes": [
-        "l'aspirateur",
-        "le aspirateur",
-        "l’aspirateur",
-        "mon aspirateur",
-        "un aspirateur"
+        "le torchon",
+        "un torchon"
       ],
-      "situation": "C’est la machine bruyante qui avale la poussière du sol.",
+      "situation": "C’est le tissu avec lequel on essuie les assiettes mouillées.",
       "indices": {
-        "semantique": "On la promène dans toute la maison. Elle fait beaucoup de bruit.",
-        "picto": "🧹",
-        "syllabe": "As"
+        "semantique": "Un tissu de la cuisine. Il sèche la vaisselle.",
+        "picto": "🧼",
+        "syllabe": "Tor"
       },
-      "aide": "Presque : ça commence par « As-pi… ». Elle avale la poussière.",
-      "definition": "La machine bruyante qui avale la poussière du sol.",
-      "emoji": "🧹"
+      "aide": "Presque : le mot commence par « Tor-chon ». Pense à la vaisselle qu’on essuie.",
+      "definition": "Le tissu qui sert à essuyer la vaisselle.",
+      "emoji": "🧼"
+    },
+    {
+      "id": "cintre",
+      "mot": "cintre",
+      "variantes": [
+        "le cintre",
+        "un cintre",
+        "des cintres"
+      ],
+      "situation": "C’est l’objet en triangle sur lequel on suspend une chemise dans l’armoire.",
+      "indices": {
+        "semantique": "Un objet de l’armoire. En triangle, avec un crochet en haut.",
+        "picto": "👔",
+        "syllabe": "Cin"
+      },
+      "aide": "Presque : le mot commence par « Cin-tre ». Pense à la penderie.",
+      "definition": "L’objet à crochet sur lequel on suspend un vêtement.",
+      "emoji": "👔"
     },
     {
       "id": "tirelire",
@@ -222,6 +593,42 @@
       "emoji": "🐷"
     },
     {
+      "id": "pince-a-linge",
+      "mot": "pince à linge",
+      "variantes": [
+        "la pince à linge",
+        "une pince à linge",
+        "pince"
+      ],
+      "situation": "C’est le petit objet qui serre le linge mouillé sur le fil pour qu’il ne s’envole pas.",
+      "indices": {
+        "semantique": "Un petit objet à ressort. Il pince, dehors, sur un fil.",
+        "picto": "🧷",
+        "syllabe": "Pin"
+      },
+      "aide": "Presque : le mot commence par « Pin-ce… ». Pense au linge qui sèche dehors.",
+      "definition": "Le petit objet à ressort qui tient le linge sur le fil.",
+      "emoji": "🧷"
+    },
+    {
+      "id": "arrosoir",
+      "mot": "arrosoir",
+      "variantes": [
+        "l’arrosoir",
+        "un arrosoir",
+        "mon arrosoir"
+      ],
+      "situation": "C’est le récipient avec un long bec qui sert à donner de l’eau aux plantes.",
+      "indices": {
+        "semantique": "Un objet du jardin. Une anse, un long bec percé de trous.",
+        "picto": "🪴",
+        "syllabe": "A"
+      },
+      "aide": "Presque : le mot commence par « A-rro… ». Pense aux plantes qui ont soif.",
+      "definition": "Le récipient à long bec pour donner de l’eau aux plantes.",
+      "emoji": "🪴"
+    },
+    {
       "id": "paillasson",
       "mot": "paillasson",
       "variantes": [
@@ -240,99 +647,93 @@
       "emoji": "🚪"
     },
     {
-      "id": "echelle",
-      "mot": "échelle",
+      "id": "rateau",
+      "mot": "râteau",
       "variantes": [
-        "l'échelle",
-        "la échelle",
-        "l’échelle",
-        "ma échelle",
-        "mon échelle",
-        "une échelle"
+        "le râteau",
+        "un râteau"
       ],
-      "situation": "C’est l’objet avec des barreaux pour monter plus haut.",
+      "situation": "C’est l’outil à dents qui sert à rassembler les feuilles mortes en tas.",
       "indices": {
-        "semantique": "On l’appuie contre un mur ou un arbre. On grimpe barreau après barreau.",
-        "picto": "🪜",
-        "syllabe": "É"
+        "semantique": "Un outil du jardin. Un manche, des dents larges au bout.",
+        "picto": "🍂",
+        "syllabe": "Râ"
       },
-      "aide": "Presque : ça commence par « É-chel… ». Elle a des barreaux.",
-      "definition": "L’objet avec des barreaux pour monter plus haut.",
-      "emoji": "🪜"
+      "aide": "Presque : le mot commence par « Râ-teau ». Pense aux feuilles de l’automne.",
+      "definition": "L’outil à dents qui rassemble les feuilles.",
+      "emoji": "🍂"
     },
     {
-      "id": "boussole",
-      "mot": "boussole",
+      "id": "brouette",
+      "mot": "brouette",
       "variantes": [
-        "la boussole",
-        "ma boussole",
-        "une boussole"
+        "la brouette",
+        "une brouette"
       ],
-      "situation": "C’est le petit objet rond dont l’aiguille montre toujours le nord.",
+      "situation": "C’est la caisse à une seule roue qu’on pousse pour transporter la terre.",
       "indices": {
-        "semantique": "Les randonneurs l’utilisent pour ne pas se perdre.",
-        "picto": "🧭",
-        "syllabe": "Bous"
+        "semantique": "Un objet du jardin. Une roue devant, deux poignées derrière.",
+        "picto": "🚜",
+        "syllabe": "Brou"
       },
-      "aide": "Presque : ça commence par « Bous-so… ». Son aiguille montre le nord.",
-      "definition": "Le petit objet rond dont l’aiguille montre toujours le nord.",
-      "emoji": "🧭"
+      "aide": "Presque : le mot commence par « Brou-et… ». Pense à la terre qu’on transporte.",
+      "definition": "La caisse à une roue qu’on pousse au jardin.",
+      "emoji": "🚜"
     },
     {
-      "id": "jumelles",
-      "mot": "jumelles",
+      "id": "aspirateur",
+      "mot": "aspirateur",
       "variantes": [
-        "des jumelles",
-        "les jumelles",
-        "mes jumelles"
+        "l’aspirateur",
+        "le aspirateur",
+        "l’aspirateur",
+        "mon aspirateur",
+        "un aspirateur"
       ],
-      "situation": "C’est l’objet qu’on colle à ses yeux pour voir très loin.",
+      "situation": "C’est la machine bruyante qui avale la poussière du sol.",
       "indices": {
-        "semantique": "Deux tubes côte à côte. Pratique pour observer les oiseaux.",
-        "picto": "🔭",
-        "syllabe": "Ju"
+        "semantique": "On la promène dans toute la maison. Elle fait beaucoup de bruit.",
+        "picto": "🧹",
+        "syllabe": "As"
       },
-      "aide": "Presque : ça commence par « Ju-mel… ». Pour voir très loin, avec les deux yeux.",
-      "definition": "L’objet à deux tubes qu’on colle aux yeux pour voir très loin.",
-      "emoji": "🔭"
+      "aide": "Presque : ça commence par « As-pi… ». Elle avale la poussière.",
+      "definition": "La machine bruyante qui avale la poussière du sol.",
+      "emoji": "🧹"
     },
     {
-      "id": "aquarium",
-      "mot": "aquarium",
+      "id": "cadenas",
+      "mot": "cadenas",
       "variantes": [
-        "l'aquarium",
-        "le aquarium",
-        "l’aquarium",
-        "mon aquarium",
-        "un aquarium"
+        "le cadenas",
+        "un cadenas",
+        "mon cadenas"
       ],
-      "situation": "C’est la grande boîte en verre remplie d’eau où vivent les poissons.",
+      "situation": "C’est le petit verrou qu’on accroche au vélo pour qu’on ne le vole pas.",
       "indices": {
-        "semantique": "Dans le salon ou la chambre. On voit les poissons nager dedans.",
-        "picto": "🐠",
-        "syllabe": "A"
+        "semantique": "Un petit objet en métal. Il se ferme en cliquant, il s’ouvre avec une clé.",
+        "picto": "🔒",
+        "syllabe": "Ca"
       },
-      "aide": "Presque : ça commence par « A-qua… ». Les poissons y nagent.",
-      "definition": "La grande boîte en verre remplie d’eau où vivent les poissons.",
-      "emoji": "🐠"
+      "aide": "Presque : le mot commence par « Ca-de… ». Pense au vélo attaché devant la maison.",
+      "definition": "Le petit verrou qu’on accroche pour fermer quelque chose.",
+      "emoji": "🔒"
     },
     {
-      "id": "cerf-volant",
-      "mot": "cerf-volant",
+      "id": "tournevis",
+      "mot": "tournevis",
       "variantes": [
-        "le cerf-volant",
-        "mon cerf-volant",
-        "un cerf-volant"
+        "le tournevis",
+        "un tournevis"
       ],
-      "situation": "C’est l’objet léger qu’on fait voler au bout d’un fil quand il y a du vent.",
+      "situation": "C’est l’outil qu’on tourne pour visser ou dévisser une vis.",
       "indices": {
-        "semantique": "On court sur la plage ou dans un pré pour le lancer.",
-        "picto": "🪁",
-        "syllabe": "Cerf"
+        "semantique": "Un outil à manche. On le fait tourner pour serrer une vis.",
+        "picto": "🪛",
+        "syllabe": "Tour"
       },
-      "aide": "Presque : ça commence par « Cerf-vo… ». Il vole au bout d’un fil.",
-      "definition": "L’objet léger qu’on fait voler au bout d’un fil.",
-      "emoji": "🪁"
+      "aide": "Presque : le mot commence par « Tour-ne… ». Pense à la vis qu’on serre.",
+      "definition": "L’outil qui sert à visser et à dévisser.",
+      "emoji": "🪛"
     },
     {
       "id": "trousse",
@@ -353,60 +754,96 @@
       "emoji": "✏️"
     },
     {
-      "id": "hamac",
-      "mot": "hamac",
+      "id": "thermometre",
+      "mot": "thermomètre",
       "variantes": [
-        "l'hamac",
-        "le hamac",
-        "l’hamac",
-        "mon hamac",
-        "un hamac"
+        "le thermomètre",
+        "un thermomètre"
       ],
-      "situation": "C’est le filet accroché entre deux arbres pour se balancer et faire la sieste.",
+      "situation": "C’est l’objet qui dit combien il fait de degrés.",
       "indices": {
-        "semantique": "On s’allonge dedans, l’été, à l’ombre.",
-        "picto": "🌴",
-        "syllabe": "Ha"
+        "semantique": "Un objet fin, avec des chiffres. Il mesure le chaud et le froid.",
+        "picto": "🌡️",
+        "syllabe": "Ther"
       },
-      "aide": "Presque : ça commence par « Ha-mac ». Entre deux arbres, pour la sieste.",
-      "definition": "Le filet accroché entre deux arbres pour faire la sieste.",
-      "emoji": "🌴"
+      "aide": "Presque : le mot commence par « Ther-mo… ». Pense aux degrés qu’on lit dessus.",
+      "definition": "L’objet qui mesure la température.",
+      "emoji": "🌡️"
     },
     {
-      "id": "sablier",
-      "mot": "sablier",
+      "id": "sifflet",
+      "mot": "sifflet",
       "variantes": [
-        "le sablier",
-        "mon sablier",
-        "un sablier"
+        "le sifflet",
+        "un sifflet",
+        "mon sifflet"
       ],
-      "situation": "C’est l’objet en verre où le sable coule d’en haut en bas pour mesurer le temps.",
+      "situation": "C’est le petit objet dans lequel on souffle pour faire un bruit très aigu.",
       "indices": {
-        "semantique": "On le retourne. Quand tout le sable est en bas, le temps est écoulé.",
-        "picto": "⏳",
-        "syllabe": "Sa"
+        "semantique": "Un petit objet qu’on porte autour du cou. On souffle dedans.",
+        "picto": "🎽",
+        "syllabe": "Sif"
       },
-      "aide": "Presque : ça commence par « Sa-bli… ». Le sable coule dedans.",
-      "definition": "L’objet en verre où le sable coule pour mesurer le temps.",
-      "emoji": "⏳"
+      "aide": "Presque : le mot commence par « Sif-flet ». Pense au bruit aigu au bord du terrain.",
+      "definition": "Le petit objet dans lequel on souffle pour faire un son aigu.",
+      "emoji": "🎽"
     },
     {
-      "id": "loupe",
-      "mot": "loupe",
+      "id": "echelle",
+      "mot": "échelle",
       "variantes": [
-        "la loupe",
-        "ma loupe",
-        "une loupe"
+        "l’échelle",
+        "la échelle",
+        "l’échelle",
+        "ma échelle",
+        "mon échelle",
+        "une échelle"
       ],
-      "situation": "C’est le verre rond avec un manche qui fait voir les choses en plus grand.",
+      "situation": "C’est l’objet avec des barreaux pour monter plus haut.",
       "indices": {
-        "semantique": "Les détectives l’utilisent. On la tient au-dessus de ce qu’on regarde.",
-        "picto": "🔍",
-        "syllabe": "Lou"
+        "semantique": "On l’appuie contre un mur ou un arbre. On grimpe barreau après barreau.",
+        "picto": "🪜",
+        "syllabe": "É"
       },
-      "aide": "Presque : ça commence par « Lou… ». Elle grossit ce qu’on regarde.",
-      "definition": "Le verre rond avec un manche qui grossit ce qu’on regarde.",
-      "emoji": "🔍"
+      "aide": "Presque : ça commence par « É-chel… ». Elle a des barreaux.",
+      "definition": "L’objet avec des barreaux pour monter plus haut.",
+      "emoji": "🪜"
+    },
+    {
+      "id": "bouee",
+      "mot": "bouée",
+      "variantes": [
+        "la bouée",
+        "une bouée",
+        "ma bouée"
+      ],
+      "situation": "C’est l’anneau gonflé qu’on met autour de soi pour flotter dans l’eau.",
+      "indices": {
+        "semantique": "Un objet de la piscine. Rond, gonflé d’air, il flotte.",
+        "picto": "🛟",
+        "syllabe": "Bou"
+      },
+      "aide": "Presque : le mot commence par « Bou-ée ». Pense à ce qui te fait flotter.",
+      "definition": "L’anneau gonflé qui permet de flotter.",
+      "emoji": "🛟"
+    },
+    {
+      "id": "epuisette",
+      "mot": "épuisette",
+      "variantes": [
+        "l’épuisette",
+        "une épuisette",
+        "mon épuisette"
+      ],
+      "situation": "C’est le filet au bout d’un manche qui sert à attraper des crevettes.",
+      "indices": {
+        "semantique": "Un objet du bord de mer. Un filet au bout d’un long manche.",
+        "picto": "🦐",
+        "syllabe": "É"
+      },
+      "aide": "Presque : le mot commence par « É-pui… ». Pense aux crevettes dans les rochers.",
+      "definition": "Le filet au bout d’un manche pour attraper des petits animaux dans l’eau.",
+      "emoji": "🦐"
     },
     {
       "id": "boite-aux-lettres",
@@ -427,6 +864,133 @@
       "emoji": "📬"
     },
     {
+      "id": "robinet",
+      "mot": "robinet",
+      "variantes": [
+        "le robinet",
+        "un robinet"
+      ],
+      "situation": "C’est ce qu’on tourne au-dessus de l’évier pour faire couler l’eau.",
+      "indices": {
+        "semantique": "Un objet de la cuisine et de la salle de bain. L’eau en sort.",
+        "picto": "🚰",
+        "syllabe": "Ro"
+      },
+      "aide": "Presque : le mot commence par « Ro-bi… ». Pense à l’eau qui coule dans l’évier.",
+      "definition": "L’objet qu’on ouvre pour faire couler l’eau.",
+      "emoji": "🚰"
+    },
+    {
+      "id": "essuie-glace",
+      "mot": "essuie-glace",
+      "variantes": [
+        "l’essuie-glace",
+        "un essuie-glace",
+        "les essuie-glaces"
+      ],
+      "situation": "C’est le bras qui va et vient sur la vitre de la voiture quand il pleut.",
+      "indices": {
+        "semantique": "Un objet de la voiture. Il balaie la pluie sur le pare-brise.",
+        "picto": "🚗",
+        "syllabe": "E"
+      },
+      "aide": "Presque : le mot commence par « Es-suie… ». Pense à la vitre de la voiture sous l’averse.",
+      "definition": "Le bras qui essuie la pluie sur la vitre d’une voiture.",
+      "emoji": "🚗"
+    },
+    {
+      "id": "aquarium",
+      "mot": "aquarium",
+      "variantes": [
+        "l’aquarium",
+        "le aquarium",
+        "l’aquarium",
+        "mon aquarium",
+        "un aquarium"
+      ],
+      "situation": "C’est la grande boîte en verre remplie d’eau où vivent les poissons.",
+      "indices": {
+        "semantique": "Dans le salon ou la chambre. On voit les poissons nager dedans.",
+        "picto": "🐠",
+        "syllabe": "A"
+      },
+      "aide": "Presque : ça commence par « A-qua… ». Les poissons y nagent.",
+      "definition": "La grande boîte en verre remplie d’eau où vivent les poissons.",
+      "emoji": "🐠"
+    },
+    {
+      "id": "girouette",
+      "mot": "girouette",
+      "variantes": [
+        "la girouette",
+        "une girouette"
+      ],
+      "situation": "C’est le petit coq en métal, en haut du toit, qui tourne avec le vent.",
+      "indices": {
+        "semantique": "Un objet du toit. Il tourne et montre d’où vient le vent.",
+        "picto": "🐓",
+        "syllabe": "Gi"
+      },
+      "aide": "Presque : le mot commence par « Gi-rou… ». Pense au petit coq qui tourne là-haut.",
+      "definition": "L’objet posé sur un toit qui indique la direction du vent.",
+      "emoji": "🐓"
+    },
+    {
+      "id": "entonnoir",
+      "mot": "entonnoir",
+      "variantes": [
+        "l’entonnoir",
+        "un entonnoir"
+      ],
+      "situation": "C’est l’objet large en haut et fin en bas, pour verser sans en mettre à côté.",
+      "indices": {
+        "semantique": "Un objet en forme de cône. Large d’un côté, étroit de l’autre.",
+        "picto": "🫗",
+        "syllabe": "En"
+      },
+      "aide": "Presque : le mot commence par « En-ton… ». Pense au liquide versé dans une petite bouteille.",
+      "definition": "L’objet en cône qui aide à verser dans un récipient étroit.",
+      "emoji": "🫗"
+    },
+    {
+      "id": "cerf-volant",
+      "mot": "cerf-volant",
+      "variantes": [
+        "le cerf-volant",
+        "mon cerf-volant",
+        "un cerf-volant"
+      ],
+      "situation": "C’est l’objet léger qu’on fait voler au bout d’un fil quand il y a du vent.",
+      "indices": {
+        "semantique": "On court sur la plage ou dans un pré pour le lancer.",
+        "picto": "🪁",
+        "syllabe": "Cerf"
+      },
+      "aide": "Presque : ça commence par « Cerf-vo… ». Il vole au bout d’un fil.",
+      "definition": "L’objet léger qu’on fait voler au bout d’un fil.",
+      "emoji": "🪁"
+    },
+    {
+      "id": "hamac",
+      "mot": "hamac",
+      "variantes": [
+        "l’hamac",
+        "le hamac",
+        "l’hamac",
+        "mon hamac",
+        "un hamac"
+      ],
+      "situation": "C’est le filet accroché entre deux arbres pour se balancer et faire la sieste.",
+      "indices": {
+        "semantique": "On s’allonge dedans, l’été, à l’ombre.",
+        "picto": "🌴",
+        "syllabe": "Ha"
+      },
+      "aide": "Presque : ça commence par « Ha-mac ». Entre deux arbres, pour la sieste.",
+      "definition": "Le filet accroché entre deux arbres pour faire la sieste.",
+      "emoji": "🌴"
+    },
+    {
       "id": "thermos",
       "mot": "thermos",
       "variantes": [
@@ -443,6 +1007,291 @@
       "aide": "Presque : ça commence par « Ther-mos ». Il garde la boisson chaude.",
       "definition": "La bouteille qui garde une boisson chaude pendant des heures.",
       "emoji": "☕"
+    },
+    {
+      "id": "chuchoter",
+      "mot": "chuchoter",
+      "variantes": [
+        "chuchote",
+        "il chuchote",
+        "elle chuchote"
+      ],
+      "situation": "C’est parler tout bas, à l’oreille, pour que personne d’autre n’entende.",
+      "indices": {
+        "semantique": "Une façon de parler. Presque sans bruit, tout près de l’oreille.",
+        "picto": "🤫",
+        "syllabe": "Chu"
+      },
+      "aide": "Presque : le mot commence par « Chu-cho… ». Pense à un secret dit à l’oreille.",
+      "definition": "Parler tout bas, à l’oreille de quelqu’un.",
+      "emoji": "🤫"
+    },
+    {
+      "id": "bailler",
+      "mot": "bâiller",
+      "variantes": [
+        "bâille",
+        "il bâille",
+        "elle bâille"
+      ],
+      "situation": "C’est ouvrir grand la bouche sans le vouloir, quand on a sommeil.",
+      "indices": {
+        "semantique": "Ce que fait la bouche quand on est fatigué. Ça se transmet aux autres.",
+        "picto": "🥱",
+        "syllabe": "Bâ"
+      },
+      "aide": "Presque : le mot commence par « Bâ-ille ». Pense à ta bouche le soir, très tard.",
+      "definition": "Ouvrir grand la bouche parce qu’on a sommeil.",
+      "emoji": "🥱"
+    },
+    {
+      "id": "loupe",
+      "mot": "loupe",
+      "variantes": [
+        "la loupe",
+        "ma loupe",
+        "une loupe"
+      ],
+      "situation": "C’est le verre rond avec un manche qui fait voir les choses en plus grand.",
+      "indices": {
+        "semantique": "Les détectives l’utilisent. On la tient au-dessus de ce qu’on regarde.",
+        "picto": "🔍",
+        "syllabe": "Lou"
+      },
+      "aide": "Presque : ça commence par « Lou… ». Elle grossit ce qu’on regarde.",
+      "definition": "Le verre rond avec un manche qui grossit ce qu’on regarde.",
+      "emoji": "🔍"
+    },
+    {
+      "id": "frissonner",
+      "mot": "frissonner",
+      "variantes": [
+        "frissonne",
+        "il frissonne",
+        "elle frissonne"
+      ],
+      "situation": "C’est trembler une seconde quand un courant d’air froid passe sur les bras.",
+      "indices": {
+        "semantique": "Ce que fait le corps quand il a froid d’un coup. La peau se hérisse.",
+        "picto": "🥶",
+        "syllabe": "Fri"
+      },
+      "aide": "Presque : le mot commence par « Fri-sson… ». Pense au froid qui passe sur tes bras.",
+      "definition": "Trembler un court instant, de froid ou d’émotion.",
+      "emoji": "🥶"
+    },
+    {
+      "id": "grelotter",
+      "mot": "grelotter",
+      "variantes": [
+        "grelotte",
+        "il grelotte",
+        "elle grelotte"
+      ],
+      "situation": "C’est trembler sans pouvoir s’arrêter, tellement on a froid.",
+      "indices": {
+        "semantique": "Ce que fait le corps quand il a très froid, longtemps. Les dents claquent.",
+        "picto": "🧊",
+        "syllabe": "Gre"
+      },
+      "aide": "Presque : le mot commence par « Gre-lot… ». Pense aux dents qui claquent.",
+      "definition": "Trembler beaucoup, parce qu’on a très froid.",
+      "emoji": "🧊"
+    },
+    {
+      "id": "jumelles",
+      "mot": "jumelles",
+      "variantes": [
+        "des jumelles",
+        "les jumelles",
+        "mes jumelles"
+      ],
+      "situation": "C’est l’objet qu’on colle à ses yeux pour voir très loin.",
+      "indices": {
+        "semantique": "Deux tubes côte à côte. Pratique pour observer les oiseaux.",
+        "picto": "🔭",
+        "syllabe": "Ju"
+      },
+      "aide": "Presque : ça commence par « Ju-mel… ». Pour voir très loin, avec les deux yeux.",
+      "definition": "L’objet à deux tubes qu’on colle aux yeux pour voir très loin.",
+      "emoji": "🔭"
+    },
+    {
+      "id": "sursauter",
+      "mot": "sursauter",
+      "variantes": [
+        "sursaute",
+        "il sursaute",
+        "elle sursaute"
+      ],
+      "situation": "C’est faire un bond sur place quand un bruit arrive sans prévenir.",
+      "indices": {
+        "semantique": "Ce que fait le corps quand une porte claque derrière toi.",
+        "picto": "😳",
+        "syllabe": "Sur"
+      },
+      "aide": "Presque : le mot commence par « Sur-sau… ». Pense au bruit qui te fait bondir.",
+      "definition": "Faire un bond de surprise à cause d’un bruit ou d’un geste.",
+      "emoji": "😳"
+    },
+    {
+      "id": "trebucher",
+      "mot": "trébucher",
+      "variantes": [
+        "trébuche",
+        "il trébuche",
+        "elle trébuche"
+      ],
+      "situation": "C’est se prendre le pied dans quelque chose et manquer de tomber.",
+      "indices": {
+        "semantique": "Ce qui arrive au pied sur un trottoir irrégulier. On se rattrape de justesse.",
+        "picto": "🦶",
+        "syllabe": "Tré"
+      },
+      "aide": "Presque : le mot commence par « Tré-bu… ». Pense au pied qui accroche une marche.",
+      "definition": "Se prendre le pied dans quelque chose et manquer de tomber.",
+      "emoji": "🦶"
+    },
+    {
+      "id": "boussole",
+      "mot": "boussole",
+      "variantes": [
+        "la boussole",
+        "ma boussole",
+        "une boussole"
+      ],
+      "situation": "C’est le petit objet rond dont l’aiguille montre toujours le nord.",
+      "indices": {
+        "semantique": "Les randonneurs l’utilisent pour ne pas se perdre.",
+        "picto": "🧭",
+        "syllabe": "Bous"
+      },
+      "aide": "Presque : ça commence par « Bous-so… ». Son aiguille montre le nord.",
+      "definition": "Le petit objet rond dont l’aiguille montre toujours le nord.",
+      "emoji": "🧭"
+    },
+    {
+      "id": "eclaircie",
+      "mot": "éclaircie",
+      "variantes": [
+        "l’éclaircie",
+        "une éclaircie"
+      ],
+      "situation": "C’est le moment où la pluie s’arrête et où le ciel s’ouvre un peu.",
+      "indices": {
+        "semantique": "Un moment du temps qu’il fait. Le gris s’écarte, le bleu revient.",
+        "picto": "🌤️",
+        "syllabe": "É"
+      },
+      "aide": "Presque : le mot commence par « É-clair… ». Pense au ciel qui s’ouvre après l’averse.",
+      "definition": "Le moment où le ciel se dégage entre deux pluies.",
+      "emoji": "🌤️"
+    },
+    {
+      "id": "averse",
+      "mot": "averse",
+      "variantes": [
+        "l’averse",
+        "une averse"
+      ],
+      "situation": "C’est la pluie très forte qui tombe d’un coup et s’arrête vite.",
+      "indices": {
+        "semantique": "Un moment du temps qu’il fait. Beaucoup d’eau, très peu de temps.",
+        "picto": "🌧️",
+        "syllabe": "A"
+      },
+      "aide": "Presque : le mot commence par « A-ver… ». Pense à la grosse pluie de cinq minutes.",
+      "definition": "Une pluie forte et courte.",
+      "emoji": "🌧️"
+    },
+    {
+      "id": "sablier",
+      "mot": "sablier",
+      "variantes": [
+        "le sablier",
+        "mon sablier",
+        "un sablier"
+      ],
+      "situation": "C’est l’objet en verre où le sable coule d’en haut en bas pour mesurer le temps.",
+      "indices": {
+        "semantique": "On le retourne. Quand tout le sable est en bas, le temps est écoulé.",
+        "picto": "⏳",
+        "syllabe": "Sa"
+      },
+      "aide": "Presque : ça commence par « Sa-bli… ». Le sable coule dedans.",
+      "definition": "L’objet en verre où le sable coule pour mesurer le temps.",
+      "emoji": "⏳"
+    },
+    {
+      "id": "courant-d-air",
+      "mot": "courant d’air",
+      "variantes": [
+        "un courant d’air",
+        "le courant d’air",
+        "courant"
+      ],
+      "situation": "C’est l’air froid qui passe quand deux fenêtres sont ouvertes en même temps.",
+      "indices": {
+        "semantique": "On ne le voit pas, on le sent sur la nuque. Il claque les portes.",
+        "picto": "💨",
+        "syllabe": "Cou"
+      },
+      "aide": "Presque : le mot commence par « Cou-rant… ». Pense à la porte qui claque toute seule.",
+      "definition": "L’air qui circule entre deux ouvertures.",
+      "emoji": "💨"
+    },
+    {
+      "id": "echo",
+      "mot": "écho",
+      "variantes": [
+        "l’écho",
+        "un écho"
+      ],
+      "situation": "C’est ta voix qui revient vers toi quand tu cries dans un tunnel.",
+      "indices": {
+        "semantique": "Un son qui se répète. On l’entend dans la montagne ou dans un garage vide.",
+        "picto": "🔊",
+        "syllabe": "É"
+      },
+      "aide": "Presque : le mot commence par « É-cho ». Pense à ta voix qui revient toute seule.",
+      "definition": "Le son qui revient après avoir rebondi.",
+      "emoji": "🔊"
+    },
+    {
+      "id": "reflet",
+      "mot": "reflet",
+      "variantes": [
+        "le reflet",
+        "un reflet",
+        "mon reflet"
+      ],
+      "situation": "C’est ton image que tu vois dans une vitre ou dans l’eau d’une flaque.",
+      "indices": {
+        "semantique": "Une image sans épaisseur, sur une surface lisse. Elle bouge avec toi.",
+        "picto": "🪞",
+        "syllabe": "Re"
+      },
+      "aide": "Presque : le mot commence par « Re-flet ». Pense à toi dans la vitre du bus.",
+      "definition": "L’image renvoyée par une surface lisse.",
+      "emoji": "🪞"
+    },
+    {
+      "id": "ombre",
+      "mot": "ombre",
+      "variantes": [
+        "l’ombre",
+        "une ombre",
+        "mon ombre"
+      ],
+      "situation": "C’est la forme sombre qui te suit par terre quand le soleil est dans ton dos.",
+      "indices": {
+        "semantique": "Une forme noire au sol. Elle s’allonge le soir, elle disparaît la nuit.",
+        "picto": "🌑",
+        "syllabe": "Om"
+      },
+      "aide": "Presque : le mot commence par « Om-bre ». Pense à ce qui te suit au sol en plein soleil.",
+      "definition": "La forme sombre laissée par ce qui cache la lumière.",
+      "emoji": "🌑"
     }
   ],
   "carnetInitial": [

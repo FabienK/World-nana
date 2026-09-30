@@ -17,19 +17,22 @@
     .scene-wrap { container-type: size; display: flex; justify-content: center; align-items: flex-start; --ratio: 1.6; }
     /* En portrait la scène est plus haute (4/3) : objets plus grands sous le doigt. */
     @media (orientation: portrait) { .scene-wrap { --ratio: 1.3333; } }
+    /* Le décor (mur, sol, plinthe) vient de scene.json : chaque scène pose ses
+       propres variables sur #scene. Les valeurs ci-dessous sont celles de la chambre. */
     .scene {
       position: relative;
       width: min(100%, calc(100cqh * var(--ratio)));
       aspect-ratio: var(--ratio);
+      --mur-a: #f9f3e6; --mur-b: #f4ecdb; --sol: #ecdfc6; --plinthe: #d8c7a6; --sol-h: 38%;
       /* Mur : papier peint à fines rayures, à peine visible. */
-      background: repeating-linear-gradient(90deg, #f9f3e6 0 22px, #f4ecdb 22px 24px);
+      background: repeating-linear-gradient(90deg, var(--mur-a) 0 22px, var(--mur-b) 22px 24px);
       border: 1px solid var(--c-border);
       border-radius: 12px;
       overflow: hidden;
       user-select: none;
     }
-    .scene .sol { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: #ecdfc6; }
-    .scene .plinthe { position: absolute; left: 0; right: 0; bottom: 38%; height: 1.2%; background: #d8c7a6; }
+    .scene .sol { position: absolute; left: 0; right: 0; bottom: 0; height: var(--sol-h); background: var(--sol); }
+    .scene .plinthe { position: absolute; left: 0; right: 0; bottom: var(--sol-h); height: 1.2%; background: var(--plinthe); }
 
     .repere, .spot, .objet { position: absolute; }
     .repere { pointer-events: none; }
@@ -38,8 +41,11 @@
       position: absolute; left: 50%; bottom: -1.6em; transform: translateX(-50%);
       font-size: 0.75rem; color: var(--c-muted); white-space: nowrap;
     }
-    .repere[data-id="lampe"] .label { bottom: auto; top: -1.6em; }
-    .repere[data-id="table"] .label { left: auto; right: 6%; transform: none; bottom: -1.5em; }
+    /* Où poser le libellé d'un repère : champ « labelPos » de scene.json. */
+    .repere.label-haut .label { bottom: auto; top: -1.6em; }
+    .repere.label-droite .label { left: auto; right: 6%; transform: none; bottom: -1.5em; }
+    .repere.label-gauche .label { left: 0; transform: none; bottom: -1.5em; }
+    .repere.label-dedans .label { bottom: auto; top: 38%; }
 
     .spot { border-radius: 10px; z-index: 2; padding: 0; border: 0; background: transparent; font: inherit; }
     .spot:focus-visible { outline: 3px solid var(--c-accent); outline-offset: -3px; background: rgba(201, 162, 39, 0.12); }
@@ -69,7 +75,7 @@
 <body>
   <main class="page">
     <div class="module-head">
-      <p class="lead">Lis la consigne et déplace l’objet au bon endroit dans la chambre. Tu peux le glisser, ou le toucher puis toucher l’endroit.</p>
+      <p class="lead">Lis la consigne et déplace l’objet au bon endroit dans la scène. Tu peux le glisser, ou le toucher puis toucher l’endroit.</p>
     </div>
     <div class="focal consigne-box">
       <span class="counter" id="compteur" style="font-variant-numeric: tabular-nums"></span>
@@ -77,7 +83,7 @@
       <button class="btn btn-secondary btn-icon" id="btn-speak" data-icon="speaker" aria-label="Écouter la consigne" title="Écouter la consigne"></button>
     </div>
     <div class="scene-wrap fill">
-      <div class="scene" id="scene" role="group" aria-label="La chambre">
+      <div class="scene" id="scene" role="group" aria-label="La scène">
         <div class="plinthe"></div>
         <div class="sol"></div>
       </div>

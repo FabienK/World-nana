@@ -51,7 +51,10 @@ if (!sttAvailable) {
 
 // ----- Vérification -----------------------------------------------------------
 
-const normalize = (s) => s.toLowerCase().trim().replace(/\s+/g, " ").replace(/[.!?]$/, "");
+// Les deux apostrophes sont équivalentes : le JSON est typographié « l’écharpe »,
+// le clavier peut donner « l'écharpe ».
+const normalize = (s) =>
+  s.toLowerCase().trim().replace(/[’ʼ`]/g, "'").replace(/\s+/g, " ").replace(/[.!?]$/, "");
 
 function check() {
   const answer = normalize(input.value);

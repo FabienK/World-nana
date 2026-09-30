@@ -1,7 +1,8 @@
-// Dans la bonne case : une chambre dessinée, des objets à déplacer selon une
-// consigne lue à voix haute (sur, sous, à gauche de, entre…).
+// Dans la bonne case : une scène dessinée (chambre, cuisine, salon, jardin) et
+// des objets à déplacer selon une consigne lue à voix haute (sur, sous, entre…).
 
 import { loadJSON } from "../core/content.js";
+import { SHAPES } from "./formes.js";
 import { speak, say } from "../core/speech.js";
 import { saveResult, getSettings } from "../core/storage.js";
 import { makeDraggable, dropTargetAt } from "../core/drag.js";
@@ -10,16 +11,22 @@ import { pickExercise, nextLink, progressCount } from "../core/parcours.js";
 
 initPage("organiseur");
 
-const { scene, series } = await loadJSON("../data/scene.json");
+const { scenes, series } = await loadJSON("../data/scene.json");
 // Un exercice = une série de consignes ; réussie quand chaque consigne l'est.
 const PARCOURS = { keys: (s) => s.consignes.map((c) => `${s.id}-${c.id}`) };
 const serie = pickExercise("organiseur", series, PARCOURS);
+// Chaque série se joue dans sa scène : c'est elle qui choisit le décor.
+const scene = scenes.find((s) => s.id === serie.scene) || scenes[0];
 const consignes = serie.consignes;
 const head = document.querySelector(".module-head");
 renderCount(head, progressCount("organiseur", series, PARCOURS));
 // Positions de départ : celles de la scène, ou celles propres à la série.
 const depart = (o) => ({ ...o, ...(serie.depart?.[o.id] || {}) });
 const sceneEl = document.getElementById("scene");
+sceneEl.setAttribute("aria-label", scene.nom);
+for (const [cle, valeur] of Object.entries(scene.decor || {})) {
+  sceneEl.style.setProperty(`--${cle}`, valeur);
+}
 const feedback = document.getElementById("feedback");
 const consigneEl = document.getElementById("consigne");
 const compteurEl = document.getElementById("compteur");
@@ -27,87 +34,17 @@ const compteurEl = document.getElementById("compteur");
 // La voix est optionnelle (case commune « Lire à voix haute automatiquement ») :
 // say() ne parle que si elle est cochée ; le bouton « Écouter » parle toujours.
 
-// ----- Dessins plats (SVG) ------------------------------------------------------
-
-const INK = "#3b2f24", WOOD = "#b89a6e", WOOD_D = "#8a6f4e", CREAM = "#fffaf0", GOLD = "#c9a227";
-const SHAPES = {
-  lit: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <rect x="2" y="10" width="14" height="70" rx="3" fill="${WOOD}"/>
-    <rect x="10" y="40" width="88" height="34" rx="4" fill="${CREAM}" stroke="${WOOD_D}" stroke-width="1.5"/>
-    <rect x="10" y="40" width="88" height="12" rx="4" fill="#e7d9bd"/>
-    <rect x="12" y="74" width="6" height="18" fill="${WOOD_D}"/><rect x="90" y="74" width="6" height="18" fill="${WOOD_D}"/>
-  </svg>`,
-  tapis: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <ellipse cx="50" cy="50" rx="48" ry="46" fill="#d9c3a5"/>
-    <ellipse cx="50" cy="50" rx="34" ry="32" fill="none" stroke="${WOOD_D}" stroke-width="2" stroke-dasharray="4 4"/>
-  </svg>`,
-  /* Petite console basse contre le mur (croquis utilisateur) : plateau, pieds courts posés sur la plinthe. */
-  table: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <rect x="0" y="0" width="100" height="14" rx="3" fill="${WOOD}"/>
-    <rect x="7" y="14" width="8" height="86" fill="${WOOD_D}"/><rect x="85" y="14" width="8" height="86" fill="${WOOD_D}"/>
-  </svg>`,
-  lampe: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path d="M20 40 L80 40 L66 4 L34 4 Z" fill="${GOLD}"/>
-    <rect x="46" y="40" width="8" height="52" fill="${INK}"/>
-    <rect x="26" y="90" width="48" height="10" rx="4" fill="${INK}"/>
-  </svg>`,
-  etagere: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <rect x="0" y="0" width="100" height="100" rx="6" fill="${WOOD}"/>
-    <rect x="4" y="100" width="6" height="30" fill="${WOOD_D}"/><rect x="90" y="100" width="6" height="30" fill="${WOOD_D}"/>
-  </svg>`,
-  coussin: `<svg viewBox="0 0 100 100">
-    <path d="M12 18 Q50 8 88 18 Q98 50 88 82 Q50 92 12 82 Q2 50 12 18 Z" fill="#c88f78" stroke="#5a2a1c" stroke-width="2"/>
-    <circle cx="50" cy="50" r="5" fill="#5a2a1c"/>
-  </svg>`,
-  livre: `<svg viewBox="0 0 100 100">
-    <rect x="18" y="12" width="64" height="76" rx="4" fill="#7d9bb5" stroke="#233a4d" stroke-width="2"/>
-    <rect x="18" y="12" width="12" height="76" rx="3" fill="#233a4d"/>
-    <rect x="40" y="26" width="30" height="4" fill="${CREAM}"/><rect x="40" y="36" width="24" height="4" fill="${CREAM}"/>
-  </svg>`,
-  chat: `<svg viewBox="0 0 100 100">
-    <ellipse cx="50" cy="66" rx="32" ry="24" fill="#7a6350"/>
-    <circle cx="50" cy="38" r="20" fill="#7a6350"/>
-    <path d="M34 26 L30 6 L46 20 Z" fill="#7a6350"/><path d="M66 26 L70 6 L54 20 Z" fill="#7a6350"/>
-    <circle cx="43" cy="38" r="3" fill="${CREAM}"/><circle cx="57" cy="38" r="3" fill="${CREAM}"/>
-    <path d="M82 66 Q98 60 92 44" stroke="#7a6350" stroke-width="7" fill="none" stroke-linecap="round"/>
-  </svg>`,
-  boite: `<svg viewBox="0 0 100 100">
-    <rect x="14" y="30" width="72" height="58" rx="4" fill="#93ad83" stroke="#2d4a23" stroke-width="2"/>
-    <rect x="8" y="18" width="84" height="16" rx="3" fill="#2d4a23"/>
-    <rect x="46" y="18" width="8" height="70" fill="${GOLD}"/>
-  </svg>`,
-};
-
 // ----- Construction de la scène -------------------------------------------------
 
 const pos = (el, r) => Object.assign(el.style, { left: `${r.x}%`, top: `${r.y}%`, width: `${r.w}%`, height: `${r.h}%` });
 
 for (const r of scene.reperes) {
   const el = document.createElement("div");
-  el.className = "repere";
+  el.className = `repere${r.labelPos ? ` label-${r.labelPos}` : ""}`;
   el.dataset.id = r.id;
   pos(el, r);
   el.innerHTML = `${SHAPES[r.forme] || ""}<span class="label">${escapeHtml(r.label)}</span>`;
   sceneEl.append(el);
-}
-
-// Les cases sont des boutons : au clavier, on sélectionne un objet (Entrée)
-// puis on tabule jusqu'à une case et on valide. Hors sélection, elles sortent
-// de l'ordre de tabulation (voir setSelected).
-const spots = {};
-for (const s of scene.spots) {
-  const el = document.createElement("button");
-  el.type = "button";
-  el.className = "spot";
-  el.dataset.id = s.id;
-  el.tabIndex = -1;
-  el.setAttribute("aria-label", s.label);
-  pos(el, s);
-  el.addEventListener("keydown", (e) => {
-    if ((e.key === "Enter" || e.key === " ") && selected) { e.preventDefault(); placeAt(selected, el); }
-  });
-  sceneEl.append(el);
-  spots[s.id] = el;
 }
 
 const objets = {};
@@ -154,6 +91,25 @@ for (const o of scene.objets) {
   });
 }
 
+// Les cases sont des boutons : au clavier, on sélectionne un objet (Entrée)
+// puis on tabule jusqu'à une case et on valide. Hors sélection, elles sortent
+// de l'ordre de tabulation (voir setSelected).
+const spots = {};
+for (const s of scene.spots) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.className = "spot";
+  el.dataset.id = s.id;
+  el.tabIndex = -1;
+  el.setAttribute("aria-label", s.label);
+  pos(el, s);
+  el.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && selected) { e.preventDefault(); placeAt(selected, el); }
+  });
+  sceneEl.append(el);
+  spots[s.id] = el;
+}
+
 /** Rectangle de la scène et taille de l'objet, en px. */
 function measure(el) {
   return { r: sceneEl.getBoundingClientRect(), w: el.offsetWidth, h: el.offsetHeight };
@@ -182,7 +138,10 @@ function setSelected(el) {
   selected = el;
   selected?.classList.add("selected");
   sceneEl.classList.toggle("selecting", Boolean(selected));
+  // Pendant la sélection, seules les cases comptent : Tab depuis l'objet choisi
+  // mène aux cases, pas aux autres objets.
   for (const s of Object.values(spots)) s.tabIndex = selected ? 0 : -1;
+  for (const o of Object.values(objets)) o.tabIndex = selected && o !== selected ? -1 : 0;
 }
 
 /** Dépose l'objet sélectionné au centre d'une case (clavier ou tap sur la case). */
@@ -247,8 +206,8 @@ function resolve(el, spotEl, before) {
     } else {
       done = true;
       stamp(sceneEl, true, "Réussi");
-      feedbackBox(feedback, "La chambre est rangée\u00a0: les cinq consignes sont suivies.", "ok");
-      say("La chambre est rangée. Bien joué.");
+      feedbackBox(feedback, `${escapeHtml(scene.reussite)}\u00a0: les ${consignes.length} consignes sont suivies.`, "ok");
+      say(`${scene.reussite} Bien joué.`);
       compteurEl.textContent = `${consignes.length}\u00a0/\u00a0${consignes.length}`;
       renderCount(head, progressCount("organiseur", series, PARCOURS));
       renderNext(document.querySelector(".actions"), nextLink("organiseur", series, serie.id, PARCOURS), true);

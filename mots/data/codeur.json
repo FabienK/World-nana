@@ -1,26 +1,26 @@
 {
   "puzzles": [
     {
-      "id": "maison-1",
+      "id": "petit-dejeuner-1",
       "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
       "blocs": {
         "sujet": [
+          "Papa",
           "Ma sœur",
-          "Le chat",
-          "Papa"
+          "Le chat"
         ],
         "verbe": [
-          "prépare",
-          "cherche",
-          "dessine"
+          "réclame",
+          "renverse",
+          "prépare"
         ],
         "complement": [
-          "un gâteau au chocolat",
-          "ses écouteurs",
-          "une licorne violette"
+          "un bol de céréales",
+          "un chocolat chaud",
+          "une tartine de miel"
         ]
       },
-      "feedbackReussite": "Ta phrase est complète : on sait qui, ce qu’il fait, et quoi. Elle se lit d’une traite."
+      "feedbackReussite": "Trois blocs, une phrase entière. Elle tient debout."
     },
     {
       "id": "chambre-1",
@@ -45,50 +45,6 @@
       "feedbackReussite": "Trois cases, une phrase : quelqu’un, une action, et ce qui va avec."
     },
     {
-      "id": "cuisine-1",
-      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
-      "blocs": {
-        "sujet": [
-          "Maman",
-          "Le chien",
-          "Mon cousin"
-        ],
-        "verbe": [
-          "coupe",
-          "renverse",
-          "goûte"
-        ],
-        "complement": [
-          "du pain frais",
-          "le bol de lait",
-          "la soupe aux carottes"
-        ]
-      },
-      "feedbackReussite": "Bien joué : la phrase se lit d’une traite, sans rien qui manque."
-    },
-    {
-      "id": "parc-1",
-      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
-      "blocs": {
-        "sujet": [
-          "Lina",
-          "Le vieux monsieur",
-          "Un écureuil"
-        ],
-        "verbe": [
-          "lance",
-          "promène",
-          "grimpe"
-        ],
-        "complement": [
-          "un ballon bleu",
-          "son petit chien",
-          "dans le grand chêne"
-        ]
-      },
-      "feedbackReussite": "Qui, fait quoi, où : la phrase tient debout."
-    },
-    {
       "id": "animaux-1",
       "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
       "blocs": {
@@ -111,26 +67,92 @@
       "feedbackReussite": "Un animal, une action, et ce qu’il fait : tout y est."
     },
     {
-      "id": "amis-1",
+      "id": "maison-1",
       "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
       "blocs": {
         "sujet": [
-          "Sam",
-          "Ma meilleure amie",
-          "Les voisins"
+          "Ma sœur",
+          "Le chat",
+          "Papa"
         ],
         "verbe": [
-          "raconte",
-          "photographie",
-          "organisent"
+          "prépare",
+          "cherche",
+          "dessine"
         ],
         "complement": [
-          "une histoire drôle",
-          "le coucher du soleil",
-          "une fête surprise"
+          "un gâteau au chocolat",
+          "ses écouteurs",
+          "une licorne violette"
         ]
       },
-      "feedbackReussite": "La phrase est complète, on comprend tout du premier coup."
+      "feedbackReussite": "Ta phrase est complète : on sait qui, ce qu’il fait, et quoi. Elle se lit d’une traite."
+    },
+    {
+      "id": "gouter-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Léa",
+          "Mon petit frère",
+          "Le chien"
+        ],
+        "verbe": [
+          "croque",
+          "réclame",
+          "partage"
+        ],
+        "complement": [
+          "une pomme verte",
+          "un morceau de gâteau",
+          "le dernier biscuit"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : rien ne manque."
+    },
+    {
+      "id": "cuisine-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Maman",
+          "Le chien",
+          "Mon cousin"
+        ],
+        "verbe": [
+          "coupe",
+          "renverse",
+          "goûte"
+        ],
+        "complement": [
+          "du pain frais",
+          "le bol de lait",
+          "la soupe aux carottes"
+        ]
+      },
+      "feedbackReussite": "Bien joué : la phrase se lit d’une traite, sans rien qui manque."
+    },
+    {
+      "id": "chat-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mon chat",
+          "La petite chatte",
+          "Le chaton du voisin"
+        ],
+        "verbe": [
+          "renifle",
+          "griffe",
+          "réchauffe"
+        ],
+        "complement": [
+          "le canapé",
+          "un carton vide",
+          "sa couverture"
+        ]
+      },
+      "feedbackReussite": "La phrase tient debout : quelqu’un, une action, et ce qui va avec."
     },
     {
       "id": "salle-de-bain-1",
@@ -155,6 +177,72 @@
       "feedbackReussite": "Qui, fait quoi, quoi : rien ne manque."
     },
     {
+      "id": "pluie-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Nina",
+          "Mon voisin",
+          "Le facteur"
+        ],
+        "verbe": [
+          "ouvre",
+          "secoue",
+          "oublie"
+        ],
+        "complement": [
+          "son parapluie",
+          "un imperméable jaune",
+          "ses bottes pleines d’eau"
+        ]
+      },
+      "feedbackReussite": "Trois blocs bien placés : la phrase se lit sans s’arrêter."
+    },
+    {
+      "id": "parc-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Lina",
+          "Le vieux monsieur",
+          "Un écureuil"
+        ],
+        "verbe": [
+          "lance",
+          "promène",
+          "grimpe"
+        ],
+        "complement": [
+          "un ballon bleu",
+          "son petit chien",
+          "dans le grand chêne"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, où : la phrase tient debout."
+    },
+    {
+      "id": "velo-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Sam",
+          "Mon cousin",
+          "Ma grande sœur"
+        ],
+        "verbe": [
+          "répare",
+          "nettoie",
+          "range"
+        ],
+        "complement": [
+          "la roue avant",
+          "son vieux vélo bleu",
+          "les pneus pleins de boue"
+        ]
+      },
+      "feedbackReussite": "La phrase est complète, on comprend tout du premier coup."
+    },
+    {
       "id": "jardin-1",
       "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
       "blocs": {
@@ -177,6 +265,270 @@
       "feedbackReussite": "La phrase se lit d’une traite : bien joué."
     },
     {
+      "id": "marche-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mamie",
+          "Le marchand",
+          "Ma mère"
+        ],
+        "verbe": [
+          "pèse",
+          "choisit",
+          "emballe"
+        ],
+        "complement": [
+          "trois grosses courgettes",
+          "un bouquet de menthe",
+          "les fraises les plus mûres"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : la phrase tient toute seule."
+    },
+    {
+      "id": "animalerie-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Jules",
+          "La vendeuse",
+          "Ma cousine"
+        ],
+        "verbe": [
+          "observe",
+          "nourrit",
+          "photographie"
+        ],
+        "complement": [
+          "les poissons rouges",
+          "un perroquet bavard",
+          "deux hamsters endormis"
+        ]
+      },
+      "feedbackReussite": "Trois blocs, une phrase entière : elle se lit sans trébucher."
+    },
+    {
+      "id": "amis-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Sam",
+          "Ma meilleure amie",
+          "Les voisins"
+        ],
+        "verbe": [
+          "raconte",
+          "photographie",
+          "organisent"
+        ],
+        "complement": [
+          "une histoire drôle",
+          "le coucher du soleil",
+          "une fête surprise"
+        ]
+      },
+      "feedbackReussite": "La phrase est complète, on comprend tout du premier coup."
+    },
+    {
+      "id": "plage-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mon frère",
+          "Une mouette",
+          "Le vent"
+        ],
+        "verbe": [
+          "emporte",
+          "renverse",
+          "recouvre"
+        ],
+        "complement": [
+          "le château de sable",
+          "une serviette rayée",
+          "les tongs de Papa"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : rien ne manque."
+    },
+    {
+      "id": "piscine-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Inès",
+          "Mon cousin",
+          "Le maître-nageur"
+        ],
+        "verbe": [
+          "plonge",
+          "récupère",
+          "surveille"
+        ],
+        "complement": [
+          "dans le grand bain",
+          "les lunettes tombées au fond",
+          "les nageurs du petit bassin"
+        ]
+      },
+      "feedbackReussite": "La phrase se lit d’une traite, du début à la fin."
+    },
+    {
+      "id": "neige-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Tom",
+          "Toute la bande",
+          "Mon grand-père"
+        ],
+        "verbe": [
+          "roule",
+          "termine",
+          "déneige"
+        ],
+        "complement": [
+          "une énorme boule de neige",
+          "le bonhomme du jardin",
+          "l’allée devant la maison"
+        ]
+      },
+      "feedbackReussite": "Trois blocs bien rangés : la phrase tient debout."
+    },
+    {
+      "id": "anniversaire-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Ma marraine",
+          "Les cousins",
+          "Le petit dernier"
+        ],
+        "verbe": [
+          "décore",
+          "déballent",
+          "souffle"
+        ],
+        "complement": [
+          "la table du salon",
+          "les cadeaux du matin",
+          "les douze bougies du gâteau"
+        ]
+      },
+      "feedbackReussite": "Une phrase longue et complète : on sait qui, ce qu’il fait, et quoi."
+    },
+    {
+      "id": "cousins-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mes cousins",
+          "La famille entière",
+          "Ma tante"
+        ],
+        "verbe": [
+          "installent",
+          "aménagent",
+          "décorent"
+        ],
+        "complement": [
+          "le matelas du salon",
+          "la chambre du haut",
+          "la table pour douze personnes"
+        ]
+      },
+      "feedbackReussite": "Bien joué : même longue, la phrase reste claire."
+    },
+    {
+      "id": "orage-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Le vent",
+          "La pluie",
+          "Un éclair"
+        ],
+        "verbe": [
+          "fait trembler",
+          "arrache",
+          "éclaire"
+        ],
+        "complement": [
+          "les volets de la cuisine",
+          "les dernières feuilles du tilleul",
+          "tout le jardin d’un coup"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : la phrase tient debout jusqu’au bout."
+    },
+    {
+      "id": "chien-voisin-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Le chien du voisin",
+          "Une chienne perdue",
+          "Le vieux labrador"
+        ],
+        "verbe": [
+          "renifle",
+          "réveille",
+          "attend"
+        ],
+        "complement": [
+          "le sac de courses",
+          "toute la rue à six heures",
+          "son maître devant la boulangerie"
+        ]
+      },
+      "feedbackReussite": "La phrase se lit d’une traite, sans rien qui manque."
+    },
+    {
+      "id": "cabane-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Yanis",
+          "Ma grande sœur",
+          "Les deux frères"
+        ],
+        "verbe": [
+          "construisent",
+          "consolident",
+          "repeignent"
+        ],
+        "complement": [
+          "une cabane dans le noisetier",
+          "le toit avec de vieilles planches",
+          "la porte en bleu foncé"
+        ]
+      },
+      "feedbackReussite": "Trois blocs, une phrase entière : elle tient debout toute seule."
+    },
+    {
+      "id": "voiture-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mon père",
+          "Ma tante",
+          "Le voisin du dessus"
+        ],
+        "verbe": [
+          "charge",
+          "range",
+          "lave"
+        ],
+        "complement": [
+          "les valises du week-end",
+          "la voiture avant le départ",
+          "les vitres pleines de poussière"
+        ]
+      },
+      "feedbackReussite": "Qui, fait quoi, quoi : la phrase se lit d’un seul coup."
+    },
+    {
       "id": "soir-1",
       "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
       "blocs": {
@@ -187,16 +539,60 @@
         ],
         "verbe": [
           "regarde",
-          "s'endort",
+          "s’endort",
           "écoute"
         ],
         "complement": [
-          "un film d'aventure",
+          "un film d’aventure",
           "dans son petit lit",
           "de la musique douce"
         ]
       },
       "feedbackReussite": "Trois blocs, une phrase entière. Elle tient debout."
+    },
+    {
+      "id": "dimanche-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Mes parents",
+          "Mamie et Papy",
+          "Toute la maison"
+        ],
+        "verbe": [
+          "prépare",
+          "attend",
+          "ranime"
+        ],
+        "complement": [
+          "un repas qui dure trois heures",
+          "les invités du déjeuner",
+          "le feu de la cheminée"
+        ]
+      },
+      "feedbackReussite": "Une phrase longue, et pourtant on comprend tout."
+    },
+    {
+      "id": "demenagement-1",
+      "consigne": "Glisse un bloc dans chaque case pour fabriquer une phrase, puis écoute-la.",
+      "blocs": {
+        "sujet": [
+          "Les déménageurs",
+          "Mon oncle",
+          "Ma mère"
+        ],
+        "verbe": [
+          "empilent",
+          "étiquette",
+          "descend"
+        ],
+        "complement": [
+          "les cartons du grenier",
+          "la vaisselle emballée dans du papier",
+          "le vieux buffet de la cuisine"
+        ]
+      },
+      "feedbackReussite": "Bien joué : la phrase est longue et elle tient debout."
     }
   ]
 }

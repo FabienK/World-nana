@@ -100,6 +100,481 @@
       ]
     },
     {
+      "id": "chat-carton",
+      "titre": "Le carton du chat",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Un grand carton attend au milieu du couloir.",
+          "subject": "Un grand carton",
+          "verb": "attend",
+          "object": "au milieu du couloir"
+        },
+        {
+          "id": 2,
+          "text": "Mimosa saute dedans sans hésiter.",
+          "subject": "Mimosa",
+          "verb": "saute",
+          "object": "dedans sans hésiter"
+        },
+        {
+          "id": 3,
+          "text": "Le carton bascule sur le côté.",
+          "subject": "Le carton",
+          "verb": "bascule",
+          "object": "sur le côté"
+        },
+        {
+          "id": 4,
+          "text": "La chatte dort dedans tout l’après-midi.",
+          "subject": "La chatte",
+          "verb": "dort",
+          "object": "dedans tout l’après-midi"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où le carton attend-il au début ?",
+          "choix": [
+            {
+              "texte": "Dans le jardin",
+              "correct": false
+            },
+            {
+              "texte": "Au milieu du couloir",
+              "correct": true
+            },
+            {
+              "texte": "Sur le lit",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Un grand carton attend au milieu du couloir. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait la chatte à la fin ?",
+          "choix": [
+            {
+              "texte": "Elle sort dans le jardin",
+              "correct": false
+            },
+            {
+              "texte": "Elle dort dans le carton",
+              "correct": true
+            },
+            {
+              "texte": "Elle renverse le carton",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la dernière phrase : <em>« La chatte dort dedans tout l’après-midi. »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "matin-presse",
+      "titre": "Un matin pressé",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Le réveil de Tom sonne avec vingt minutes de retard.",
+          "subject": "Le réveil de Tom",
+          "verb": "sonne",
+          "object": "avec vingt minutes de retard"
+        },
+        {
+          "id": 2,
+          "text": "Tom enfile son pull à l’envers.",
+          "subject": "Tom",
+          "verb": "enfile",
+          "object": "son pull à l’envers"
+        },
+        {
+          "id": 3,
+          "text": "Sa mère lui tend une tartine dans l’entrée.",
+          "subject": "Sa mère",
+          "verb": "lui tend",
+          "object": "une tartine dans l’entrée"
+        },
+        {
+          "id": 4,
+          "text": "Le bus attend encore au bout de la rue.",
+          "subject": "Le bus",
+          "verb": "attend",
+          "object": "encore au bout de la rue"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Pourquoi Tom est-il pressé ?",
+          "choix": [
+            {
+              "texte": "Il a raté son bus hier",
+              "correct": false
+            },
+            {
+              "texte": "Son réveil a sonné en retard",
+              "correct": true
+            },
+            {
+              "texte": "Sa mère l’a réveillé trop tôt",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Le réveil de Tom sonne avec vingt minutes de retard. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait la mère de Tom ?",
+          "choix": [
+            {
+              "texte": "Elle l’emmène en voiture",
+              "correct": false
+            },
+            {
+              "texte": "Elle lui donne une tartine",
+              "correct": true
+            },
+            {
+              "texte": "Elle range son pull",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la troisième phrase : <em>« Sa mère lui tend une tartine dans l’entrée. »</em>",
+          "phraseSource": 3
+        }
+      ]
+    },
+    {
+      "id": "chien-orage",
+      "titre": "Le chien et l’orage",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Le tonnerre gronde au-dessus de la maison.",
+          "subject": "Le tonnerre",
+          "verb": "gronde",
+          "object": "au-dessus de la maison"
+        },
+        {
+          "id": 2,
+          "text": "Biscuit, le chien, se cache sous la table de la cuisine.",
+          "subject": "Biscuit, le chien,",
+          "verb": "se cache",
+          "object": "sous la table de la cuisine"
+        },
+        {
+          "id": 3,
+          "text": "Zoé s’assoit par terre à côté de lui.",
+          "subject": "Zoé",
+          "verb": "s’assoit",
+          "object": "par terre à côté de lui"
+        },
+        {
+          "id": 4,
+          "text": "Elle caresse doucement ses oreilles.",
+          "subject": "Elle",
+          "verb": "caresse",
+          "object": "doucement ses oreilles"
+        },
+        {
+          "id": 5,
+          "text": "Le chien s’endort avant la fin de l’orage.",
+          "subject": "Le chien",
+          "verb": "s’endort",
+          "object": "avant la fin de l’orage"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où se cache le chien ?",
+          "choix": [
+            {
+              "texte": "Sous le lit",
+              "correct": false
+            },
+            {
+              "texte": "Sous la table",
+              "correct": true
+            },
+            {
+              "texte": "Dans le jardin",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, sous la table de la cuisine.",
+          "aide": "Réécoute la deuxième phrase : <em>« Biscuit se cache… »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "Que fait Zoé pour le rassurer ?",
+          "choix": [
+            {
+              "texte": "Elle lui donne à manger",
+              "correct": false
+            },
+            {
+              "texte": "Elle allume la lumière",
+              "correct": false
+            },
+            {
+              "texte": "Elle caresse ses oreilles",
+              "correct": true
+            }
+          ],
+          "reussite": "C’est ça : elle caresse doucement ses oreilles.",
+          "aide": "Réécoute la quatrième phrase : <em>« Elle caresse… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "gouter-voisine",
+      "titre": "Le goûter d’à côté",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Madame Rosa invite Nina pour le goûter.",
+          "subject": "Madame Rosa",
+          "verb": "invite",
+          "object": "Nina pour le goûter"
+        },
+        {
+          "id": 2,
+          "text": "Elle sort un gâteau aux pommes encore tiède.",
+          "subject": "Elle",
+          "verb": "sort",
+          "object": "un gâteau aux pommes encore tiède"
+        },
+        {
+          "id": 3,
+          "text": "Nina reprend deux parts sans se faire prier.",
+          "subject": "Nina",
+          "verb": "reprend",
+          "object": "deux parts sans se faire prier"
+        },
+        {
+          "id": 4,
+          "text": "Les deux voisines regardent les oiseaux par la fenêtre.",
+          "subject": "Les deux voisines",
+          "verb": "regardent",
+          "object": "les oiseaux par la fenêtre"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Qui invite Nina ?",
+          "choix": [
+            {
+              "texte": "Sa tante",
+              "correct": false
+            },
+            {
+              "texte": "Madame Rosa, sa voisine",
+              "correct": true
+            },
+            {
+              "texte": "La boulangère",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Madame Rosa invite Nina pour le goûter. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que font-elles à la fin ?",
+          "choix": [
+            {
+              "texte": "Elles font la vaisselle",
+              "correct": false
+            },
+            {
+              "texte": "Elles regardent les oiseaux",
+              "correct": true
+            },
+            {
+              "texte": "Elles sortent se promener",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la dernière phrase : <em>« Les deux voisines regardent les oiseaux par la fenêtre. »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "parapluie-oublie",
+      "titre": "Le parapluie oublié",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Léa sort sans regarder le ciel.",
+          "subject": "Léa",
+          "verb": "sort",
+          "object": "sans regarder le ciel"
+        },
+        {
+          "id": 2,
+          "text": "Une averse éclate au bout de la rue.",
+          "subject": "Une averse",
+          "verb": "éclate",
+          "object": "au bout de la rue"
+        },
+        {
+          "id": 3,
+          "text": "La jeune fille s’abrite sous l’auvent de la boulangerie.",
+          "subject": "La jeune fille",
+          "verb": "s’abrite",
+          "object": "sous l’auvent de la boulangerie"
+        },
+        {
+          "id": 4,
+          "text": "Le soleil revient cinq minutes plus tard.",
+          "subject": "Le soleil",
+          "verb": "revient",
+          "object": "cinq minutes plus tard"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Que fait Léa au début ?",
+          "choix": [
+            {
+              "texte": "Elle prend son parapluie",
+              "correct": false
+            },
+            {
+              "texte": "Elle sort sans regarder le ciel",
+              "correct": true
+            },
+            {
+              "texte": "Elle attend la pluie à la fenêtre",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Léa sort sans regarder le ciel. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Où Léa s’abrite-t-elle ?",
+          "choix": [
+            {
+              "texte": "Dans le bus",
+              "correct": false
+            },
+            {
+              "texte": "Sous l’auvent de la boulangerie",
+              "correct": true
+            },
+            {
+              "texte": "Chez sa voisine",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la troisième phrase : <em>« La jeune fille s’abrite sous l’auvent de la boulangerie. »</em>",
+          "phraseSource": 3
+        }
+      ]
+    },
+    {
+      "id": "poissons-yanis",
+      "titre": "Les poissons de Yanis",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Yanis nettoie l’aquarium tous les samedis.",
+          "subject": "Yanis",
+          "verb": "nettoie",
+          "object": "l’aquarium tous les samedis"
+        },
+        {
+          "id": 2,
+          "text": "Les deux poissons tournent autour du petit château.",
+          "subject": "Les deux poissons",
+          "verb": "tournent",
+          "object": "autour du petit château"
+        },
+        {
+          "id": 3,
+          "text": "Le plus gros mange toujours en premier.",
+          "subject": "Le plus gros",
+          "verb": "mange",
+          "object": "toujours en premier"
+        },
+        {
+          "id": 4,
+          "text": "Yanis note leurs habitudes dans un carnet.",
+          "subject": "Yanis",
+          "verb": "note",
+          "object": "leurs habitudes dans un carnet"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Quand Yanis nettoie-t-il l’aquarium ?",
+          "choix": [
+            {
+              "texte": "Tous les matins",
+              "correct": false
+            },
+            {
+              "texte": "Tous les samedis",
+              "correct": true
+            },
+            {
+              "texte": "Une fois par an",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Yanis nettoie l’aquarium tous les samedis. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait Yanis avec son carnet ?",
+          "choix": [
+            {
+              "texte": "Il dessine le château de l’aquarium",
+              "correct": false
+            },
+            {
+              "texte": "Il note les habitudes des poissons",
+              "correct": true
+            },
+            {
+              "texte": "Il compte l’argent de sa tirelire",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la dernière phrase : <em>« Yanis note leurs habitudes dans un carnet. »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
       "id": "sam-gateau",
       "titre": "Le gâteau de Sam",
       "phrases": [
@@ -201,6 +676,225 @@
           ],
           "reussite": "Exactement, trente minutes.",
           "aide": "Réécoute la quatrième phrase : <em>« Le gâteau cuit pendant… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "anniversaire-surprise",
+      "titre": "La surprise de Papy",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Toute la famille prépare une surprise pour les soixante-dix ans de Papy.",
+          "subject": "Toute la famille",
+          "verb": "prépare",
+          "object": "une surprise pour les soixante-dix ans de Papy"
+        },
+        {
+          "id": 2,
+          "text": "Ma mère cache les invités dans la cuisine.",
+          "subject": "Ma mère",
+          "verb": "cache",
+          "object": "les invités dans la cuisine"
+        },
+        {
+          "id": 3,
+          "text": "Papy rentre de sa promenade à six heures pile.",
+          "subject": "Papy",
+          "verb": "rentre",
+          "object": "de sa promenade à six heures pile"
+        },
+        {
+          "id": 4,
+          "text": "Douze personnes sortent d’un coup en criant son prénom.",
+          "subject": "Douze personnes",
+          "verb": "sortent",
+          "object": "d’un coup en criant son prénom"
+        },
+        {
+          "id": 5,
+          "text": "Le vieux monsieur reste sans voix pendant dix secondes.",
+          "subject": "Le vieux monsieur",
+          "verb": "reste",
+          "object": "sans voix pendant dix secondes"
+        },
+        {
+          "id": 6,
+          "text": "Il rit encore une heure plus tard.",
+          "subject": "Il",
+          "verb": "rit",
+          "object": "encore une heure plus tard"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où les invités sont-ils cachés ?",
+          "choix": [
+            {
+              "texte": "Dans le jardin",
+              "correct": false
+            },
+            {
+              "texte": "Dans la cuisine",
+              "correct": true
+            },
+            {
+              "texte": "Dans la voiture",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la deuxième phrase : <em>« Ma mère cache les invités dans la cuisine. »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "D’où revient Papy ?",
+          "choix": [
+            {
+              "texte": "Du marché",
+              "correct": false
+            },
+            {
+              "texte": "De sa promenade",
+              "correct": true
+            },
+            {
+              "texte": "De chez le médecin",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la troisième phrase : <em>« Papy rentre de sa promenade à six heures pile. »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Comment Papy réagit-il ?",
+          "choix": [
+            {
+              "texte": "Il se fâche et repart aussitôt",
+              "correct": false
+            },
+            {
+              "texte": "Il est surpris, puis il rit longtemps",
+              "correct": true
+            },
+            {
+              "texte": "Il n’a rien remarqué du tout",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute les deux dernières phrases : il reste sans voix, puis il rit encore une heure plus tard.",
+          "phraseSource": 5
+        }
+      ]
+    },
+    {
+      "id": "chien-perdu",
+      "titre": "Le chien du trottoir",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Un petit chien tourne seul devant la boulangerie.",
+          "subject": "Un petit chien",
+          "verb": "tourne",
+          "object": "seul devant la boulangerie"
+        },
+        {
+          "id": 2,
+          "text": "Zoé s’approche doucement pour lire son collier.",
+          "subject": "Zoé",
+          "verb": "s’approche",
+          "object": "doucement pour lire son collier"
+        },
+        {
+          "id": 3,
+          "text": "Le collier porte un numéro de téléphone effacé par la pluie.",
+          "subject": "Le collier",
+          "verb": "porte",
+          "object": "un numéro de téléphone effacé par la pluie"
+        },
+        {
+          "id": 4,
+          "text": "La boulangère reconnaît le chien de la dame du troisième étage.",
+          "subject": "La boulangère",
+          "verb": "reconnaît",
+          "object": "le chien de la dame du troisième étage"
+        },
+        {
+          "id": 5,
+          "text": "Zoé raccompagne l’animal jusqu’à sa porte.",
+          "subject": "Zoé",
+          "verb": "raccompagne",
+          "object": "l’animal jusqu’à sa porte"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où le chien tourne-t-il ?",
+          "choix": [
+            {
+              "texte": "Dans le parc",
+              "correct": false
+            },
+            {
+              "texte": "Devant la boulangerie",
+              "correct": true
+            },
+            {
+              "texte": "Dans l’escalier",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Un petit chien tourne seul devant la boulangerie. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Pourquoi le numéro ne sert-il à rien ?",
+          "choix": [
+            {
+              "texte": "Il est écrit dans une autre langue",
+              "correct": false
+            },
+            {
+              "texte": "Il est effacé par la pluie",
+              "correct": true
+            },
+            {
+              "texte": "Le collier est tombé",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la troisième phrase : <em>« Le collier porte un numéro de téléphone effacé par la pluie. »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Qui sait à qui appartient le chien ?",
+          "choix": [
+            {
+              "texte": "Zoé",
+              "correct": false
+            },
+            {
+              "texte": "La boulangère",
+              "correct": true
+            },
+            {
+              "texte": "La dame du troisième étage",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la quatrième phrase : <em>« La boulangère reconnaît le chien de la dame du troisième étage. »</em>",
           "phraseSource": 4
         }
       ]
@@ -312,87 +1006,440 @@
       ]
     },
     {
-      "id": "chien-orage",
-      "titre": "Le chien et l'orage",
+      "id": "ines-marche",
+      "titre": "Inès au marché",
       "phrases": [
         {
           "id": 1,
-          "text": "Le tonnerre gronde au-dessus de la maison.",
-          "subject": "Le tonnerre",
-          "verb": "gronde",
-          "object": "au-dessus de la maison"
+          "text": "Inès accompagne son père au marché.",
+          "subject": "Inès",
+          "verb": "accompagne",
+          "object": "son père au marché"
         },
         {
           "id": 2,
-          "text": "Biscuit, le chien, se cache sous la table de la cuisine.",
-          "subject": "Biscuit, le chien,",
-          "verb": "se cache",
-          "object": "sous la table de la cuisine"
+          "text": "Elle choisit des fraises et un melon.",
+          "subject": "Elle",
+          "verb": "choisit",
+          "object": "des fraises et un melon"
         },
         {
           "id": 3,
-          "text": "Zoé s’assoit par terre à côté de lui.",
-          "subject": "Zoé",
-          "verb": "s’assoit",
-          "object": "par terre à côté de lui"
+          "text": "Le marchand lui offre une cerise.",
+          "subject": "Le marchand",
+          "verb": "lui offre",
+          "object": "une cerise"
         },
         {
           "id": 4,
-          "text": "Elle caresse doucement ses oreilles.",
-          "subject": "Elle",
-          "verb": "caresse",
-          "object": "doucement ses oreilles"
+          "text": "Son père oublie le pain à la boulangerie.",
+          "subject": "Son père",
+          "verb": "oublie",
+          "object": "le pain à la boulangerie"
         },
         {
           "id": 5,
-          "text": "Le chien s’endort avant la fin de l’orage.",
-          "subject": "Le chien",
-          "verb": "s’endort",
-          "object": "avant la fin de l’orage"
+          "text": "Ils reviennent sur leurs pas en riant.",
+          "subject": "Ils",
+          "verb": "reviennent",
+          "object": "sur leurs pas en riant"
         }
       ],
       "questions": [
         {
           "id": "q1",
-          "question": "Où se cache le chien ?",
+          "question": "Avec qui Inès va-t-elle au marché ?",
           "choix": [
             {
-              "texte": "Sous le lit",
+              "texte": "Avec sa mère",
               "correct": false
             },
             {
-              "texte": "Sous la table",
+              "texte": "Avec son père",
               "correct": true
             },
             {
-              "texte": "Dans le jardin",
+              "texte": "Avec sa mamie",
               "correct": false
             }
           ],
-          "reussite": "Oui, sous la table de la cuisine.",
-          "aide": "Réécoute la deuxième phrase : <em>« Biscuit se cache… »</em>",
-          "phraseSource": 2
+          "reussite": "Oui, avec son père.",
+          "aide": "Réécoute la première phrase : <em>« Inès accompagne… »</em>",
+          "phraseSource": 1
         },
         {
           "id": "q2",
-          "question": "Que fait Zoé pour le rassurer ?",
+          "question": "Que lui offre le marchand ?",
           "choix": [
             {
-              "texte": "Elle lui donne à manger",
+              "texte": "Une fraise",
               "correct": false
             },
             {
-              "texte": "Elle allume la lumière",
+              "texte": "Un melon",
               "correct": false
             },
             {
-              "texte": "Elle caresse ses oreilles",
+              "texte": "Une cerise",
               "correct": true
             }
           ],
-          "reussite": "C’est ça : elle caresse doucement ses oreilles.",
-          "aide": "Réécoute la quatrième phrase : <em>« Elle caresse… »</em>",
+          "reussite": "C’est ça, une cerise.",
+          "aide": "Réécoute la troisième phrase : <em>« Le marchand lui offre… »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Qu’est-ce que le père a oublié ?",
+          "choix": [
+            {
+              "texte": "Les fraises",
+              "correct": false
+            },
+            {
+              "texte": "Le pain",
+              "correct": true
+            },
+            {
+              "texte": "Son portefeuille",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement : le pain.",
+          "aide": "Réécoute la quatrième phrase : <em>« Son père oublie… »</em>",
           "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "train-retard",
+      "titre": "Le train de Mamie",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mamie arrive par le train de quinze heures.",
+          "subject": "Mamie",
+          "verb": "arrive",
+          "object": "par le train de quinze heures"
+        },
+        {
+          "id": 2,
+          "text": "Le panneau annonce quarante minutes de retard.",
+          "subject": "Le panneau",
+          "verb": "annonce",
+          "object": "quarante minutes de retard"
+        },
+        {
+          "id": 3,
+          "text": "Nous attendons sur un banc glacé du quai.",
+          "subject": "Nous",
+          "verb": "attendons",
+          "object": "sur un banc glacé du quai"
+        },
+        {
+          "id": 4,
+          "text": "Mon frère achète deux chocolats chauds au distributeur.",
+          "subject": "Mon frère",
+          "verb": "achète",
+          "object": "deux chocolats chauds au distributeur"
+        },
+        {
+          "id": 5,
+          "text": "Le train entre enfin en gare.",
+          "subject": "Le train",
+          "verb": "entre",
+          "object": "enfin en gare"
+        },
+        {
+          "id": 6,
+          "text": "Mamie descend avec un énorme sac de gâteaux.",
+          "subject": "Mamie",
+          "verb": "descend",
+          "object": "avec un énorme sac de gâteaux"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "À quelle heure Mamie devait-elle arriver ?",
+          "choix": [
+            {
+              "texte": "À quarante heures",
+              "correct": false
+            },
+            {
+              "texte": "À quinze heures",
+              "correct": true
+            },
+            {
+              "texte": "À dix-huit heures",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Mamie arrive par le train de quinze heures. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait le frère pendant l’attente ?",
+          "choix": [
+            {
+              "texte": "Il lit le panneau des départs",
+              "correct": false
+            },
+            {
+              "texte": "Il achète deux chocolats chauds",
+              "correct": true
+            },
+            {
+              "texte": "Il téléphone à Mamie",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la quatrième phrase : <em>« Mon frère achète deux chocolats chauds au distributeur. »</em>",
+          "phraseSource": 4
+        },
+        {
+          "id": "q3",
+          "question": "Qu’apporte Mamie en descendant ?",
+          "choix": [
+            {
+              "texte": "Un billet de train",
+              "correct": false
+            },
+            {
+              "texte": "Un énorme sac de gâteaux",
+              "correct": true
+            },
+            {
+              "texte": "Un banc pour le quai",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la dernière phrase : <em>« Mamie descend avec un énorme sac de gâteaux. »</em>",
+          "phraseSource": 6
+        }
+      ]
+    },
+    {
+      "id": "neige-matin",
+      "titre": "La première neige",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tom ouvre les rideaux avant tout le monde.",
+          "subject": "Tom",
+          "verb": "ouvre",
+          "object": "les rideaux avant tout le monde"
+        },
+        {
+          "id": 2,
+          "text": "La rue disparaît sous vingt centimètres de blanc.",
+          "subject": "La rue",
+          "verb": "disparaît",
+          "object": "sous vingt centimètres de blanc"
+        },
+        {
+          "id": 3,
+          "text": "Son petit frère descend en pyjama et en bottes.",
+          "subject": "Son petit frère",
+          "verb": "descend",
+          "object": "en pyjama et en bottes"
+        },
+        {
+          "id": 4,
+          "text": "Les deux garçons roulent une boule plus grosse qu’eux.",
+          "subject": "Les deux garçons",
+          "verb": "roulent",
+          "object": "une boule plus grosse qu’eux"
+        },
+        {
+          "id": 5,
+          "text": "Leur père photographie le bonhomme depuis la fenêtre.",
+          "subject": "Leur père",
+          "verb": "photographie",
+          "object": "le bonhomme depuis la fenêtre"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Que fait Tom en premier ?",
+          "choix": [
+            {
+              "texte": "Il enfile ses bottes",
+              "correct": false
+            },
+            {
+              "texte": "Il ouvre les rideaux",
+              "correct": true
+            },
+            {
+              "texte": "Il réveille son frère",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Tom ouvre les rideaux avant tout le monde. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Comment le petit frère est-il habillé ?",
+          "choix": [
+            {
+              "texte": "En manteau et en écharpe",
+              "correct": false
+            },
+            {
+              "texte": "En pyjama et en bottes",
+              "correct": true
+            },
+            {
+              "texte": "En maillot de bain",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la troisième phrase : <em>« Son petit frère descend en pyjama et en bottes. »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "D’où le père prend-il la photo ?",
+          "choix": [
+            {
+              "texte": "Du jardin",
+              "correct": false
+            },
+            {
+              "texte": "De la fenêtre",
+              "correct": true
+            },
+            {
+              "texte": "Du toit",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Réécoute la dernière phrase : <em>« Leur père photographie le bonhomme depuis la fenêtre. »</em>",
+          "phraseSource": 5
+        }
+      ]
+    },
+    {
+      "id": "brocante-dimanche",
+      "titre": "La brocante du dimanche",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Inès installe sa table à sept heures du matin.",
+          "subject": "Inès",
+          "verb": "installe",
+          "object": "sa table à sept heures du matin"
+        },
+        {
+          "id": 2,
+          "text": "Elle vend ses vieux jouets et ses livres d’enfance.",
+          "subject": "Elle",
+          "verb": "vend",
+          "object": "ses vieux jouets et ses livres d’enfance"
+        },
+        {
+          "id": 3,
+          "text": "Un monsieur hésite longtemps devant une boîte de billes.",
+          "subject": "Un monsieur",
+          "verb": "hésite",
+          "object": "longtemps devant une boîte de billes"
+        },
+        {
+          "id": 4,
+          "text": "Inès baisse son prix de moitié.",
+          "subject": "Inès",
+          "verb": "baisse",
+          "object": "son prix de moitié"
+        },
+        {
+          "id": 5,
+          "text": "Le monsieur repart avec la boîte et un grand sourire.",
+          "subject": "Le monsieur",
+          "verb": "repart",
+          "object": "avec la boîte et un grand sourire"
+        },
+        {
+          "id": 6,
+          "text": "La tirelire d’Inès pèse beaucoup plus lourd le soir.",
+          "subject": "La tirelire d’Inès",
+          "verb": "pèse",
+          "object": "beaucoup plus lourd le soir"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "À quelle heure Inès installe-t-elle sa table ?",
+          "choix": [
+            {
+              "texte": "À midi",
+              "correct": false
+            },
+            {
+              "texte": "À sept heures du matin",
+              "correct": true
+            },
+            {
+              "texte": "Le soir",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Inès installe sa table à sept heures du matin. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait Inès quand le monsieur hésite ?",
+          "choix": [
+            {
+              "texte": "Elle range la boîte de billes",
+              "correct": false
+            },
+            {
+              "texte": "Elle baisse son prix de moitié",
+              "correct": true
+            },
+            {
+              "texte": "Elle appelle ses parents",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la quatrième phrase : <em>« Inès baisse son prix de moitié. »</em>",
+          "phraseSource": 4
+        },
+        {
+          "id": "q3",
+          "question": "Qu’est-ce que cela veut dire, à la fin ?",
+          "choix": [
+            {
+              "texte": "Inès a perdu sa tirelire",
+              "correct": false
+            },
+            {
+              "texte": "Inès a vendu beaucoup de choses",
+              "correct": true
+            },
+            {
+              "texte": "Inès a acheté une boîte de billes",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Une tirelire plus lourde, c’est une tirelire avec plus de pièces dedans : Inès a bien vendu.",
+          "phraseSource": 6
         }
       ]
     },
@@ -503,112 +1550,6 @@
       ]
     },
     {
-      "id": "ines-marche",
-      "titre": "Inès au marché",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Inès accompagne son père au marché.",
-          "subject": "Inès",
-          "verb": "accompagne",
-          "object": "son père au marché"
-        },
-        {
-          "id": 2,
-          "text": "Elle choisit des fraises et un melon.",
-          "subject": "Elle",
-          "verb": "choisit",
-          "object": "des fraises et un melon"
-        },
-        {
-          "id": 3,
-          "text": "Le marchand lui offre une cerise.",
-          "subject": "Le marchand",
-          "verb": "lui offre",
-          "object": "une cerise"
-        },
-        {
-          "id": 4,
-          "text": "Son père oublie le pain à la boulangerie.",
-          "subject": "Son père",
-          "verb": "oublie",
-          "object": "le pain à la boulangerie"
-        },
-        {
-          "id": 5,
-          "text": "Ils reviennent sur leurs pas en riant.",
-          "subject": "Ils",
-          "verb": "reviennent",
-          "object": "sur leurs pas en riant"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Avec qui Inès va-t-elle au marché ?",
-          "choix": [
-            {
-              "texte": "Avec sa mère",
-              "correct": false
-            },
-            {
-              "texte": "Avec son père",
-              "correct": true
-            },
-            {
-              "texte": "Avec sa mamie",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, avec son père.",
-          "aide": "Réécoute la première phrase : <em>« Inès accompagne… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que lui offre le marchand ?",
-          "choix": [
-            {
-              "texte": "Une fraise",
-              "correct": false
-            },
-            {
-              "texte": "Un melon",
-              "correct": false
-            },
-            {
-              "texte": "Une cerise",
-              "correct": true
-            }
-          ],
-          "reussite": "C’est ça, une cerise.",
-          "aide": "Réécoute la troisième phrase : <em>« Le marchand lui offre… »</em>",
-          "phraseSource": 3
-        },
-        {
-          "id": "q3",
-          "question": "Qu’est-ce que le père a oublié ?",
-          "choix": [
-            {
-              "texte": "Les fraises",
-              "correct": false
-            },
-            {
-              "texte": "Le pain",
-              "correct": true
-            },
-            {
-              "texte": "Son portefeuille",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement : le pain.",
-          "aide": "Réécoute la quatrième phrase : <em>« Son père oublie… »</em>",
-          "phraseSource": 4
-        }
-      ]
-    },
-    {
       "id": "nuit-camping",
       "titre": "Une nuit en camping",
       "phrases": [
@@ -711,6 +1652,465 @@
           "reussite": "Exactement, un hibou.",
           "aide": "Réécoute la quatrième phrase : <em>« Un hibou hulule… »</em>",
           "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "nuit-cabane",
+      "titre": "La nuit dans la cabane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Sam et son cousin décident de dormir dans la cabane du jardin.",
+          "subject": "Sam et son cousin",
+          "verb": "décident",
+          "object": "de dormir dans la cabane du jardin"
+        },
+        {
+          "id": 2,
+          "text": "Ils emportent deux duvets et une lampe de poche.",
+          "subject": "Ils",
+          "verb": "emportent",
+          "object": "deux duvets et une lampe de poche"
+        },
+        {
+          "id": 3,
+          "text": "Le vent fait grincer les planches toute la soirée.",
+          "subject": "Le vent",
+          "verb": "fait grincer",
+          "object": "les planches toute la soirée"
+        },
+        {
+          "id": 4,
+          "text": "Le cousin prétend qu’il n’a pas peur du tout.",
+          "subject": "Le cousin",
+          "verb": "prétend",
+          "object": "qu’il n’a pas peur du tout"
+        },
+        {
+          "id": 5,
+          "text": "Un hérisson surgit sous la porte à minuit.",
+          "subject": "Un hérisson",
+          "verb": "surgit",
+          "object": "sous la porte à minuit"
+        },
+        {
+          "id": 6,
+          "text": "Les deux garçons finissent la nuit dans le salon.",
+          "subject": "Les deux garçons",
+          "verb": "finissent",
+          "object": "la nuit dans le salon"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Qu’emportent les garçons dans la cabane ?",
+          "choix": [
+            {
+              "texte": "Un matelas et une télévision",
+              "correct": false
+            },
+            {
+              "texte": "Deux duvets et une lampe de poche",
+              "correct": true
+            },
+            {
+              "texte": "Un hérisson et une couverture",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la deuxième phrase : <em>« Ils emportent deux duvets et une lampe de poche. »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "Qu’est-ce qui surgit à minuit ?",
+          "choix": [
+            {
+              "texte": "Le vent",
+              "correct": false
+            },
+            {
+              "texte": "Un hérisson",
+              "correct": true
+            },
+            {
+              "texte": "Le cousin",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la cinquième phrase : <em>« À minuit surgit un hérisson sous la porte. »</em>",
+          "phraseSource": 5
+        },
+        {
+          "id": "q3",
+          "question": "Le cousin avait-il vraiment si peu peur ?",
+          "choix": [
+            {
+              "texte": "Oui : il a dormi seul dans la cabane",
+              "correct": false
+            },
+            {
+              "texte": "Non : il finit la nuit dans le salon",
+              "correct": true
+            },
+            {
+              "texte": "On ne peut pas le savoir",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Compare deux moments : il dit qu’il n’a pas peur, puis les deux garçons rentrent dormir au salon.",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "lettre-mystere",
+      "titre": "La lettre sans nom",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Une enveloppe bleue attend dans la boîte aux lettres.",
+          "subject": "Une enveloppe bleue",
+          "verb": "attend",
+          "object": "dans la boîte aux lettres"
+        },
+        {
+          "id": 2,
+          "text": "Aucun nom figure au dos de l’enveloppe.",
+          "subject": "Aucun nom",
+          "verb": "figure",
+          "object": "au dos de l’enveloppe"
+        },
+        {
+          "id": 3,
+          "text": "Nina reconnaît l’écriture ronde de sa correspondante.",
+          "subject": "Nina",
+          "verb": "reconnaît",
+          "object": "l’écriture ronde de sa correspondante"
+        },
+        {
+          "id": 4,
+          "text": "La lettre raconte un voyage à la montagne.",
+          "subject": "La lettre",
+          "verb": "raconte",
+          "object": "un voyage à la montagne"
+        },
+        {
+          "id": 5,
+          "text": "Une photo tombe de la feuille pliée.",
+          "subject": "Une photo",
+          "verb": "tombe",
+          "object": "de la feuille pliée"
+        },
+        {
+          "id": 6,
+          "text": "Nina répond le soir même sur son plus beau papier.",
+          "subject": "Nina",
+          "verb": "répond",
+          "object": "le soir même sur son plus beau papier"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "De quelle couleur est l’enveloppe ?",
+          "choix": [
+            {
+              "texte": "Rouge",
+              "correct": false
+            },
+            {
+              "texte": "Bleue",
+              "correct": true
+            },
+            {
+              "texte": "Verte",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Une enveloppe bleue attend dans la boîte aux lettres. »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que tombe-t-il de la feuille pliée ?",
+          "choix": [
+            {
+              "texte": "Un timbre",
+              "correct": false
+            },
+            {
+              "texte": "Une photo",
+              "correct": true
+            },
+            {
+              "texte": "Une carte de la montagne",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la cinquième phrase : <em>« Une photo tombe de la feuille pliée. »</em>",
+          "phraseSource": 5
+        },
+        {
+          "id": "q3",
+          "question": "Comment Nina sait-elle qui écrit, sans nom au dos ?",
+          "choix": [
+            {
+              "texte": "Elle regarde le timbre",
+              "correct": false
+            },
+            {
+              "texte": "Elle reconnaît l’écriture",
+              "correct": true
+            },
+            {
+              "texte": "Elle ouvre la photo",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Compare la deuxième et la troisième phrase : il n’y a pas de nom, mais l’écriture ronde lui suffit.",
+          "phraseSource": 3
+        }
+      ]
+    },
+    {
+      "id": "demenagement-voisins",
+      "titre": "Les nouveaux d’en face",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Un camion bloque la rue depuis huit heures du matin.",
+          "subject": "Un camion",
+          "verb": "bloque",
+          "object": "la rue depuis huit heures du matin"
+        },
+        {
+          "id": 2,
+          "text": "Deux déménageurs montent un piano par la fenêtre du deuxième.",
+          "subject": "Deux déménageurs",
+          "verb": "montent",
+          "object": "un piano par la fenêtre du deuxième"
+        },
+        {
+          "id": 3,
+          "text": "Une fille de l’âge de Zoé observe la scène depuis le trottoir.",
+          "subject": "Une fille de l’âge de Zoé",
+          "verb": "observe",
+          "object": "la scène depuis le trottoir"
+        },
+        {
+          "id": 4,
+          "text": "Zoé lui apporte un verre de citronnade.",
+          "subject": "Zoé",
+          "verb": "lui apporte",
+          "object": "un verre de citronnade"
+        },
+        {
+          "id": 5,
+          "text": "Les deux filles regardent le piano monter sans dire un mot.",
+          "subject": "Les deux filles",
+          "verb": "regardent",
+          "object": "le piano monter sans dire un mot"
+        },
+        {
+          "id": 6,
+          "text": "Une première note de piano résonne le soir dans l’immeuble d’en face.",
+          "subject": "Une première note de piano",
+          "verb": "résonne",
+          "object": "le soir dans l’immeuble d’en face"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Que montent les déménageurs par la fenêtre ?",
+          "choix": [
+            {
+              "texte": "Un camion",
+              "correct": false
+            },
+            {
+              "texte": "Un piano",
+              "correct": true
+            },
+            {
+              "texte": "Un lit",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la deuxième phrase : <em>« Deux déménageurs montent un piano par la fenêtre du deuxième. »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "Qu’apporte Zoé à la fille ?",
+          "choix": [
+            {
+              "texte": "Une chaise",
+              "correct": false
+            },
+            {
+              "texte": "Un verre de citronnade",
+              "correct": true
+            },
+            {
+              "texte": "Un carton",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la quatrième phrase : <em>« Zoé lui apporte un verre de citronnade. »</em>",
+          "phraseSource": 4
+        },
+        {
+          "id": "q3",
+          "question": "Que s’est-il passé le soir ?",
+          "choix": [
+            {
+              "texte": "Le camion est revenu",
+              "correct": false
+            },
+            {
+              "texte": "Quelqu’un a commencé à jouer du piano",
+              "correct": true
+            },
+            {
+              "texte": "Zoé a déménagé à son tour",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Relie la deuxième phrase (le piano monte) et la dernière (une note de piano résonne d’en face).",
+          "phraseSource": 6
+        }
+      ]
+    },
+    {
+      "id": "concert-quartier",
+      "titre": "Le concert du quartier",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "La fête de la musique remplit la place tous les ans.",
+          "subject": "La fête de la musique",
+          "verb": "remplit",
+          "object": "la place tous les ans"
+        },
+        {
+          "id": 2,
+          "text": "Le groupe du quartier installe ses amplis devant la fontaine.",
+          "subject": "Le groupe du quartier",
+          "verb": "installe",
+          "object": "ses amplis devant la fontaine"
+        },
+        {
+          "id": 3,
+          "text": "Ma sœur connaît le batteur depuis toujours.",
+          "subject": "Ma sœur",
+          "verb": "connaît",
+          "object": "le batteur depuis toujours"
+        },
+        {
+          "id": 4,
+          "text": "La première chanson fait lever les gens de leur chaise.",
+          "subject": "La première chanson",
+          "verb": "fait lever",
+          "object": "les gens de leur chaise"
+        },
+        {
+          "id": 5,
+          "text": "Une averse interrompt le concert au milieu du morceau.",
+          "subject": "Une averse",
+          "verb": "interrompt",
+          "object": "le concert au milieu du morceau"
+        },
+        {
+          "id": 6,
+          "text": "Les musiciens reprennent sous le porche de la mairie.",
+          "subject": "Les musiciens",
+          "verb": "reprennent",
+          "object": "sous le porche de la mairie"
+        },
+        {
+          "id": 7,
+          "text": "La foule chante encore plus fort qu’avant.",
+          "subject": "La foule",
+          "verb": "chante",
+          "object": "encore plus fort qu’avant"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où le groupe installe-t-il ses amplis ?",
+          "choix": [
+            {
+              "texte": "Sous le porche",
+              "correct": false
+            },
+            {
+              "texte": "Devant la fontaine",
+              "correct": true
+            },
+            {
+              "texte": "Dans la mairie",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la deuxième phrase : <em>« Le groupe du quartier installe ses amplis devant la fontaine. »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "Qu’est-ce qui interrompt le concert ?",
+          "choix": [
+            {
+              "texte": "Une panne d’ampli",
+              "correct": false
+            },
+            {
+              "texte": "Une averse",
+              "correct": true
+            },
+            {
+              "texte": "Le départ du batteur",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la cinquième phrase : <em>« Une averse interrompt le concert au milieu du morceau. »</em>",
+          "phraseSource": 5
+        },
+        {
+          "id": "q3",
+          "question": "La pluie a-t-elle arrêté la fête ?",
+          "choix": [
+            {
+              "texte": "Oui : tout le monde est rentré",
+              "correct": false
+            },
+            {
+              "texte": "Non : le concert continue sous le porche",
+              "correct": true
+            },
+            {
+              "texte": "Oui : les musiciens ont rangé les amplis",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. L’histoire est finie.",
+          "aide": "Relie les deux dernières phrases : ils reprennent ailleurs, et la foule chante encore plus fort.",
+          "phraseSource": 6
         }
       ]
     }
