@@ -573,106 +573,6 @@
   ],
   "series": [
     {
-      "id": "chambre-1",
-      "consignes": [
-        {
-          "id": "c1",
-          "texte": "Mets le coussin sur le lit.",
-          "objet": "coussin",
-          "spot": "sur-lit",
-          "aide": "Le lit est en bas à gauche. Le coussin doit être posé dessus."
-        },
-        {
-          "id": "c2",
-          "texte": "Pose le livre à gauche de la lampe.",
-          "objet": "livre",
-          "spot": "gauche-lampe",
-          "aide": "Trouve la lampe, à droite. Le livre va juste à côté, du côté gauche."
-        },
-        {
-          "id": "c3",
-          "texte": "Range la boîte sous la table.",
-          "objet": "boite",
-          "spot": "sous-table",
-          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
-        },
-        {
-          "id": "c4",
-          "texte": "Place le chat entre le lit et le tapis.",
-          "objet": "chat",
-          "spot": "entre-lit-tapis",
-          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
-        },
-        {
-          "id": "c5",
-          "texte": "Pose le livre sur l’étagère.",
-          "objet": "livre",
-          "spot": "sur-etagere",
-          "aide": "L’étagère est en haut, au milieu. Le livre doit être posé dessus."
-        }
-      ],
-      "scene": "chambre"
-    },
-    {
-      "id": "chambre-2",
-      "depart": {
-        "coussin": {
-          "x0": 88,
-          "y0": 4
-        },
-        "livre": {
-          "x0": 77,
-          "y0": 4
-        },
-        "chat": {
-          "x0": 3,
-          "y0": 4
-        },
-        "boite": {
-          "x0": 14,
-          "y0": 4
-        }
-      },
-      "consignes": [
-        {
-          "id": "c1",
-          "texte": "Pose le chat sur le tapis.",
-          "objet": "chat",
-          "spot": "sur-tapis",
-          "aide": "Le tapis est rond, au milieu de la chambre. Le chat doit être posé dessus."
-        },
-        {
-          "id": "c2",
-          "texte": "Mets la boîte sur l’étagère.",
-          "objet": "boite",
-          "spot": "sur-etagere",
-          "aide": "L’étagère est en haut, au milieu. La boîte doit être posée dessus."
-        },
-        {
-          "id": "c3",
-          "texte": "Range le coussin sous la table.",
-          "objet": "coussin",
-          "spot": "sous-table",
-          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
-        },
-        {
-          "id": "c4",
-          "texte": "Place le livre entre le lit et le tapis.",
-          "objet": "livre",
-          "spot": "entre-lit-tapis",
-          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
-        },
-        {
-          "id": "c5",
-          "texte": "Pose le chat à gauche de la lampe.",
-          "objet": "chat",
-          "spot": "gauche-lampe",
-          "aide": "Trouve la lampe, à droite. Le chat va juste à côté, du côté gauche."
-        }
-      ],
-      "scene": "chambre"
-    },
-    {
       "id": "cuisine-1",
       "scene": "cuisine",
       "consignes": [
@@ -971,6 +871,106 @@
           "aide": "Sous le banc : dans l’espace entre l’assise et l’herbe."
         }
       ]
+    },
+    {
+      "id": "chambre-1",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets le coussin sur le lit.",
+          "objet": "coussin",
+          "spot": "sur-lit",
+          "aide": "Le lit est en bas à gauche. Le coussin doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose le livre à gauche de la lampe.",
+          "objet": "livre",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le livre va juste à côté, du côté gauche."
+        },
+        {
+          "id": "c3",
+          "texte": "Range la boîte sous la table.",
+          "objet": "boite",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le chat entre le lit et le tapis.",
+          "objet": "chat",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le livre sur l’étagère.",
+          "objet": "livre",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. Le livre doit être posé dessus."
+        }
+      ],
+      "scene": "chambre"
+    },
+    {
+      "id": "chambre-2",
+      "depart": {
+        "coussin": {
+          "x0": 88,
+          "y0": 4
+        },
+        "livre": {
+          "x0": 77,
+          "y0": 4
+        },
+        "chat": {
+          "x0": 3,
+          "y0": 4
+        },
+        "boite": {
+          "x0": 14,
+          "y0": 4
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le chat sur le tapis.",
+          "objet": "chat",
+          "spot": "sur-tapis",
+          "aide": "Le tapis est rond, au milieu de la chambre. Le chat doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets la boîte sur l’étagère.",
+          "objet": "boite",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. La boîte doit être posée dessus."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le coussin sous la table.",
+          "objet": "coussin",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le livre entre le lit et le tapis.",
+          "objet": "livre",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le chat à gauche de la lampe.",
+          "objet": "chat",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le chat va juste à côté, du côté gauche."
+        }
+      ],
+      "scene": "chambre"
     }
   ]
 }

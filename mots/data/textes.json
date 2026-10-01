@@ -1,105 +1,6 @@
 {
   "textes": [
     {
-      "id": "alice-parc",
-      "titre": "Alice au parc",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Alice entre dans le grand parc près de chez elle.",
-          "subject": "Alice",
-          "verb": "entre",
-          "object": "dans le grand parc près de chez elle"
-        },
-        {
-          "id": 2,
-          "text": "Elle cherche son chat gris.",
-          "subject": "Elle",
-          "verb": "cherche",
-          "object": "son chat gris"
-        },
-        {
-          "id": 3,
-          "text": "Son sac bleu est lourd mais bien rangé.",
-          "subject": "Son sac bleu",
-          "verb": "est",
-          "object": "lourd mais bien rangé"
-        },
-        {
-          "id": 4,
-          "text": "Le chat dort sous un banc, au soleil.",
-          "subject": "Le chat",
-          "verb": "dort",
-          "object": "sous un banc, au soleil"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Où est Alice au début de l’histoire ?",
-          "choix": [
-            {
-              "texte": "À la piscine",
-              "correct": false
-            },
-            {
-              "texte": "Dans le parc",
-              "correct": true
-            },
-            {
-              "texte": "Chez elle",
-              "correct": false
-            }
-          ],
-          "reussite": "C’est ça. Tu peux continuer l’histoire.",
-          "aide": "Réécoute la première phrase : <em>« Alice entre dans le grand parc… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que cherche Alice ?",
-          "choix": [
-            {
-              "texte": "Son sac bleu",
-              "correct": false
-            },
-            {
-              "texte": "Son chat gris",
-              "correct": true
-            },
-            {
-              "texte": "Un banc",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, elle cherche son chat.",
-          "aide": "Réécoute la deuxième phrase : <em>« Elle cherche… »</em>",
-          "phraseSource": 2
-        },
-        {
-          "id": "q3",
-          "question": "Où dort le chat ?",
-          "choix": [
-            {
-              "texte": "Sous un banc",
-              "correct": true
-            },
-            {
-              "texte": "Dans le sac",
-              "correct": false
-            },
-            {
-              "texte": "Sur l’herbe",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement : sous un banc, au soleil.",
-          "aide": "Réécoute la dernière phrase : <em>« Le chat dort… »</em>",
-          "phraseSource": 4
-        }
-      ]
-    },
-    {
       "id": "chat-carton",
       "titre": "Le carton du chat",
       "phrases": [
@@ -252,91 +153,6 @@
           "reussite": "C’est ça. L’histoire est finie.",
           "aide": "Réécoute la troisième phrase : <em>« Sa mère lui tend une tartine dans l’entrée. »</em>",
           "phraseSource": 3
-        }
-      ]
-    },
-    {
-      "id": "chien-orage",
-      "titre": "Le chien et l’orage",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Le tonnerre gronde au-dessus de la maison.",
-          "subject": "Le tonnerre",
-          "verb": "gronde",
-          "object": "au-dessus de la maison"
-        },
-        {
-          "id": 2,
-          "text": "Biscuit, le chien, se cache sous la table de la cuisine.",
-          "subject": "Biscuit, le chien,",
-          "verb": "se cache",
-          "object": "sous la table de la cuisine"
-        },
-        {
-          "id": 3,
-          "text": "Zoé s’assoit par terre à côté de lui.",
-          "subject": "Zoé",
-          "verb": "s’assoit",
-          "object": "par terre à côté de lui"
-        },
-        {
-          "id": 4,
-          "text": "Elle caresse doucement ses oreilles.",
-          "subject": "Elle",
-          "verb": "caresse",
-          "object": "doucement ses oreilles"
-        },
-        {
-          "id": 5,
-          "text": "Le chien s’endort avant la fin de l’orage.",
-          "subject": "Le chien",
-          "verb": "s’endort",
-          "object": "avant la fin de l’orage"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Où se cache le chien ?",
-          "choix": [
-            {
-              "texte": "Sous le lit",
-              "correct": false
-            },
-            {
-              "texte": "Sous la table",
-              "correct": true
-            },
-            {
-              "texte": "Dans le jardin",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, sous la table de la cuisine.",
-          "aide": "Réécoute la deuxième phrase : <em>« Biscuit se cache… »</em>",
-          "phraseSource": 2
-        },
-        {
-          "id": "q2",
-          "question": "Que fait Zoé pour le rassurer ?",
-          "choix": [
-            {
-              "texte": "Elle lui donne à manger",
-              "correct": false
-            },
-            {
-              "texte": "Elle allume la lumière",
-              "correct": false
-            },
-            {
-              "texte": "Elle caresse ses oreilles",
-              "correct": true
-            }
-          ],
-          "reussite": "C’est ça : elle caresse doucement ses oreilles.",
-          "aide": "Réécoute la quatrième phrase : <em>« Elle caresse… »</em>",
-          "phraseSource": 4
         }
       ]
     },
@@ -575,112 +391,6 @@
       ]
     },
     {
-      "id": "sam-gateau",
-      "titre": "Le gâteau de Sam",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Sam prépare un gâteau pour sa mamie.",
-          "subject": "Sam",
-          "verb": "prépare",
-          "object": "un gâteau pour sa mamie"
-        },
-        {
-          "id": 2,
-          "text": "Il casse trois œufs dans un grand bol.",
-          "subject": "Il",
-          "verb": "casse",
-          "object": "trois œufs dans un grand bol"
-        },
-        {
-          "id": 3,
-          "text": "Son petit frère goûte la pâte avec le doigt.",
-          "subject": "Son petit frère",
-          "verb": "goûte",
-          "object": "la pâte avec le doigt"
-        },
-        {
-          "id": 4,
-          "text": "Le gâteau cuit pendant trente minutes.",
-          "subject": "Le gâteau",
-          "verb": "cuit",
-          "object": "pendant trente minutes"
-        },
-        {
-          "id": 5,
-          "text": "Toute la maison sent le chocolat chaud.",
-          "subject": "Toute la maison",
-          "verb": "sent",
-          "object": "le chocolat chaud"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Pour qui Sam prépare-t-il un gâteau ?",
-          "choix": [
-            {
-              "texte": "Pour sa mamie",
-              "correct": true
-            },
-            {
-              "texte": "Pour son frère",
-              "correct": false
-            },
-            {
-              "texte": "Pour ses amis",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, c’est pour sa mamie.",
-          "aide": "Réécoute la première phrase : <em>« Sam prépare un gâteau pour… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que fait le petit frère ?",
-          "choix": [
-            {
-              "texte": "Il casse les œufs",
-              "correct": false
-            },
-            {
-              "texte": "Il goûte la pâte",
-              "correct": true
-            },
-            {
-              "texte": "Il allume le four",
-              "correct": false
-            }
-          ],
-          "reussite": "C’est ça : il goûte la pâte avec le doigt.",
-          "aide": "Réécoute la troisième phrase : <em>« Son petit frère goûte… »</em>",
-          "phraseSource": 3
-        },
-        {
-          "id": "q3",
-          "question": "Combien de temps cuit le gâteau ?",
-          "choix": [
-            {
-              "texte": "Dix minutes",
-              "correct": false
-            },
-            {
-              "texte": "Trente minutes",
-              "correct": true
-            },
-            {
-              "texte": "Une heure",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement, trente minutes.",
-          "aide": "Réécoute la quatrième phrase : <em>« Le gâteau cuit pendant… »</em>",
-          "phraseSource": 4
-        }
-      ]
-    },
-    {
       "id": "anniversaire-surprise",
       "titre": "La surprise de Papy",
       "phrases": [
@@ -895,218 +605,6 @@
           ],
           "reussite": "C’est ça. L’histoire est finie.",
           "aide": "Réécoute la quatrième phrase : <em>« La boulangère reconnaît le chien de la dame du troisième étage. »</em>",
-          "phraseSource": 4
-        }
-      ]
-    },
-    {
-      "id": "lina-velo",
-      "titre": "Le vélo de Lina",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Lina sort son vélo rouge du garage.",
-          "subject": "Lina",
-          "verb": "sort",
-          "object": "son vélo rouge du garage"
-        },
-        {
-          "id": 2,
-          "text": "La roue avant est complètement à plat.",
-          "subject": "La roue avant",
-          "verb": "est",
-          "object": "complètement à plat"
-        },
-        {
-          "id": 3,
-          "text": "Son voisin Théo apporte une pompe.",
-          "subject": "Son voisin Théo",
-          "verb": "apporte",
-          "object": "une pompe"
-        },
-        {
-          "id": 4,
-          "text": "Lina gonfle la roue en deux minutes.",
-          "subject": "Lina",
-          "verb": "gonfle",
-          "object": "la roue en deux minutes"
-        },
-        {
-          "id": 5,
-          "text": "Les deux amis partent vers la rivière.",
-          "subject": "Les deux amis",
-          "verb": "partent",
-          "object": "vers la rivière"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "De quelle couleur est le vélo de Lina ?",
-          "choix": [
-            {
-              "texte": "Bleu",
-              "correct": false
-            },
-            {
-              "texte": "Rouge",
-              "correct": true
-            },
-            {
-              "texte": "Vert",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, il est rouge.",
-          "aide": "Réécoute la première phrase : <em>« Lina sort son vélo… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Quel est le problème ?",
-          "choix": [
-            {
-              "texte": "La roue est à plat",
-              "correct": true
-            },
-            {
-              "texte": "La chaîne est cassée",
-              "correct": false
-            },
-            {
-              "texte": "Il pleut",
-              "correct": false
-            }
-          ],
-          "reussite": "C’est ça : la roue avant est à plat.",
-          "aide": "Réécoute la deuxième phrase : <em>« La roue avant est… »</em>",
-          "phraseSource": 2
-        },
-        {
-          "id": "q3",
-          "question": "Qui apporte la pompe ?",
-          "choix": [
-            {
-              "texte": "Le père de Lina",
-              "correct": false
-            },
-            {
-              "texte": "Son voisin Théo",
-              "correct": true
-            },
-            {
-              "texte": "Sa sœur",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement, c’est Théo.",
-          "aide": "Réécoute la troisième phrase : <em>« Son voisin Théo apporte… »</em>",
-          "phraseSource": 3
-        }
-      ]
-    },
-    {
-      "id": "ines-marche",
-      "titre": "Inès au marché",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Inès accompagne son père au marché.",
-          "subject": "Inès",
-          "verb": "accompagne",
-          "object": "son père au marché"
-        },
-        {
-          "id": 2,
-          "text": "Elle choisit des fraises et un melon.",
-          "subject": "Elle",
-          "verb": "choisit",
-          "object": "des fraises et un melon"
-        },
-        {
-          "id": 3,
-          "text": "Le marchand lui offre une cerise.",
-          "subject": "Le marchand",
-          "verb": "lui offre",
-          "object": "une cerise"
-        },
-        {
-          "id": 4,
-          "text": "Son père oublie le pain à la boulangerie.",
-          "subject": "Son père",
-          "verb": "oublie",
-          "object": "le pain à la boulangerie"
-        },
-        {
-          "id": 5,
-          "text": "Ils reviennent sur leurs pas en riant.",
-          "subject": "Ils",
-          "verb": "reviennent",
-          "object": "sur leurs pas en riant"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Avec qui Inès va-t-elle au marché ?",
-          "choix": [
-            {
-              "texte": "Avec sa mère",
-              "correct": false
-            },
-            {
-              "texte": "Avec son père",
-              "correct": true
-            },
-            {
-              "texte": "Avec sa mamie",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, avec son père.",
-          "aide": "Réécoute la première phrase : <em>« Inès accompagne… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que lui offre le marchand ?",
-          "choix": [
-            {
-              "texte": "Une fraise",
-              "correct": false
-            },
-            {
-              "texte": "Un melon",
-              "correct": false
-            },
-            {
-              "texte": "Une cerise",
-              "correct": true
-            }
-          ],
-          "reussite": "C’est ça, une cerise.",
-          "aide": "Réécoute la troisième phrase : <em>« Le marchand lui offre… »</em>",
-          "phraseSource": 3
-        },
-        {
-          "id": "q3",
-          "question": "Qu’est-ce que le père a oublié ?",
-          "choix": [
-            {
-              "texte": "Les fraises",
-              "correct": false
-            },
-            {
-              "texte": "Le pain",
-              "correct": true
-            },
-            {
-              "texte": "Son portefeuille",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement : le pain.",
-          "aide": "Réécoute la quatrième phrase : <em>« Son père oublie… »</em>",
           "phraseSource": 4
         }
       ]
@@ -1440,218 +938,6 @@
           "reussite": "C’est ça. L’histoire est finie.",
           "aide": "Une tirelire plus lourde, c’est une tirelire avec plus de pièces dedans : Inès a bien vendu.",
           "phraseSource": 6
-        }
-      ]
-    },
-    {
-      "id": "cabane-jardin",
-      "titre": "La cabane du jardin",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "Théo et son cousin construisent une cabane au fond du jardin.",
-          "subject": "Théo et son cousin",
-          "verb": "construisent",
-          "object": "une cabane au fond du jardin"
-        },
-        {
-          "id": 2,
-          "text": "Ils utilisent de vieilles planches et une bâche bleue.",
-          "subject": "Ils",
-          "verb": "utilisent",
-          "object": "de vieilles planches et une bâche bleue"
-        },
-        {
-          "id": 3,
-          "text": "Le grand-père prête son marteau.",
-          "subject": "Le grand-père",
-          "verb": "prête",
-          "object": "son marteau"
-        },
-        {
-          "id": 4,
-          "text": "La cabane tient debout malgré le vent.",
-          "subject": "La cabane",
-          "verb": "tient",
-          "object": "debout malgré le vent"
-        },
-        {
-          "id": 5,
-          "text": "Les deux garçons y dorment une nuit entière.",
-          "subject": "Les deux garçons",
-          "verb": "y dorment",
-          "object": "une nuit entière"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Où est la cabane ?",
-          "choix": [
-            {
-              "texte": "Au fond du jardin",
-              "correct": true
-            },
-            {
-              "texte": "Dans le garage",
-              "correct": false
-            },
-            {
-              "texte": "Au parc",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, au fond du jardin.",
-          "aide": "Réécoute la première phrase : <em>« … une cabane au fond du jardin »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que prête le grand-père ?",
-          "choix": [
-            {
-              "texte": "Une bâche",
-              "correct": false
-            },
-            {
-              "texte": "Un marteau",
-              "correct": true
-            },
-            {
-              "texte": "Des planches",
-              "correct": false
-            }
-          ],
-          "reussite": "C’est ça, son marteau.",
-          "aide": "Réécoute la troisième phrase : <em>« Le grand-père prête… »</em>",
-          "phraseSource": 3
-        },
-        {
-          "id": "q3",
-          "question": "Combien de temps dorment-ils dans la cabane ?",
-          "choix": [
-            {
-              "texte": "Une heure",
-              "correct": false
-            },
-            {
-              "texte": "Une nuit entière",
-              "correct": true
-            },
-            {
-              "texte": "Une semaine",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement : une nuit entière.",
-          "aide": "Réécoute la dernière phrase : <em>« Les deux garçons y dorment… »</em>",
-          "phraseSource": 5
-        }
-      ]
-    },
-    {
-      "id": "nuit-camping",
-      "titre": "Une nuit en camping",
-      "phrases": [
-        {
-          "id": 1,
-          "text": "La famille monte la tente près du lac.",
-          "subject": "La famille",
-          "verb": "monte",
-          "object": "la tente près du lac"
-        },
-        {
-          "id": 2,
-          "text": "Papa allume un petit feu.",
-          "subject": "Papa",
-          "verb": "allume",
-          "object": "un petit feu"
-        },
-        {
-          "id": 3,
-          "text": "Les enfants font griller des chamallows.",
-          "subject": "Les enfants",
-          "verb": "font griller",
-          "object": "des chamallows"
-        },
-        {
-          "id": 4,
-          "text": "Un hibou hulule dans la forêt.",
-          "subject": "Un hibou",
-          "verb": "hulule",
-          "object": "dans la forêt"
-        },
-        {
-          "id": 5,
-          "text": "Tout le monde regarde les étoiles avant de dormir.",
-          "subject": "Tout le monde",
-          "verb": "regarde",
-          "object": "les étoiles avant de dormir"
-        }
-      ],
-      "questions": [
-        {
-          "id": "q1",
-          "question": "Où la tente est-elle montée ?",
-          "choix": [
-            {
-              "texte": "Près du lac",
-              "correct": true
-            },
-            {
-              "texte": "Dans le jardin",
-              "correct": false
-            },
-            {
-              "texte": "Sur la plage",
-              "correct": false
-            }
-          ],
-          "reussite": "Oui, près du lac.",
-          "aide": "Réécoute la première phrase : <em>« La famille monte la tente… »</em>",
-          "phraseSource": 1
-        },
-        {
-          "id": "q2",
-          "question": "Que font griller les enfants ?",
-          "choix": [
-            {
-              "texte": "Des saucisses",
-              "correct": false
-            },
-            {
-              "texte": "Des chamallows",
-              "correct": true
-            },
-            {
-              "texte": "Du pain",
-              "correct": false
-            }
-          ],
-          "reussite": "C’est ça, des chamallows.",
-          "aide": "Réécoute la troisième phrase : <em>« Les enfants font griller… »</em>",
-          "phraseSource": 3
-        },
-        {
-          "id": "q3",
-          "question": "Quel animal fait du bruit dans la forêt ?",
-          "choix": [
-            {
-              "texte": "Un loup",
-              "correct": false
-            },
-            {
-              "texte": "Un hibou",
-              "correct": true
-            },
-            {
-              "texte": "Un renard",
-              "correct": false
-            }
-          ],
-          "reussite": "Exactement, un hibou.",
-          "aide": "Réécoute la quatrième phrase : <em>« Un hibou hulule… »</em>",
-          "phraseSource": 4
         }
       ]
     },
@@ -2111,6 +1397,720 @@
           "reussite": "C’est ça. L’histoire est finie.",
           "aide": "Relie les deux dernières phrases : ils reprennent ailleurs, et la foule chante encore plus fort.",
           "phraseSource": 6
+        }
+      ]
+    },
+    {
+      "id": "alice-parc",
+      "titre": "Alice au parc",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Alice entre dans le grand parc près de chez elle.",
+          "subject": "Alice",
+          "verb": "entre",
+          "object": "dans le grand parc près de chez elle"
+        },
+        {
+          "id": 2,
+          "text": "Elle cherche son chat gris.",
+          "subject": "Elle",
+          "verb": "cherche",
+          "object": "son chat gris"
+        },
+        {
+          "id": 3,
+          "text": "Son sac bleu est lourd mais bien rangé.",
+          "subject": "Son sac bleu",
+          "verb": "est",
+          "object": "lourd mais bien rangé"
+        },
+        {
+          "id": 4,
+          "text": "Le chat dort sous un banc, au soleil.",
+          "subject": "Le chat",
+          "verb": "dort",
+          "object": "sous un banc, au soleil"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où est Alice au début de l’histoire ?",
+          "choix": [
+            {
+              "texte": "À la piscine",
+              "correct": false
+            },
+            {
+              "texte": "Dans le parc",
+              "correct": true
+            },
+            {
+              "texte": "Chez elle",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça. Tu peux continuer l’histoire.",
+          "aide": "Réécoute la première phrase : <em>« Alice entre dans le grand parc… »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que cherche Alice ?",
+          "choix": [
+            {
+              "texte": "Son sac bleu",
+              "correct": false
+            },
+            {
+              "texte": "Son chat gris",
+              "correct": true
+            },
+            {
+              "texte": "Un banc",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, elle cherche son chat.",
+          "aide": "Réécoute la deuxième phrase : <em>« Elle cherche… »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q3",
+          "question": "Où dort le chat ?",
+          "choix": [
+            {
+              "texte": "Sous un banc",
+              "correct": true
+            },
+            {
+              "texte": "Dans le sac",
+              "correct": false
+            },
+            {
+              "texte": "Sur l’herbe",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement : sous un banc, au soleil.",
+          "aide": "Réécoute la dernière phrase : <em>« Le chat dort… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "chien-orage",
+      "titre": "Le chien et l’orage",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Le tonnerre gronde au-dessus de la maison.",
+          "subject": "Le tonnerre",
+          "verb": "gronde",
+          "object": "au-dessus de la maison"
+        },
+        {
+          "id": 2,
+          "text": "Biscuit, le chien, se cache sous la table de la cuisine.",
+          "subject": "Biscuit, le chien,",
+          "verb": "se cache",
+          "object": "sous la table de la cuisine"
+        },
+        {
+          "id": 3,
+          "text": "Zoé s’assoit par terre à côté de lui.",
+          "subject": "Zoé",
+          "verb": "s’assoit",
+          "object": "par terre à côté de lui"
+        },
+        {
+          "id": 4,
+          "text": "Elle caresse doucement ses oreilles.",
+          "subject": "Elle",
+          "verb": "caresse",
+          "object": "doucement ses oreilles"
+        },
+        {
+          "id": 5,
+          "text": "Le chien s’endort avant la fin de l’orage.",
+          "subject": "Le chien",
+          "verb": "s’endort",
+          "object": "avant la fin de l’orage"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où se cache le chien ?",
+          "choix": [
+            {
+              "texte": "Sous le lit",
+              "correct": false
+            },
+            {
+              "texte": "Sous la table",
+              "correct": true
+            },
+            {
+              "texte": "Dans le jardin",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, sous la table de la cuisine.",
+          "aide": "Réécoute la deuxième phrase : <em>« Biscuit se cache… »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q2",
+          "question": "Que fait Zoé pour le rassurer ?",
+          "choix": [
+            {
+              "texte": "Elle lui donne à manger",
+              "correct": false
+            },
+            {
+              "texte": "Elle allume la lumière",
+              "correct": false
+            },
+            {
+              "texte": "Elle caresse ses oreilles",
+              "correct": true
+            }
+          ],
+          "reussite": "C’est ça : elle caresse doucement ses oreilles.",
+          "aide": "Réécoute la quatrième phrase : <em>« Elle caresse… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "sam-gateau",
+      "titre": "Le gâteau de Sam",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Sam prépare un gâteau pour sa mamie.",
+          "subject": "Sam",
+          "verb": "prépare",
+          "object": "un gâteau pour sa mamie"
+        },
+        {
+          "id": 2,
+          "text": "Il casse trois œufs dans un grand bol.",
+          "subject": "Il",
+          "verb": "casse",
+          "object": "trois œufs dans un grand bol"
+        },
+        {
+          "id": 3,
+          "text": "Son petit frère goûte la pâte avec le doigt.",
+          "subject": "Son petit frère",
+          "verb": "goûte",
+          "object": "la pâte avec le doigt"
+        },
+        {
+          "id": 4,
+          "text": "Le gâteau cuit pendant trente minutes.",
+          "subject": "Le gâteau",
+          "verb": "cuit",
+          "object": "pendant trente minutes"
+        },
+        {
+          "id": 5,
+          "text": "Toute la maison sent le chocolat chaud.",
+          "subject": "Toute la maison",
+          "verb": "sent",
+          "object": "le chocolat chaud"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Pour qui Sam prépare-t-il un gâteau ?",
+          "choix": [
+            {
+              "texte": "Pour sa mamie",
+              "correct": true
+            },
+            {
+              "texte": "Pour son frère",
+              "correct": false
+            },
+            {
+              "texte": "Pour ses amis",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, c’est pour sa mamie.",
+          "aide": "Réécoute la première phrase : <em>« Sam prépare un gâteau pour… »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que fait le petit frère ?",
+          "choix": [
+            {
+              "texte": "Il casse les œufs",
+              "correct": false
+            },
+            {
+              "texte": "Il goûte la pâte",
+              "correct": true
+            },
+            {
+              "texte": "Il allume le four",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça : il goûte la pâte avec le doigt.",
+          "aide": "Réécoute la troisième phrase : <em>« Son petit frère goûte… »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Combien de temps cuit le gâteau ?",
+          "choix": [
+            {
+              "texte": "Dix minutes",
+              "correct": false
+            },
+            {
+              "texte": "Trente minutes",
+              "correct": true
+            },
+            {
+              "texte": "Une heure",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement, trente minutes.",
+          "aide": "Réécoute la quatrième phrase : <em>« Le gâteau cuit pendant… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "lina-velo",
+      "titre": "Le vélo de Lina",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Lina sort son vélo rouge du garage.",
+          "subject": "Lina",
+          "verb": "sort",
+          "object": "son vélo rouge du garage"
+        },
+        {
+          "id": 2,
+          "text": "La roue avant est complètement à plat.",
+          "subject": "La roue avant",
+          "verb": "est",
+          "object": "complètement à plat"
+        },
+        {
+          "id": 3,
+          "text": "Son voisin Théo apporte une pompe.",
+          "subject": "Son voisin Théo",
+          "verb": "apporte",
+          "object": "une pompe"
+        },
+        {
+          "id": 4,
+          "text": "Lina gonfle la roue en deux minutes.",
+          "subject": "Lina",
+          "verb": "gonfle",
+          "object": "la roue en deux minutes"
+        },
+        {
+          "id": 5,
+          "text": "Les deux amis partent vers la rivière.",
+          "subject": "Les deux amis",
+          "verb": "partent",
+          "object": "vers la rivière"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "De quelle couleur est le vélo de Lina ?",
+          "choix": [
+            {
+              "texte": "Bleu",
+              "correct": false
+            },
+            {
+              "texte": "Rouge",
+              "correct": true
+            },
+            {
+              "texte": "Vert",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, il est rouge.",
+          "aide": "Réécoute la première phrase : <em>« Lina sort son vélo… »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Quel est le problème ?",
+          "choix": [
+            {
+              "texte": "La roue est à plat",
+              "correct": true
+            },
+            {
+              "texte": "La chaîne est cassée",
+              "correct": false
+            },
+            {
+              "texte": "Il pleut",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça : la roue avant est à plat.",
+          "aide": "Réécoute la deuxième phrase : <em>« La roue avant est… »</em>",
+          "phraseSource": 2
+        },
+        {
+          "id": "q3",
+          "question": "Qui apporte la pompe ?",
+          "choix": [
+            {
+              "texte": "Le père de Lina",
+              "correct": false
+            },
+            {
+              "texte": "Son voisin Théo",
+              "correct": true
+            },
+            {
+              "texte": "Sa sœur",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement, c’est Théo.",
+          "aide": "Réécoute la troisième phrase : <em>« Son voisin Théo apporte… »</em>",
+          "phraseSource": 3
+        }
+      ]
+    },
+    {
+      "id": "ines-marche",
+      "titre": "Inès au marché",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Inès accompagne son père au marché.",
+          "subject": "Inès",
+          "verb": "accompagne",
+          "object": "son père au marché"
+        },
+        {
+          "id": 2,
+          "text": "Elle choisit des fraises et un melon.",
+          "subject": "Elle",
+          "verb": "choisit",
+          "object": "des fraises et un melon"
+        },
+        {
+          "id": 3,
+          "text": "Le marchand lui offre une cerise.",
+          "subject": "Le marchand",
+          "verb": "lui offre",
+          "object": "une cerise"
+        },
+        {
+          "id": 4,
+          "text": "Son père oublie le pain à la boulangerie.",
+          "subject": "Son père",
+          "verb": "oublie",
+          "object": "le pain à la boulangerie"
+        },
+        {
+          "id": 5,
+          "text": "Ils reviennent sur leurs pas en riant.",
+          "subject": "Ils",
+          "verb": "reviennent",
+          "object": "sur leurs pas en riant"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Avec qui Inès va-t-elle au marché ?",
+          "choix": [
+            {
+              "texte": "Avec sa mère",
+              "correct": false
+            },
+            {
+              "texte": "Avec son père",
+              "correct": true
+            },
+            {
+              "texte": "Avec sa mamie",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, avec son père.",
+          "aide": "Réécoute la première phrase : <em>« Inès accompagne… »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que lui offre le marchand ?",
+          "choix": [
+            {
+              "texte": "Une fraise",
+              "correct": false
+            },
+            {
+              "texte": "Un melon",
+              "correct": false
+            },
+            {
+              "texte": "Une cerise",
+              "correct": true
+            }
+          ],
+          "reussite": "C’est ça, une cerise.",
+          "aide": "Réécoute la troisième phrase : <em>« Le marchand lui offre… »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Qu’est-ce que le père a oublié ?",
+          "choix": [
+            {
+              "texte": "Les fraises",
+              "correct": false
+            },
+            {
+              "texte": "Le pain",
+              "correct": true
+            },
+            {
+              "texte": "Son portefeuille",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement : le pain.",
+          "aide": "Réécoute la quatrième phrase : <em>« Son père oublie… »</em>",
+          "phraseSource": 4
+        }
+      ]
+    },
+    {
+      "id": "cabane-jardin",
+      "titre": "La cabane du jardin",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Théo et son cousin construisent une cabane au fond du jardin.",
+          "subject": "Théo et son cousin",
+          "verb": "construisent",
+          "object": "une cabane au fond du jardin"
+        },
+        {
+          "id": 2,
+          "text": "Ils utilisent de vieilles planches et une bâche bleue.",
+          "subject": "Ils",
+          "verb": "utilisent",
+          "object": "de vieilles planches et une bâche bleue"
+        },
+        {
+          "id": 3,
+          "text": "Le grand-père prête son marteau.",
+          "subject": "Le grand-père",
+          "verb": "prête",
+          "object": "son marteau"
+        },
+        {
+          "id": 4,
+          "text": "La cabane tient debout malgré le vent.",
+          "subject": "La cabane",
+          "verb": "tient",
+          "object": "debout malgré le vent"
+        },
+        {
+          "id": 5,
+          "text": "Les deux garçons y dorment une nuit entière.",
+          "subject": "Les deux garçons",
+          "verb": "y dorment",
+          "object": "une nuit entière"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où est la cabane ?",
+          "choix": [
+            {
+              "texte": "Au fond du jardin",
+              "correct": true
+            },
+            {
+              "texte": "Dans le garage",
+              "correct": false
+            },
+            {
+              "texte": "Au parc",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, au fond du jardin.",
+          "aide": "Réécoute la première phrase : <em>« … une cabane au fond du jardin »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que prête le grand-père ?",
+          "choix": [
+            {
+              "texte": "Une bâche",
+              "correct": false
+            },
+            {
+              "texte": "Un marteau",
+              "correct": true
+            },
+            {
+              "texte": "Des planches",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça, son marteau.",
+          "aide": "Réécoute la troisième phrase : <em>« Le grand-père prête… »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Combien de temps dorment-ils dans la cabane ?",
+          "choix": [
+            {
+              "texte": "Une heure",
+              "correct": false
+            },
+            {
+              "texte": "Une nuit entière",
+              "correct": true
+            },
+            {
+              "texte": "Une semaine",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement : une nuit entière.",
+          "aide": "Réécoute la dernière phrase : <em>« Les deux garçons y dorment… »</em>",
+          "phraseSource": 5
+        }
+      ]
+    },
+    {
+      "id": "nuit-camping",
+      "titre": "Une nuit en camping",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "La famille monte la tente près du lac.",
+          "subject": "La famille",
+          "verb": "monte",
+          "object": "la tente près du lac"
+        },
+        {
+          "id": 2,
+          "text": "Papa allume un petit feu.",
+          "subject": "Papa",
+          "verb": "allume",
+          "object": "un petit feu"
+        },
+        {
+          "id": 3,
+          "text": "Les enfants font griller des chamallows.",
+          "subject": "Les enfants",
+          "verb": "font griller",
+          "object": "des chamallows"
+        },
+        {
+          "id": 4,
+          "text": "Un hibou hulule dans la forêt.",
+          "subject": "Un hibou",
+          "verb": "hulule",
+          "object": "dans la forêt"
+        },
+        {
+          "id": 5,
+          "text": "Tout le monde regarde les étoiles avant de dormir.",
+          "subject": "Tout le monde",
+          "verb": "regarde",
+          "object": "les étoiles avant de dormir"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Où la tente est-elle montée ?",
+          "choix": [
+            {
+              "texte": "Près du lac",
+              "correct": true
+            },
+            {
+              "texte": "Dans le jardin",
+              "correct": false
+            },
+            {
+              "texte": "Sur la plage",
+              "correct": false
+            }
+          ],
+          "reussite": "Oui, près du lac.",
+          "aide": "Réécoute la première phrase : <em>« La famille monte la tente… »</em>",
+          "phraseSource": 1
+        },
+        {
+          "id": "q2",
+          "question": "Que font griller les enfants ?",
+          "choix": [
+            {
+              "texte": "Des saucisses",
+              "correct": false
+            },
+            {
+              "texte": "Des chamallows",
+              "correct": true
+            },
+            {
+              "texte": "Du pain",
+              "correct": false
+            }
+          ],
+          "reussite": "C’est ça, des chamallows.",
+          "aide": "Réécoute la troisième phrase : <em>« Les enfants font griller… »</em>",
+          "phraseSource": 3
+        },
+        {
+          "id": "q3",
+          "question": "Quel animal fait du bruit dans la forêt ?",
+          "choix": [
+            {
+              "texte": "Un loup",
+              "correct": false
+            },
+            {
+              "texte": "Un hibou",
+              "correct": true
+            },
+            {
+              "texte": "Un renard",
+              "correct": false
+            }
+          ],
+          "reussite": "Exactement, un hibou.",
+          "aide": "Réécoute la quatrième phrase : <em>« Un hibou hulule… »</em>",
+          "phraseSource": 4
         }
       ]
     }
