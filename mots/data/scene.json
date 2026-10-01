@@ -1,0 +1,976 @@
+{
+  "scenes": [
+    {
+      "id": "chambre",
+      "nom": "la chambre",
+      "reussite": "La chambre est rangée",
+      "decor": {
+        "mur-a": "#f9f3e6",
+        "mur-b": "#f4ecdb",
+        "sol": "#ecdfc6",
+        "plinthe": "#d8c7a6",
+        "sol-h": "38%"
+      },
+      "reperes": [
+        {
+          "id": "lit",
+          "label": "le lit",
+          "x": 4,
+          "y": 52,
+          "w": 34,
+          "h": 40,
+          "forme": "lit"
+        },
+        {
+          "id": "tapis",
+          "label": "le tapis",
+          "x": 42,
+          "y": 74,
+          "w": 24,
+          "h": 18,
+          "forme": "tapis"
+        },
+        {
+          "id": "table",
+          "label": "la table",
+          "x": 68,
+          "y": 46,
+          "w": 28,
+          "h": 18,
+          "forme": "table",
+          "labelPos": "droite"
+        },
+        {
+          "id": "lampe",
+          "label": "la lampe",
+          "x": 84,
+          "y": 26,
+          "w": 8,
+          "h": 20,
+          "forme": "lampe",
+          "labelPos": "haut"
+        },
+        {
+          "id": "etagere",
+          "label": "l’étagère",
+          "x": 44,
+          "y": 24,
+          "w": 22,
+          "h": 6,
+          "forme": "etagere"
+        }
+      ],
+      "spots": [
+        {
+          "id": "sur-lit",
+          "x": 8,
+          "y": 54,
+          "w": 26,
+          "h": 20,
+          "label": "sur le lit"
+        },
+        {
+          "id": "sous-table",
+          "x": 70,
+          "y": 65,
+          "w": 24,
+          "h": 20,
+          "label": "sous la table"
+        },
+        {
+          "id": "gauche-lampe",
+          "x": 69,
+          "y": 29,
+          "w": 13,
+          "h": 17,
+          "label": "à gauche de la lampe"
+        },
+        {
+          "id": "sur-etagere",
+          "x": 44,
+          "y": 8,
+          "w": 22,
+          "h": 16,
+          "label": "sur l’étagère"
+        },
+        {
+          "id": "entre-lit-tapis",
+          "x": 38,
+          "y": 76,
+          "w": 5,
+          "h": 16,
+          "label": "entre le lit et le tapis"
+        },
+        {
+          "id": "sur-tapis",
+          "x": 46,
+          "y": 76,
+          "w": 16,
+          "h": 14,
+          "label": "sur le tapis"
+        }
+      ],
+      "objets": [
+        {
+          "id": "coussin",
+          "label": "le coussin",
+          "x0": 3,
+          "y0": 4,
+          "forme": "coussin"
+        },
+        {
+          "id": "livre",
+          "label": "le livre",
+          "x0": 14,
+          "y0": 4,
+          "forme": "livre"
+        },
+        {
+          "id": "chat",
+          "label": "le chat",
+          "x0": 25,
+          "y0": 4,
+          "forme": "chat"
+        },
+        {
+          "id": "boite",
+          "label": "la boîte",
+          "x0": 88,
+          "y0": 4,
+          "forme": "boite"
+        }
+      ]
+    },
+    {
+      "id": "cuisine",
+      "nom": "la cuisine",
+      "reussite": "La cuisine est rangée",
+      "decor": {
+        "mur-a": "#eef2ea",
+        "mur-b": "#e6ece1",
+        "sol": "#ddd3c2",
+        "plinthe": "#c8bca6",
+        "sol-h": "36%"
+      },
+      "reperes": [
+        {
+          "id": "evier",
+          "label": "l’évier",
+          "x": 2,
+          "y": 48,
+          "w": 30,
+          "h": 44,
+          "forme": "evier"
+        },
+        {
+          "id": "placard",
+          "label": "le placard",
+          "x": 4,
+          "y": 12,
+          "w": 24,
+          "h": 20,
+          "forme": "placard"
+        },
+        {
+          "id": "chaise",
+          "label": "la chaise",
+          "x": 88,
+          "y": 56,
+          "w": 11,
+          "h": 36,
+          "forme": "chaise",
+          "labelPos": "droite"
+        },
+        {
+          "id": "tableCuisine",
+          "label": "la table",
+          "x": 36,
+          "y": 58,
+          "w": 26,
+          "h": 34,
+          "forme": "tableCuisine",
+          "labelPos": "droite"
+        },
+        {
+          "id": "frigo",
+          "label": "le frigo",
+          "x": 72,
+          "y": 28,
+          "w": 16,
+          "h": 64,
+          "forme": "frigo",
+          "labelPos": "haut"
+        }
+      ],
+      "spots": [
+        {
+          "id": "dans-evier",
+          "x": 4,
+          "y": 42,
+          "w": 16,
+          "h": 18,
+          "label": "dans l’évier"
+        },
+        {
+          "id": "dans-placard",
+          "x": 6,
+          "y": 13,
+          "w": 18,
+          "h": 18,
+          "label": "dans le placard"
+        },
+        {
+          "id": "sur-chaise",
+          "x": 87,
+          "y": 50,
+          "w": 13,
+          "h": 17,
+          "label": "sur la chaise"
+        },
+        {
+          "id": "sur-table",
+          "x": 38,
+          "y": 42,
+          "w": 22,
+          "h": 16,
+          "label": "sur la table"
+        },
+        {
+          "id": "sous-table",
+          "x": 38,
+          "y": 64,
+          "w": 22,
+          "h": 18,
+          "label": "sous la table"
+        },
+        {
+          "id": "cote-frigo",
+          "x": 60,
+          "y": 68,
+          "w": 11,
+          "h": 20,
+          "label": "à côté du frigo"
+        }
+      ],
+      "objets": [
+        {
+          "id": "bol",
+          "label": "le bol",
+          "x0": 34,
+          "y0": 2,
+          "forme": "bol"
+        },
+        {
+          "id": "pomme",
+          "label": "la pomme",
+          "x0": 46,
+          "y0": 2,
+          "forme": "pomme"
+        },
+        {
+          "id": "torchon",
+          "label": "le torchon",
+          "x0": 58,
+          "y0": 2,
+          "forme": "torchon"
+        },
+        {
+          "id": "casserole",
+          "label": "la casserole",
+          "x0": 70,
+          "y0": 2,
+          "forme": "casserole"
+        }
+      ]
+    },
+    {
+      "id": "salon",
+      "nom": "le salon",
+      "reussite": "Le salon est rangé",
+      "decor": {
+        "mur-a": "#f3ecdf",
+        "mur-b": "#ece3d2",
+        "sol": "#c9a98a",
+        "plinthe": "#a98b6d",
+        "sol-h": "40%"
+      },
+      "reperes": [
+        {
+          "id": "lampadaire",
+          "label": "le lampadaire",
+          "x": 1,
+          "y": 22,
+          "w": 9,
+          "h": 70,
+          "forme": "lampadaire",
+          "labelPos": "gauche"
+        },
+        {
+          "id": "canape",
+          "label": "le canapé",
+          "x": 12,
+          "y": 52,
+          "w": 34,
+          "h": 38,
+          "forme": "canape",
+          "labelPos": "droite"
+        },
+        {
+          "id": "tele",
+          "label": "la télé",
+          "x": 56,
+          "y": 24,
+          "w": 24,
+          "h": 32,
+          "forme": "tele",
+          "labelPos": "haut"
+        },
+        {
+          "id": "tableBasse",
+          "label": "la table basse",
+          "x": 52,
+          "y": 68,
+          "w": 24,
+          "h": 18,
+          "forme": "tableBasse",
+          "labelPos": "droite"
+        },
+        {
+          "id": "plante",
+          "label": "la plante",
+          "x": 86,
+          "y": 46,
+          "w": 12,
+          "h": 46,
+          "forme": "plante",
+          "labelPos": "droite"
+        }
+      ],
+      "spots": [
+        {
+          "id": "sur-canape",
+          "x": 16,
+          "y": 58,
+          "w": 22,
+          "h": 18,
+          "label": "sur le canapé"
+        },
+        {
+          "id": "derriere-canape",
+          "x": 14,
+          "y": 34,
+          "w": 18,
+          "h": 17,
+          "label": "derrière le canapé"
+        },
+        {
+          "id": "entre-canape-table",
+          "x": 46,
+          "y": 70,
+          "w": 6,
+          "h": 18,
+          "label": "entre le canapé et la table basse"
+        },
+        {
+          "id": "sur-table-basse",
+          "x": 54,
+          "y": 50,
+          "w": 20,
+          "h": 17,
+          "label": "sur la table basse"
+        },
+        {
+          "id": "sous-table-basse",
+          "x": 54,
+          "y": 78,
+          "w": 20,
+          "h": 18,
+          "label": "sous la table basse"
+        },
+        {
+          "id": "cote-plante",
+          "x": 74,
+          "y": 64,
+          "w": 12,
+          "h": 18,
+          "label": "à côté de la plante"
+        }
+      ],
+      "objets": [
+        {
+          "id": "telecommande",
+          "label": "la télécommande",
+          "x0": 4,
+          "y0": 3,
+          "forme": "telecommande"
+        },
+        {
+          "id": "magazine",
+          "label": "le magazine",
+          "x0": 16,
+          "y0": 3,
+          "forme": "magazine"
+        },
+        {
+          "id": "coussin",
+          "label": "le coussin",
+          "x0": 28,
+          "y0": 3,
+          "forme": "coussin"
+        },
+        {
+          "id": "chat",
+          "label": "le chat",
+          "x0": 88,
+          "y0": 3,
+          "forme": "chat"
+        }
+      ]
+    },
+    {
+      "id": "jardin",
+      "nom": "le jardin",
+      "reussite": "Le jardin est rangé",
+      "decor": {
+        "mur-a": "#dceaf3",
+        "mur-b": "#d6e5f0",
+        "sol": "#a9c089",
+        "plinthe": "transparent",
+        "sol-h": "42%"
+      },
+      "reperes": [
+        {
+          "id": "arbre",
+          "label": "l’arbre",
+          "x": 2,
+          "y": 6,
+          "w": 26,
+          "h": 58,
+          "forme": "arbre"
+        },
+        {
+          "id": "banc",
+          "label": "le banc",
+          "x": 36,
+          "y": 56,
+          "w": 26,
+          "h": 16,
+          "forme": "banc",
+          "labelPos": "droite"
+        },
+        {
+          "id": "cabane",
+          "label": "la cabane",
+          "x": 70,
+          "y": 16,
+          "w": 28,
+          "h": 54,
+          "forme": "cabane",
+          "labelPos": "droite"
+        },
+        {
+          "id": "potager",
+          "label": "le potager",
+          "x": 2,
+          "y": 78,
+          "w": 30,
+          "h": 22,
+          "forme": "potager",
+          "labelPos": "haut"
+        },
+        {
+          "id": "muret",
+          "label": "le muret",
+          "x": 66,
+          "y": 74,
+          "w": 32,
+          "h": 18,
+          "forme": "muret",
+          "labelPos": "dedans"
+        }
+      ],
+      "spots": [
+        {
+          "id": "pied-arbre",
+          "x": 6,
+          "y": 50,
+          "w": 18,
+          "h": 18,
+          "label": "au pied de l’arbre"
+        },
+        {
+          "id": "sur-banc",
+          "x": 40,
+          "y": 44,
+          "w": 18,
+          "h": 17,
+          "label": "sur le banc"
+        },
+        {
+          "id": "sous-banc",
+          "x": 40,
+          "y": 68,
+          "w": 18,
+          "h": 17,
+          "label": "sous le banc"
+        },
+        {
+          "id": "dans-potager",
+          "x": 6,
+          "y": 76,
+          "w": 20,
+          "h": 20,
+          "label": "dans le potager"
+        },
+        {
+          "id": "devant-cabane",
+          "x": 72,
+          "y": 52,
+          "w": 18,
+          "h": 17,
+          "label": "devant la cabane"
+        },
+        {
+          "id": "sur-muret",
+          "x": 70,
+          "y": 72,
+          "w": 18,
+          "h": 17,
+          "label": "sur le muret"
+        }
+      ],
+      "objets": [
+        {
+          "id": "ballon",
+          "label": "le ballon",
+          "x0": 28,
+          "y0": 2,
+          "forme": "ballon"
+        },
+        {
+          "id": "arrosoir",
+          "label": "l’arrosoir",
+          "x0": 40,
+          "y0": 2,
+          "forme": "arrosoir"
+        },
+        {
+          "id": "chapeau",
+          "label": "le chapeau",
+          "x0": 52,
+          "y0": 2,
+          "forme": "chapeau"
+        },
+        {
+          "id": "seau",
+          "label": "le seau",
+          "x0": 64,
+          "y0": 2,
+          "forme": "seau"
+        }
+      ]
+    }
+  ],
+  "series": [
+    {
+      "id": "cuisine-1",
+      "scene": "cuisine",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets le bol dans l’évier.",
+          "objet": "bol",
+          "spot": "dans-evier",
+          "aide": "L’évier est à gauche, avec le robinet au-dessus. Le bol va dedans."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose la pomme sur la table.",
+          "objet": "pomme",
+          "spot": "sur-table",
+          "aide": "La table est au milieu. Pose la pomme sur le plateau, pas en dessous."
+        },
+        {
+          "id": "c3",
+          "texte": "Range la casserole dans le placard.",
+          "objet": "casserole",
+          "spot": "dans-placard",
+          "aide": "Le placard est accroché en haut, à gauche. C’est là que va la casserole."
+        },
+        {
+          "id": "c4",
+          "texte": "Mets le torchon sur la chaise.",
+          "objet": "torchon",
+          "spot": "sur-chaise",
+          "aide": "La chaise est entre l’évier et la table. Le torchon se pose dessus."
+        },
+        {
+          "id": "c5",
+          "texte": "Place le bol à côté du frigo.",
+          "objet": "bol",
+          "spot": "cote-frigo",
+          "aide": "Le frigo est tout à droite. À côté, c’est juste à sa gauche, par terre."
+        }
+      ]
+    },
+    {
+      "id": "cuisine-2",
+      "scene": "cuisine",
+      "depart": {
+        "bol": {
+          "x0": 70,
+          "y0": 2
+        },
+        "pomme": {
+          "x0": 34,
+          "y0": 2
+        },
+        "torchon": {
+          "x0": 46,
+          "y0": 2
+        },
+        "casserole": {
+          "x0": 58,
+          "y0": 2
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets la pomme dans l’évier.",
+          "objet": "pomme",
+          "spot": "dans-evier",
+          "aide": "La pomme se lave : elle va dans l’évier, à gauche."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose la casserole sur la table.",
+          "objet": "casserole",
+          "spot": "sur-table",
+          "aide": "La table est au milieu de la cuisine. La casserole se pose sur le plateau."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le bol dans le placard.",
+          "objet": "bol",
+          "spot": "dans-placard",
+          "aide": "Le placard est en haut à gauche, au-dessus de l’évier."
+        },
+        {
+          "id": "c4",
+          "texte": "Mets le torchon à côté du frigo.",
+          "objet": "torchon",
+          "spot": "cote-frigo",
+          "aide": "Le frigo est le grand meuble blanc, à droite. Le torchon va juste à côté."
+        },
+        {
+          "id": "c5",
+          "texte": "Range la casserole sous la table.",
+          "objet": "casserole",
+          "spot": "sous-table",
+          "aide": "Sous la table, c’est l’espace entre le plateau et le sol."
+        }
+      ]
+    },
+    {
+      "id": "salon-1",
+      "scene": "salon",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le coussin sur le canapé.",
+          "objet": "coussin",
+          "spot": "sur-canape",
+          "aide": "Le canapé est à gauche. Le coussin se pose sur l’assise."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets la télécommande sur la table basse.",
+          "objet": "telecommande",
+          "spot": "sur-table-basse",
+          "aide": "La table basse est devant la télé. Pose la télécommande sur le plateau."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le magazine sous la table basse.",
+          "objet": "magazine",
+          "spot": "sous-table-basse",
+          "aide": "Sous la table basse, c’est l’espace entre le plateau et le sol."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le chat entre le canapé et la table basse.",
+          "objet": "chat",
+          "spot": "entre-canape-table",
+          "aide": "Entre, c’est au milieu : ni sur le canapé, ni sur la table, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Mets le coussin à côté de la plante.",
+          "objet": "coussin",
+          "spot": "cote-plante",
+          "aide": "La plante est tout à droite. À côté, c’est juste à sa gauche."
+        }
+      ]
+    },
+    {
+      "id": "salon-2",
+      "scene": "salon",
+      "depart": {
+        "telecommande": {
+          "x0": 88,
+          "y0": 3
+        },
+        "magazine": {
+          "x0": 4,
+          "y0": 3
+        },
+        "coussin": {
+          "x0": 16,
+          "y0": 3
+        },
+        "chat": {
+          "x0": 28,
+          "y0": 3
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le magazine sur la table basse.",
+          "objet": "magazine",
+          "spot": "sur-table-basse",
+          "aide": "La table basse est au milieu, devant la télé."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets le chat sur le canapé.",
+          "objet": "chat",
+          "spot": "sur-canape",
+          "aide": "Le canapé est à gauche, avec ses deux accoudoirs."
+        },
+        {
+          "id": "c3",
+          "texte": "Cache la télécommande derrière le canapé.",
+          "objet": "telecommande",
+          "spot": "derriere-canape",
+          "aide": "Derrière le canapé, c’est l’espace entre le canapé et le mur, au-dessus."
+        },
+        {
+          "id": "c4",
+          "texte": "Range le coussin sous la table basse.",
+          "objet": "coussin",
+          "spot": "sous-table-basse",
+          "aide": "Sous la table basse : dans l’espace du dessous, pas sur le plateau."
+        },
+        {
+          "id": "c5",
+          "texte": "Place le chat à côté de la plante.",
+          "objet": "chat",
+          "spot": "cote-plante",
+          "aide": "La plante est le pot vert, tout à droite. Le chat va juste à côté."
+        }
+      ]
+    },
+    {
+      "id": "jardin-1",
+      "scene": "jardin",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le chapeau sur le banc.",
+          "objet": "chapeau",
+          "spot": "sur-banc",
+          "aide": "Le banc est au milieu du jardin. Le chapeau se pose sur l’assise."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets l’arrosoir au pied de l’arbre.",
+          "objet": "arrosoir",
+          "spot": "pied-arbre",
+          "aide": "Au pied de l’arbre, c’est tout en bas du tronc, à gauche."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le ballon sous le banc.",
+          "objet": "ballon",
+          "spot": "sous-banc",
+          "aide": "Sous le banc, c’est l’espace entre l’assise et l’herbe."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le seau devant la cabane.",
+          "objet": "seau",
+          "spot": "devant-cabane",
+          "aide": "La cabane est à droite. Devant, c’est juste avant sa porte."
+        },
+        {
+          "id": "c5",
+          "texte": "Mets le chapeau sur le muret.",
+          "objet": "chapeau",
+          "spot": "sur-muret",
+          "aide": "Le muret est le petit mur de pierres, en bas à droite."
+        }
+      ]
+    },
+    {
+      "id": "jardin-2",
+      "scene": "jardin",
+      "depart": {
+        "ballon": {
+          "x0": 64,
+          "y0": 2
+        },
+        "arrosoir": {
+          "x0": 52,
+          "y0": 2
+        },
+        "chapeau": {
+          "x0": 40,
+          "y0": 2
+        },
+        "seau": {
+          "x0": 28,
+          "y0": 2
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets le seau dans le potager.",
+          "objet": "seau",
+          "spot": "dans-potager",
+          "aide": "Le potager est le carré de terre, en bas à gauche."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose l’arrosoir sur le muret.",
+          "objet": "arrosoir",
+          "spot": "sur-muret",
+          "aide": "Le muret est le petit mur de pierres, en bas à droite."
+        },
+        {
+          "id": "c3",
+          "texte": "Place le ballon devant la cabane.",
+          "objet": "ballon",
+          "spot": "devant-cabane",
+          "aide": "Devant la cabane, c’est juste avant sa porte, sur l’herbe."
+        },
+        {
+          "id": "c4",
+          "texte": "Mets le chapeau au pied de l’arbre.",
+          "objet": "chapeau",
+          "spot": "pied-arbre",
+          "aide": "Au pied de l’arbre, c’est en bas du tronc, à gauche."
+        },
+        {
+          "id": "c5",
+          "texte": "Range l’arrosoir sous le banc.",
+          "objet": "arrosoir",
+          "spot": "sous-banc",
+          "aide": "Sous le banc : dans l’espace entre l’assise et l’herbe."
+        }
+      ]
+    },
+    {
+      "id": "chambre-1",
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Mets le coussin sur le lit.",
+          "objet": "coussin",
+          "spot": "sur-lit",
+          "aide": "Le lit est en bas à gauche. Le coussin doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Pose le livre à gauche de la lampe.",
+          "objet": "livre",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le livre va juste à côté, du côté gauche."
+        },
+        {
+          "id": "c3",
+          "texte": "Range la boîte sous la table.",
+          "objet": "boite",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le chat entre le lit et le tapis.",
+          "objet": "chat",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le livre sur l’étagère.",
+          "objet": "livre",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. Le livre doit être posé dessus."
+        }
+      ],
+      "scene": "chambre"
+    },
+    {
+      "id": "chambre-2",
+      "depart": {
+        "coussin": {
+          "x0": 88,
+          "y0": 4
+        },
+        "livre": {
+          "x0": 77,
+          "y0": 4
+        },
+        "chat": {
+          "x0": 3,
+          "y0": 4
+        },
+        "boite": {
+          "x0": 14,
+          "y0": 4
+        }
+      },
+      "consignes": [
+        {
+          "id": "c1",
+          "texte": "Pose le chat sur le tapis.",
+          "objet": "chat",
+          "spot": "sur-tapis",
+          "aide": "Le tapis est rond, au milieu de la chambre. Le chat doit être posé dessus."
+        },
+        {
+          "id": "c2",
+          "texte": "Mets la boîte sur l’étagère.",
+          "objet": "boite",
+          "spot": "sur-etagere",
+          "aide": "L’étagère est en haut, au milieu. La boîte doit être posée dessus."
+        },
+        {
+          "id": "c3",
+          "texte": "Range le coussin sous la table.",
+          "objet": "coussin",
+          "spot": "sous-table",
+          "aide": "La table est à droite. Sous la table, c’est l’espace en dessous du plateau."
+        },
+        {
+          "id": "c4",
+          "texte": "Place le livre entre le lit et le tapis.",
+          "objet": "livre",
+          "spot": "entre-lit-tapis",
+          "aide": "Entre, c’est au milieu : ni sur le lit, ni sur le tapis, mais dans l’espace qui les sépare."
+        },
+        {
+          "id": "c5",
+          "texte": "Pose le chat à gauche de la lampe.",
+          "objet": "chat",
+          "spot": "gauche-lampe",
+          "aide": "Trouve la lampe, à droite. Le chat va juste à côté, du côté gauche."
+        }
+      ],
+      "scene": "chambre"
+    }
+  ]
+}

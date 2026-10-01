@@ -3,12 +3,13 @@
    hors ligne (voir backend.md, section V1 / Mode offline).
    ============================================================ */
 
-const CACHE_NAME = 'world-nana-shell-v2';
+const CACHE_NAME = 'world-nana-shell-v20';
 const APP_SHELL = [
   './index.html',
   './manifest.webmanifest',
   './icon.svg',
   './assets/portal-full.jpg',
+  './assets/girl-cutout.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -36,17 +37,25 @@ self.addEventListener('fetch', (event) => {
   const isSameOrigin = url.origin === self.location.origin;
   if (!isSameOrigin && !isFont) return;
 
+  const fetchAndCache = () =>
+    fetch(request).then((response) => {
+      if (response.ok) {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+      }
+      return response;
+    });
+
+  // Les jeux (mots/) évoluent souvent : réseau d'abord pour voir les mises à
+  // jour dès la première visite, cache seulement hors ligne.
+  if (isSameOrigin && url.pathname.includes('/mots/')) {
+    event.respondWith(fetchAndCache().catch(() => caches.match(request)));
+    return;
+  }
+
   event.respondWith(
     caches.match(request).then((cached) => {
-      const network = fetch(request)
-        .then((response) => {
-          if (response.ok) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          }
-          return response;
-        })
-        .catch(() => cached);
+      const network = fetchAndCache().catch(() => cached);
       return cached || network;
     })
   );
